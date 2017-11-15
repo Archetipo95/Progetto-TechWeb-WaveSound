@@ -1,6 +1,5 @@
 # TechWeb1718
 
-
 # Sito accessibile
 -menu di navigazione
 -xmn lang
@@ -10,3 +9,5 @@
 # Test da fare per sito accessibile
 -provare molti browser
 -validazione w3c e css
+
+provare
