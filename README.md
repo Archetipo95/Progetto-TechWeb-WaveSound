@@ -10,4 +10,3 @@
 -provare molti browser
 -validazione w3c e css
 
-provare
