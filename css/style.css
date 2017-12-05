@@ -178,7 +178,7 @@ p {
 @media only screen and (min-width: 33.75em) {
 	/* 540px */
 	.container {
-		width: 80%;
+		width: 90%;
 	}
 }
 
@@ -240,13 +240,39 @@ p {
 @media only screen and (min-width: 60em) {
 	/* 960px */
 	.container {
-		width: 75%;
+		width: 90%;
 		max-width: 60rem;
 	}
 }
+
+
 
 /* styling */
 
 body {
 	background-color: #5f92e3;
+}
+
+header img {
+	width: 6em;
+	height: auto;
+}
+
+.mobile-footer {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+.mobile-footer > div > div {
+	background-color: #999;
+}
+
+@media only screen and (max-width: 45em) {
+	/* 720x */
+	.mobile-footer {
+		display: block;
+	}
 }
