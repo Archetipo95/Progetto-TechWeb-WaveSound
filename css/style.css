@@ -240,8 +240,8 @@ p {
 @media only screen and (min-width: 60em) {
 	/* 960px */
 	.container {
-		width: 90%;
-		max-width: 60rem;
+		width: 95%;
+		//max-width: 60rem;
 	}
 }
 
@@ -250,12 +250,25 @@ p {
 /* styling */
 
 body {
+	background-color: #fff;
+}
+
+header {
 	background-color: #5f92e3;
 }
 
 header img {
 	width: 6em;
 	height: auto;
+}	
+
+header > .container {
+	margin: 0;
+	width: 100%;
+}
+
+header > .container > .row [class^="col"] {
+	margin: 0 2%;
 }
 
 .mobile-footer {
