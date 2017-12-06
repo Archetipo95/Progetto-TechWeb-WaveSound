@@ -5,7 +5,7 @@
 - https://www.phpmyadmin.net
 -
 - Host: 127.0.0.1
-- Creato il: Nov 29, 2017 alle 14:50
+- Creato il: Dic 06, 2017 alle 15:29
 - Versione del server: 10.1.21-MariaDB
 - Versione PHP: 5.6.30
 -->
@@ -20,6 +20,7 @@
                 CREATE TABLE `album` (
                   `id_album` int(11) NOT NULL AUTO_INCREMENT,
                   `nome` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+                  `picture` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
                   `id_canzone` int(11) NOT NULL,
                   `composed_by` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
                   PRIMARY KEY (`id_album`),
@@ -94,9 +95,11 @@
                   `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
                   `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
                   `cognome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+                  `data_nascita` date NOT NULL,
                   `email` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
                   `tipo_utente` int(1) NOT NULL DEFAULT '0',
                   `pass` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+                  `picture` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
                   `id_libreria` int(11) NOT NULL,
                   PRIMARY KEY (`username`),
                   KEY `id_libreria` (`id_libreria`),
