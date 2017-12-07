@@ -1,0 +1,40 @@
+/* font */
+
+* {
+	font-family: 'Roboto', Helvetica, sans-serif;
+	color: #41425a;
+}
+
+/* typography */
+
+.font-light {
+	font-weight: 300;
+}
+
+.font-regular {
+	font-weight: 400;
+}
+
+.font-heavy {
+	font-weight: 700;
+}
+
+/* positioning */
+
+.left {
+	text-align: left;
+}
+
+.right {
+	text-align: right;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.justify {
+	text-align: justify;
+}
