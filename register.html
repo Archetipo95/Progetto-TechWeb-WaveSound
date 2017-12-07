@@ -1,35 +1,44 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
+<html lang="en">
+
 <head>
-  <link rel="stylesheet" type="text/css" href="login.css">
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>TechWeb1718 | Home</title>
+
+	<!-- font + fav icon -->
+	<link rel="icon" type="image/png" href="img/logo.png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="css/grid.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
+
 <body>
-  <div id="wrapper">
-    <form action="/action_page.php">
-      <div class="container">
-	<label for="email"><b>Email</b></label>
-	<input type="text" placeholder="Your e-mail adress" name="email" required>
+	<div id="wrapper">
+		<form action="/action_page.php">
+			<div class="container">
+				<label for="email"><b>Email</b></label>
+				<input type="text" placeholder="Your e-mail adress" name="email" required>
 
-	<label for="password"><b>Password</b></label>
-	<input type="password" placeholder="Your password" name="password" required>
+				<label for="password"><b>Password</b></label>
+				<input type="password" placeholder="Your password" name="password" required>
 
-	<label for="confirmpassword"><b>Confirm Password</b></label>
-	<input type="confirm-password" placeholder="Confirm Password" name="psw-repeat" required>
+				<label for="confirmpassword"><b>Confirm Password</b></label>
+				<input type="confirm-password" placeholder="Confirm Password" name="psw-repeat" required>
 
-	
-	
-      
-      
-	
+				<div class="clearfix">
+					<input type="checkbox" checked="checked"> Remember me
+					<p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
+					<button type="submit" class="signupbtn">Sign Up</button>
+					<button type="button" class="cancelbtn">Cancel</button>
 
-	<div class="clearfix">
-	<input type="checkbox" checked="checked"> Remember me
-	<p>By creating an account you agree to our <a href="#">Terms & Privacy</a></p>
-	  <button type="submit" class="signupbtn">Sign Up</button>
-	  <button type="button"  class="cancelbtn">Cancel</button>
-	  
+				</div>
+			</div>
+		</form>
 	</div>
-      </div>
-    </form>
-  </div>
 </body>
