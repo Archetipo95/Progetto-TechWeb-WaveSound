@@ -27,12 +27,13 @@ body {
 
 header {
 	background-color: #5f92e3;
+	height: 6rem;
 }
 
 header img {
 	width: 6em;
 	height: auto;
-}	
+}
 
 header > .container {
 	margin: 0;
