@@ -35,11 +35,52 @@ header {
 	margin: 0 2%;
 }
 
+.login-registration a:focus {
+	background-color: #41425a;
+	color: #fff;
+	font-size: 1.4em;
+	padding: .3em;
+	border-radius: 2px;
+}
+
+.login-registration a:hover {
+	background-color: #41425a;
+	color: #fff;
+	font-size: 1.4em;
+	padding: .3em;
+	border-radius: 2px;
+}
+
+.login-registration a:active {
+	background-color: #5a5b76;
+}
+
+
 main {
 	min-height: 100vh;
 	margin: 6em 1em 1em 1em;
 	padding: 1em;
 	border: solid 1px;
+	/*DA TOGLIERE*/
+}
+
+.card-container {
+	width: 100%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.card {
+	width: 20em;
+	height: 15em;
+	background-color: #999;
+	/*DA CAMBIARE*/
+	display: inline-block;
+	vertical-align: top;
+	margin: 1em;
+	padding: 1em;
 }
 
 footer {
