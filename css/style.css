@@ -4,6 +4,8 @@ body {
 	background-color: #fff;
 }
 
+/* head content */
+
 header {
 	top: 0;
 	left: 0;
@@ -55,13 +57,14 @@ header {
 	background-color: #666;
 }
 
+/* main content */
 
 main {
 	min-height: 100vh;
 	margin: 6em 1em 1em 1em;
 	padding: 1em;
-	border: solid 1px;
 	/*DA TOGLIERE*/
+	border: solid 1px;
 }
 
 .card-container {
@@ -75,13 +78,15 @@ main {
 .card {
 	width: 20em;
 	height: 15em;
-	background-color: #999;
 	/*DA CAMBIARE*/
+	background-color: #999;
 	display: inline-block;
 	vertical-align: top;
 	margin: 1em;
 	padding: 1em;
 }
+
+/* footer content */
 
 footer {
 	background-color: #2e2e80;
