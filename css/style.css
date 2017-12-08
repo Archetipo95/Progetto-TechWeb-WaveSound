@@ -24,38 +24,66 @@ body {
 /* head content */
 
 header {
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: auto;
-	background-color: #5f92e3;
-	position: absolute;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    display: block;
+	background-color: #d3d3d3;
+    height: 5em;
+    vertical-align: middle;
 }
 
-.img-logo {
-	width: 5em;
-	height: 5em;
+#header-left {
+    display: inline-block;
+    width: 55%;
+}
+
+#header-right {
+    display: inline-block;
+    width: 44%;
 }
 
 .logo {
-	float: left;
-	margin-left: 2em;
+    display: inline-block;
+    width: 15%;
+    height: 5em;
+    background-image: url(/img/logo.png);
+    background-repeat:no-repeat;
+    background-size: contain;
+    vertical-align: middle;
 }
 
 .brand {
-	float: left;
-	font-style: italic;
-	margin-left: -.6em;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 2.5em; 
+}
+
+.join-us {
+    display: inline-block;
+    font-size: 1.2em;
 }
 
 .login-registration {
-	float: right;
-	padding-top: 1em;
-	margin: 0 2%;
+    display: inline-block;
+    font-size: 1.2em;
+    margin-left: 3em;
 }
 
-.login-registration a:focus {
+.button {
+    border-style: solid;
+    padding: 0.4em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 1px;
+    cursor: pointer;
+}
+
+a.button:hover {
+    /*background-color: aliceblue;*/
+    border-color: #a9a9a9;
+    color: #a9a9a9;
+}
+
+/*.login-registration a:focus {
 	background-color: #41425a;
 	color: #fff;
 	font-size: 1.4em;
@@ -73,18 +101,16 @@ header {
 
 .login-registration a:active {
 	background-color: #666;
-}
+}*/
 
 /* main content */
 
 main {
 	min-height: 100vh;
-	margin: 6em 1em 1em 1em;
-	padding: 1em;
-}
-
-.welcome {
-	font-size: 3em;
+	/*!-- margin: 6em 1em 1em 1em;*/
+	/*padding: 1em;*/
+	/*DA TOGLIERE*/
+	border: solid 1px;
 }
 
 .card-container {
