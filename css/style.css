@@ -24,63 +24,66 @@ body {
 /* head content */
 
 header {
-    display: block;
+	display: block;
 	background-color: #d3d3d3;
-    height: 5em;
-    vertical-align: middle;
+	height: auto;
+	vertical-align: middle;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	margin-bottom: 2em;
 }
 
 #header-left {
-    display: inline-block;
-    width: 55%;
+	display: inline-block;
+	width: 55%;
 }
 
 #header-right {
-    display: inline-block;
-    width: 44%;
+	display: inline-block;
+	width: 44%;
 }
 
 .logo {
-    display: inline-block;
-    width: 15%;
-    height: 5em;
-    background-image: url(/img/logo.png);
-    background-repeat:no-repeat;
-    background-size: contain;
-    vertical-align: middle;
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	margin-left: 2em;
+	background-image: url(/img/logo.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	vertical-align: middle;
 }
 
 .brand {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 2.5em; 
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 2.5em;
 }
 
 .join-us {
-    display: inline-block;
-    font-size: 1.2em;
+	display: inline-block;
+	font-size: 1.2em;
 }
 
 .login-registration {
-    display: inline-block;
-    font-size: 1.2em;
-    margin-left: 3em;
+	display: inline-block;
+	font-size: 1.2em;
+	margin-left: 3em;
 }
 
 .button {
-    border-style: solid;
-    padding: 0.4em;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 1px;
-    cursor: pointer;
+	border-style: solid;
+	padding: 0.4em;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	margin: 4px 1px;
+	cursor: pointer;
 }
 
 a.button:hover {
-    /*background-color: aliceblue;*/
-    border-color: #a9a9a9;
-    color: #a9a9a9;
+	/*background-color: aliceblue;*/
+	border-color: #a9a9a9;
+	color: #a9a9a9;
 }
 
 /*.login-registration a:focus {
@@ -108,9 +111,7 @@ a.button:hover {
 main {
 	min-height: 100vh;
 	/*!-- margin: 6em 1em 1em 1em;*/
-	/*padding: 1em;*/
-	/*DA TOGLIERE*/
-	border: solid 1px;
+	padding: 1em;
 }
 
 .card-container {
