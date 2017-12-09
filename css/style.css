@@ -5,6 +5,10 @@
 	color: #41425a;
 }
 
+.pacifico {
+	font-family: 'Pacifico';
+}
+
 /* styling */
 
 body {
@@ -25,7 +29,7 @@ body {
 
 header {
 	display: block;
-	background-color: #d3d3d3;
+	background-color: #5ca1e6;
 	height: auto;
 	vertical-align: middle;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -47,6 +51,7 @@ header {
 	width: 5em;
 	height: 5em;
 	margin-left: 2em;
+	margin-right: -1em;
 	background-image: url('../img/logo.png');
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -57,6 +62,7 @@ header {
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 2.5em;
+	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 }
 
 .join-us {
@@ -70,8 +76,9 @@ header {
 	margin-left: 3em;
 }
 
-.button {
+.login-registration a {
 	border-style: solid;
+	border-radius: 2px;
 	padding: 0.4em;
 	text-align: center;
 	text-decoration: none;
@@ -80,38 +87,26 @@ header {
 	cursor: pointer;
 }
 
-a.button:hover {
-	/*background-color: aliceblue;*/
-	border-color: #a9a9a9;
-	color: #a9a9a9;
-}
-
-/*.login-registration a:focus {
+.login-registration a:hover,
+.login-registration a:focus {
+	border-color: #fff;
 	background-color: #41425a;
 	color: #fff;
-	font-size: 1.4em;
-	padding: .3em;
-	border-radius: 2px;
-}
-
-.login-registration a:hover {
-	background-color: #41425a;
-	color: #fff;
-	font-size: 1.4em;
-	padding: .3em;
-	border-radius: 2px;
 }
 
 .login-registration a:active {
-	background-color: #666;
-}*/
+	background-color: #2e2e80;
+}
 
 /* main content */
 
 main {
 	min-height: 100vh;
-	/*!-- margin: 6em 1em 1em 1em;*/
 	padding: 1em;
+}
+
+.welcome {
+	font-size: 3em;
 }
 
 .card-container {
