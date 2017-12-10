@@ -110,15 +110,15 @@ main {
 }
 
 .card-container {
-	width: 100%;
-	height: auto;
+	width: 85%;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
 }
 
 .card {
-	width: 20em;
+	background-color: #5ca1e6;
+	width: 15em;
 	height: 15em;
 	display: inline-block;
 	vertical-align: top;
@@ -140,11 +140,24 @@ footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: 10em;
+	min-height: 3em;
 	padding: 1em;
+}
+
+footer * {
 	color: #fff;
 }
 
+.footer-left {
+	float: left;
+	width: 50%;
+}
+
+.footer-right {
+	float: right;
+	width: 50%;
+	text-align: right;
+}
 
 /*
 .mobile-footer {
