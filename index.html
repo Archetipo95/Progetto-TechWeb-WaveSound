@@ -21,17 +21,18 @@
 <body>
 
 	<header>
-		<span id="header-left">
-            <span class="logo"></span><span class="brand pacifico italic">WaveSound</span>
-		</span>
-		<span id="header-right">
-            <span class="join-us">
-                Join our community, it's 100% free
-            </span>
-		<span class="login-registration">
-                <a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
-            </span>
-		</span>
+		<div class="header-left">
+			<div id="logo"></div>
+			<div id="brand" class="pacifico italic">WaveSound</div>
+		</div>
+		<div class="header-right center">
+			<div id="join-us">
+				Join our community, it's 100% free
+			</div>
+			<div class="login-registration">
+				<a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
+			</div>
+		</div>
 	</header>
 
 	<main>
@@ -39,13 +40,26 @@
 		<h1 class="welcome center">Welcome to <span class="pacifico italic">WaveSound</span></h1>
 		<h2 class="center">The home of copyright free soundracks</h2>
 
-		<div class="card-container">
+		<div class="card-container center">
 			<div class="card">1</div>
 			<div class="card">2</div>
 			<div class="card">3</div>
 		</div>
-
 	</main>
+
+	<div id="sidelong">
+		<svg id="svg-top" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+			    <polygon fill="white" points="0 0, 100 0, 0 100"/>
+		</svg>
+
+		<main class="sidelong-padding">
+			<h1>PROVA</h1>
+		</main>
+
+		<svg id="svg-bot" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+			    <polygon fill="white" points="0 100,100 0,100 100"/>
+		</svg>
+	</div>
 
 	<footer>
 		<div class="footer-links">
@@ -54,7 +68,7 @@
 		<div class="footer-left">
 			<a href="#">Terms &amp; Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">AccessibilitPolicy</a>
 		</div>
-		<div class="footer-right">&copy; Copyright 2017<span class="pacifico italic">Wavesound</span>. All rights reserved.</div>
+		<div class="footer-right"><span class="pacifico italic">Wavesound</span>&nbsp; Copyright &copy; 2017. All rights reserved.</div>
 	</footer>
 
 </body>
