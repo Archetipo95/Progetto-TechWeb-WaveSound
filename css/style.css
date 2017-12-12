@@ -272,7 +272,53 @@ footer-links {
 }
 
 
+/*-------------------------------------------------------- main.html ---------------------------------------------*/
 
+
+#navigation {
+    width: 20%;
+    display: inline-block;
+}
+
+#nav-bar {
+    border: 1px solid;
+    display: block;
+    padding-left: 1.2em;
+}
+
+#nav-menu {
+    border: 1px solid;
+    display: block;
+}
+
+#content {
+    width: 79%;
+    display: inline-block;
+}
+
+#settings {
+    background-image: url('../img/settings.png');
+    display: inline-block;
+    border: 0;
+	width: 2em;
+	height: 2em;
+    background-repeat: no-repeat;
+	background-size: contain;
+    cursor: pointer;
+}
+
+#logout {
+    background-image: url('../img/logout.png');
+    display: inline-block;
+    border: 0;
+	width: 2em;
+	height: 2em;
+    background-repeat: no-repeat;
+	background-size: contain;
+    cursor: pointer;
+}
+
+/*------------------------------------------------------------------------------------------------------------------*/
 
 /*
 .mobile-footer {
