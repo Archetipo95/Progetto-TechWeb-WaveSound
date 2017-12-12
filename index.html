@@ -13,7 +13,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
 	<!-- style -->
-<!--
+	<!--
 	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
 -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -43,12 +43,30 @@
 			<h1 id="title1">Welcome to <span class="pacifico italic">WaveSound</span></h1>
 			<h2 id="title2">The home of copyright free soundracks</h2>
 		</div>
-		
+
 		<div class="card-container center">
-			<h1>Check out our Top 3 of the month!</h1>
-			<div class="card">BEST</div>
-			<div class="card">SONG</div>
-			<div class="card">EVER</div>
+			<h1>Check out our Top 3 of the...</h1>
+			<div class="button-top3">
+				<button class="selected" id="button-week" type="button">week</button>
+				<button id="button-month" type="button">month</button>
+				<button id="button-year" type="button">year</button>
+			</div>
+
+			<div id="week-cards">
+				<div class="card" id="week1">week1</div>
+				<div class="card" id="week2">week2</div>
+				<div class="card" id="week3">week3</div>
+			</div>
+			<div id="month-cards" class="hidden">
+				<div class="card" id="month1">month1</div>
+				<div class="card" id="month2">month2</div>
+				<div class="card" id="month3">month3</div>
+			</div>
+			<div id="year-cards" class="hidden">
+				<div class="card" id="year1">year1</div>
+				<div class="card" id="year2">year2</div>
+				<div class="card" id="year3">year3</div>
+			</div>
 		</div>
 	</main>
 
@@ -87,5 +105,7 @@
 	</footer>
 
 </body>
+
+<script src="js/card.js" type="text/javascript"></script>
 
 </html>
