@@ -1,4 +1,6 @@
-/* font */
+
+/*---------------------------------------------- font ---------------------------------------------------*/
+
 
 html, body {
 	padding: 0;
@@ -14,7 +16,9 @@ html, body {
 	font-family: 'Pacifico';
 }
 
-/* styling */
+
+/*--------------------------------------------- styling -------------------------------------------------*/
+
 
 body {
 	background-color: #fff;
@@ -34,7 +38,9 @@ body {
 	margin-right: auto;
 }
 
-/* head content */
+
+/*--------------------------------------------- head content --------------------------------------------*/
+
 
 header {
 	position: fixed;
@@ -48,12 +54,12 @@ header {
 	overflow: hidden;
 }
 
-.header-left {
+#header-left {
 	float: left;
 	width: 50%;
 }
 
-.header-right {
+#header-right {
 	float: right;
 	width: 50%;
 	padding-top: 1em;
@@ -84,13 +90,13 @@ header {
 	font-size: 1.2em;
 }
 
-.login-registration {
+#login-registration {
 	display: inline-block;
 	font-size: 1.2em;
 	margin-left: 3em;
 }
 
-.login-registration a {
+#login-registration a {
 	border-style: solid;
 	border-radius: 2px;
 	padding: .4em;
@@ -101,20 +107,22 @@ header {
 	cursor: pointer;
 }
 
-.login-registration a:hover,
-.login-registration a:focus {
+#login-registration a:hover,
+#login-registration a:focus {
 	border-color: #fff;
 	background-color: #41425a;
 	color: #fff;
 }
 
-.login-registration a:active {
+#login-registration a:active {
 	background-color: #2e2e80;
 }
 
-/* main content */
 
-.sezione {
+/*--------------------------------------------- main content ---------------------------------------*/
+
+
+#sezione {
 	padding: 1em;
 	min-height: 500px;
 }
@@ -223,7 +231,9 @@ header {
 	padding-bottom: 4em;
 }
 
-/* footer content */
+
+/*---------------------------------------------------- footer content -------------------------------------------*/
+
 
 footer {
 	position: relative;
@@ -260,6 +270,9 @@ footer-links {
 	width: 50%;
 	text-align: right;
 }
+
+
+
 
 /*
 .mobile-footer {
