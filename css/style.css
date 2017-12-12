@@ -114,7 +114,7 @@ header {
 
 /* main content */
 
-main {
+.sezione {
 	padding: 1em;
 	min-height: 500px;
 }
