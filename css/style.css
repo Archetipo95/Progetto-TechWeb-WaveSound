@@ -174,8 +174,8 @@ header {
 	border-radius: 2px;
 	border-style: solid;
 	border-color: #41425a;
-	padding: .5em;
-	margin: .5em 0;
+	padding: .5em 1em;
+	margin: .5em;
 }
 
 .button-top3 button:hover,
@@ -359,7 +359,7 @@ input[type=confirm-password] {
 	box-sizing: border-box;
 }
 
-button {
+#wrapper > button {
 	background-color: #4CAF50;
 	color: white;
 	padding: 1.041666667% 1.875%;
@@ -369,7 +369,7 @@ button {
 	width: 10%;
 }
 
-button:hover {
+#wrapper > button:hover {
 	opacity: 0.8;
 }
 
@@ -380,7 +380,7 @@ button:hover {
 }
 
 .container {
-	padding: 1.6666666667%;
+	padding: 1em;
 }
 
 /* Change styles for span and cancel button on extra small screens */
