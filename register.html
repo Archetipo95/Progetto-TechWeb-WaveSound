@@ -31,34 +31,35 @@
 				<div id="join-us">
 					Join our community, it's 100% free
 				</div>
-				<div id="login-registration">
-					<a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
-				</div>
 			</div>
 		</div>
 	</header>
 
+    <main>
+        <div id="wrapper">
+        <div class="reglog-title center">
+            <h1>Create your<span class="pacifico italic">WaveSound </span> account</h1>
+        </div>
+            <form action="/action_page.php">
+                <div class="container">
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Your e-mail address" name="email" required>
 
-	<div id="wrapper">
-		<form action="/action_page.php">
-			<div class="container">
-				<label for="email"><b>Email</b></label>
-				<input type="text" placeholder="Your e-mail address" name="email" required>
+                    <label for="password"><b>Password</b></label>
+                    <input type="password" placeholder="Your password" name="password" required>
 
-				<label for="password"><b>Password</b></label>
-				<input type="password" placeholder="Your password" name="password" required>
+                    <label for="confirmpassword"><b>Confirm Password</b></label>
+                    <input type="confirm-password" placeholder="Confirm Password" name="psw-repeat" required>
 
-				<label for="confirmpassword"><b>Confirm Password</b></label>
-				<input type="confirm-password" placeholder="Confirm Password" name="psw-repeat" required>
-
-				<div class="clearfix">
-					<p>By clicking "Sign Up" and creating a WaveSound account, I acknowledge that I understand and agree to this website's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
-					<button type="submit" class="signupbtn">Sign Up</button>
-					<button type="button" class="cancelbtn">Cancel</button>
-				</div>
-			</div>
-		</form>
-	</div>
+                    <div class="clearfix">
+                        <p>By clicking "Sign Up" and creating a WaveSound account, I acknowledge that I understand and agree to this website's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                        <button type="button" class="cancelbtn">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
 
 	<footer>
 		<div class="footer-links">
