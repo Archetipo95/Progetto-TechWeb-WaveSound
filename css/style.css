@@ -38,6 +38,10 @@ body {
 	margin-right: auto;
 }
 
+.right {
+	text-align: right;
+}
+
 
 /*--------------------------------------------- head content --------------------------------------------*/
 
@@ -93,7 +97,8 @@ header {
 #login-registration {
 	display: inline-block;
 	font-size: 1.2em;
-	margin-left: 3em;
+	margin-left: 2em;
+	margin-right: 1em;
 }
 
 #login-registration a {
@@ -280,6 +285,7 @@ footer-links {
 
 
 #navigation {
+	margin-top: 10em;
     width: 20%;
     display: inline-block;
 }
@@ -296,8 +302,10 @@ footer-links {
 }
 
 #content {
+	margin-top: 10em;
     width: 79%;
     display: inline-block;
+	min-height: 100vh;
 }
 
 #settings {
@@ -320,6 +328,7 @@ footer-links {
     background-repeat: no-repeat;
 	background-size: contain;
     cursor: pointer;
+	margin-right: 1em;
 }
 
 /*------------------------------------------------------------------------------------------------------------------*/
