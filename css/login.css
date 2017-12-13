@@ -1,23 +1,10 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    max-width: 1024px;
-    margin: auto;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 100%;
-}
-
-body {
-    border: qpx solid #DDD;
-}
 
 #wrapper {
+	padding-top: 10em;
     margin-right: auto;
     margin-left: auto;
     width: 80%;
+	min-height: 100vh;
 }
 
 /*Bordered form*/

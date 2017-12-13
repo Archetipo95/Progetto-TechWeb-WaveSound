@@ -240,7 +240,7 @@ header {
 
 
 footer {
-	position: relative;
+	position: static;
 	background-color: #2e2e80;
 	bottom: 0;
 	left: 0;
