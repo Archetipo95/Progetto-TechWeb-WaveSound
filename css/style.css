@@ -60,7 +60,7 @@ header {
 
 #header-left {
 	display: inline-block;
-	width: 50%;
+	width: 49%; /* ci va 49 perchè CSS fa schifo vedi https://goo.gl/EVrpfx*/
 	vertical-align: middle;
 }
 
@@ -324,7 +324,6 @@ footer-links {}
 	background-repeat: no-repeat;
 	background-size: contain;
 	cursor: pointer;
-	margin-right: 1em;
 }
 
 /*------------------------------------------------------------------------------------------------------------------*/
