@@ -209,7 +209,7 @@ header {
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-#sidelong {
+.sidelong {
 	position: relative;
 	margin-bottom: 2em;
 	background-image: linear-gradient(#5ca1e6, #2e2e80);
