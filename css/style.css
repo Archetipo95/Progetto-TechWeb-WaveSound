@@ -115,7 +115,9 @@ header {
 }
 
 #login-registration a:active {
-	background-color: #2e2e80;
+	background-color: #fff;
+	color: #41425a;
+	border-color: #41425a;
 }
 
 
@@ -160,21 +162,23 @@ header {
 	font-size: 1.3em;
 	background-color: #5ca1e6;
 	border-radius: 2px;
-	border: 0;
+	border-style: solid;
+	border-color: #41425a;
 	padding: .5em;
-	margin: .5em;
+	margin: .5em 0;
 }
 
 .button-top3 button:hover, .button-top3 button:focus {
-	background-color: yellow;
+	background-color: #7bb9f7;
 }
 
 .button-top3 button:active {
-	background-color: red;
+	background-color: #fff;
 }
 
 .selected {
-	background-color: green !important;
+	background-color: #555580 !important;
+	color: #fff;
 	/*DA SETTARE CON JS*/
 }
 
