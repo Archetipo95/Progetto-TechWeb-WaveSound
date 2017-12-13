@@ -250,7 +250,7 @@ footer {
 	left: 0;
 	right: 0;
 	min-height: 5em;
-	padding: 1em 1em 2em 1em;
+	padding: 1em;
 }
 
 footer * {
@@ -267,12 +267,12 @@ footer-links {}
 }
 
 .footer-left {
-	float: left;
-	width: 50%;
+	display: inline-block;
+	width: 49%;
 }
 
 .footer-right {
-	float: right;
+	display: inline-block;
 	width: 50%;
 	text-align: right;
 }
