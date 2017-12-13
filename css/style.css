@@ -175,7 +175,7 @@ header {
 	border-style: solid;
 	border-color: #41425a;
 	padding: .5em 1em;
-	margin: .5em;
+	margin: .5em 0;
 }
 
 .button-top3 button:hover,
@@ -239,6 +239,26 @@ header {
 .sidelong-padding {
 	padding-top: 4em;
 	padding-bottom: 4em;
+}
+
+
+#button-top {
+	display: none;
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: #41425a;
+	color: white;
+	cursor: pointer;
+	padding: 1.5em;
+	border-radius: 50%;
+}
+
+#button-top:hover {
+	background-color: #5ca1e6;
 }
 
 
