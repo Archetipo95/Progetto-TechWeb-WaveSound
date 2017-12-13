@@ -1,8 +1,7 @@
-
 /*---------------------------------------------- font ---------------------------------------------------*/
 
-
-html, body {
+html,
+body {
 	padding: 0;
 	margin: 0;
 }
@@ -18,7 +17,6 @@ html, body {
 
 
 /*--------------------------------------------- styling -------------------------------------------------*/
-
 
 body {
 	background-color: #fff;
@@ -45,35 +43,37 @@ body {
 
 /*--------------------------------------------- head content --------------------------------------------*/
 
-
 header {
 	position: fixed;
-	display: block;
 	background-color: #5ca1e6;
 	height: auto;
 	width: 100%;
-	vertical-align: middle;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	margin-bottom: 2em;
-	overflow: hidden;
+}
+
+.header-container {
+	width: 90%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #header-left {
-	float: left;
+	display: inline-block;
 	width: 50%;
+	vertical-align: middle;
 }
 
 #header-right {
-	float: right;
+	display: inline-block;
 	width: 50%;
-	padding-top: 1em;
+	vertical-align: middle;
 }
 
 #logo {
 	display: inline-block;
 	width: 5em;
 	height: 5em;
-	margin-left: 2em;
 	margin-right: -1em;
 	background-image: url('../img/logo.png');
 	background-repeat: no-repeat;
@@ -96,19 +96,20 @@ header {
 
 #login-registration {
 	display: inline-block;
+	vertical-align: middle;
 	font-size: 1.2em;
-	margin-left: 2em;
-	margin-right: 1em;
+	margin-left: 1em;
 }
 
 #login-registration a {
+	display: inline-block;
+	vertical-align: middle;
 	border-style: solid;
 	border-radius: 2px;
-	padding: .4em;
+	padding: .5em;
 	text-align: center;
 	text-decoration: none;
-	display: inline-block;
-	margin: 4px 1px;
+	margin: .3em;
 	cursor: pointer;
 }
 
@@ -127,7 +128,6 @@ header {
 
 
 /*--------------------------------------------- main content ---------------------------------------*/
-
 
 #sezione {
 	padding: 1em;
@@ -160,8 +160,7 @@ header {
 	margin-bottom: 0;
 }
 
-.button-top3 {
-}
+.button-top3 {}
 
 .button-top3 button {
 	font-size: 1.3em;
@@ -173,7 +172,8 @@ header {
 	margin: .5em 0;
 }
 
-.button-top3 button:hover, .button-top3 button:focus {
+.button-top3 button:hover,
+.button-top3 button:focus {
 	background-color: #7bb9f7;
 }
 
@@ -243,7 +243,6 @@ header {
 
 /*---------------------------------------------------- footer content -------------------------------------------*/
 
-
 footer {
 	position: static;
 	background-color: #2e2e80;
@@ -258,9 +257,7 @@ footer * {
 	color: #fff;
 }
 
-footer-links {
-	
-}
+footer-links {}
 
 .footer-bot {
 	position: relative;
@@ -283,51 +280,50 @@ footer-links {
 
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
-
 #navigation {
 	margin-top: 10em;
-    width: 20%;
-    display: inline-block;
+	width: 20%;
+	display: inline-block;
 }
 
 #nav-bar {
-    border: 1px solid;
-    display: block;
-    padding-left: 1.2em;
+	border: 1px solid;
+	display: block;
+	padding-left: 1.2em;
 }
 
 #nav-menu {
-    border: 1px solid;
-    display: block;
+	border: 1px solid;
+	display: block;
 }
 
 #content {
 	margin-top: 10em;
-    width: 79%;
-    display: inline-block;
+	width: 79%;
+	display: inline-block;
 	min-height: 100vh;
 }
 
 #settings {
-    background-image: url('../img/settings.png');
-    display: inline-block;
-    border: 0;
+	background-image: url('../img/settings.png');
+	display: inline-block;
+	border: 0;
 	width: 2em;
 	height: 2em;
-    background-repeat: no-repeat;
+	background-repeat: no-repeat;
 	background-size: contain;
-    cursor: pointer;
+	cursor: pointer;
 }
 
 #logout {
-    background-image: url('../img/logout.png');
-    display: inline-block;
-    border: 0;
+	background-image: url('../img/logout.png');
+	display: inline-block;
+	border: 0;
 	width: 2em;
 	height: 2em;
-    background-repeat: no-repeat;
+	background-repeat: no-repeat;
 	background-size: contain;
-    cursor: pointer;
+	cursor: pointer;
 	margin-right: 1em;
 }
 
