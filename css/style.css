@@ -40,6 +40,9 @@ body {
 	text-align: right;
 }
 
+.hidden {
+	display: none;
+}
 
 /*--------------------------------------------- head content --------------------------------------------*/
 
@@ -134,9 +137,9 @@ header {
 
 /*--------------------------------------------- main content ---------------------------------------*/
 
-#sezione {
+.sezione {
 	padding: 1em;
-	min-height: 500px;
+	min-height: 50vh;
 }
 
 .welcome {
@@ -165,8 +168,6 @@ header {
 	margin-bottom: 0;
 }
 
-.button-top3 {}
-
 .button-top3 button {
 	font-size: 1.3em;
 	background-color: #5ca1e6;
@@ -189,11 +190,6 @@ header {
 .selected {
 	background-color: #555580 !important;
 	color: #fff;
-	/*DA SETTARE CON JS*/
-}
-
-.hidden {
-	display: none;
 }
 
 .card {
@@ -222,7 +218,7 @@ header {
 	z-index: -1;
 }
 
-#sidelong * {
+.sidelong * {
 	color: #fff;
 }
 
@@ -262,7 +258,9 @@ footer * {
 	color: #fff;
 }
 
-footer-links {}
+.footer-links {
+	/*To Do*/
+}
 
 .footer-bot {
 	position: relative;
@@ -332,7 +330,6 @@ footer-links {}
 }
 
 /*--------------------------------------login registration---------------------------------------------------------------------*/
-
 
 #wrapper {
 	padding-top: 10em;
