@@ -58,13 +58,13 @@ header {
 	margin-right: auto;
 }
 
-#header-left {
+.header-left {
 	display: inline-block;
 	width: 49%; /* ci va 49 perchè CSS fa schifo vedi https://goo.gl/EVrpfx*/
 	vertical-align: middle;
 }
 
-#header-right {
+.header-right {
 	display: inline-block;
 	width: 50%;
 	vertical-align: middle;
