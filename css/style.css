@@ -60,7 +60,8 @@ header {
 
 .header-left {
 	display: inline-block;
-	width: 49%; /* ci va 49 perchè CSS fa schifo vedi https://goo.gl/EVrpfx*/
+	width: 49%;
+	/* ci va 49 perchè CSS fa schifo vedi https://goo.gl/EVrpfx*/
 	vertical-align: middle;
 }
 
@@ -68,6 +69,10 @@ header {
 	display: inline-block;
 	width: 50%;
 	vertical-align: middle;
+}
+
+#link-home {
+	text-decoration: none;
 }
 
 #logo {
