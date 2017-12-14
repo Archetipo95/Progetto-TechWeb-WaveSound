@@ -303,28 +303,31 @@ footer * {
 
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
-#navigation {
-	margin-top: 10em;
-	width: 20%;
-	display: inline-block;
+nav {
+	margin-top: 5em;
+	width: 15em;
+	height: 100%;
+	position: fixed;
+	background-color: #999;
 }
 
 #nav-bar {
-	border: 1px solid;
-	display: block;
-	padding-left: 1.2em;
+	//display: block;
+	padding: .5em 1em;
 }
 
 #nav-menu {
-	border: 1px solid;
-	display: block;
+	border-top: 1px solid;
+	//display: block;
 }
 
 #content {
-	margin-top: 10em;
-	width: 79%;
+	margin-top: 5em;
+	margin-left: 15em;
+	//width: ;
 	display: inline-block;
 	min-height: 100vh;
+	padding 2em 1em;
 }
 
 #settings {
@@ -349,11 +352,15 @@ footer * {
 	cursor: pointer;
 }
 
+.footer-main {
+	margin-left: 15em;
+}
+
 /*-------------------------------------------------- login registration --------------------------------------------------*/
 
 .reglog-title {
-    margin-top: -4em;
-    margin-bottom: 3em;
+	margin-top: -4em;
+	margin-bottom: 3em;
 }
 
 #wrapper {
