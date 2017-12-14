@@ -314,7 +314,7 @@ footer * {
 	min-height: 100vh;
 }
 
-.content{
+.content {
 	padding: 2em;
 }
 
@@ -447,27 +447,23 @@ nav {
 
 /*profilo*/
 
-#impostazioni-profilo {
-	margin-left: 2.5em;
+.container-settings {
+	display: inline-block;
+	width: 50%;
 }
 
-.profile-picture {
+.container-picture {
 	display: inline-block;
-	width: 15em;
-	height: 15em;
-	vertical-align: top;
-}
-
-.option-container {
-	display: inline-block;
-	width: 25em;
 }
 
 #pass {
 	display: none;
 }
 
-
+.profile-picture {
+	width: 15em;
+	height: 15em;
+}
 
 /*
 .mobile-footer {

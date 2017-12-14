@@ -1,15 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | UserProfile</title>
+	<title>WaveSound | Settings</title>
 
+	<!-- font + fav icon -->
 	<link rel="icon" type="image/png" href="img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-	<!-- style -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 </head>
@@ -41,7 +43,7 @@
 
 	<nav>
 		<div id="nav-bar">
-			<p>You are in >> Home</p>
+			<p>You are in >> Settings</p>
 		</div>
 		<div id="nav-menu">
 			<ul>
@@ -57,36 +59,46 @@
 	<main class="main-right">
 		<div class="content-body">
 			<div class="content">
-				<h1 id="impostazioni-profilo">Impostazioni Profilo</h1>
-				<div id="container">
-					<div class="option-container">
-						<form>
-							<h3>Username</h3>
-							<input type="text" name="username">
-							<h3>Nome</h3>
-							<input type="text" name="nome">
-							<h3>Cognome</h3>
-							<input type="text" name="cognome">
-							<h3>Data Di Nascita</h3>
-							<input type="date" name="data">
-							<h3>Email</h3>
-							<input type="email" name="email">
-							<p>-------------------------------------------</p>
-							<h3>Password</h3>
-							<input type="button" onclick="show()" value="Cambia">
-							<br>
-							<div id="pass">
-								<input type="password" name="pass"><br>
-								<input type="password" name="re-pass"><br>
-								<input type="submit" onclick="hide()" value="Salva">
-							</div>
-							<p>-------------------------------------------</p>
-							<h3>Personalizza Link Libreria</h3>
-							<input type="text" value="Link" name="link-libreria">
-							<p>Salva le tue modifiche</p>
-							<input type="submit" value="Salva">
-						</form>
-					</div>
+				<h1>Profile Settings</h1>
+				<div class="container-settings">
+					<form>
+						<label>Username</label>
+						<br/>
+						<input type="text" name="username">
+						<br/>
+						<label for="email">First Name</label>
+						<br/>
+						<input type="text" name="nome">
+						<br/>
+						<label>Last name</label>
+						<br/>
+						<input type="text" name="cognome">
+						<br/>
+						<label>Birthday</label>
+						<br/>
+						<input type="date" name="data">
+						<br/>
+						<label>Email</label>
+						<br/>
+						<input type="email" name="email">
+						<br/>
+						<br/>
+						<input type="button" onclick="show()" value="Change">
+						<label>Password</label>
+						<br/>
+						<div id="pass">
+							<input type="password" name="pass"><br>
+							<input type="password" name="re-pass"><br>
+							<input type="submit" onclick="hide()" value="Salva">
+						</div>
+						<label>Custom album link</label>
+						<br/>
+						<input type="text" value="Link" name="album-link">
+						<br/>
+						<input type="submit" value="Save">
+					</form>
+				</div>
+				<div class="container-picture">
 					<div class="profile-picture">
 						<img src="./img/default-profile.png">
 						<form action="uploader.php" method="post" enctype="multipart/form-data">
