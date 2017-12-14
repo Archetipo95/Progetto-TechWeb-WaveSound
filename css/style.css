@@ -298,26 +298,31 @@ footer * {
 	text-align: right;
 }
 
-
-/*-------------------------------------------------------- main.html ---------------------------------------------*/
-.main-right {
-	padding-left: 15em;
-	margin: 0;
+.footer-main {
+	margin-left: 15em;
 }
 
-.content {
-	margin-top: 5em;
+/*-------------------------------------------------------- main.html ---------------------------------------------*/
+
+.main-right {
+	padding-left: 15em;
+	padding-top: 5em;
+}
+
+.content-body {
 	width: 100%;
-	display: inline-block;
 	min-height: 100vh;
+}
+
+.content{
+	padding: 2em;
 }
 
 .content-card {
 	background-color: #5ca1e6;
-	width: 8em;
-	height: 5em;
+	width: 10em;
+	height: 8em;
 	display: inline-block;
-	vertical-align: top;
 	margin: 1em;
 	padding: 1em;
 	border-radius: 2px;
@@ -325,25 +330,16 @@ footer * {
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.content-card-container {
-    margin-left: 1.5em;
-}
-
 .content-title {
-    font-size: 1.2em;
-    margin-left: 2em;
-    margin-top: 1.5em;
-}
-
-.footer-main {
-	margin-left: 15em;
+	font-size: 1.2em;
+	margin: 0 1em;
 }
 
 #logout {
 	background-image: url('../img/logout.png');
 	display: inline-block;
-    margin-left: 0.8em;
-    margin-right: -3em;
+	margin-left: 0.8em;
+	margin-right: -3em;
 	border: 0;
 	width: 2em;
 	height: 2em;
@@ -369,11 +365,11 @@ nav {
 }
 
 #profile-pic {
-    background-image: url('../img/default-profile.png');
-    display: inline-block;
-    margin-right: 0.5em;
-    border 0;
-    width: 2em;
+	background-image: url('../img/default-profile.png');
+	display: inline-block;
+	margin-right: 0.5em;
+	border 0;
+	width: 2em;
 	height: 2em;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -383,7 +379,7 @@ nav {
 #settings {
 	background-image: url('../img/settings.png');
 	display: inline-block;
-    margin-left: 3em;
+	margin-left: 3em;
 	border: 0;
 	width: 2em;
 	height: 2em;
@@ -393,12 +389,12 @@ nav {
 }
 
 #username {
-    display: inline-block;
-    vertical-align: 0.5em;
+	display: inline-block;
+	vertical-align: 0.5em;
 }
 
 #username-picture {
-    display: inline-block;
+	display: inline-block;
 }
 
 /*-------------------------------------------------- login registration --------------------------------------------------*/
@@ -435,7 +431,7 @@ nav {
 	width: 10em;
 }
 
- #button-submit {
+#button-submit {
 	background-color: #4CAF50;
 }
 
