@@ -300,14 +300,16 @@ footer * {
 
 
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
+.main-right {
+	padding-left: 15em;
+	margin: 0;
+}
 
 .content {
 	margin-top: 5em;
-	margin-left: 15em;
-	//width: ;
+	width: 100%;
 	display: inline-block;
 	min-height: 100vh;
-	padding: 2em 1em;
 }
 
 .content-card {
@@ -446,6 +448,30 @@ nav {
 }
 
 /*------------------------------------------------------------------------------------------------------------------*/
+
+/*profilo*/
+
+#impostazioni-profilo {
+	margin-left: 2.5em;
+}
+
+.profile-picture {
+	display: inline-block;
+	width: 15em;
+	height: 15em;
+	vertical-align: top;
+}
+
+.option-container {
+	display: inline-block;
+	width: 25em;
+}
+
+#pass {
+	display: none;
+}
+
+
 
 /*
 .mobile-footer {
