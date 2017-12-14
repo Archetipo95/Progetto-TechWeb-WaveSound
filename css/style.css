@@ -356,75 +356,49 @@ nav {
 
 /*-------------------------------------------------- login registration --------------------------------------------------*/
 
-.reglog-title {
-	margin-top: -4em;
-	margin-bottom: 3em;
-}
-
-#wrapper {
-	padding-top: 10em;
-	margin-right: auto;
-	margin-left: auto;
-	width: 80%;
+.reglog {
+	padding-top: 5em;
+	width: 95%;
 	min-height: 100vh;
 }
 
-/*Bordered form*/
+.reglog-title {
+	margin-bottom: 2em;
+}
 
-form {
-	text-align: center;
+.reglog form {
 	border: 1px solid #f1f1f1;
+	padding: 1em;
+	font-size: 1.5em;
 }
 
-/* Full-width inputs */
-
-input[type=text],
-input[type=password],
-input[type=confirm-password] {
-	width: 96%;
-	padding: 1.25% 2.08333333%;
-	margin: 0.8333333% 0;
-	display: inline-block;
+.input-text input {
+	width: 30em;
+	padding: 1em .5em;
+	margin: 1em 0;
 	border: 1px solid #ccc;
-	box-sizing: border-box;
 }
 
-#wrapper > button {
-	background-color: #4CAF50;
+.form-buttons {
 	color: white;
-	padding: 1.041666667% 1.875%;
-	margin: 0.8333333% 0;
+	padding: 1em;
+	margin: 1em;
 	border: none;
 	cursor: pointer;
-	width: 10%;
+	width: 10em;
 }
 
-#wrapper > button:hover {
-	opacity: 0.8;
+ #button-submit {
+	background-color: #4CAF50;
 }
 
-.cancelbtn {
-	width: auto;
-	padding: 1.041666667% 1.875%;
+#button-cancel {
 	background-color: #f44336;
 }
 
-.container {
-	padding: 1em;
+#legal {
+	font-size: .5em;
 }
-
-/* Change styles for span and cancel button on extra small screens */
-
-@media screen and (max-width: 300px) {
-	span.psw {
-		display: block;
-		float: none;
-	}
-	.cancelbtn {
-		width: 100%;
-	}
-}
-
 
 /*------------------------------------------------------------------------------------------------------------------*/
 

@@ -35,33 +35,30 @@
 		</div>
 	</header>
 
-    <main>
-        <div id="wrapper">
-            <div class="reglog-title center">
-                <h1>Log in your<span class="pacifico italic">WaveSound </span> account</h1>
-            </div>
-            <form action="/action_page.php">
-                <div class="container">
-                    <label for="email"><b>Email</b></label>
-                    <input type="text" placeholder="Your e-mail address" name="email" required>
+	<main class="reglog center">
+		<div class="reglog-title">
+			<h1>Log in your <span class="pacifico italic"> WaveSound </span> account</h1>
+		</div>
+		<form action="/action_page.php">
+			<div class="input-text">
+				<label for="email">Email</label>
+				<br/>
+				<input type="text" placeholder="Your e-mail address" name="email" required>
+				<br/>
+				<label for="password">Password</label>
+				<br/>
+				<input type="password" placeholder="Your password" name="password" required>
+			</div>
 
-                    <label for="password"><b>Password</b></label>
-                    <input type="password" placeholder="Your password" name="password" required>
-
-                    <div class="clearfix">
-
-                        <input type="checkbox" checked="checked"> Remember me
-                        <p></p>
-                        <button type="submit" class="signupbtn">Sign Up</button>
-                        <button type="button" class="cancelbtn">Cancel</button>
-
-                    </div>
-                </div>
-                <p><a href="#">Forgot your password?</a></p>
-                <p><a href="register.html">Need to create an account?</a></p>
-            </form>
-        </div>
-    </main>
+			<button class="form-buttons" id="button-submit" type="submit" class="signupbtn">Sign Up</button>
+			<button class="form-buttons" id="button-cancel" type="button" class="cancelbtn">Cancel</button>
+			<br/>
+			<input type="checkbox" checked="checked"> Remember me
+			<br/>
+			<br/>
+			<a href="#">Forgot password</a> or <a href="register.html">Need new account</a>
+		</form>
+	</main>
 
 	<footer>
 		<div class="footer-links">
@@ -83,4 +80,5 @@
 	</footer>
 
 </body>
+
 </html>
