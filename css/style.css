@@ -74,7 +74,7 @@ header {
 	vertical-align: middle;
 }
 
-#link-home {
+.img-link {
 	text-decoration: none;
 }
 
@@ -303,6 +303,37 @@ footer * {
 
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
+.content {
+	margin-top: 5em;
+	margin-left: 15em;
+	//width: ;
+	display: inline-block;
+	min-height: 100vh;
+	padding: 2em 1em;
+}
+
+.content-title {
+    font-size: 1.2em;
+    margin-left: 2em;
+}
+
+.footer-main {
+	margin-left: 15em;
+}
+
+#logout {
+	background-image: url('../img/logout.png');
+	display: inline-block;
+    margin-left: 0.8em;
+    margin-right: -3em;
+	border: 0;
+	width: 2em;
+	height: 2em;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+
 nav {
 	margin-top: 5em;
 	width: 15em;
@@ -319,18 +350,22 @@ nav {
 	border-top: 1px solid;
 }
 
-.content {
-	margin-top: 5em;
-	margin-left: 15em;
-	//width: ;
-	display: inline-block;
-	min-height: 100vh;
-	padding: 2em 1em;
+#profile-pic {
+    background-image: url('../img/default-profile.png');
+    display: inline-block;
+    margin-right: 0.5em;
+    border 0;
+    width: 2em;
+	height: 2em;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
 }
 
 #settings {
 	background-image: url('../img/settings.png');
 	display: inline-block;
+    margin-left: 3em;
 	border: 0;
 	width: 2em;
 	height: 2em;
@@ -339,19 +374,13 @@ nav {
 	cursor: pointer;
 }
 
-#logout {
-	background-image: url('../img/logout.png');
-	display: inline-block;
-	border: 0;
-	width: 2em;
-	height: 2em;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
+#username {
+    display: inline-block;
+    vertical-align: 0.5em;
 }
 
-.footer-main {
-	margin-left: 15em;
+#username-picture {
+    display: inline-block;
 }
 
 /*-------------------------------------------------- login registration --------------------------------------------------*/
