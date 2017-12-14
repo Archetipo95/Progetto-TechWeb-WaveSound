@@ -1,0 +1,84 @@
+* {
+	font-family: 'Roboto', Helvetica, sans-serif;
+	color: #41425a;
+}
+
+.pacifico {
+	font-family: 'Pacifico';
+}
+
+/* styling */
+
+body {
+	background-color: #fff;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+header {
+	display: block;
+	background-color: #5ca1e6;
+	height: auto;
+	vertical-align: middle;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	margin-bottom: 2em;
+}
+
+#header-left {
+	display: inline-block;
+	width: 55%;
+}
+
+#header-right {
+	display: inline-block;
+	width: 44%;
+}
+
+.logo {
+	display: inline-block;
+	width: 5em;
+	height: 5em;
+	margin-left: 2em;
+	margin-right: -1em;
+	background-image: url('../img/logo.png');
+	background-repeat: no-repeat;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+.brand {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 2.5em;
+	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+}
+
+#impostazioni-profilo {
+	margin-left: 2.5em;
+}
+
+.profile-picture {
+	display: inline-block;
+	width: 15em;
+	height: 15em;
+	vertical-align: top;
+	margin-left: 25em;
+}
+
+.option-container {
+	display: inline-block;
+	margin-left: ;
+	width: 25em;
+}
+
+#pass {
+	display: none;
+}
