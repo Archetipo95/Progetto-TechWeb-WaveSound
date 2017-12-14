@@ -250,7 +250,7 @@ header {
 	z-index: 99;
 	border: none;
 	outline: none;
-	background-color: #41425a;
+	background-color: #5ca1e6;
 	color: white;
 	cursor: pointer;
 	padding: 1.5em;
@@ -258,7 +258,7 @@ header {
 }
 
 #button-top:hover {
-	background-color: #5ca1e6;
+	background-color: #84bbf2;
 }
 
 
@@ -312,13 +312,11 @@ nav {
 }
 
 #nav-bar {
-	//display: block;
 	padding: .5em 1em;
 }
 
 #nav-menu {
 	border-top: 1px solid;
-	//display: block;
 }
 
 #content {
@@ -327,7 +325,7 @@ nav {
 	//width: ;
 	display: inline-block;
 	min-height: 100vh;
-	padding 2em 1em;
+	padding: 2em 1em;
 }
 
 #settings {
