@@ -53,14 +53,14 @@ CREATE TABLE `libreria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `utente` (
-  `u_id` int(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  `u_id` int(11) AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(20) COLLATE utf8_unicode_ci,
   `nome` varchar(50) COLLATE utf8_unicode_ci,
   `cognome` varchar(50) COLLATE utf8_unicode_ci,
   `data_nascita` date,
-  `email` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_utente` int(1) NOT NULL DEFAULT '0',
-  `pass` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
+  `pass` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `picture` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
   `id_libreria` int(11),
   `active` varchar(255),

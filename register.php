@@ -1,5 +1,12 @@
 <?php
-require('connection.php');
+//require('connection.php');
+
+$dbname = 'my_wavesound';
+$dbuser = 'wavesound';
+$dbapss = '';
+$dbhost = 'localhost';
+
+$connection = new mysqli($dbhost,$dbuser,$dbass,$dbname);
 
 if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['psw-repeat'])){
     
@@ -27,7 +34,7 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['psw-repe
     //$email = htmlspecialchars_decode($_POST['email'], ENT_QUOTES);
     $email = $_POST['email'];
     // controlo validità email
-	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+	/*if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 	    echo 'Please enter a valid email address';
         $error= false;
 	} else {
@@ -48,13 +55,17 @@ if(isset($_POST['email']) && isset($_POST['password']) && isset($_POST['psw-repe
 		//if(mysqli_num_rows($Result)>0){
 		//	echo 'Email provided is already in use.';
         //}
-    }
-}
+    }*/
+
     
 if($error == true){
-    $pass_hash = password_hash($password,PASSWORD_BCRYPT);
-    $insertQuery = "INSERT INTO utente (email,pass) VALUES ('$email', '$pass_hash')";
-    $insertResult = $connect->query($insertQuery);
+	
+	$pass_hash = password_hash($password,PASSWORD_BCRYPT);
+    $insertQuery = "INSERT INTO `my_wavesound`.`utente` (`email`, `pass`) VALUES ('$email', '$pass_hash');";
+	echo $insertQuery;
+    $result = $connection->query($insertQuery);
+	
+	//$result->close();
 
         
 
@@ -77,6 +88,6 @@ if($error == true){
 //            echo "User Registration Failed";
 //        }
 }
-
+}
 
 ?>
