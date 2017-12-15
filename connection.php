@@ -1,12 +1,14 @@
 <?php
 
-$connection = new mysqli('https://mysql8.db4free.net/phpMyAdmin/','testo','testoPWD','wavesound');
 
-if($connection->connect_errno) {
-    echo "Connection failed (".$connection->connect_errno."):".$connection->connect_error;
-    exit();
-}
-else{
-    echo "Connection successfull";
-}
+
+$dbname = 'wavesound';
+$dbuser = 'testo';
+$dbpass = 'testoPWD';
+$dbhost = 'https://mysql8.db4free.net/phpMyAdmin';
+
+$connect = mysql_connect($dbhost, $dbuser, $dbpass) or die("Unable to Connect to '$dbhost'");
+mysql_select_db($dbname) or die("Could not open the db '$dbname'");
+
+
 ?>
