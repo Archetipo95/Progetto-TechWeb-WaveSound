@@ -1,30 +1,15 @@
--- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Creato il: Dic 11, 2017 alle 14:40
--- Versione del server: 10.1.21-MariaDB
--- Versione PHP: 5.6.30
+SET FOREIGN_KEY_CHECKS=0;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+DROP TABLE IF EXISTS `album`;
+DROP TABLE IF EXISTS `brani_caricati`;
+DROP TABLE IF EXISTS `canzone`;
+DROP TABLE IF EXISTS `commento`;
+DROP TABLE IF EXISTS `follow`;
+DROP TABLE IF EXISTS `libreria`;
+DROP TABLE IF EXISTS `utente`;
 
+SET FOREIGN_KEY_CHECKS=1;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `tecweb`
---
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `album`
---
 
 CREATE TABLE `album` (
   `id_album` int(11) NOT NULL,
@@ -34,22 +19,11 @@ CREATE TABLE `album` (
   `composed_by` int(11) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Struttura della tabella `brani_caricati`
---
 
 CREATE TABLE `brani_caricati` (
   `id_canzone` int(11) NOT NULL,
   `u_id` int(11) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `canzone`
---
 
 CREATE TABLE `canzone` (
   `id_canzone` int(11) NOT NULL,
@@ -61,34 +35,16 @@ CREATE TABLE `canzone` (
   `id_album` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Struttura della tabella `commento`
---
-
 CREATE TABLE `commento` (
   `desrizione` varchar(180) COLLATE utf8_unicode_ci DEFAULT NULL,
   `u_id` int(11) COLLATE utf8_unicode_ci NOT NULL,
   `id_canzone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Struttura della tabella `follow`
---
-
 CREATE TABLE `follow` (
   `id_user` int(11) COLLATE utf8_unicode_ci NOT NULL,
   `id_follow` int(11) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Struttura della tabella `libreria`
---
 
 CREATE TABLE `libreria` (
   `id_libreria` int(11) NOT NULL,
@@ -96,31 +52,23 @@ CREATE TABLE `libreria` (
   `id_canzone` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
-
---
--- Struttura della tabella `utente`
---
-
 CREATE TABLE `utente` (
   `u_id` int(11) AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  `username` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `nome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `cognome` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `data_nascita` date NOT NULL,
+  `username` varchar(20) COLLATE utf8_unicode_ci,
+  `nome` varchar(50) COLLATE utf8_unicode_ci,
+  `cognome` varchar(50) COLLATE utf8_unicode_ci,
+  `data_nascita` date,
   `email` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `tipo_utente` int(1) NOT NULL DEFAULT '0',
   `pass` varchar(12) COLLATE utf8_unicode_ci NOT NULL,
   `picture` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id_libreria` int(11) NOT NULL,
-  `active` varchar(255) NOT NULL,
+  `id_libreria` int(11),
+  `active` varchar(255),
   `resetToken` varchar(255) DEFAULT NULL,
   `resetComplete` varchar(3) DEFAULT 'No'  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Indici per le tabelle scaricate
---
+
 
 --
 -- Indici per le tabelle `album`
@@ -244,7 +192,3 @@ ALTER TABLE `libreria`
 --
 ALTER TABLE `utente`
   ADD CONSTRAINT `utente_ibfk_1` FOREIGN KEY (`id_libreria`) REFERENCES `libreria` (`id_libreria`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
