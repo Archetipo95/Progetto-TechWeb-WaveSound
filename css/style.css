@@ -334,12 +334,22 @@ footer * {
 	font-size: 1.2em;
 	margin: 0 1em;
 }
+#settings {
+	background-image: url('../img/settings.png');
+	display: inline-block;
+	margin-left: 3em;
+	border: 0;
+	width: 2em;
+	height: 2em;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
 
 #logout {
 	background-image: url('../img/logout.png');
 	display: inline-block;
 	margin-left: 0.8em;
-	margin-right: -3em;
 	border: 0;
 	width: 2em;
 	height: 2em;
@@ -353,7 +363,11 @@ nav {
 	width: 15em;
 	height: 100%;
 	position: fixed;
-	background-color: #999;
+	background-color: #2e2e80;
+}
+
+nav * {
+	color: #fff;
 }
 
 #nav-bar {
@@ -369,18 +383,6 @@ nav {
 	display: inline-block;
 	margin-right: 0.5em;
 	border 0;
-	width: 2em;
-	height: 2em;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
-#settings {
-	background-image: url('../img/settings.png');
-	display: inline-block;
-	margin-left: 3em;
-	border: 0;
 	width: 2em;
 	height: 2em;
 	background-repeat: no-repeat;
