@@ -12,4 +12,4 @@ pipelines:
         script:
           - apt-get update
           - apt-get -qq install git-ftp
-          - git ftp push --user $FTP_USER --passwd $FTP_PASSWORD ftp://ftp.wavesound.altervista.org --force
+          - git ftp push --user $FTP_USER --passwd $FTP_PASSWORD ftp://ftp.wavesound.altervista.org
