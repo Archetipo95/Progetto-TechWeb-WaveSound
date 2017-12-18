@@ -449,20 +449,33 @@ nav * {
 
 /*profilo*/
 
+#content-settings {
+	width: 90%;
+}
+
 .container-settings {
 	display: inline-block;
 	width: 50%;
+	text-align: left;
+}
+
+.container-settings form input{
+	padding: .5em 1em;
+	margin: 1em;
 }
 
 .container-picture {
 	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+	text-align: right;
 }
 
 #pass {
 	display: none;
 }
 
-.profile-picture {
+#profile-picture {
 	width: 15em;
 	height: 15em;
 }

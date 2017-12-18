@@ -31,9 +31,6 @@
 					<div id="profile-pic"></div>
 					<div id="username">Username</div>
 				</div>
-				<a class="img-link" href="#">
-					<div id="settings"></div>
-				</a>
 				<a class="img-link" href="index.html">
 					<div id="logout"></div>
 				</a>
@@ -58,19 +55,19 @@
 
 	<main class="main-right">
 		<div class="content-body">
-			<div class="content">
-				<h1>Profile Settings</h1>
+			<div class="content center" id="content-settings">
+				<h1 class="center">Profile Settings</h1>
 				<div class="container-settings">
 					<form>
 						<label>Username</label>
 						<br/>
 						<input type="text" name="username">
 						<br/>
-						<label for="email">First Name</label>
+						<label for="email">Name</label>
 						<br/>
 						<input type="text" name="nome">
 						<br/>
-						<label>Last name</label>
+						<label>Surname</label>
 						<br/>
 						<input type="text" name="cognome">
 						<br/>
@@ -99,13 +96,11 @@
 					</form>
 				</div>
 				<div class="container-picture">
-					<div class="profile-picture">
-						<img src="./img/default-profile.png">
+						<img id="profile-picture" src="./img/default-profile.png">
 						<form action="uploader.php" method="post" enctype="multipart/form-data">
 							<input type="file" name="fileToUpload" id "fileToUpload">
 							<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
 						</form>
-					</div>
 				</div>
 			</div>
 		</div>
