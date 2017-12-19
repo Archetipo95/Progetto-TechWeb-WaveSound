@@ -140,7 +140,7 @@ header {
 #button-top {
 	display: none;
 	position: fixed;
-	bottom: 2em;
+	bottom: 3em;
 	right: 2em;
 	z-index: 99;
 	border: none;
@@ -156,14 +156,40 @@ header {
 	background-color: #84bbf2;
 }
 
+.button-top3 {
+	font-size: 0; /* Per eliminare gli spazi bianchi dovuti ai figli inline */
+}
+
 .button-top3 button {
-	font-size: 1.3em;
-	background-color: #5ca1e6;
+	font-size: 1.3rem;
+	background-color:  #84bbf2;
 	border-radius: 2px;
 	border-style: solid;
 	border-color: #41425a;
 	padding: .5em 1em;
-	margin: .5em 0;
+	display: inline-block;
+	width: 10em;
+}
+
+#button-week {
+	border-right: none;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+#button-month {
+	border-left: none;
+	border-right: none;
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+#button-year {
+	border-left: none;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 .button-top3 button:hover,
@@ -174,7 +200,9 @@ header {
 .button-top3 button:active {
 	background-color: #fff;
 }
-
+.card-container {
+	
+}
 .card {
 	background-color: #5ca1e6;
 	width: 15em;
