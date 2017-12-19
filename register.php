@@ -16,29 +16,31 @@ if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['ema
     $passwordConfirm = $_POST['psw-repeat'];
     $email = $_POST['email'];
     
-    if(filter_var($email,FILTER_VALIDATE_EMAIL)){/*check valid email*/
+	/*check valid email*/
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)){
         $emailAlreadyUsed ="SELECT u_id FROM user WHERE email='$email';";
         $result = $connection->query($emailAlreadyUsed);
-        if ($result->num_rows > 0){/*check email already used*/
+		
+		/*check email already used*/
+        if ($result->num_rows == 0){
+			/*check password lenght & status*/
+			if((strlen($password) < 8) || ($password != $passwordConfirm)){
+				echo 'Password not valid';
+				$error = true;
+				$connection->close();
+			}
+        }else{
 			echo 'Email already used';
             $error = true;
             $connection->close();
-        }
+		}
     }else{
         echo 'Use valid email';
 		$error = true;
         $connection->close();
-    }else if(strlen($password) < 8){/*check password lenght*/
-		echo 'Password is too short. Use at least 8 char';
-        $error = true;
-        $connection->close();
-        
-	}else if($password != $passwordConfirm){/*check password confirm*/
-		echo 'Password check do not match.';
-        $error = true;
-        $connection->close();
-    }
 	
+	    }
+
 	if(!$error){
 		
 		$pass_hash = secured_hash($password);
@@ -49,7 +51,5 @@ if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['ema
 		echo 'Data NOT send to DB';
 	}
 }
-
-$connection->close();
 
 ?>
