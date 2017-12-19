@@ -1,17 +1,17 @@
 <?php
 
-$dbname = 'my_wavesound';
-$dbuser = 'wavesound';
-$dbapss = '';
 $dbhost = 'localhost';
+$dbuser = 'wavesound';
+$dbpassword = '';
+$dbname = 'my_wavesound';
 
-$connection = new mysqli($dbhost,$dbuser,$dbass,$dbname);
+// Create connection
+$connection = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 
-if($connection->connect_errno) {
-    echo "Connection failed (".$connection->connect_errno."):".$connection->connect_error;
-    exit();
+// Check connection
+if (!$connection) {
+    die("Connection failed: " . mysqli_connect_error());
 }
-else{
-    echo "Connection successfull";
-}
+echo "Connected successfully";
+
 ?>
