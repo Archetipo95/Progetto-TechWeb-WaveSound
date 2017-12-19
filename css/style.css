@@ -44,6 +44,27 @@ body {
 	display: none;
 }
 
+/*---------------------------------------------button to jump top---------------------------------------------*/
+
+#button-top {
+	display: none;
+	position: fixed;
+	bottom: 3em;
+	right: 2em;
+	z-index: 99;
+	border: none;
+	outline: none;
+	background-color: #5ca1e6;
+	color: white;
+	cursor: pointer;
+	padding: 1.5em;
+	border-radius: 50%;
+}
+
+#button-top:hover {
+	background-color: #84bbf2;
+}
+
 /*--------------------------------------------- head content --------------------------------------------*/
 
 #brand {
@@ -137,23 +158,30 @@ header {
 
 /*--------------------------------------------- main content ---------------------------------------*/
 
-#button-top {
-	display: none;
-	position: fixed;
-	bottom: 3em;
-	right: 2em;
-	z-index: 99;
-	border: none;
-	outline: none;
-	background-color: #5ca1e6;
-	color: white;
-	cursor: pointer;
-	padding: 1.5em;
-	border-radius: 50%;
+.section {
+	padding-top: 10em;
+	min-height: 50vh;
 }
 
-#button-top:hover {
-	background-color: #84bbf2;
+.welcome {
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+#title1 {
+	font-size: 3em;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#title2 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.section-top3 {
+	margin-top: 5em;
+	margin-bottom: 5em;
 }
 
 .button-top3 {
@@ -161,7 +189,7 @@ header {
 }
 
 .button-top3 button {
-	font-size: 1.3rem;
+	font-size: 1.2rem;
 	background-color:  #5ca1e6;
 	border-radius: 2px;
 	border-style: solid;
@@ -201,7 +229,6 @@ header {
 	background-color: #fff;
 }
 .card-container {
-	
 }
 .card {
 	background-color: #5ca1e6;
@@ -230,33 +257,12 @@ header {
 	margin-bottom: 0;
 }
 
-#title1 {
-	font-size: 3em;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-#title2 {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.sezione {
-	padding: 1em;
-	min-height: 50vh;
-}
-
-.welcome {
-	margin-top: 5em;
-	margin-bottom: 2em;
-}
-
 .selected {
 	background-color: #555580 !important;
 	color: #fff;
 }
 
-.sidelong {
+.section-sidelong {
 	position: relative;
 	margin-bottom: 2em;
 	background-image: linear-gradient(#5ca1e6, #2e2e80);
@@ -265,7 +271,7 @@ header {
 	z-index: -1;
 }
 
-.sidelong * {
+.section-sidelong * {
 	color: #fff;
 }
 
