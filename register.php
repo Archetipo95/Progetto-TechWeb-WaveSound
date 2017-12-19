@@ -2,6 +2,11 @@
 
 require('connection.php');
 
+function secured_hash($input){    
+		$output = password_hash($input,PASSWORD_DEFAULT);
+		return $output;
+	}
+
 if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['email'])){
     
     $error = false;
@@ -40,11 +45,6 @@ if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['ema
 		echo 'Data send succesfully to DB. Check your DB';
 	} else {
 		echo 'Data NOT send to DB';
-	}
-	
-	function secured_hash($input){    
-		$output = password_hash($input,PASSWORD_DEFAULT);
-		return $output;
 	}
 }
 
