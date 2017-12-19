@@ -47,6 +47,8 @@ if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['ema
     	$insertQuery = "INSERT INTO `my_wavesound`.`user` (`email`, `password`) VALUES ('$email', '$pass_hash');";
     	$result = $connection->query($insertQuery);
 		echo 'Data send succesfully to DB. Check your DB';
+		header("Location:account-created.html");
+		exit();
 	} else {
 		echo 'Data NOT send to DB';
 	}

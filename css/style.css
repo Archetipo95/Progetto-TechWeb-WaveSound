@@ -158,8 +158,12 @@ header {
 
 /*--------------------------------------------- main content ---------------------------------------*/
 
-.section {
+main {
+	min-height: 100vh;
 	padding-top: 10em;
+}
+
+.section {
 	min-height: 50vh;
 }
 
