@@ -285,14 +285,13 @@ main {
 .sidelong-padding {
 	padding-top: 5rem;
 	padding-bottom: 8rem;
-	width: 80%;
+	width: 90%;
 	font-size: 0;
 }
 
 .left-sidelong {
 	display: inline-block;
 	width: 50%;
-	margin-right: 10%;
 	font-size: 1rem;
 	text-align: left;
 	vertical-align:middle;
@@ -300,7 +299,7 @@ main {
 
 .right-sidelong {
 	display: inline-block;
-	width: 40%;
+	width: 50%;
 	text-align: right;
 	vertical-align: middle;
 }
