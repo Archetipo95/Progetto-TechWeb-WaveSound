@@ -295,11 +295,14 @@ main {
 	margin-right: 10%;
 	font-size: 1rem;
 	text-align: left;
+	vertical-align:middle;
 }
 
 .right-sidelong {
 	display: inline-block;
 	width: 40%;
+	text-align: right;
+	vertical-align: middle;
 }
 
 .right-sidelong img {
