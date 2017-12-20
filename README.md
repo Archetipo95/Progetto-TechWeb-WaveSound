@@ -13,8 +13,12 @@ https://archetipo95.github.io/TechWeb1718/
 
 * [Material Design](https://material.io/guidelines/) - Design Style
 * [Brackets](http://brackets.io/) - Text Editor
-* [GitHub](https://github.com) - Site Hoster
-* [DataBase]......
+* [GitHub](https://github.com) - Versioning
+* [PHPmyadmin]() - DataBase
+* [Altervista]() - Site and DB hoster
+* [Trello]() - Work organization
+* [Figma]() - Interface Design
+* [...]() - ...
 
 ## Contributing
 
