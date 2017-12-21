@@ -8,11 +8,11 @@
 	<title>WaveSound | Settings</title>
 
 	<!-- font + fav icon -->
-	<link rel="icon" type="image/png" href="img/logo.png">
+	<link rel="icon" type="image/png" href="./img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
 
 </head>
 
@@ -21,7 +21,7 @@
 	<header>
 		<div class="header-container">
 			<div class="header-left">
-				<a class="img-link" href="main.html">
+				<a class="img-link" href="./main.html">
 					<div id="logo"></div>
 					<div id="brand" class="pacifico italic">WaveSound</div>
 				</a>
@@ -31,7 +31,7 @@
 					<div id="profile-pic"></div>
 					<div id="username">Username</div>
 				</div>
-				<a class="img-link" href="index.html">
+				<a class="img-link" href="./index.html">
 					<div id="logout"></div>
 				</a>
 			</div>
@@ -44,11 +44,11 @@
 		</div>
 		<div id="nav-menu">
 			<ul>
-				<li><a href="main.html">Home</a></li>
-				<li><a href="#">Preferiti</a></li>
-				<li><a href="#">Le Mie Creazioni</a></li>
-				<li></li>
-				<li></li>
+				<li><a href="#">My Favorites</a></li>
+				<li><a href="#">My Favorites</a></li>
+				<li><a href="#">My Favorites</a></li>
+				<li><a href="#">My Favorites</a></li>
+				<li><a href="#">My Favorites</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -96,21 +96,21 @@
 					</form>
 				</div>
 				<div class="container-picture">
-						<img id="profile-picture" src="./img/default-profile.png">
-						<form action="uploader.php" method="post" enctype="multipart/form-data">
-							<input type="file" name="fileToUpload" id "fileToUpload">
-							<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
-						</form>
+					<img id="profile-picture" src="./img/default-profile.png">
+					<form action="uploader.php" method="post" enctype="multipart/form-data">
+						<input type="file" name="fileToUpload" id="fileToUpload">
+						<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
+					</form>
 				</div>
 			</div>
 		</div>
 	</main>
 
 	<footer class="footer-main">
-		<div data-include="footer.html"></div>
+		<div data-include="./footer.html"></div>
 	</footer>
-	
-	<script src="js/load-footer.js"></script>
+
+	<script src="./js/load-footer.js"></script>
 </body>
 
 <script>
@@ -121,7 +121,6 @@
 	function hide() {
 		document.getElementById("pass").style.display = "none";
 	}
-
 </script>
 
 </html>
