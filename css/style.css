@@ -392,7 +392,7 @@ footer * {
 
 .content-title {
 	font-size: 1.2em;
-	margin-left: 1em;
+	margin: 0 1em;
 }
 #settings {
 	background-image: url('../img/settings.png');
@@ -459,56 +459,7 @@ nav * {
 	display: inline-block;
 }
 
-/*-------------------------------------------------- user-creations.html -------------------------------------------------*/
-
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: initial;
-    padding: 5px;
-}
-
-#content-title2 {
-    margin-left: 0.8em;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-
-#my-creations-table {
-    margin-top: 1em;
-    margin-left: 1em;
-}
-
-#my-creations-upload {
-    margin-top: 2em;
-    margin-left: 1em;   
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-td, th {
-    border: 1px solid #1aa3ff;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #b3e0ff;
-}
-
-/*------------------------------------------------- user-soundtrack-upload.html --------------------------------------------------*/
-
-#content-user-upload {
-    margin-left: 1em;
-    margin-top: 2em;
-}
-
-/*-------------------------------------------------- login.html & register.html --------------------------------------------------*/
+/*-------------------------------------------------- login registration --------------------------------------------------*/
 
 .reglog {
 	padding-top: 5em;
@@ -554,14 +505,15 @@ tr:nth-child(even) {
 	font-size: .5em;
 }
 
-/*----------------------------------------------------- user-settings.html -----------------------------------------------------*/
+/*------------------------------------------------------------------------------------------------------------------*/
+
+/*profilo*/
 
 #content-settings {
 	width: 90%;
 }
 
 .container-settings {
-    margin-top: 2.5em;
 	display: inline-block;
 	width: 50%;
 	text-align: left;
@@ -573,7 +525,6 @@ tr:nth-child(even) {
 }
 
 .container-picture {
-    margin-top: 0.5em;
 	display: inline-block;
 	width: 49%;
 	vertical-align: top;
