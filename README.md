@@ -7,7 +7,7 @@ Questo progetto è stato creato nell'ambito dell'esame pratico del corso di Tecn
 
 ## Link al sito
 
-https://archetipo95.github.io/TechWeb1718/
+http://wavesound.altervista.org
 
 ## Built With
 
