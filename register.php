@@ -7,7 +7,7 @@ function secured_hash($input){
 		return $output;
 	}
 
-if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['email'])){
+if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['email'])){
     
     $error = false;
     
@@ -15,43 +15,58 @@ if(isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['ema
     $password = $_POST['password'];
     $passwordConfirm = $_POST['psw-repeat'];
     $email = $_POST['email'];
+	$username = $_POST['username'];
     
-	/*check valid email*/
-    if(filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $emailAlreadyUsed ="SELECT u_id FROM user WHERE email='$email';";
-        $result = $connection->query($emailAlreadyUsed);
+	/*check valid username*/
+	$usernameUsed = "SELECT u_id FROM user WHERE username='$username';";
+	$resultUser = $connection->query($usernameUsed);
+	if($resultUser->num_rows == 0){
 		
-		/*check email already used*/
-        if ($result->num_rows == 0){
-			/*check password lenght & status*/
-			if((strlen($password) < 8) || ($password != $passwordConfirm)){
-				echo 'Password not valid';
-				$error = true;
-				$connection->close();
+		/*check valid email*/
+    	if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+        	$emailAlreadyUsed ="SELECT u_id FROM user WHERE email='$email';";
+        	$result = $connection->query($emailAlreadyUsed);
+		
+			/*check email already used*/
+        	if ($result->num_rows == 0){
+				/*check password lenght & status*/
+				if((strlen($password) < 8) || ($password != $passwordConfirm)){
+					echo 'Password not valid';
+					$error = true;
+					$connection->close();
+					header("Location:invalid-password.html");
+				}
+        	}else{
+				echo 'Email already used';
+            	$error = true;
+            	$connection->close();
+				header("Location:email-used.html");
 			}
-        }else{
-			echo 'Email already used';
-            $error = true;
-            $connection->close();
+    	}else{
+        	echo 'Use valid email';
+			$error = true;
+        	$connection->close();
+			header("Location:invalid-email.html");
 		}
-    }else{
-        echo 'Use valid email';
+	}else{
+		echo 'Username alredy used';
 		$error = true;
-        $connection->close();
-	
-	    }
-
+		$connection->close();
+		header("Location:invalid-user.html");
+	}
+		
 	if(!$error){
 		
 		$pass_hash = secured_hash($password);
-    	$insertQuery = "INSERT INTO `my_wavesound`.`user` (`email`, `password`) VALUES ('$email', '$pass_hash');";
+    	$insertQuery = "INSERT INTO `my_wavesound`.`user` (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');";
     	$result = $connection->query($insertQuery);
 		echo 'Data send succesfully to DB. Check your DB';
+		session_start();
+		$_SESSION["username"] = $username;
 		header("Location:account-created.html");
 		exit();
 	} else {
 		echo 'Data NOT send to DB';
 	}
 }
-
 ?>
