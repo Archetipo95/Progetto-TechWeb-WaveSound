@@ -1,4 +1,4 @@
-# Università degli Studi di Padova - Dipartimento di Matematica - Scienze Informatiche
+# Università degli Studi di Padova - Dipartimento di Matematica - Informatica
 
 
 # WaveSound 
