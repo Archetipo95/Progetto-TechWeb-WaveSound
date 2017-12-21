@@ -8,38 +8,19 @@
 	<title>WaveSound | Main Page</title>
 
 	<!-- font + fav icon -->
-	<link rel="icon" type="image/png" href="./img/logo.png">
+	<link rel="icon" type="image/png" href="/img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
 	<!-- style -->
-	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<link rel="stylesheet" type="text/css" href="/css/style.css" />
 
 </head>
 
 <body>
 
 	<header>
-		<div class="header-container">
-			<div class="header-left">
-				<a class="img-link" href="./main.html">
-					<div id="logo"></div>
-					<div id="brand" class="pacifico italic">WaveSound</div>
-				</a>
-			</div>
-			<div class="header-right">
-				<div id="username-picture">
-					<div id="profile-pic"></div>
-					<div id="username">Username</div>
-				</div>
-				<a class="img-link" href="./user-settings.html">
-					<div id="settings"></div>
-				</a>
-				<a class="img-link" href="./index.html">
-					<div id="logout"></div>
-				</a>
-			</div>
-		</div>
+		<div data-include="header.html"></div>
 	</header>
 
 	<nav>
@@ -48,7 +29,7 @@
 		</div>
 		<div id="nav-menu">
 			<ul>
-				<li><a href="./main.html">Home</a></li>
+				<li><a href="/main.html">Home</a></li>
 				<li><a href="#">My Favorites</a></li>
 				<li>My Creations</li>
 			</ul>
@@ -59,58 +40,58 @@
 		<div class="content-body">
 			<div class="content">
 				<div id="content-title2">My Creations</div>
-                <div id="my-creations-upload">
-                    <a href="./user-soundtrack-upload.html" class="button">Upload a new soundtrack</a>
-                </div>
+				<div id="my-creations-upload">
+					<a href="/user-soundtrack-upload.html" class="button">Upload a new soundtrack</a>
+				</div>
 				<div id="my-creations-table">
-                    <table>
-                        <tr>
-                            <th>Cover</th>
-                            <th>Title</th>
-                            <th>Album</th>
-                            <th>Duration</th>
-                            <th>Upload date</th>
-                            <th>Total downloads</th>
-                            <th>Average rating</th>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                        <tr>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                            <td>test</td>
-                        </tr>
-                    </table>
-                </div>
+					<table>
+						<tr>
+							<th>Cover</th>
+							<th>Title</th>
+							<th>Album</th>
+							<th>Duration</th>
+							<th>Upload date</th>
+							<th>Total downloads</th>
+							<th>Average rating</th>
+						</tr>
+						<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+						<tr>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+							<td>test</td>
+						</tr>
+					</table>
+				</div>
 			</div>
 		</div>
 	</main>
 
 	<footer class="footer-main">
-		<div data-include="./footer.html"></div>
+		<div data-include="footer.html"></div>
 	</footer>
-	
-	<script src="./js/load-footer.js"></script>
+
+	<script src="/js/include.js"></script>
 
 </body>
 

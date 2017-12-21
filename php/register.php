@@ -1,6 +1,6 @@
 <?php
 
-require('../php/connection.php');
+require('/php/connection.php');
 
 function secured_hash($input){    
 		$output = password_hash($input,PASSWORD_DEFAULT);
@@ -34,25 +34,25 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-r
 					echo 'Password not valid';
 					$error = true;
 					$connection->close();
-					header("Location:../invalid-password.html");
+					header("Location:/misc/errors/invalid-password.html");
 				}
         	}else{
 				echo 'Email already used';
             	$error = true;
             	$connection->close();
-				header("Location:../email-used.html");
+				header("Location:/misc/errors/email-used.html");
 			}
     	}else{
         	echo 'Use valid email';
 			$error = true;
         	$connection->close();
-			header("Location:../invalid-email.html");
+			header("Location:/misc/errors/invalid-email.html");
 		}
 	}else{
 		echo 'Username alredy used';
 		$error = true;
 		$connection->close();
-		header("Location:../invalid-user.html");
+		header("Location:/misc/errors/invalid-user.html");
 	}
 		
 	if(!$error){
@@ -63,7 +63,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-r
 		echo 'Data send succesfully to DB. Check your DB';
 		session_start();
 		$_SESSION["username"] = $username;
-		header("Location:../account-created.html");
+		header("Location:/misc/errors/account-created.html");
 		exit();
 	} else {
 		echo 'Data NOT send to DB';
