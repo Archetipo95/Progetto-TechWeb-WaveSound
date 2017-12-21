@@ -41,9 +41,13 @@
 		</div>
 		<form action="register.php" method="post">
 			<div class="input-text">
+				<label for="email">Username</label>
+				<br/>
+				<input type="text" placeholder="Your username" name="username" required>
+				<br/>
 				<label for="email">Email</label>
 				<br/>
-				<input type="text" placeholder="Your e-mail address" name="email" required>
+				<input type="email" placeholder="Your e-mail address" name="email" required>
 				<br/>
 				<label for="password">Password</label>
 				<br/>
@@ -66,7 +70,7 @@
 	<footer>
 		<div data-include="footer.html"></div>
 	</footer>
-	
+
 	<script src="js/load-footer.js"></script>
 
 </body>
