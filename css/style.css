@@ -292,6 +292,7 @@ main {
 .left-sidelong {
 	display: inline-block;
 	width: 50%;
+	margin-right: 10%;
 	font-size: 1rem;
 	text-align: left;
 	vertical-align:middle;
@@ -299,14 +300,16 @@ main {
 
 .right-sidelong {
 	display: inline-block;
-	width: 50%;
+	width: 40%;
+	max-width: 20rem;
+	min-width: 5rem;
 	text-align: right;
 	vertical-align: middle;
 }
 
 .right-sidelong img {
-	width: 14rem;
-	height: 14rem;
+	width: 50%;
+	height: auto;
 	vertical-align: middle;
 }
 
