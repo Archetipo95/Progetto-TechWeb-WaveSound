@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +41,11 @@
 
 	<main class="center">
 		<h1>Your account has been created!</h1>
+		<?php
+			echo "<h1>Username: " . $_SESSION["username"] . "</h1>";
+		session_unset();
+		session_destroy();
+		?>
 	</main>
 
 	<footer>

@@ -63,7 +63,7 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-r
 		echo 'Data send succesfully to DB. Check your DB';
 		session_start();
 		$_SESSION["username"] = $username;
-		header("Location:../misc/errors/account-created.html");
+		header("Location:../misc/errors/account-created.php");
 		exit();
 	} else {
 		echo 'Data NOT send to DB';
