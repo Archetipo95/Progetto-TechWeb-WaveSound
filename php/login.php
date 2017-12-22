@@ -25,10 +25,10 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 			session_start();
 			$_SESSION["username"] = $user[0];
 		}else{
-			echo "diversi";
+			header("Location:../misc/errors/login-failed.html");
 		}
 	}else{
-		echo "non trovato";
+		header("Location:../misc/errors/login-failed.html");
 	}
 	
 	
