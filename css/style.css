@@ -279,12 +279,19 @@ main {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	height: 5vw;
+	height: 10%;
+}
+
+#svg-bot {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 10%;
 }
 
 .sidelong-padding {
-	padding-top: 5rem;
-	padding-bottom: 8rem;
+	padding-top:10rem;
+	padding-bottom: 10rem;
 	width: 90%;
 	font-size: 0;
 }
@@ -311,13 +318,6 @@ main {
 	width: 50%;
 	height: auto;
 	vertical-align: middle;
-}
-
-#svg-bot {
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	height: 5vw;
 }
 
 /*---------------------------------------------------- footer content -------------------------------------------*/
