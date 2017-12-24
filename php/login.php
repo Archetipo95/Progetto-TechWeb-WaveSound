@@ -1,6 +1,7 @@
 <?php
 
 require('connection.php');
+require('msg.php');
 
 if(isset($_POST['email']) && isset($_POST['password'])){
 		
@@ -34,10 +35,10 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 			$_SESSION["username"] = $row[1];
 			header("Location:../main.html");
 		}else{
-			header("Location:../misc/errors/login-failed.html");
+			sendMessage("Login Failed");
 		}
 	}else{
-		header("Location:../misc/errors/login-failed.html");
+		sendMessage("Login Failed");
 	}
 }
 

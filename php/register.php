@@ -1,7 +1,7 @@
 <?php
 
 require('connection.php');
-require('error.php');
+require('msg.php');
 
 /*
 **hash password
@@ -65,27 +65,27 @@ if(checkPost()){
 					if(!confirmPassword($password,$passwordConfirm)){
 						$error = true;
 						$connection->close();
-						sendError("Different password");
+						sendMessage("Different password");
 					}
 				}else{
 					$error = true;
 					$connection->close();
-					sendError("Password too short");
+					sendMessage("Password too short");
 				}
         	}else{
 				$error = true;
 				$connection->close();
-				sendError("Username alredy used");
+				sendMessage("Username alredy used");
 			}
     	}else{
             $error = true;
             $connection->close();
-			sendError("Email already used");
+			sendMessage("Email already used");
 		}
 	}else{
 		$error = true;
         $connection->close();
-		sendError("Use valid email");
+		sendMessage("Use valid email");
 	}
 	
 	if(!$error){
@@ -93,9 +93,7 @@ if(checkPost()){
 		$pass_hash = securedHash($password);
     	$insertQuery = "INSERT INTO user (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');";
     	$result = $connection->query($insertQuery);
-		session_start();
-		$_SESSION["username"] = $username;
-		header("Location:../misc/errors/account-created.html");
+		sendMessage("$username your account was successfully created");
 	}
 }
 ?>

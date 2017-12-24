@@ -4,6 +4,7 @@
 	session_unset();
 	session_destroy();
 
-	header("Location:../index.html");
+	require('msg.php');
+	sendMessage("You have successfully logged out");
 
 ?>

@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if(!isset($_SESSION["msg"])){
+    	$_SESSION["msg"]="This is not an EasterEgg";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +11,7 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | Main Page</title>
+	<title>WaveSound | Message</title>
 
 	<!-- font + fav icon -->
 	<link rel="icon" type="image/png" href="img/logo.png">
@@ -42,7 +45,10 @@
 	</header>
 
 	<main class="center">
-		<?php echo "<h1>".$_SESSION["error"]."</h1>"?>
+		<h1>Message from <span class="pacifico italic"> WaveSound </span> team</h1>
+		
+		<?php echo "<h1>".$_SESSION["msg"]."</h1>"?>
+		
 	</main>
 
 	<footer class="footer">
