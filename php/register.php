@@ -1,72 +1,101 @@
 <?php
 
 require('connection.php');
+require('error.php');
 
-function secured_hash($input){    
+/*
+**hash password
+*/
+function securedHash($input){    
 		$output = password_hash($input,PASSWORD_DEFAULT);
 		return $output;
 	}
 
-if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['email'])){
-    
-    $error = false;
-    
+/*
+**Returns true if all form post are present
+*/
+function checkPost(){
+	return (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['email']));
+}
+
+/*
+**Given an integer returns true if there are 0 rows from query
+*/
+function checkPresence($number){
+	return ($number===0);
+}
+
+/*
+**Returns true if password is at least 8 char
+*/
+function checkPasswordLenght($pass){
+	return (strlen($pass) >= 8);
+}
+
+/*
+**Returns true if password is confirmed
+*/
+function confirmPassword($pass, $passConfirm){
+	return ($pass === $passConfirm);
+}
+
+if(checkPost()){
+	
     //save inputs
     $password = $_POST['password'];
     $passwordConfirm = $_POST['psw-repeat'];
     $email = $_POST['email'];
 	$username = $_POST['username'];
-    
-	/*check valid username*/
-	$usernameUsed = "SELECT u_id FROM user WHERE username='$username';";
-	$resultUser = $connection->query($usernameUsed);
-	if($resultUser->num_rows == 0){
+	
+	$error = false;
 		
-		/*check valid email*/
-    	if(filter_var($email,FILTER_VALIDATE_EMAIL)){
-        	$emailAlreadyUsed ="SELECT u_id FROM user WHERE email='$email';";
-        	$result = $connection->query($emailAlreadyUsed);
-		
-			/*check email already used*/
-        	if ($result->num_rows == 0){
-				/*check password lenght & status*/
-				if((strlen($password) < 8) || ($password != $passwordConfirm)){
-					echo 'Password not valid';
+	/*check valid email*/
+	if(filter_var($email,FILTER_VALIDATE_EMAIL)){
+		$emailUsed ="SELECT u_id FROM user WHERE email='$email';";
+		$result = $connection->query($emailUsed);
+		/*check email already used*/
+        if (checkPresence($result->num_rows)){
+			/*check username already used*/
+			$usernameUsed = "SELECT u_id FROM user WHERE username='$username';";
+			$result = $connection->query($usernameUsed);
+			if(checkPresence($result->num_rows)){
+				/*check password lenght*/
+				if(checkPasswordLenght($password)){
+					/*check password confirmation*/
+					if(!confirmPassword($password,$passwordConfirm)){
+						$error = true;
+						$connection->close();
+						sendError("Different password");
+					}
+				}else{
 					$error = true;
 					$connection->close();
-					header("Location:../misc/errors/invalid-password.html");
+					sendError("Password too short");
 				}
         	}else{
-				echo 'Email already used';
-            	$error = true;
-            	$connection->close();
-				header("Location:../misc/errors/email-used.html");
+				$error = true;
+				$connection->close();
+				sendError("Username alredy used");
 			}
     	}else{
-        	echo 'Use valid email';
-			$error = true;
-        	$connection->close();
-			header("Location:../misc/errors/invalid-email.html");
+            $error = true;
+            $connection->close();
+			sendError("Email already used");
 		}
 	}else{
-		echo 'Username alredy used';
 		$error = true;
-		$connection->close();
-		header("Location:../misc/errors/invalid-user.html");
+        $connection->close();
+		sendError("Use valid email");
 	}
-		
+	
 	if(!$error){
 		
-		$pass_hash = secured_hash($password);
-    	$insertQuery = "INSERT INTO `my_wavesound`.`user` (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');";
+		$pass_hash = securedHash($password);
+    	$insertQuery = "INSERT INTO user (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');";
     	$result = $connection->query($insertQuery);
-		echo 'Data send succesfully to DB. Check your DB';
 		session_start();
 		$_SESSION["username"] = $username;
 		header("Location:../misc/errors/account-created.html");
-		exit();
-	} else {
-		echo 'Data NOT send to DB';
 	}
 }
 ?>

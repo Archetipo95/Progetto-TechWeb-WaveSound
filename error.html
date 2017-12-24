@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,15 +8,15 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | Account Created</title>
+	<title>WaveSound | Main Page</title>
 
 	<!-- font + fav icon -->
-	<link rel="icon" type="image/png" href="../../img/logo.png">
+	<link rel="icon" type="image/png" href="img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
 	<!-- style -->
-	<link rel="stylesheet" type="text/css" href="../../css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 
 </head>
 
@@ -22,29 +25,32 @@
 	<header>
 		<div class="header-container">
 			<div class="header-left">
-				<a class="img-link" href="../../index.html">
+				<a class="img-link" href="index.html">
 					<div id="logo"></div>
 					<div id="brand" class="pacifico italic">WaveSound</div>
 				</a>
 			</div>
-			<div class="header-right right">
+			<div class="header-right">
 				<div id="join-us">
 					Join our community, it's 100% free
+				</div>
+				<div id="login-registration">
+					<a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
 				</div>
 			</div>
 		</div>
 	</header>
 
 	<main class="center">
-		<h1>There is something wrong with password</h1>
-		<a href="../../register.html">Try again</a>
+		<?php echo "<h1>".$_SESSION["error"]."</h1>"?>
 	</main>
 
-	<footer>
-		<div data-include="../include/footer.html"></div>
+	<footer class="footer">
+		<div data-include="misc/include/footer.html"></div>
 	</footer>
-	
-	<script src="../../js/include.js"></script>
+
+	<script src="js/include.js"></script>
+
 </body>
 
 </html>
