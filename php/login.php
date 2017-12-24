@@ -9,29 +9,36 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 	$email = $_POST['email'];
 	
 	/*find out password*/
-	$queryPass = "SELECT password FROM user WHERE email='$email'";
-	$result = $connection->query($queryPass);
+	$getUser = "SELECT * FROM user WHERE email='$email'";
+	$result = $connection->query($getUser);
 	
-	if($result->num_rows == 1){
+	/*check if email exist in db*/
+	if($result->num_rows === 1){
 		$row = mysqli_fetch_row($result);
-		
-		/*check password if exist in db*/
-		if(password_verify($password,$row[0])){
-			echo "uguali";
+		/*
+		$row[0] is User ID
+		$row[1] is Username
+		$row[2] is Name
+		$row[3] is Surname
+		$row[4] is Bday
+		$row[5] is email
+		$row[6] is User_Type
+		$row[7] is Password
+		$row[8] is Avatar
+		$row[9] is Id_library
+		*/
+		/*check password correctness*/
+		if(password_verify($password,$row[7])){
 			/*find out username*/
-			$queryUser = "SELECT username FROM user WHERE email='$email'";
-			$res = $connection->query($queryUser);
-			$user = mysqli_fetch_row($res);
 			session_start();
-			$_SESSION["username"] = $user[0];
+			$_SESSION["username"] = $row[1];
+			header("Location:../main.html");
 		}else{
 			header("Location:../misc/errors/login-failed.html");
 		}
 	}else{
 		header("Location:../misc/errors/login-failed.html");
 	}
-	
-	
 }
 
 ?>
