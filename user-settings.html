@@ -1,5 +1,5 @@
 <?php
-	require('php/checkSession.php');
+	require('misc/php/checkSession.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +11,11 @@
 	<title>WaveSound | Settings</title>
 
 	<!-- font + fav icon -->
-	<link rel="icon" type="image/png" href="img/logo.png">
+	<link rel="icon" type="image/png" href="misc/img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
 
 </head>
 
@@ -81,8 +81,8 @@
 					</form>
 				</div>
 				<div class="container-picture">
-					<img id="profile-picture" src="img/default-profile.png">
-					<form action="php/uploader.php" method="post" enctype="multipart/form-data">
+					<img id="profile-picture" src="misc/img/default-profile.png">
+					<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
 						<input type="file" name="fileToUpload" id="fileToUpload">
 						<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
 					</form>
@@ -95,7 +95,7 @@
 		<div data-include="misc/include/footer.html"></div>
 	</footer>
 
-	<script src="js/include.js"></script>
+	<script src="misc/js/include.js"></script>
 </body>
 
 <script>

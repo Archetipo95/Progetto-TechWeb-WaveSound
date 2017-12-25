@@ -33,7 +33,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 			/*find out username*/
 			session_start();
 			$_SESSION["username"] = $row[1];
-			header("Location:../main.html");
+			header("Location:../../main.html");
 		}else{
 			sendMessage("Login Failed");
 		}

@@ -3,7 +3,7 @@
 function sendMessage($msg){
 	session_start();
 	$_SESSION["msg"] = $msg;
-	header("Location:../msg.html");
+	header("Location:../../msg.html");
 }
 
 ?>
