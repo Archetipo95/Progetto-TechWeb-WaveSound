@@ -32,6 +32,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 		if(password_verify($password,$row[7])){
 			/*find out username*/
 			session_start();
+			$_SESSION["userID"] = $row[0];
 			$_SESSION["username"] = $row[1];
 			header("Location:../../main.html");
 		}else{

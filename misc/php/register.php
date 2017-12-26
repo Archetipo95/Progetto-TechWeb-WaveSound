@@ -2,41 +2,13 @@
 
 require('connection.php');
 require('msg.php');
-
-/*
-**hash password
-*/
-function securedHash($input){    
-		$output = password_hash($input,PASSWORD_DEFAULT);
-		return $output;
-	}
+require('tools.php');
 
 /*
 **Returns true if all form post are present
 */
 function checkPost(){
-	return (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['psw-repeat']) && isset($_POST['email']));
-}
-
-/*
-**Given an integer returns true if there are 0 rows from query
-*/
-function checkPresence($number){
-	return ($number===0);
-}
-
-/*
-**Returns true if password is at least 8 char
-*/
-function checkPasswordLenght($pass){
-	return (strlen($pass) >= 8);
-}
-
-/*
-**Returns true if password is confirmed
-*/
-function confirmPassword($pass, $passConfirm){
-	return ($pass === $passConfirm);
+	return (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['psw-repeat']) && !empty($_POST['email']));
 }
 
 if(checkPost()){
