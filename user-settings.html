@@ -43,40 +43,41 @@
 			<div class="content center" id="content-settings">
 				<h1>Profile Settings</h1>
 				<div class="container-settings">
-					<form>
-						<label>Username</label>
+					<form action="misc/php/updateSettings.php" method="post">
+						<label for="username">Username</label>
 						<br/>
 						<input type="text" name="username">
 						<br/>
-						<label for="email">Name</label>
+						<label for="name">Name</label>
 						<br/>
-						<input type="text" name="nome">
+						<input type="text" name="name">
 						<br/>
-						<label>Surname</label>
+						<label for="surname">Surname</label>
 						<br/>
-						<input type="text" name="cognome">
+						<input type="text" name="surname">
 						<br/>
-						<label>Birthday</label>
+						<label for="birthday">Birthday</label>
 						<br/>
-						<input type="date" name="data">
+						<input type="date" name="birthday">
 						<br/>
-						<label>Email</label>
+						<label for="email">Email</label>
 						<br/>
 						<input type="email" name="email">
 						<br/>
 						<br/>
-						<input type="button" onclick="show()" value="Change">
 						<label>Password</label>
+						<input type="button" onclick="hideShow()" value="Change">
 						<br/>
 						<div id="pass">
-							<input type="password" name="pass"><br>
-							<input type="password" name="re-pass"><br>
-							<input type="submit" onclick="hide()" value="Salva">
+							<input type="password" name="oldPassword" placeholder="Current Password"><br>
+							<input type="password" name="newPassword" placeholder="New Password"><br>
+							<input type="password" name="newPasswordConfirm" placeholder="Confirm Password"><br>
+							<input type="submit" onclick="hideShow()" value="Change Password">
 						</div>
-						<label>Custom album link</label>
+						<!--<label>Custom album link</label>
 						<br/>
 						<input type="text" value="Link" name="album-link">
-						<br/>
+						<br/>-->
 						<input type="submit" value="Save">
 					</form>
 				</div>
@@ -99,12 +100,12 @@
 </body>
 
 <script>
-	function show() {
-		document.getElementById("pass").style.display = "block";
-	}
-
-	function hide() {
-		document.getElementById("pass").style.display = "none";
+	function hideShow() {
+		var e = document.getElementById('pass');
+		if (e.style.display === 'none' || e.style.display === '')
+			e.style.display = 'block';
+		else
+			e.style.display = 'none'
 	}
 </script>
 
