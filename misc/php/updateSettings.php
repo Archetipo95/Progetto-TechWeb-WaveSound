@@ -11,7 +11,7 @@ BISOGNA RICORDARE TUTTI GLI ERRORI CHE AVVENGNO NELLO SWITCH COSI DA RIMANDARE A
 
 $postName = array("username","name","surname","birthday","email","oldPassword");
 $toBeChanged = array();
-
+  	
 /*
 **true is at 1st post not empty
 */
@@ -41,6 +41,7 @@ if(checkPost()){
 	//echo "there is at least 1 post set <br>";
 	global $postName,$toBeChanged;
 	toBeChanged();
+	session_start();
 	
 	for($i=0;$i<count($toBeChanged);$i++){
 		switch ($toBeChanged[$i]) {
@@ -49,26 +50,30 @@ if(checkPost()){
 				$query ="SELECT u_id FROM user WHERE username='$username';";
 				$result = $connection->query($query);
         		if (checkPresence($result->num_rows)){
-					session_start();
-					//cerca userID e metti al posto di username $username
+					$userID= $_SESSION["userID"];
+					$queryUser = "UPDATE user SET username = '$username' WHERE u_id = '$userID' ";
+					$UserResult = $connection->query($queryUser);
 				}else{
 					//user già preso gestire errore....
 				}
 				break;
 			case 1://name
 				$name = $_POST["name"];
-				session_start();
-				//cerca userID e metti al posto di name $name
+				$userID= $_SESSION["userID"];
+				$queryName = "UPDATE user SET name = '$name' WHERE u_id = '$userID' ";
+				$NameResult = $connection->query($queryName);
 				break;
 			 case 2://surname
 				$surname = $_POST["surname"];
-				session_start();
-				//cerca userID e metti al posto di surname $surnamme
+				$userID= $_SESSION["userID"];
+				$querySurname = "UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ";
+				$SurnameResult = $connection->query($querySurname);
 				break;
 			 case 3://birthday
 				$birthday = $_POST["birthday"];
-				session_start();
-				//cerca userID e metti al posto di birtday $birthday
+				$userID= $_SESSION["userID"];
+				$queryBirth = "UPDATE user SET birthday = '$birthday' WHERE u_id = '$userID' ";
+				$BirthResult = $connection->query($queryBirth);
 				break;
 			 case 4://email
 				$email = $_POST["email"];
@@ -76,8 +81,9 @@ if(checkPost()){
 					$query ="SELECT u_id FROM user WHERE email='$email';";
 					$result = $connection->query($query);
         			if (checkPresence($result->num_rows)){
-						session_start();
-						//cerca userID e metti al posto di email &email
+						$userID= $_SESSION["userID"];
+						$queryMail = "UPDATE user SET email = '$email' WHERE u_id = '$userID' ";
+						$MailResult = $connection->query($queryMail);
 					}else{
 						//email già presa gestire errore....
 					}
@@ -91,22 +97,22 @@ if(checkPost()){
 					$newPassword = $_POST['newPassword'];
 					$newPasswordConfirm = $_POST['newPasswordConfirm'];
 					if(checkPasswordLenght($newPassword) && confirmPassword($newPassword, $newPasswordConfirm)){
-						if(/*controllare che oldP sia uguale quella nel DB per motivi di sicurezza*/){
+						//if(/*controllare che oldP sia uguale quella nel DB per motivi di sicurezza*/){
 							//fare il cambio di password ....con hash e tutto il resto
-						}else{
+						//}else{
 							//old pass sbagliata
 						}
-					}else{
+					//}else{
 						//new pass corta o diversa da confirm gestire...
 					}
-				}else{
+				//}else{
 					//campo newPass o newPassConfir VUOTI gestire errore...
-				}
-				break;
-		}
-	}	
-}else{
-	sendMessage("Nothing to change");
+				//}
+				//break;
+		//}
+	//}	
+			}//else{
+	//sendMessage("Nothing to change");
+	}
 }
-
 ?>
