@@ -13,7 +13,7 @@ $postName = array("username","name","surname","birthday","email","oldPassword");
 $toBeChanged = array();
   	
 /*
-**true is at 1st post not empty
+**true at 1st post not empty
 */
 function checkPost(){
 	global $postName;
@@ -97,10 +97,20 @@ if(checkPost()){
 					$newPassword = $_POST['newPassword'];
 					$newPasswordConfirm = $_POST['newPasswordConfirm'];
 					if(checkPasswordLenght($newPassword) && confirmPassword($newPassword, $newPasswordConfirm)){
-						//if(/*controllare che oldP sia uguale quella nel DB per motivi di sicurezza*/){
-							//fare il cambio di password ....con hash e tutto il resto
-						//}else{
-							//old pass sbagliata
+						$userID= $_SESSION["userID"];
+						$query = "SELECT password FROM user WHERE u_id = '$userID' ";
+						$result = $connection->query($query);
+						$row = mysqli_fetch_row($result);
+						//$row[0] password in DB
+						if(password_verify($oldPassword,$row[0])){
+						//fare il cambio di password ....con hash e tutto il resto
+							$hash = securedHash($newPassword);
+							$query = "UPDATE user SET password = '$hash' WHERE u_id = '$userID' ";
+							$result = $connection->query($query);
+						}else{
+							//old p sbagliata
+						}
+						
 						}
 					//}else{
 						//new pass corta o diversa da confirm gestire...
