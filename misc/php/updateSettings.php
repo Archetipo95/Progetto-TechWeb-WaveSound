@@ -42,9 +42,11 @@ if(checkPost()){
 	global $postName,$toBeChanged;
 	toBeChanged();
 	session_start();
+	$userID= $_SESSION["userID"];
+	$errors;
 	
 	for($i=0;$i<count($toBeChanged);$i++){
-		switch ($toBeChanged[$i]) {
+		switch ($toBeChanged[$i]){
 			case 0://username
 				$username = $_POST["username"];
 				$query ="SELECT u_id FROM user WHERE username='$username';";
@@ -54,24 +56,21 @@ if(checkPost()){
 					$queryUser = "UPDATE user SET username = '$username' WHERE u_id = '$userID' ";
 					$UserResult = $connection->query($queryUser);
 				}else{
-					//user già preso gestire errore....
+					$errors = $errors . "Username already taken";
 				}
 				break;
 			case 1://name
 				$name = $_POST["name"];
-				$userID= $_SESSION["userID"];
 				$queryName = "UPDATE user SET name = '$name' WHERE u_id = '$userID' ";
 				$NameResult = $connection->query($queryName);
 				break;
 			 case 2://surname
 				$surname = $_POST["surname"];
-				$userID= $_SESSION["userID"];
 				$querySurname = "UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ";
 				$SurnameResult = $connection->query($querySurname);
 				break;
 			 case 3://birthday
 				$birthday = $_POST["birthday"];
-				$userID= $_SESSION["userID"];
 				$queryBirth = "UPDATE user SET birthday = '$birthday' WHERE u_id = '$userID' ";
 				$BirthResult = $connection->query($queryBirth);
 				break;
@@ -81,14 +80,13 @@ if(checkPost()){
 					$query ="SELECT u_id FROM user WHERE email='$email';";
 					$result = $connection->query($query);
         			if (checkPresence($result->num_rows)){
-						$userID= $_SESSION["userID"];
 						$queryMail = "UPDATE user SET email = '$email' WHERE u_id = '$userID' ";
 						$MailResult = $connection->query($queryMail);
 					}else{
-						//email già presa gestire errore....
+						$errors = $errors . " Email already used";
 					}
 				}else{
-					//email non valida gestire errore...
+					$errors = $errors . " Email not valid";
 				}
 				break;
 			 case 5://oldpassword
@@ -97,32 +95,29 @@ if(checkPost()){
 					$newPassword = $_POST['newPassword'];
 					$newPasswordConfirm = $_POST['newPasswordConfirm'];
 					if(checkPasswordLenght($newPassword) && confirmPassword($newPassword, $newPasswordConfirm)){
-						$userID= $_SESSION["userID"];
 						$query = "SELECT password FROM user WHERE u_id = '$userID' ";
 						$result = $connection->query($query);
 						$row = mysqli_fetch_row($result);
-						//$row[0] password in DB
 						if(password_verify($oldPassword,$row[0])){
-						//fare il cambio di password ....con hash e tutto il resto
 							$hash = securedHash($newPassword);
 							$query = "UPDATE user SET password = '$hash' WHERE u_id = '$userID' ";
 							$result = $connection->query($query);
 						}else{
-							//old p sbagliata
-						}
-						
-						}
-					//}else{
-						//new pass corta o diversa da confirm gestire...
+							$errors = $errors . " Old password is wrong";
+						}	
+					}else{
+						$errors = $errors . " New password too short or different from confirm";
 					}
-				//}else{
-					//campo newPass o newPassConfir VUOTI gestire errore...
-				//}
-				//break;
-		//}
-	//}	
-			}//else{
-	//sendMessage("Nothing to change");
+				}else{
+					$errors = $errors.+ " New password or confirm empty";
+				}
+				break;
+		}
 	}
+	if($errors === NULL)
+		$errors = "Everything was updated";
+	sendMessage("$errors");
+}else{
+	sendMessage("Nothing to change");
 }
 ?>
