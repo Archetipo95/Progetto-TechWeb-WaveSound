@@ -454,6 +454,30 @@ nav * {
 	border-top: 1px solid;
 }
 
+#nav-menu ul {
+	list-style: none;
+	font-size: 1.2em;
+	padding: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#nav-menu li {
+	padding: 0;
+	margin: 0;
+}
+
+#nav-menu a {
+	display: block;
+	margin: 0;
+	padding: .5em;
+	padding-left: 2em;
+}
+
+#nav-menu a:hover {
+	background-color: #4b69ba;
+}
+
 #profile-pic {
 	background-image: url('../img/default-profile.png');
 	display: inline-block;
