@@ -1,11 +1,18 @@
+<?php
+	session_start();
+?>
 <div id="nav-bar">
-	<p>You are in >> XXX</p>
+	<p>You are in >> <?php echo $_SESSION["current-page"]?></p>
 </div>
 <div id="nav-menu">
 	<ul>
-		<li><a href="search-music.html">Home</a></li>
+		<li><a href="main.html">Home</a></li>
 		<li><a href="search-music.html">Search Music</a></li>
-		<li><a href="#">My Favorites</a></li>
 		<li><a href="user-creations.html">My Creations</a></li>
+		<li><a href="user-soundtrack-upload.html">upload</a></li>
+		<li><a href="">test</a></li>
+		<li><a href="">test</a></li>
+		<li><a href="">test</a></li>
+		<li><a href="">test</a></li>
 	</ul>
 </div>
