@@ -65,6 +65,12 @@ CREATE TABLE `user` (
   `id_library` int(10)  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+CREATE TABLE `like` (
+  `id_element` int(10),
+  `u_id`       int(10),  
+  `score`      int(10),
+  PRIMARY KEY(`id_element`,`u_id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 
 --
