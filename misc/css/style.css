@@ -8,7 +8,7 @@ body {
 
 * {
 	font-family: 'Roboto', Helvetica, sans-serif;
-	color: #41425a;
+	color: #263238;
 }
 
 .pacifico {
@@ -50,15 +50,15 @@ body {
 	z-index: 99;
 	border: none;
 	outline: none;
-	background-color: #5ca1e6;
-	color: white;
+	background-color: #03A9F4;
+	color: #fff;
 	cursor: pointer;
 	padding: 1.5em;
 	border-radius: 50%;
 }
 
 #button-top:hover {
-	background-color: #84bbf2;
+	background-color: #81D4FA;
 }
 
 /*--------------------------------------------- head content --------------------------------------------*/
@@ -72,7 +72,7 @@ body {
 
 header {
 	position: fixed;
-	background-color: #5ca1e6;
+	background-color: #03A9F4;
 	height: auto;
 	width: 100%;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
@@ -142,14 +142,14 @@ header {
 #login-registration a:hover,
 #login-registration a:focus {
 	border-color: #fff;
-	background-color: #41425a;
+	background-color: #263238;
 	color: #fff;
 }
 
 #login-registration a:active {
 	background-color: #fff;
-	color: #41425a;
-	border-color: #41425a;
+	color: #263238;
+	border-color: #263238;
 }
 
 
@@ -191,10 +191,10 @@ main {
 
 .button-top3 button {
 	font-size: 1.2rem;
-	background-color:  #5ca1e6;
+	background-color:  #03A9F4;
 	border-radius: 2px;
 	border-style: solid;
-	border-color: #41425a;
+	border-color: #263238;
 	padding: .5em 1em;
 	display: inline-block;
 	width: 10em;
@@ -223,7 +223,7 @@ main {
 
 .button-top3 button:hover,
 .button-top3 button:focus {
-	background-color: #7bb9f7;
+	background-color: #81D4FA;
 }
 
 .button-top3 button:active {
@@ -232,7 +232,7 @@ main {
 .card-container {
 }
 .card {
-	background-color: #5ca1e6;
+	background-color: #03A9F4;
 	width: 20em;
 	height: 20em;
 	display: inline-block;
@@ -271,14 +271,14 @@ main {
 }
 
 .selected {
-	background-color: #555580 !important;
+	background-color: #0D47A1 !important;
 	color: #fff;
 }
 
 .section-sidelong {
 	position: relative;
 	margin-bottom: 2em;
-	background-image: linear-gradient(#5ca1e6, #2e2e80);
+	background-image: linear-gradient(#03A9F4, #0D47A1);
 	width: 100%;
 	z-index: -1;
 }
@@ -336,7 +336,7 @@ main {
 
 footer {
 	position: static;
-	background-color: #2e2e80;
+	background-color: #0D47A1;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -439,7 +439,7 @@ nav {
 	width: 15em;
 	height: 100%;
 	position: fixed;
-	background-color: #2e2e80;
+	background-color: #1565C0;
 }
 
 nav * {
@@ -456,7 +456,6 @@ nav * {
 
 #nav-menu ul {
 	list-style: none;
-	font-size: 1.2em;
 	padding: 0;
 	margin-top: 0;
 	margin-bottom: 0;
@@ -469,13 +468,20 @@ nav * {
 
 #nav-menu a {
 	display: block;
+	font-size: 1.2em;
 	margin: 0;
 	padding: .5em;
 	padding-left: 2em;
+	transition: all 0.2s cubic-bezier(0.4, 0.0, 1, 1);
 }
 
 #nav-menu a:hover {
-	background-color: #4b69ba;
+	background-color: #03A9F4;
+	transition: all 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+#nav-menu a:active {
+	background-color: #81D4FA;
 }
 
 #profile-pic {
@@ -516,7 +522,7 @@ table {
 }
 
 td, th {
-    border: 1px solid #1aa3ff;
+    border: 1px solid #03A9F4;
     text-align: left;
     padding: 8px;
 }
