@@ -472,12 +472,12 @@ nav * {
 	margin: 0;
 	padding: .5em;
 	padding-left: 2em;
-	transition: all 0.2s cubic-bezier(0.4, 0.0, 1, 1);
+	transition: all .5s cubic-bezier(0.4, 0.0, 1, 1);
 }
 
 #nav-menu a:hover {
 	background-color: #03A9F4;
-	transition: all 0.2s cubic-bezier(0.0, 0.0, 0.2, 1);
+	transition: all .5s cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 #nav-menu a:active {
