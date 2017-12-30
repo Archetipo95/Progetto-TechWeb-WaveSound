@@ -55,6 +55,8 @@ if(checkPost()){
 					$userID= $_SESSION["userID"];
 					$queryUser = "UPDATE user SET username = '$username' WHERE u_id = '$userID' ";
 					$UserResult = $connection->query($queryUser);
+					session_start();
+					$_SESSION["username"] = $username;
 				}else{
 					$errors = $errors . "Username already taken";
 				}

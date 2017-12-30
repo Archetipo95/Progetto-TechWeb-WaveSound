@@ -1,109 +1,131 @@
 <?php
 	require('misc/php/checkSession.php');
 	$_SESSION["current-page"]="Settings";
+	
+	require('misc/php/connection.php');
+	$id = $_SESSION["userID"];
+	$getUser = "SELECT * FROM user WHERE u_id='$id'";
+	$result = $connection->query($getUser);
+	$row = mysqli_fetch_row($result);
+		/*
+		$row[0] is User ID
+		$row[1] is Username
+		$row[2] is Name
+		$row[3] is Surname
+		$row[4] is Bday
+		$row[5] is email
+		$row[6] is User_Type
+		$row[7] is Password
+		$row[8] is Avatar
+		$row[9] is Id_library
+		*/
+	
 ?>
-<!DOCTYPE html>
-<html lang="en">
+	<!DOCTYPE html>
+	<html lang="en">
 
-<head>
+	<head>
 
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | Settings</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>WaveSound | Settings</title>
 
-	<!-- font + fav icon -->
-	<link rel="icon" type="image/png" href="misc/img/logo.png">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+		<!-- font + fav icon -->
+		<link rel="icon" type="image/png" href="misc/img/logo.png">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-	<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
 
-</head>
+	</head>
 
-<body>
+	<body>
 
-	<header>
-		<div data-include="misc/include/header.html"></div>
-	</header>
+		<header>
+			<div data-include="misc/include/header.html"></div>
+		</header>
 
-	<nav>
-		<div data-include="misc/include/navigation.html"></div>
-	</nav>
+		<nav>
+			<div data-include="misc/include/navigation.html"></div>
+		</nav>
 
-	<main class="main-right">
-		<div class="content-body">
-			<div class="content center" id="content-settings">
-				<h1>Profile Settings</h1>
-				<div class="container-settings">
-					<form action="misc/php/updateSettings.php" method="post">
-						<label for="username">Username</label>
-						<br/>
-						<input type="text" name="username">
-						<br/>
-						<label for="name">Name</label>
-						<br/>
-						<input type="text" name="name">
-						<br/>
-						<label for="surname">Surname</label>
-						<br/>
-						<input type="text" name="surname">
-						<br/>
-						<label for="birthday">Birthday</label>
-						<br/>
-						<input type="date" name="birthday">
-						<br/>
-						<label for="email">Email</label>
-						<br/>
-						<input type="email" name="email">
-						<br/>
-						<br/>
-						<label>Password</label>
-						<input type="button" onclick="hideShow()" value="Change">
-						<br/>
-						<div id="pass">
-							<input type="password" name="oldPassword" placeholder="Current Password"><br>
-							<input type="password" name="newPassword" placeholder="New Password"><br>
-							<input type="password" name="newPasswordConfirm" placeholder="Confirm Password"><br>
-							<input type="submit" onclick="hideShow()" value="Change Password">
-						</div>
-						<!--<label>Custom album link</label>
+		<main class="main-right">
+			<div class="content-body">
+				<div class="content center" id="content-settings">
+					<h1>Profile Settings</h1>
+					<div class="container-settings">
+						<form action="misc/php/updateSettings.php" method="post">
+							<label for="username">Username: <?php echo $row[1]; ?></label>
+							<br/>
+							<input type="text" name="username">
+							<br/>
+							<label for="name">Name: <?php echo $row[2]; ?></label>
+							<br/>
+							<input type="text" name="name">
+							<br/>
+							<label for="surname">Surname: <?php echo $row[3]; ?></label>
+							<br/>
+							<input type="text" name="surname">
+							<br/>
+							<label for="birthday">Birthday: <?php echo $row[4]; ?></label>
+							<br/>
+							<input type="date" name="birthday">
+							<br/>
+							<label for="email">Email: <?php echo $row[5]; ?></label>
+							<br/>
+							<input type="email" name="email">
+							<br/>
+							<!--<label>Custom album link</label>
 						<br/>
 						<input type="text" value="Link" name="album-link">
 						<br/>-->
-						<input type="submit" value="Save">
-					</form>
-				</div>
-				<div class="container-picture">
-					<img id="profile-picture" src="misc/img/default-profile.png">
-					<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
-						<input type="file" name="fileToUpload" id="fileToUpload">
-						<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
-					</form>
+							<input type="submit" value="Save">
+						</form>
+						
+						<form action="misc/php/updateSettings.php" method="post">
+							<label>Password</label>
+							<input type="button" onclick="hideShow()" value="Change">
+							<br/>
+							<div id="pass">
+								<input type="password" name="oldPassword" placeholder="Current Password"><br>
+								<input type="password" name="newPassword" placeholder="New Password"><br>
+								<input type="password" name="newPasswordConfirm" placeholder="Confirm Password"><br>
+								<input type="submit" onclick="hideShow()" value="Change Password">
+							</div>
+						</form>
+					</div>
+					<div class="container-picture">
+						<img id="profile-picture" src="misc/img/default-profile.png">
+						<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
+							<input type="file" name="fileToUpload" id="fileToUpload">
+							<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-	</main>
+		</main>
 
-	<footer class="footer-main">
-		<div data-include="misc/include/footer.html"></div>
-	</footer>
+		<footer class="footer-main">
+			<div data-include="misc/include/footer.html"></div>
+		</footer>
 
-	<script src="misc/js/include.js"></script>
+		<script src="misc/js/include.js"></script>
 
-	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+		<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 
-	<script src="misc/js/button-top.js"></script>
+		<script src="misc/js/button-top.js"></script>
 
-</body>
+	</body>
 
-<script>
-	function hideShow() {
-		var e = document.getElementById('pass');
-		if (e.style.display === 'none' || e.style.display === '')
-			e.style.display = 'block';
-		else
-			e.style.display = 'none'
-	}
-</script>
+	<script>
+		function hideShow() {
+			var e = document.getElementById('pass');
+			if (e.style.display === 'none' || e.style.display === '')
+				e.style.display = 'block';
+			else
+				e.style.display = 'none'
+		}
 
-</html>
+	</script>
+
+	</html>
