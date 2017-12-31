@@ -629,6 +629,40 @@ tr:nth-child(even) {
 	height: 15em;
 }
 
+/*------------------------------------------------- search-music.html ------------------------------------------------------------*/
+
+form.search-bar input[type=text] {
+    padding: 10px;
+    font-size: 15px;
+    border: 2px solid #2196F3;
+    float: left;
+    width: 60%;
+    background: #f1f1f1;
+}
+
+form.search-bar button {
+    display: inline-block;
+    width: 10%;
+    height: 2.8em;
+    background-color: #2196F3;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    background-image: url('../img/search-bar-glass.png');
+	background-repeat: no-repeat;
+    background-size: 2em;
+    background-position: center;
+     
+}
+
+form.search-bar button:hover {
+    background-color: #0b7dda;
+}
+
+.select {
+    margin-left: 2em;
+}
+
 /*
 .mobile-footer {
 	display: none;
