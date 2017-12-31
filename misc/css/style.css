@@ -422,28 +422,21 @@ footer * {
     margin-left: 1em;
 }
 
-#settings {
-	background-image: url('../img/settings.png');
-	display: inline-block;
-	margin-left: 3em;
-	border: 0;
-	width: 2em;
-	height: 2em;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
 #logout {
 	background-image: url('../img/logout.png');
 	display: inline-block;
 	margin-left: 0.8em;
 	border: 0;
-	width: 2em;
-	height: 2em;
+	width: 1.8em;
+	height: 1.8em;
 	background-repeat: no-repeat;
 	background-size: contain;
 	cursor: pointer;
+}
+
+#logout:hover {
+    background-image: url('../img/logout-white.png');
+    background-color: #03A9F4;
 }
 
 nav {
@@ -504,6 +497,23 @@ nav * {
 	background-repeat: no-repeat;
 	background-size: contain;
 	cursor: pointer;
+}
+
+#settings {
+	background-image: url('../img/settings.png');
+	display: inline-block;
+	margin-left: 3em;
+	border: 0;
+	width: 1.8em;
+	height: 1.8em;
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+
+#settings:hover {
+    background-image: url('../img/settings-white.png');
+    background-color: #03A9F4;
 }
 
 #username {
