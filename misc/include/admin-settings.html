@@ -35,18 +35,18 @@ $result->free();
 
 <h2>Delete an account that is not Admin</h2>
 
-<form>
+<form action="misc/php/adminSettings.php" method="post">
 	<label>Username to ban</label><br/>
 	<input type="text" required><br/>
-	<input type="submit">
+	<input type="submit" value="click" name="deleteAccount">
 </form>
 
 <h2>Give admin rights to an account</h2>
 
-<form>
+<form action="misc/php/adminSettings.php" method="post">
 	<label>Username</label><br/>
 	<input type="text" required><br/>
-	<input type="submit">
+	<input type="submit" value="click" name="newAdmin">
 </form>
 
 <?php
