@@ -13,14 +13,43 @@
 		$surname = $row['surname'];
 		$birthday = $row['birthday'];
 		$email = $row['email'];
+		$user_type = $row['user_type'];
+		if($user_type==0)
+			$user_type="user";
+		else
+			$user_type="admin";
 		echo "<tr>
-		<td>".$username."</td><td>".$name."</td><td>".$surname."</td><td>".$birthday."</td><td>".$email."</td></tr>";
+		<td>".$username."</td>
+		<td>".$name."</td>
+		<td>".$surname."</td>
+		<td>".$birthday."</td>
+		<td>".$email."</td>
+		<td>".$user_type."</td>
+		</tr>";
 	}
 	echo "</table>";
 	
 	/* free result set */
 $result->free();
+?>
 
+<h2>Delete an account that is not Admin</h2>
+
+<form>
+	<label>Username to ban</label><br/>
+	<input type="text" required><br/>
+	<input type="submit">
+</form>
+
+<h2>Give admin rights to an account</h2>
+
+<form>
+	<label>Username</label><br/>
+	<input type="text" required><br/>
+	<input type="submit">
+</form>
+
+<?php
 /* close connection */
 $connection->close();
 ?>

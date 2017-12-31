@@ -1,7 +1,6 @@
 document.onreadystatechange = function () {
 	if (document.readyState == "interactive") {
-		var elements = document.getElementsByTagName('*'),
-			i;
+		var elements = document.getElementsByTagName('*'),i;
 		for (i in elements) {
 			if (elements[i].hasAttribute && elements[i].hasAttribute('data-include')) {
 				fragment(elements[i],elements[i].getAttribute('data-include'));
