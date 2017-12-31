@@ -155,6 +155,7 @@ header {
 /*--------------------------------------------- main content ---------------------------------------*/
 
 main {
+	display: block;
 	min-height: 100vh;
 	padding-top: 10em;
 }
