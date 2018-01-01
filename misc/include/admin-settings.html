@@ -50,6 +50,18 @@ $result->free();
 </form>
 
 <?php
+	session_start();
+	if($_SESSION["userID"]=="0" && $_SESSION["username"]=="admin"){
+		echo '<h2>Take admin rights from an account</h2>
+				<form action="misc/php/adminSettings.php" method="post">
+					<label>Username</label><br/>
+					<input type="text" required><br/>
+					<input type="submit" value="click" name="takeAdmin">
+				</form>';
+	}
+?>
+
+<?php
 /* close connection */
 $connection->close();
 ?>

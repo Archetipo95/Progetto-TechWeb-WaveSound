@@ -15,10 +15,10 @@ function checkPresence($number){
 }
 
 /*
-**Returns true if password is at least 8 char
+**Returns true if password is at least 4 char ans less than 16
 */
 function checkPasswordLenght($pass){
-	return (strlen($pass) >= 8);
+	return (strlen($pass) >= 4 && strlen($pass) <= 16);
 }
 
 /*

@@ -3,17 +3,21 @@
 require('connection.php');
 require('msg.php');
 
-if(isset($_POST['email']) && isset($_POST['password'])){
+if(isset($_POST['login']) && isset($_POST['password'])){
 		
 	/*save varialble*/
 	$password = $_POST['password'];
-	$email = $_POST['email'];
+	$login = $_POST['login'];
 	
-	/*find out password*/
-	$getUser = "SELECT * FROM user WHERE email='$email'";
-	$result = $connection->query($getUser);
+	/*find out user*/
+	$getUserUsername = "SELECT * FROM user WHERE username='$login'";
+	$result = $connection->query($getUserUsername);
 	
-	/*check if email exist in db*/
+	/*find email*/
+	$getUserEmail = "SELECT * FROM user WHERE email='$login'";
+	$resultEmail = $connection->query($getUserEmail);
+	
+	/*check if user exist in db*/
 	if($result->num_rows === 1){
 		$row = mysqli_fetch_row($result);
 		/*
@@ -29,6 +33,17 @@ if(isset($_POST['email']) && isset($_POST['password'])){
 		$row[9] is Id_library
 		*/
 		/*check password correctness*/
+		if(password_verify($password,$row[7])){
+			/*find out username*/
+			session_start();
+			$_SESSION["userID"] = $row[0];
+			$_SESSION["username"] = $row[1];
+			header("Location:../../main.html");
+		}else{
+			sendMessage("Login Failed");
+		}
+	}else if($resultEmail === 1){
+		$row = mysqli_fetch_row($resultEmail);
 		if(password_verify($password,$row[7])){
 			/*find out username*/
 			session_start();
