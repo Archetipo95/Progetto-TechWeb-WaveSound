@@ -84,6 +84,10 @@ header {
 	margin-right: auto;
 }
 
+.header-container a {
+	text-decoration: none;
+}
+
 .header-left {
 	display: inline-block;
 	width: 49%;
@@ -98,8 +102,45 @@ header {
 	text-align: right;
 }
 
-.img-link {
-	text-decoration: none;
+#username-picture {
+	display: inline-block;
+}
+
+#username {
+	display: inline-block;
+	vertical-align: 0.5em;
+	font-weight: bold;
+	margin: 0 .5em 0 0;
+}
+
+.head-icon {
+	display: inline-block;
+	margin: 0 .5em;
+	width: 1.9em;
+	height: 1.9em;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+#profile-pic {
+	background-image: url('../img/default-profile.png');
+}
+
+#settings {
+	background-image: url('../img/settings.png');
+}
+
+#settings:hover {
+    background-image: url('../img/settings-white.png');
+}
+
+#logout {
+	background-image: url('../img/logout.png');
+	margin-left: 1em;
+}
+
+#logout:hover {
+    background-image: url('../img/logout-white.png');
 }
 
 #logo {
@@ -422,23 +463,6 @@ footer * {
     margin-left: 1em;
 }
 
-#logout {
-	background-image: url('../img/logout.png');
-	display: inline-block;
-	margin-left: 0.8em;
-	border: 0;
-	width: 1.8em;
-	height: 1.8em;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
-#logout:hover {
-    background-image: url('../img/logout-white.png');
-    background-color: #03A9F4;
-}
-
 nav {
 	margin-top: 5em;
 	width: 15em;
@@ -485,44 +509,6 @@ nav * {
 
 #nav-menu a:active {
 	background-color: #81D4FA;
-}
-
-#profile-pic {
-	background-image: url('../img/default-profile.png');
-	display: inline-block;
-	margin-right: 0.5em;
-	border 0;
-	width: 2em;
-	height: 2em;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
-#settings {
-	background-image: url('../img/settings.png');
-	display: inline-block;
-	margin-left: 3em;
-	border: 0;
-	width: 1.8em;
-	height: 1.8em;
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-}
-
-#settings:hover {
-    background-image: url('../img/settings-white.png');
-    background-color: #03A9F4;
-}
-
-#username {
-	display: inline-block;
-	vertical-align: 0.5em;
-}
-
-#username-picture {
-	display: inline-block;
 }
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
@@ -592,12 +578,12 @@ tr:nth-child(even) {
 	width: 10em;
 }
 
-#button-submit {
+.button-green {
 	background-color: #4CAF50;
 }
 
-#button-cancel {
-	background-color: #f44336;
+.button-red {
+	background-color: #F44336;
 }
 
 #legal {
@@ -615,6 +601,21 @@ tr:nth-child(even) {
 	display: inline-block;
 	width: 50%;
 	text-align: left;
+}
+
+.container-normal{
+	display: inline-block;
+	width: 50%;
+}
+
+.container-password{
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+
+.current {
+	font-weight: bold;
 }
 
 .container-settings form input{

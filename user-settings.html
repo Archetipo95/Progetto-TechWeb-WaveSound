@@ -54,45 +54,48 @@
 				<div class="content center" id="content-settings">
 					<h1>Profile Settings</h1>
 					<div class="container-settings">
-						<form action="misc/php/updateSettings.php" method="post">
-							<label for="username">Username: <?php echo $row[1]; ?></label>
-							<br/>
-							<input type="text" name="username">
-							<br/>
-							<label for="name">Name: <?php echo $row[2]; ?></label>
-							<br/>
-							<input type="text" name="name">
-							<br/>
-							<label for="surname">Surname: <?php echo $row[3]; ?></label>
-							<br/>
-							<input type="text" name="surname">
-							<br/>
-							<label for="birthday">Birthday: <?php echo $row[4]; ?></label>
-							<br/>
-							<input type="date" name="birthday">
-							<br/>
-							<label for="email">Email: <?php echo $row[5]; ?></label>
-							<br/>
-							<input type="email" name="email">
-							<br/>
-							<!--<label>Custom album link</label>
+						<div class="container-normal">
+							<form action="misc/php/updateSettings.php" method="post">
+								<label for="username">Username: <?php echo '<span class="current">'.$row[1].'</span>'; ?></label>
+								<br/>
+								<input type="text" name="username">
+								<br/>
+								<label for="name">Name: <?php echo '<span class="current">'.$row[2].'</span>'; ?></label>
+								<br/>
+								<input type="text" name="name">
+								<br/>
+								<label for="surname">Surname: <?php echo '<span class="current">'.$row[3].'</span>'; ?></label>
+								<br/>
+								<input type="text" name="surname">
+								<br/>
+								<label for="birthday">Birthday: <?php echo '<span class="current">'.$row[4].'</span>'; ?></label>
+								<br/>
+								<input type="date" name="birthday">
+								<br/>
+								<label for="email">Email: <?php echo '<span class="current">'.$row[5].'</span>'; ?></label>
+								<br/>
+								<input type="email" name="email">
+								<br/>
+								<!--<label>Custom album link</label>
 						<br/>
 						<input type="text" value="Link" name="album-link">
 						<br/>-->
-							<input type="submit" value="Save">
-						</form>
-						
-						<form action="misc/php/updateSettings.php" method="post">
-							<label>Password</label>
-							<input type="button" onclick="hideShow()" value="Change">
-							<br/>
-							<div id="pass">
-								<input type="password" name="oldPassword" placeholder="Current Password" required><br>
-								<input type="password" name="newPassword" placeholder="New Password" required><br>
-								<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
-								<input type="submit" onclick="hideShow()" value="Change Password">
-							</div>
-						</form>
+								<input type="submit" value="Save">
+							</form>
+						</div>
+						<div class="container-password">
+							<form action="misc/php/updateSettings.php" method="post">
+								<label>Password</label>
+								<input class="form-buttons button-red" type="button" onclick="hideShow()" value="Modify">
+								<br/>
+								<div id="pass">
+									<input type="password" name="oldPassword" placeholder="Current Password" required><br>
+									<input type="password" name="newPassword" placeholder="New Password" required><br>
+									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
+									<input class="form-buttons button-red" type="submit" onclick="hideShow()" value="Change Password">
+								</div>
+							</form>
+						</div>
 					</div>
 					<div class="container-picture">
 						<img id="profile-picture" src="misc/img/default-profile.png">

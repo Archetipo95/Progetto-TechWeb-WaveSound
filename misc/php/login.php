@@ -9,15 +9,18 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 	$password = $_POST['password'];
 	$login = $_POST['login'];
 	
-	/*find out user*/
+	/*search for username*/
 	$getUserUsername = "SELECT * FROM user WHERE username='$login'";
 	$result = $connection->query($getUserUsername);
-	
-	/*find email*/
-	$getUserEmail = "SELECT * FROM user WHERE email='$login'";
-	$resultEmail = $connection->query($getUserEmail);
-	
-	/*check if user exist in db*/
+	$resultEmail = 0;
+	/*search for email*/
+	if(filter_var($login,FILTER_VALIDATE_EMAIL)){
+		$getUserEmail = "SELECT * FROM user WHERE email='$login'";
+		$resultEmail = $connection->query($getUserEmail);
+	}else{
+		$resultEmail = 0;
+	}
+	/*if user exist in db*/
 	if($result->num_rows === 1){
 		$row = mysqli_fetch_row($result);
 		/*
@@ -34,7 +37,7 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 		*/
 		/*check password correctness*/
 		if(password_verify($password,$row[7])){
-			/*find out username*/
+			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];
 			$_SESSION["username"] = $row[1];
@@ -42,10 +45,11 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 		}else{
 			sendMessage("Login Failed");
 		}
-	}else if($resultEmail === 1){
+	}/*if email exist in db*/
+	else if($resultEmail === 1){
 		$row = mysqli_fetch_row($resultEmail);
 		if(password_verify($password,$row[7])){
-			/*find out username*/
+			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];
 			$_SESSION["username"] = $row[1];
