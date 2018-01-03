@@ -2,13 +2,13 @@
 
 html,
 body {
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 * {
-	font-family: 'Roboto', Helvetica, sans-serif;
 	color: #263238;
+	font-family: 'Roboto', Helvetica, sans-serif;
 }
 
 .pacifico {
@@ -25,35 +25,30 @@ body {
 	font-style: italic;
 }
 
-.justify {
-	text-align: justify;
-}
-
 .center {
-	text-align: center;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
 }
 
 .hidden {
 	display: none;
 }
 
-/*---------------------------------------------button to jump top---------------------------------------------*/
+/*---------------------------------------------button back to top---------------------------------------------*/
 
 #button-top {
-	display: none;
 	position: fixed;
-	bottom: 3em;
 	right: 2em;
+	bottom: 3em;
 	z-index: 99;
+	display: none;
+	padding: 1.5em;
 	border: none;
-	outline: none;
+	border-radius: 50%;
 	background-color: #03A9F4;
 	color: #fff;
 	cursor: pointer;
-	padding: 1.5em;
-	border-radius: 50%;
 }
 
 #button-top:hover {
@@ -62,26 +57,18 @@ body {
 
 /*--------------------------------------------- head content --------------------------------------------*/
 
-#brand {
-	display: inline-block;
-	vertical-align: middle;
-	font-size: 2.5em;
-	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
-}
-
 header {
 	position: fixed;
-	background-color: #03A9F4;
-	height: auto;
 	width: 100%;
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	height: auto;
+	background-color: #03A9F4;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20), 0 5px 10px rgba(0, 0, 0, 0.25);
 }
 
 .header-container {
-	width: 90%;
-	height: 100%;
-	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
+	width: 90%;
 }
 
 .header-container a {
@@ -90,14 +77,31 @@ header {
 
 .header-left {
 	display: inline-block;
-	width: 49%;
-	/* ci va 49 perchè CSS fa schifo vedi https://goo.gl/EVrpfx*/
+	width: 40%;
 	vertical-align: middle;
+}
+
+#logo {
+	display: inline-block;
+	margin-right: -1em;
+	width: 5em;
+	height: 5em;
+	background-image: url('../img/logo.png');
+	background-size: contain;
+	background-repeat: no-repeat;
+	vertical-align: middle;
+}
+
+#brand {
+	display: inline-block;
+	vertical-align: middle;
+	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+	font-size: 2.5em;
 }
 
 .header-right {
 	display: inline-block;
-	width: 50%;
+	width: 55%;
 	vertical-align: middle;
 	text-align: right;
 }
@@ -108,18 +112,21 @@ header {
 
 #username {
 	display: inline-block;
+	margin: 0 .5em 0 0;
 	vertical-align: 0.5em;
 	font-weight: bold;
-	margin: 0 .5em 0 0;
 }
 
 .head-icon {
 	display: inline-block;
-	margin: 0 .5em;
 	width: 1.9em;
 	height: 1.9em;
-	background-repeat: no-repeat;
 	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+.header-right a {
+	margin: 0 .5em;
 }
 
 #profile-pic {
@@ -131,27 +138,15 @@ header {
 }
 
 #settings:hover {
-    background-image: url('../img/settings-white.png');
+	background-image: url('../img/settings-white.png');
 }
 
 #logout {
 	background-image: url('../img/logout.png');
-	margin-left: 1em;
 }
 
 #logout:hover {
-    background-image: url('../img/logout-white.png');
-}
-
-#logo {
-	display: inline-block;
-	width: 5em;
-	height: 5em;
-	margin-right: -1em;
-	background-image: url('../img/logo.png');
-	background-repeat: no-repeat;
-	background-size: contain;
-	vertical-align: middle;
+	background-image: url('../img/logout-white.png');
 }
 
 #join-us {
@@ -162,21 +157,20 @@ header {
 
 #login-registration {
 	display: inline-block;
+	margin-left: 1em;
 	vertical-align: middle;
 	font-size: 1.2em;
-	margin-left: 1em;
 }
 
 #login-registration a {
 	display: inline-block;
-	vertical-align: middle;
+	margin: .3em;
+	padding: .5em;
 	border-style: solid;
 	border-radius: 2px;
-	padding: .5em;
+	vertical-align: middle;
 	text-align: center;
 	text-decoration: none;
-	margin: .3em;
-	cursor: pointer;
 }
 
 #login-registration a:hover,
@@ -187,18 +181,18 @@ header {
 }
 
 #login-registration a:active {
+	border-color: #263238;
 	background-color: #fff;
 	color: #263238;
-	border-color: #263238;
 }
 
 
-/*--------------------------------------------- main content ---------------------------------------*/
+/*--------------------------------------------- home page for logged users content ---------------------------------------*/
 
 main {
 	display: block;
-	min-height: 100vh;
 	padding-top: 10em;
+	min-height: 100vh;
 }
 
 .section {
@@ -211,9 +205,9 @@ main {
 }
 
 #title1 {
-	font-size: 3em;
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: 3em;
 }
 
 #title2 {
@@ -226,19 +220,21 @@ main {
 	margin-bottom: 5em;
 }
 
+/* Per eliminare gli spazi bianchi dovuti ai figli inline */
+
 .button-top3 {
-	font-size: 0; /* Per eliminare gli spazi bianchi dovuti ai figli inline */
+	font-size: 0;
 }
 
 .button-top3 button {
-	font-size: 1.2rem;
-	background-color:  #03A9F4;
-	border-radius: 2px;
+	display: inline-block;
+	padding: .5em 1em;
+	width: 10em;
 	border-style: solid;
 	border-color: #263238;
-	padding: .5em 1em;
-	display: inline-block;
-	width: 10em;
+	border-radius: 2px;
+	background-color: #03A9F4;
+	font-size: 1.2rem;
 }
 
 #button-week {
@@ -248,12 +244,9 @@ main {
 }
 
 #button-month {
-	border-left: none;
 	border-right: none;
-	border-top-right-radius: 0;
-	border-top-left-radius: 0;
-	border-bottom-right-radius: 0;
-	border-bottom-left-radius: 0;
+	border-left: none;
+	border-radius: 0;
 }
 
 #button-year {
@@ -270,18 +263,19 @@ main {
 .button-top3 button:active {
 	background-color: #fff;
 }
-.card-container {
-}
+
+.card-container {}
+
 .card {
-	background-color: #03A9F4;
-	width: 20em;
-	height: 20em;
 	display: inline-block;
-	vertical-align: top;
 	margin: 1em;
 	padding: 1em;
+	width: 20em;
+	height: 20em;
 	border-radius: 2px;
+	background-color: #03A9F4;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	vertical-align: top;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
@@ -290,9 +284,9 @@ main {
 }
 
 .card-container {
-	width: 85%;
 	margin-top: 3em;
 	margin-bottom: 2em;
+	width: 85%;
 }
 
 .card-container > h1 {
@@ -300,15 +294,15 @@ main {
 }
 
 #deco1 {
-    display:  inline-block;
-    width: 250px;
-    content: url('../img/deco1.jpg');
+	display: inline-block;
+	width: 250px;
+	content: url('../img/deco1.jpg');
 }
 
 #deco2 {
-    display: inline-block;
-    width: 250px;
-    content: url('../img/deco2.jpg');
+	display: inline-block;
+	width: 250px;
+	content: url('../img/deco2.jpg');
 }
 
 .selected {
@@ -318,10 +312,10 @@ main {
 
 .section-sidelong {
 	position: relative;
-	margin-bottom: 2em;
-	background-image: linear-gradient(#03A9F4, #0D47A1);
-	width: 100%;
 	z-index: -1;
+	margin-bottom: 2em;
+	width: 100%;
+	background-image: linear-gradient(#03A9F4, #0D47A1);
 }
 
 .section-sidelong * {
@@ -343,7 +337,7 @@ main {
 }
 
 .sidelong-padding {
-	padding-top:10rem;
+	padding-top: 10rem;
 	padding-bottom: 10rem;
 	width: 90%;
 	font-size: 0;
@@ -351,20 +345,20 @@ main {
 
 .left-sidelong {
 	display: inline-block;
-	width: 50%;
 	margin-right: 10%;
-	font-size: 1rem;
-	text-align: left;
+	width: 50%;
 	vertical-align: middle;
+	text-align: left;
+	font-size: 1rem;
 }
 
 .right-sidelong {
 	display: inline-block;
-	width: 40%;
-	max-width: 20rem;
 	min-width: 5rem;
-	text-align: right;
+	max-width: 20rem;
+	width: 40%;
 	vertical-align: middle;
+	text-align: right;
 }
 
 .right-sidelong img {
@@ -377,12 +371,12 @@ main {
 
 footer {
 	position: static;
-	background-color: #0D47A1;
+	right: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
-	min-height: 5em;
 	padding: 1em;
+	min-height: 5em;
+	background-color: #0D47A1;
 }
 
 footer * {
@@ -395,8 +389,8 @@ footer * {
 
 .footer-bot {
 	position: relative;
-	bottom: 0;
 	right: 0;
+	bottom: 0;
 	left: 0;
 }
 
@@ -431,13 +425,13 @@ footer * {
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
 .main-right {
-	padding-left: 15em;
 	padding-top: 5em;
+	padding-left: 15em;
 }
 
 .content-body {
-	width: 100%;
 	min-height: 100vh;
+	width: 100%;
 }
 
 .content {
@@ -445,29 +439,29 @@ footer * {
 }
 
 .content-card-container {
-    display: inline-block;
+	display: inline-block;
 }
 
 .content-card-cover {
-	background-color: #5ca1e6;
-	width: 10em;
-	height: 8em;
 	display: inline-block;
 	margin: 1em;
 	padding: 1em;
+	width: 10em;
+	height: 8em;
 	border-radius: 2px;
+	background-color: #5ca1e6;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .content-card-details {
-    margin-left: 1em;
+	margin-left: 1em;
 }
 
 nav {
+	position: fixed;
 	margin-top: 5em;
 	width: 15em;
 	height: 100%;
-	position: fixed;
 	background-color: #1565C0;
 }
 
@@ -484,23 +478,23 @@ nav * {
 }
 
 #nav-menu ul {
-	list-style: none;
-	padding: 0;
 	margin-top: 0;
 	margin-bottom: 0;
+	padding: 0;
+	list-style: none;
 }
 
 #nav-menu li {
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
 #nav-menu a {
 	display: block;
-	font-size: 1.2em;
 	margin: 0;
 	padding: .5em;
 	padding-left: 2em;
+	font-size: 1.2em;
 }
 
 #nav-menu a:hover {
@@ -513,43 +507,35 @@ nav * {
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
 
-a.button {
-    -webkit-appearance: button;
-    -moz-appearance: button;
-    appearance: button;
-    text-decoration: none;
-    color: initial;
-    padding: 5px;
-}
-
 table {
-    border-collapse: collapse;
-    width: 100%;
+	width: 100%;
+	border-collapse: collapse;
 }
 
-td, th {
-    border: 1px solid #03A9F4;
-    text-align: left;
-    padding: 8px;
+td,
+th {
+	padding: 8px;
+	border: 1px solid #03A9F4;
+	text-align: left;
 }
 
 tr:nth-child(even) {
-    background-color: #b3e0ff;
+	background-color: #b3e0ff;
 }
 
 /*------------------------------------------------- user-soundtrack-upload.html --------------------------------------------------*/
 
 #content-user-upload {
-    margin-left: 1em;
-    margin-top: 2em;
+	margin-top: 2em;
+	margin-left: 1em;
 }
 
 /*-------------------------------------------------- login.html & register.html --------------------------------------------------*/
 
 .reglog {
 	padding-top: 5em;
-	width: 95%;
 	min-height: 100vh;
+	width: 95%;
 }
 
 .reglog-title {
@@ -557,25 +543,25 @@ tr:nth-child(even) {
 }
 
 .reglog form {
-	border: 1px solid #f1f1f1;
 	padding: 1em;
+	border: 1px solid #f1f1f1;
 	font-size: 1.5em;
 }
 
 .input-text input {
-	width: 30em;
-	padding: 1em .5em;
 	margin: 1em 0;
+	padding: 1em .5em;
+	width: 30em;
 	border: 1px solid #ccc;
 }
 
 .form-buttons {
-	color: white;
-	padding: 1em;
 	margin: 1em;
-	border: none;
-	cursor: pointer;
+	padding: 1em;
 	width: 10em;
+	border: none;
+	color: white;
+	cursor: pointer;
 }
 
 .button-green {
@@ -597,18 +583,18 @@ tr:nth-child(even) {
 }
 
 .container-settings {
-    margin-top: 2.5em;
 	display: inline-block;
+	margin-top: 2.5em;
 	width: 50%;
 	text-align: left;
 }
 
-.container-normal{
+.container-normal {
 	display: inline-block;
 	width: 50%;
 }
 
-.container-password{
+.container-password {
 	display: inline-block;
 	width: 49%;
 	vertical-align: top;
@@ -618,14 +604,14 @@ tr:nth-child(even) {
 	font-weight: bold;
 }
 
-.container-settings form input{
-	padding: .5em 1em;
+.container-settings form input {
 	margin: 1em;
+	padding: .5em 1em;
 }
 
 .container-picture {
-    margin-top: 0.5em;
 	display: inline-block;
+	margin-top: 0.5em;
 	width: 49%;
 	vertical-align: top;
 	text-align: right;
@@ -643,35 +629,34 @@ tr:nth-child(even) {
 /*------------------------------------------------- search-music.html ------------------------------------------------------------*/
 
 form.search-bar input[type=text] {
-    padding: 10px;
-    font-size: 15px;
-    border: 2px solid #2196F3;
-    float: left;
-    width: 60%;
-    background: #f1f1f1;
+	float: left;
+	padding: 10px;
+	width: 60%;
+	border: 2px solid #2196F3;
+	background: #f1f1f1;
+	font-size: 15px;
 }
 
 form.search-bar button {
-    display: inline-block;
-    width: 10%;
-    height: 2.8em;
-    background-color: #2196F3;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    background-image: url('../img/search-bar-glass.png');
+	display: inline-block;
+	width: 10%;
+	height: 2.8em;
+	border: none;
+	background-color: #2196F3;
+	background-image: url('../img/search-bar-glass.png');
+	background-position: center;
+	background-size: 2em;
 	background-repeat: no-repeat;
-    background-size: 2em;
-    background-position: center;
-     
+	font-size: 15px;
+	cursor: pointer;
 }
 
 form.search-bar button:hover {
-    background-color: #0b7dda;
+	background-color: #0b7dda;
 }
 
 .select {
-    margin-left: 2em;
+	margin-left: 2em;
 }
 
 /*
