@@ -5,6 +5,6 @@
 	session_destroy();
 
 	require('msg.php');
-	sendMessage("You have successfully logged out");
+	sendMessage("You have successfully logged out", 1);
 
 ?>

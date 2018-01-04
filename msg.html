@@ -28,7 +28,14 @@
 	<header>
 		<div class="header-container">
 			<div class="header-left">
-				<a class="img-link" href="main.html">
+			<?php
+				if(isset($_SESSION["link"])){
+    				echo '<a class="img-link" href="index.html">';
+    			}else{
+    				echo '<a class="img-link" href="main.html">';
+    			}
+			?>
+				
 					<div id="logo"></div>
 					<div id="brand" class="pacifico italic">WaveSound</div>
 				</a>
@@ -47,7 +54,9 @@
 	<main class="center">
 		<h1>Message from <span class="pacifico italic"> WaveSound </span> team</h1>
 		
-		<?php echo "<h1>".$_SESSION["msg"]."</h1>"?>
+		<?php
+			echo "<h1>".$_SESSION["msg"]."</h1>";
+		?>
 		
 	</main>
 
