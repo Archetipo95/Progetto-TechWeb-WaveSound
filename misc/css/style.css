@@ -507,6 +507,7 @@ nav * {
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
 
+/* NON BISOGNA USARE TABLE TD TH TR SE NO APPLICHI LO STILE DI 1 TABELLA A TUTTE LE ALTRE
 table {
 	width: 100%;
 	border-collapse: collapse;
@@ -521,7 +522,7 @@ th {
 
 tr:nth-child(even) {
 	background-color: #b3e0ff;
-}
+}*/
 
 /*------------------------------------------------- user-soundtrack-upload.html --------------------------------------------------*/
 
@@ -578,18 +579,18 @@ tr:nth-child(even) {
 
 /*----------------------------------------------------- user-settings.html -----------------------------------------------------*/
 
-#content-settings {
-	width: 90%;
+.user {
+	padding: 2em;
 }
 
-.container-settings {
+.container-user-settings {
 	display: inline-block;
 	margin-top: 2.5em;
 	width: 50%;
 	text-align: left;
 }
 
-.container-normal {
+.container-settings {
 	display: inline-block;
 	width: 50%;
 }
@@ -604,7 +605,7 @@ tr:nth-child(even) {
 	font-weight: bold;
 }
 
-.container-settings form input {
+.container-user-settings form input {
 	margin: 1em;
 	padding: .5em 1em;
 }
@@ -614,7 +615,6 @@ tr:nth-child(even) {
 	margin-top: 0.5em;
 	width: 49%;
 	vertical-align: top;
-	text-align: right;
 }
 
 #pass {
@@ -624,6 +624,35 @@ tr:nth-child(even) {
 #profile-picture {
 	width: 15em;
 	height: 15em;
+}
+
+.admin {
+	padding: 2em;
+	border-radius: 2px;
+	background-color: #EF9A9A;
+}
+
+.admin h2 {
+	text-align: left;
+}
+
+#users-info {
+	width: 100%;
+	border-spacing: 0;
+	text-align: left;
+}
+
+#users-info th {
+	border-bottom: 2px solid #263238;
+}
+
+#users-info th,
+#users-info td {
+	padding: .5em;
+}
+
+#users-info tr:nth-child(odd) {
+	background-color: #ef5350;
 }
 
 /*------------------------------------------------- search-music.html ------------------------------------------------------------*/

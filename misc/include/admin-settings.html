@@ -1,12 +1,23 @@
-<h1>Admin Settings</h1>
+<div class="admin">
+	<h1>Admin Settings</h1>
 
-<h2>View all users info</h2>
+	<h2>All users info:</h2>
 
-<?php
+	<?php
 	require('../php/connection.php');
 	$query = "SELECT * FROM user";
 	$result = $connection->query($query);
-	echo "<table>";
+	echo '
+		<table id="users-info">
+		<tr>
+			<th>Username</th>
+			<th>Name</th>
+			<th>Surname</th>
+			<th>Birthday</th>
+			<th>Email</th>
+			<th>Admin</th>
+		</tr>
+	';
 	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 		$username = $row['username'];
 		$name = $row['name'];
@@ -15,9 +26,9 @@
 		$email = $row['email'];
 		$user_type = $row['user_type'];
 		if($user_type==0)
-			$user_type="user";
+			$user_type="no";
 		else
-			$user_type="admin";
+			$user_type="yes";
 		echo "<tr>
 		<td>".$username."</td>
 		<td>".$name."</td>
@@ -30,26 +41,28 @@
 	echo "</table>";
 	
 	/* free result set */
-$result->free();
+	$result->free();
+	/* close connection */
+	$connection->close();
 ?>
 
-<h2>Delete an account that is not Admin</h2>
+		<h2>Delete an account that is not Admin</h2>
 
-<form action="misc/php/adminSettings.php" method="post">
-	<label>Username to ban</label><br/>
-	<input type="text" required><br/>
-	<input type="submit" value="click" name="deleteAccount">
-</form>
+		<form action="misc/php/adminSettings.php" method="post">
+			<label>Username to ban</label><br/>
+			<input type="text" required><br/>
+			<input type="submit" value="click" name="deleteAccount">
+		</form>
 
-<h2>Give admin rights to an account</h2>
+		<h2>Give admin rights to an account</h2>
 
-<form action="misc/php/adminSettings.php" method="post">
-	<label>Username</label><br/>
-	<input type="text" required><br/>
-	<input type="submit" value="click" name="newAdmin">
-</form>
+		<form action="misc/php/adminSettings.php" method="post">
+			<label>Username</label><br/>
+			<input type="text" required><br/>
+			<input type="submit" value="click" name="newAdmin">
+		</form>
 
-<?php
+		<?php
 	session_start();
 	if($_SESSION["userID"]=="0" && $_SESSION["username"]=="admin"){
 		echo '<h2>Take admin rights from an account</h2>
@@ -61,7 +74,4 @@ $result->free();
 	}
 ?>
 
-<?php
-/* close connection */
-$connection->close();
-?>
+</div>

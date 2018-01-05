@@ -51,65 +51,65 @@
 
 		<main class="main-right">
 			<div class="content-body">
-				<div class="content center" id="content-settings">
-					<h1>Profile Settings</h1>
-					<div class="container-settings">
-						<div class="container-normal">
-							<form action="misc/php/updateSettings.php" method="post">
-								<label for="username">Username: <?php echo '<span class="current">'.$row[1].'</span>'; ?></label>
-								<br/>
-								<input type="text" name="username">
-								<br/>
-								<label for="name">Name: <?php echo '<span class="current">'.$row[2].'</span>'; ?></label>
-								<br/>
-								<input type="text" name="name">
-								<br/>
-								<label for="surname">Surname: <?php echo '<span class="current">'.$row[3].'</span>'; ?></label>
-								<br/>
-								<input type="text" name="surname">
-								<br/>
-								<label for="birthday">Birthday: <?php echo '<span class="current">'.$row[4].'</span>'; ?></label>
-								<br/>
-								<input type="date" name="birthday">
-								<br/>
-								<label for="email">Email: <?php echo '<span class="current">'.$row[5].'</span>'; ?></label>
-								<br/>
-								<input type="email" name="email">
-								<br/>
-								<!--<label>Custom album link</label>
+				<div class="content center">
+					<div class="user">
+						<h1>Profile Settings</h1>
+						<div class="container-user-settings">
+							<div class="container-settings">
+								<form action="misc/php/updateSettings.php" method="post">
+									<label for="username">Username: <?php echo '<span class="current">'.$row[1].'</span>'; ?></label>
+									<br/>
+									<input type="text" name="username">
+									<br/>
+									<label for="name">Name: <?php echo '<span class="current">'.$row[2].'</span>'; ?></label>
+									<br/>
+									<input type="text" name="name">
+									<br/>
+									<label for="surname">Surname: <?php echo '<span class="current">'.$row[3].'</span>'; ?></label>
+									<br/>
+									<input type="text" name="surname">
+									<br/>
+									<label for="birthday">Birthday: <?php echo '<span class="current">'.$row[4].'</span>'; ?></label>
+									<br/>
+									<input type="date" name="birthday">
+									<br/>
+									<label for="email">Email: <?php echo '<span class="current">'.$row[5].'</span>'; ?></label>
+									<br/>
+									<input type="email" name="email">
+									<br/>
+									<!--<label>Custom album link</label>
 						<br/>
 						<input type="text" value="Link" name="album-link">
 						<br/>-->
-								<input type="submit" value="Save">
+									<input type="submit" value="Save">
+								</form>
+							</div>
+							<div class="container-password">
+								<form action="misc/php/updateSettings.php" method="post">
+									<label>Password</label>
+									<input class="form-buttons button-red" type="button" onclick="hideShow()" value="Modify">
+									<br/>
+									<div id="pass">
+										<input type="password" name="oldPassword" placeholder="Current Password" required><br>
+										<input type="password" name="newPassword" placeholder="New Password" required><br>
+										<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
+										<input class="form-buttons button-red" type="submit" onclick="hideShow()" value="Change Password">
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="container-picture">
+							<img id="profile-picture" src="misc/img/default-profile.png">
+							<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
+								<input type="file" name="fileToUpload" id="fileToUpload">
+								<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
 							</form>
 						</div>
-						<div class="container-password">
-							<form action="misc/php/updateSettings.php" method="post">
-								<label>Password</label>
-								<input class="form-buttons button-red" type="button" onclick="hideShow()" value="Modify">
-								<br/>
-								<div id="pass">
-									<input type="password" name="oldPassword" placeholder="Current Password" required><br>
-									<input type="password" name="newPassword" placeholder="New Password" required><br>
-									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
-									<input class="form-buttons button-red" type="submit" onclick="hideShow()" value="Change Password">
-								</div>
-							</form>
-						</div>
-					</div>
-					<div class="container-picture">
-						<img id="profile-picture" src="misc/img/default-profile.png">
-						<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
-							<input type="file" name="fileToUpload" id="fileToUpload">
-							<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
-						</form>
 					</div>
 					<?php 
-					
-					if($row[6]==1){
-						echo '<div data-include="misc/include/admin-settings.html"></div>'; 
-					}
-					
+						if($row[6]==1){
+							echo '<div data-include="misc/include/admin-settings.html"></div>'; 
+						}
 					?>
 				</div>
 			</div>
