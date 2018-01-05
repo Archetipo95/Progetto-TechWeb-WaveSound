@@ -40,7 +40,7 @@ body {
 #button-top {
 	position: fixed;
 	right: 2em;
-	bottom: 3em;
+	bottom: 3.5em;
 	z-index: 99;
 	display: none;
 	padding: 1.5em;
