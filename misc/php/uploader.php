@@ -1,5 +1,10 @@
 <?php
-$target_dir = "../img/profili";
+
+require('checkSession.php');
+
+
+
+$target_dir = "../img/users/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -37,6 +42,13 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		$_SESSION["avatar"] = basename( $_FILES["fileToUpload"]["name"]);
+		/*aggiornare db*/
+		require('connection.php');
+		$avata = $_SESSION["avatar"];
+		$idi = $_SESSION["userID"];
+		$updateAvatar = "UPDATE user SET avatar = '$avata' WHERE u_id = '$idi' ";
+		$result = $connection->query($updateAvatar);
     } else {
         echo "Sorry, there was an error uploading your file.";
     }

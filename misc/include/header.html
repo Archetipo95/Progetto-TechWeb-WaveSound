@@ -10,7 +10,7 @@
 	</div>
 	<div class="header-right">
 		<div id="username-picture">
-			<div class="head-icon" id="profile-pic"></div>
+			<div class="head-icon"><?php echo '<img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'" />';?></div>
 			<div id="username"><?php echo $_SESSION["username"]?></div>
 		</div>
 		<a href="user-settings.html" title="settings">

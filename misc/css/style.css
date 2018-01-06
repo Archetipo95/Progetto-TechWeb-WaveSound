@@ -112,7 +112,7 @@ header {
 
 #username {
 	display: inline-block;
-	margin: 0 .5em 0 0;
+	margin: 0 .5em 0 1em;
 	vertical-align: 0.5em;
 	font-weight: bold;
 }
@@ -130,7 +130,10 @@ header {
 }
 
 #profile-pic {
-	background-image: url('../img/default-profile.png');
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	border: 2px solid #000;
 }
 
 #settings {

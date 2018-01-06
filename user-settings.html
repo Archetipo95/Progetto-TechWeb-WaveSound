@@ -99,7 +99,9 @@
 							</div>
 						</div>
 						<div class="container-picture">
-							<img id="profile-picture" src="misc/img/default-profile.png">
+						<?php
+							echo '<img id="profile-picture" src="misc/img/users/'.$row[8].'">';
+						?>
 							<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
 								<input type="file" name="fileToUpload" id="fileToUpload">
 								<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">

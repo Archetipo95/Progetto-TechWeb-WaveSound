@@ -41,6 +41,7 @@ if(isset($_POST['login']) && isset($_POST['password'])){
 			session_start();
 			$_SESSION["userID"] = $row[0];
 			$_SESSION["username"] = $row[1];
+			$_SESSION["avatar"] = $row[8];
 			header("Location:../../main.html");
 		}else{
 			sendMessage("Login Failed");

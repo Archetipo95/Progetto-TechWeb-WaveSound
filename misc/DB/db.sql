@@ -61,7 +61,7 @@ CREATE TABLE `user` (
   `email` varchar(254) COLLATE utf8_unicode_ci NOT NULL,
   `user_type` int(1) NOT NULL DEFAULT '0',
   `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `avatar` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `avatar` varchar(200) COLLATE utf8_unicode_ci DEFAULT 'default-profile.png',
   `id_library` int(10)  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
