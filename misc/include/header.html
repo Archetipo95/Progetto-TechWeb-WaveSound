@@ -3,21 +3,46 @@
 ?>
 <div class="header-container">
 	<div class="header-left">
-		<a href="/main.html" title="home page">
+		<?php
+			if(basename($_SERVER['PHP_SELF']) != 'register.html' && basename($_SERVER['PHP_SELF']) != 'login.html' && basename($_SERVER['PHP_SELF']) != 'msg.html' && basename($_SERVER['PHP_SELF']) != 'index.html'){
+    				echo '<a class="img-link" href="main.html">';
+    			}else{
+    				echo '<a class="img-link" href="index.html">';
+    			}
+		?>
 			<div id="logo"></div>
 			<div id="brand" class="pacifico italic">WaveSound</div>
-		</a>
+		<?php echo '</a>'; ?>
 	</div>
 	<div class="header-right">
-		<div id="username-picture">
-			<div class="head-icon"><?php echo '<img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'" />';?></div>
-			<div id="username"><?php echo $_SESSION["username"]?></div>
-		</div>
-		<a href="user-settings.html" title="settings">
-			<div class="head-icon" id="settings"></div>
-		</a>
-		<a href="misc/php/logout.php" title="logout">
-			<div class="head-icon" id="logout"></div>
-		</a>
+		<?php
+			if(isset($_SESSION['userID'])){
+				echo '
+					<div id="username-picture">
+						<div class="head-icon"><img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'" /></div>
+						<div id="username">'.$_SESSION["username"].'</div>
+					</div>
+					<a href="user-settings.html" title="settings">
+						<div class="head-icon" id="settings"></div>
+					</a>
+					<a href="misc/php/logout.php" title="logout">
+						<div class="head-icon" id="logout"></div>
+					</a>
+				';
+			}else{
+				echo '
+					<div id="join-us">
+						Join our community, it\'s 100% free
+					</div>
+				';
+				if(basename($_SERVER['PHP_SELF']) != 'register.html' && basename($_SERVER['PHP_SELF']) != 'login.html'){
+					echo '
+						<div id="login-registration">
+							<a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
+						</div>
+					';
+				}
+			}
+		?>
 	</div>
 </div>

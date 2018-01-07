@@ -1,9 +1,3 @@
-<?php
-	session_start();
-	if(!isset($_SESSION["msg"])){
-    	$_SESSION["msg"]="This is not an EasterEgg";
-    }
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,29 +20,12 @@
 <body>
 
 	<header>
-		<div class="header-container">
-			<div class="header-left">
-			<?php
-				if(isset($_SESSION["link"])){
-    				echo '<a class="img-link" href="index.html">';
-    			}else{
-    				echo '<a class="img-link" href="main.html">';
-    			}
-			?>
-				
-					<div id="logo"></div>
-					<div id="brand" class="pacifico italic">WaveSound</div>
-				</a>
-			</div>
-			<div class="header-right">
-				<div id="join-us">
-					Join our community, it's 100% free
-				</div>
-				<div id="login-registration">
-					<a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
-				</div>
-			</div>
-		</div>
+		<?php
+			include("misc/include/header.html");
+			if(!isset($_SESSION["msg"])){
+    			$_SESSION["msg"]="This is not an EasterEgg";
+    		}
+		?>
 	</header>
 
 	<main class="center">

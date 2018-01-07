@@ -4,7 +4,7 @@
 	<h2>All users info:</h2>
 
 	<?php
-	require('../php/connection.php');
+	require('misc/php/connection.php');
 	$query = "SELECT * FROM user";
 	$result = $connection->query($query);
 	echo '
@@ -63,7 +63,6 @@
 		</form>
 
 		<?php
-	session_start();
 	if($_SESSION["userID"]=="0" && $_SESSION["username"]=="admin"){
 		echo '<h2>Take admin rights from an account</h2>
 				<form action="misc/php/adminSettings.php" method="post">
