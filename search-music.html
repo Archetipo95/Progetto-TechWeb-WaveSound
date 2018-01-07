@@ -1,7 +1,3 @@
-<?php
-	require('misc/php/checkSession.php');
-	$_SESSION["current-page"]="Search Music";
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,11 +20,17 @@
 <body>
 
 	<header>
-		<div data-include="misc/include/header.html"></div>
+		<?php
+			include("misc/include/header.html");
+			$_SESSION["current-page"]="Search Music";
+		?>
+		
 	</header>
 
 	<nav>
-		<div data-include="misc/include/navigation.html"></div>
+		<?php
+			include("misc/include/navigation.html");
+		?>
 	</nav>
 
 	<main class="main-right">
@@ -84,10 +86,10 @@
 	</main>
 
 	<footer class="footer-main">
-		<div data-include="misc/include/footer.html"></div>
+		<?php
+			include("misc/include/footer.html");
+		?>
 	</footer>
-
-	<script src="misc/js/include.js"></script>
 
 	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 

@@ -380,6 +380,7 @@ footer {
 	padding: 1em;
 	min-height: 5em;
 	background-color: #0D47A1;
+	display: block;
 }
 
 footer * {

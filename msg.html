@@ -60,11 +60,11 @@
 		
 	</main>
 
-	<footer class="footer">
-		<div data-include="misc/include/footer.html"></div>
+	<footer>
+		<?php
+			readfile("misc/include/footer.html");
+		?>
 	</footer>
-
-	<script src="misc/js/include.js"></script>
 	
 	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 
