@@ -78,9 +78,9 @@
 								<input type="email" name="email">
 								<br/>
 								<!--<label>Custom album link</label>
-						<br/>
-						<input type="text" value="Link" name="album-link">
-						<br/>-->
+									<br/>
+								<input type="text" value="Link" name="album-link">
+									<br/>-->
 								<input type="submit" value="Save">
 							</form>
 						</div>
@@ -105,6 +105,9 @@
 							<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
 								<input type="file" name="fileToUpload" id="fileToUpload">
 								<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
+							</form>
+							<form action="misc/php/adminSettings.php" method="post">
+								<input type="submit" value="Reset Avatar" name="resetAvatar">
 							</form>
 					</div>
 				</div>

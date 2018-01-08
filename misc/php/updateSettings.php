@@ -1,13 +1,8 @@
 <?php
-/*
 
-BISOGNA RICORDARE TUTTI GLI ERRORI CHE AVVENGNO NELLO SWITCH COSI DA RIMANDARE ALLA PAGINA MSG.HTML CON UN MSG UNICO
-
-*/
-
-	require('connection.php');
-	require('msg.php');
-	require('tools.php');
+require('connection.php');
+require('msg.php');
+require('tools.php');
 
 $postName = array("username","name","surname","birthday","email","oldPassword");
 $toBeChanged = array();
@@ -122,4 +117,5 @@ if(checkPost()){
 }else{
 	sendMessage("Nothing to change");
 }
+
 ?>
