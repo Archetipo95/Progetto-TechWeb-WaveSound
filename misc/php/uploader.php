@@ -56,12 +56,11 @@ else {
 		echo "The file " . basename($_FILES["fileToUpload"]["name"]) . " has been uploaded.";
 		$_SESSION["avatar"] = basename($_FILES["fileToUpload"]["name"]);
 		/*aggiornare db*/
-		require ('connection.php');
+		require ('tools.php');
 
 		$avatar = $_SESSION["avatar"];
 		$userID = $_SESSION["userID"];
-		$updateAvatar = "UPDATE user SET avatar = '$avatar' WHERE u_id = '$userID' ";
-		$result = $connection->query($updateAvatar);
+		update("UPDATE user SET avatar = '$avatar' WHERE u_id = '$userID' ");
 		sendMessage("Your avatar image was updated");
 	}
 	else {

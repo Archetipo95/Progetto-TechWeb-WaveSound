@@ -3,18 +3,18 @@ require ('connection.php');
 
 require ('msg.php');
 
+require ('tools.php');
+
 if (isset($_POST['login']) && isset($_POST['password'])) {
 	/*save varialble*/
 	$password = $_POST['password'];
 	$login = $_POST['login'];
 	/*search for username*/
-	$getUserUsername = "SELECT * FROM user WHERE username='$login'";
-	$result = $connection->query($getUserUsername);
+	$result = select("SELECT * FROM user WHERE username='$login'");
 	$resultEmail = 0;
 	/*search for email*/
 	if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
-		$getUserEmail = "SELECT * FROM user WHERE email='$login'";
-		$resultEmail = $connection->query($getUserEmail);
+		$resultEmail = select("SELECT * FROM user WHERE email='$login'");
 	}
 	else {
 		$resultEmail = 0;

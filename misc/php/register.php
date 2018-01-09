@@ -9,8 +9,7 @@ require ('tools.php');
 **Returns true if all form post are present
 */
 
-function checkPost()
-{
+function checkPost() {
 	return (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['psw-repeat']) && !empty($_POST['email']));
 }
 
@@ -25,13 +24,11 @@ if (checkPost()) {
 	$error = false;
 	/*check valid email*/
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		$emailUsed = "SELECT u_id FROM user WHERE email='$email';";
-		$result = $connection->query($emailUsed);
+		$result = select("SELECT u_id FROM user WHERE email='$email';");
 		/*check email already used*/
 		if (checkPresence($result->num_rows)) {
 			/*check username already used*/
-			$usernameUsed = "SELECT u_id FROM user WHERE username='$username';";
-			$result = $connection->query($usernameUsed);
+			$result = select("SELECT u_id FROM user WHERE username='$username';");
 			if (checkPresence($result->num_rows)) {
 				/*check password lenght*/
 				if (checkPasswordLenght($password)) {
@@ -68,8 +65,7 @@ if (checkPost()) {
 
 	if (!$error) {
 		$pass_hash = securedHash($password);
-		$insertQuery = "INSERT INTO user (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');";
-		$result = $connection->query($insertQuery);
+		insert("INSERT INTO user (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');");
 		sendMessage("$username your account was successfully created");
 	}
 }

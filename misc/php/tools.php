@@ -28,4 +28,20 @@ function confirmPassword($pass, $passConfirm){
 	return ($pass === $passConfirm);
 }
 
+function select($query){
+	require ('connection.php');
+	$result = $connection->query($query);
+	return $result;
+}
+
+function update($query){
+	require ('connection.php');
+	$result = $connection->query($query);
+}
+
+function insert($query){
+	require ('connection.php');
+	$result = $connection->query($query);
+}
+
 ?>

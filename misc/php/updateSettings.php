@@ -44,12 +44,11 @@ if(checkPost()){
 		switch ($toBeChanged[$i]){
 			case 0://username
 				$username = $_POST["username"];
-				$query ="SELECT u_id FROM user WHERE username='$username';";
-				$result = $connection->query($query);
+				$result = select("SELECT u_id FROM user WHERE username='$username';");
+
         		if (checkPresence($result->num_rows)){
 					$userID= $_SESSION["userID"];
-					$queryUser = "UPDATE user SET username = '$username' WHERE u_id = '$userID' ";
-					$UserResult = $connection->query($queryUser);
+					update("UPDATE user SET username = '$username' WHERE u_id = '$userID' ");
 					session_start();
 					$_SESSION["username"] = $username;
 				}else{
@@ -58,27 +57,22 @@ if(checkPost()){
 				break;
 			case 1://name
 				$name = $_POST["name"];
-				$queryName = "UPDATE user SET name = '$name' WHERE u_id = '$userID' ";
-				$NameResult = $connection->query($queryName);
+				update("UPDATE user SET name = '$name' WHERE u_id = '$userID' ");
 				break;
 			 case 2://surname
 				$surname = $_POST["surname"];
-				$querySurname = "UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ";
-				$SurnameResult = $connection->query($querySurname);
+				update("UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ");
 				break;
 			 case 3://birthday
 				$birthday = $_POST["birthday"];
-				$queryBirth = "UPDATE user SET birthday = '$birthday' WHERE u_id = '$userID' ";
-				$BirthResult = $connection->query($queryBirth);
+				update("UPDATE user SET birthday = '$birthday' WHERE u_id = '$userID' ");
 				break;
 			 case 4://email
 				$email = $_POST["email"];
 				if(filter_var($email,FILTER_VALIDATE_EMAIL)){
-					$query ="SELECT u_id FROM user WHERE email='$email';";
-					$result = $connection->query($query);
+					$result = select("SELECT u_id FROM user WHERE email='$email';");
         			if (checkPresence($result->num_rows)){
-						$queryMail = "UPDATE user SET email = '$email' WHERE u_id = '$userID' ";
-						$MailResult = $connection->query($queryMail);
+						update("UPDATE user SET email = '$email' WHERE u_id = '$userID' ");
 					}else{
 						$errors = $errors . " Email already used";
 					}
@@ -92,13 +86,11 @@ if(checkPost()){
 					$newPassword = $_POST['newPassword'];
 					$newPasswordConfirm = $_POST['newPasswordConfirm'];
 					if(checkPasswordLenght($newPassword) && confirmPassword($newPassword, $newPasswordConfirm)){
-						$query = "SELECT password FROM user WHERE u_id = '$userID' ";
-						$result = $connection->query($query);
+						$result = select("SELECT password FROM user WHERE u_id = '$userID' ");
 						$row = mysqli_fetch_row($result);
 						if(password_verify($oldPassword,$row[0])){
 							$hash = securedHash($newPassword);
-							$query = "UPDATE user SET password = '$hash' WHERE u_id = '$userID' ";
-							$result = $connection->query($query);
+							update("UPDATE user SET password = '$hash' WHERE u_id = '$userID' ");
 						}else{
 							$errors = $errors . " Old password is wrong";
 						}	
