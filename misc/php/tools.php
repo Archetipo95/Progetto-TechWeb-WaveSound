@@ -28,6 +28,4 @@ function confirmPassword($pass, $passConfirm){
 	return ($pass === $passConfirm);
 }
 
-
-
 ?>

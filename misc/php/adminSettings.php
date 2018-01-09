@@ -31,8 +31,9 @@
     	$query = "UPDATE user SET avatar = 'default-profile.png' WHERE u_id = '$userID' ";
 		$querySend = $connection->query($query);
 		header("Location:../../user-settings.html");
-}
-if(isset($_POST['resetAvatar'])){
-		resetAvatar();
-}
+	}
+
+	if(isset($_POST['resetAvatar'])){
+			resetAvatar();
+	}
 ?>
