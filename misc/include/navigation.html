@@ -3,13 +3,10 @@
 </div>
 <div id="nav-menu">
 	<ul>
-		<li><a href="main.html">Home</a></li>
-		<li><a href="search-music.html">Search Music</a></li>
-		<li><a href="user-creations.html">My Creations</a></li>
-		<li><a href="user-soundtrack-upload.html">upload</a></li>
-		<li><a href="">test</a></li>
-		<li><a href="">test</a></li>
-		<li><a href="">test</a></li>
-		<li><a href="">test</a></li>
+		<li><?php if($_SESSION["current-page"] == 'Home') echo '<a id="currentPage"'; else echo '<a';?> href="main.html">Home</a></li>
+		<li><?php if($_SESSION["current-page"] == 'Search Music') echo '<a id="currentPage"'; else echo '<a';?> href="search-music.html">Search Music</a></li>
+		<li><?php if($_SESSION["current-page"] == 'My Creations') echo '<a id="currentPage"'; else echo '<a';?> href="user-creations.html">My Creations</a></li>
+		<li><?php if($_SESSION["current-page"] == 'Music') echo '<a id="currentPage"'; else echo '<a';?> href="user-soundtrack-upload.html">upload</a></li>
 	</ul>
 </div>
+

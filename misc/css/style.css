@@ -499,6 +499,10 @@ nav * {
 	font-size: 1.2em;
 }
 
+#currentPage {
+	background-color: #03A9F4;
+}
+
 #nav-menu a:hover {
 	background-color: #03A9F4;
 }
