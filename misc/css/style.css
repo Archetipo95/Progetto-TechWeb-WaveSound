@@ -68,7 +68,7 @@ header {
 .header-container {
 	margin-right: auto;
 	margin-left: auto;
-	width: 90%;
+	width: 100%;
 }
 
 .header-container a {
@@ -94,7 +94,6 @@ header {
 #brand {
 	display: inline-block;
     vertical-align: middle;
-    margin-top: -0.3em;
     margin-left: -0.5em;
 	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 	font-size: 1.2em;
@@ -163,7 +162,7 @@ header {
 
 #login-registration {
     margin-right: -2.5em;
-	font-size: 0.6em;
+	font-size: 0.7em;
 }
 
 #login-registration a {
@@ -221,8 +220,8 @@ main {
 }
 
 .section-top3 {
-	margin-top: 5em;
-	margin-bottom: 5em;
+	margin-top: 3em;
+	margin-bottom: 3em;
 }
 
 /* Per eliminare gli spazi bianchi dovuti ai figli inline */
@@ -243,19 +242,17 @@ main {
 }
 
 #button-week {
-	border-right: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
 #button-month {
-	border-right: none;
-	border-left: none;
+    border-top: none;
+    border-bottom: none;
 	border-radius: 0;
 }
 
 #button-year {
-	border-left: none;
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
@@ -275,8 +272,8 @@ main {
 	display: inline-block;
 	margin: 1em;
 	padding: 1em;
-	width: 20em;
-	height: 20em;
+	width: 12em;
+	height: 12em;
 	border-radius: 2px;
 	background-color: #03A9F4;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -331,19 +328,19 @@ main {
 	position: absolute;
 	top: 0;
 	width: 100%;
-	height: 10%;
+	height: 0px;
 }
 
 #svg-bot {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	height: 10%;
+	height: 0px;
 }
 
 .sidelong-padding {
-	padding-top: 10rem;
-	padding-bottom: 10rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	width: 90%;
 	font-size: 0;
 }
@@ -540,32 +537,38 @@ tr:nth-child(even) {
 /*-------------------------------------------------- login.html & register.html --------------------------------------------------*/
 
 .reglog {
-	padding-top: 5em;
+	padding-top: 3em;
 	min-height: 100vh;
 	width: 95%;
 }
 
 .reglog-title {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
+    font-size: 0.6em;
 }
 
 .reglog form {
 	padding: 1em;
 	border: 1px solid #f1f1f1;
-	font-size: 1.5em;
+	font-size: 0.8em;
+}
+
+.input-text label{
+    font-size: 1rem;
 }
 
 .input-text input {
 	margin: 1em 0;
 	padding: 1em .5em;
-	width: 30em;
+	width: 18em;
 	border: 1px solid #ccc;
 }
 
 .form-buttons {
-	margin: 1em;
+	margin-top: 1em;
+    margin-bottom: 1em;
 	padding: 1em;
-	width: 10em;
+	width: 8em;
 	border: none;
 	color: white;
 	cursor: pointer;
@@ -580,7 +583,7 @@ tr:nth-child(even) {
 }
 
 #legal {
-	font-size: .5em;
+	font-size: 0.8em;
 }
 
 /*----------------------------------------------------- user-settings.html -----------------------------------------------------*/
@@ -700,7 +703,11 @@ form.search-bar button:hover {
 
 @media screen and (min-width: 760px) {
     
-/*---------------------- header -----------------------*/    
+/*---------------------- header -----------------------*/
+    .header-container {
+	   width: 90%;
+    }
+    
     .header-left {
         width: 40%;
         vertical-align: middle;
@@ -738,9 +745,27 @@ form.search-bar button:hover {
     #title1 {
         font-size: 3em;
     }
+    
+    .section-top3 {
+	   margin-top: 5em;
+	   margin-bottom: 5em;
+    }
 
     #title2 {
         font-size: 1.8em;
+    }
+    
+    #svg-top {
+	   height: 10%;
+    }
+
+    #svg-bot {
+	   height: 10%;
+    }
+    
+    .sidelong-padding {
+	   padding-top: 5rem;
+	   padding-bottom: 5rem;
     }
     
     .left-sidelong {
@@ -755,5 +780,52 @@ form.search-bar button:hover {
         display: inline-block;
     }
     
+    #button-week {
+        border-right: none;
+    }
+
+    #button-month {
+        border-top: solid 2px;
+        border-bottom: solid 2px;
+    }
+
+    #button-year {
+        border-left: none;
+    }
+    
+    .card {
+        width: 15em;
+        height: 15em;
+    }
+    
+/*-------------- login.html & register.html ----------------*/
+    .reglog {
+        padding-top: 6em;
+    }
+
+    .reglog-title {
+        margin-bottom: 1em;
+        font-size: 1.2em;
+    }
+    
+    .reglog form {
+        font-size: 1.2em;
+    }
+
+    .input-text label{
+        font-size: 1.3rem;
+    }
+    
+    .input-text input {
+        width: 30em;
+    }
+    
+    .form-buttons {
+        margin: 1em;
+    }
+    
+    #legal {
+	   font-size: 0.5em;
+}
     
 }
