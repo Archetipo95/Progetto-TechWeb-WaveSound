@@ -48,15 +48,16 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 			sendMessage("Login Failed");
 		}
 	}
-
+	
 	/*if email exist in db*/
-	else if ($resultEmail === 1) {
+	else if ($resultEmail->num_rows === 1) {
 		$row = mysqli_fetch_row($resultEmail);
 		if (password_verify($password, $row[7])) {
 			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];
 			$_SESSION["username"] = $row[1];
+			$_SESSION["avatar"] = $row[8];
 			header("Location:../../main.html");
 		}
 		else {
