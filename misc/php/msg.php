@@ -1,6 +1,6 @@
 <?php
 
-function sendMessage($msg, $link){
+function sendMessage($msg){
 	session_start();
 	$_SESSION["msg"] = $msg;
 	$_SESSION["link"] = $link;
