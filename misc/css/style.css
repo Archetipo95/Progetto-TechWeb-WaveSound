@@ -89,6 +89,7 @@ header {
 	background-size: contain;
 	background-repeat: no-repeat;
 	vertical-align: middle;
+    
 }
 
 #brand {
@@ -107,8 +108,12 @@ header {
 	text-align: right;
 }
 
+.header-right a {
+	margin: 0 .5em;
+}
+
 #username-picture {
-	display: inline-block;
+	display: none;
 }
 
 #username {
@@ -120,25 +125,23 @@ header {
 
 .head-icon {
 	display: inline-block;
-	width: 1.9em;
-	height: 1.9em;
+	width: 1.8em;
+	height: 1.8em;
 	background-size: contain;
 	background-repeat: no-repeat;
 }
 
-.header-right a {
-	margin: 0 .5em;
-}
-
 #profile-pic {
-	width: 2em;
-	height: 2em;
+    width: 2em;
+    height: 2em;
 	border-radius: 50%;
 	border: 2px solid #000;
 }
 
 #settings {
 	background-image: url('../img/settings.png');
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
 }
 
 #settings:hover {
@@ -147,6 +150,9 @@ header {
 
 #logout {
 	background-image: url('../img/logout.png');
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+    margin-right: -1.5em;
 }
 
 #logout:hover {
@@ -162,6 +168,8 @@ header {
 
 #login-registration {
     margin-right: -2.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 	font-size: 0.7em;
 }
 
@@ -190,7 +198,7 @@ header {
 }
 
 
-/*--------------------------------------------- home page for logged users content ---------------------------------------*/
+/*--------------------------------------------- home page for not logged users content ---------------------------------------*/
 
 main {
 	display: block;
@@ -737,6 +745,24 @@ form.search-bar button:hover {
         font-size: 1.2em;
     }
     
+    .head-icon {
+        width: 2em;
+        height: 2em;
+    }
+    
+    #username-picture {
+	   display: inline-block;
+    }
+    
+    #settings {
+        margin-left: 1em;
+    }
+    
+    #logout {
+        margin-right: -3em;
+        margin-left: 1em;
+    }
+    
 /*--------------------- index.html --------------------*/
     .welcome {
         margin-top: -1.5em;
@@ -826,6 +852,10 @@ form.search-bar button:hover {
     
     #legal {
 	   font-size: 0.5em;
-}
+    }
+    
+/*----------------------- main.html ------------------------*/    
+
+    
     
 }
