@@ -46,31 +46,65 @@
 	$connection->close();
 ?>
 
-		<h2>Delete an account that is not Admin</h2>
+	<h2>Delete an account that is not Admin</h2>
 
-		<form action="misc/php/adminSettings.php" method="post">
-			<label>Username to ban</label><br/>
-			<input type="text" required><br/>
-			<input type="submit" value="click" name="deleteAccount">
-		</form>
+	<form action="misc/php/adminSettings.php" method="post">
+		<label>Username to ban</label><br/>
+		<input type="text" name="user" required><br/>
+		<input type="submit" value="click" name="deleteAccount">
+	</form>
 
-		<h2>Give admin rights to an account</h2>
+	<h2>Give admin rights to an account</h2>
 
-		<form action="misc/php/adminSettings.php" method="post">
-			<label>Username</label><br/>
-			<input type="text" required><br/>
-			<input type="submit" value="click" name="newAdmin">
-		</form>
-
+	<form action="misc/php/adminSettings.php" method="post">
+		<label>Username</label><br/>
+		<input type="text" name="user" required><br/>
+		<input type="submit" value="click" name="newAdmin">
+	</form>
+	
+	<h2>Revoke admin rights from an account</h2>
+	<form action="misc/php/adminSettings.php" method="post">
+		<label>Username</label><br/>
+		<input type="text" name="user" required><br/>
+		<input type="submit" value="click" name="takeAdmin">
+	</form>
+	
+	<h2>Comments</h2>
 		<?php
-	if($_SESSION["userID"]=="0" && $_SESSION["username"]=="admin"){
-		echo '<h2>Take admin rights from an account</h2>
-				<form action="misc/php/adminSettings.php" method="post">
-					<label>Username</label><br/>
-					<input type="text" required><br/>
-					<input type="submit" value="click" name="takeAdmin">
-				</form>';
-	}
-?>
+		require('misc/php/connection.php');
+		$queryComm = "SELECT com_id,description,reason FROM comment, warning_comments WHERE comment.comm_id=warning_comments.com_id";
+		$result = $connection->query($queryComm);
+		
+		echo '
+			<table id="users-info">
+			<tr>
+				<th>Comments</th>
+				<th>Reason</th>
+				<th>Code</th>
+			</tr>
+		';
+		//$ris=mysqli_fetch_row($result);
+		//$com_id=$ris['0'];
+		//$_SESSION['com_id']=$com_id;
+
+		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+			$comment=$row['description'];
+			$reason=$row['reason'];
+			$id=$row['com_id'];
+			echo "<tr>
+					<td>".$comment."</td>
+					<td>".$reason."</td>	
+					<td>".$id."</td>
+				 </tr>";
+		}
+		echo "</table>";
+		$connection->close();
+	?>
+	<br/>
+	<label>Comment to manage(id required)</label><br/>
+	<form action='misc/php/adminSettings.php' method='post'>
+	<input type="text" name="id" required><br/>
+	<input type="submit" value="Ignore" name="ignoreComment">
+	<input type="submit" value="Delete" name="deleteComment">
 
 </div>

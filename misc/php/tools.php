@@ -44,4 +44,9 @@ function insert($query){
 	$result = $connection->query($query);
 }
 
+function delete($query){
+	require('connection.php');
+	$result= $connection->query($query);
+}
+
 ?>
