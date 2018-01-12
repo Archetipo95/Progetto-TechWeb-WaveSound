@@ -64,8 +64,8 @@ if (checkPost()) {
 	}
 
 	if (!$error) {
-		$pass_hash = securedHash($password);
-		insert("INSERT INTO user (`username`,`email`, `password`) VALUES ('$username','$email', '$pass_hash');");
+		//$pass_hash = securedHash($password);
+		insert("INSERT INTO user (`username`,`email`, `password`) VALUES ('$username','$email', '$password');");
 		sendMessage("$username your account was successfully created");
 	}
 }

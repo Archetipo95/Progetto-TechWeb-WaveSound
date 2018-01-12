@@ -36,7 +36,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 		$row[9] is Id_library
 		*/
 		/*check password correctness*/
-		if (password_verify($password, $row[7])) {
+		if ($password == $row[7]) {
 			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];
@@ -52,7 +52,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	/*if email exist in db*/
 	else if ($resultEmail->num_rows === 1) {
 		$row = mysqli_fetch_row($resultEmail);
-		if (password_verify($password, $row[7])) {
+		if ($password == $row[7]) {
 			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];
