@@ -18,18 +18,16 @@ DROP TABLE IF EXISTS likes;
 
 
 CREATE TABLE user (
-  u_id int(10) NOT NULL AUTO_INCREMENT,
-  username varchar(20) DEFAULT NULL,
-  name varchar(50) DEFAULT NULL,
-  surname varchar(50) DEFAULT NULL,
-  birthday date DEFAULT NULL,
-  email varchar(254) NOT NULL,
-  user_type int(1) NOT NULL DEFAULT '0',
-  password varchar(255) NOT NULL,
-  avatar varchar(200) DEFAULT 'default-profile.png',
-  id_library int(10) DEFAULT NULL,
-	PRIMARY KEY (u_id),
-	FOREIGN KEY (id_library) REFERENCES library(id_library)
+	u_id int(10) NOT NULL AUTO_INCREMENT,
+	username varchar(20) DEFAULT NULL,
+	name varchar(50) DEFAULT NULL,
+	surname varchar(50) DEFAULT NULL,
+	birthday date DEFAULT NULL,
+	email varchar(254) NOT NULL,
+	user_type int(1) NOT NULL DEFAULT '0',
+	password varchar(255) NOT NULL,
+	avatar varchar(200) DEFAULT 'default-profile.png',
+	PRIMARY KEY (u_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE user_email_banned (
@@ -60,7 +58,7 @@ CREATE TABLE warning_comments (
 ) ENGINE=InnoDB;
 
 CREATE TABLE follow (
-	id_fo int(10) NOT NULL,
+	id_fo int(10) NOT NULL AUTO_INCREMENT,
 	id_user int(10) NOT NULL,
 	id_follow int(10) NOT NULL,
 	PRIMARY KEY (id_fo),
@@ -69,22 +67,18 @@ CREATE TABLE follow (
 ) ENGINE=InnoDB;
 
 CREATE TABLE library (
-	id_library int(10) NOT NULL AUTO_INCREMENT,
 	id_user int(10) NOT NULL,
 	id_song int(10) NOT NULL,
-	PRIMARY KEY (id_library),
+	PRIMARY KEY (id_user, id_song),
 	FOREIGN KEY (id_user) REFERENCES user(u_id),
 	FOREIGN KEY (id_song) REFERENCES song(id_song)
 ) ENGINE=InnoDB;
 
 CREATE TABLE album (
-	id_album int(10) NOT NULL,
+	id_album int(10) NOT NULL AUTO_INCREMENT,
 	name varchar(20) NOT NULL,
 	picture varchar(500) DEFAULT NULL,
-	id_song int(10) NOT NULL,
-	composed_by int(10) NOT NULL,
-	PRIMARY KEY (id_album),
-	FOREIGN KEY (id_song) REFERENCES song(id_song)
+	PRIMARY KEY (id_album)
 ) ENGINE=InnoDB;
 
 CREATE TABLE song (
@@ -95,17 +89,17 @@ CREATE TABLE song (
 	path varchar(250) NOT NULL,
 	id_album int(10) NOT NULL,
 	upload_date date NOT NULL,
-	upload_by int(10) NOT NULL,
 	PRIMARY KEY (id_song),
-	FOREIGN KEY (id_album) REFERENCES album(id_album),
-	FOREIGN KEY (upload_by) REFERENCES user(u_id)
+	FOREIGN KEY (id_album) REFERENCES album(id_album)
 ) ENGINE=InnoDB;
 
 CREATE TABLE likes (
 	id_song int(10) NOT NULL,
 	u_id int(10) NOT NULL,
 	score int(10) DEFAULT NULL,
-	PRIMARY KEY (id_song, u_id)
+	PRIMARY KEY (id_song, u_id),
+	FOREIGN KEY (u_id) REFERENCES user(u_id),
+	FOREIGN KEY (id_song) REFERENCES song(id_song)
 ) ENGINE=InnoDB;
 
 
