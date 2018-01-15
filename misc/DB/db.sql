@@ -41,20 +41,20 @@ CREATE TABLE user_email_banned (
 ) ENGINE=InnoDB;
 
 CREATE TABLE comment (
-	id_comm int(10) NOT NULL AUTO_INCREMENT,
+	comm_id int(10) NOT NULL AUTO_INCREMENT,
 	description varchar(180) DEFAULT NULL,
 	u_id int(10) NOT NULL,
 	id_song int(10) NOT NULL,
-	PRIMARY KEY (id_comm),
+	PRIMARY KEY (comm_id),
 	FOREIGN KEY (id_song) REFERENCES song(id_song),
 	FOREIGN KEY (u_id) REFERENCES user(u_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE warning_comments (
-	id_comm int(11) NOT NULL,
+	com_id int(11) NOT NULL,
 	reason varchar(250) DEFAULT NULL,
 	date_warning date NOT NULL,
-	FOREIGN KEY (id_comm) REFERENCES comment(id_comm)
+	FOREIGN KEY (com_id) REFERENCES comment(comm_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE follow (
