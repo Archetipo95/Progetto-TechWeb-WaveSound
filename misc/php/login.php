@@ -21,8 +21,8 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	}
 
 	/*if user exist in db*/
-	if ($result->num_rows === 1) {
-		$row = mysqli_fetch_row($result);
+	if ($result->rowCount() == 1) {
+		$row = $result->fetch(PDO::FETCH_BOTH);
 		/*
 		$row[0] is User ID
 		$row[1] is Username
@@ -45,13 +45,13 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 			header("Location:../../main.html");
 		}
 		else {
-			sendMessage("Login Failed");
+			//sendMessage("Login Failed");
 		}
 	}
 	
 	/*if email exist in db*/
-	else if ($resultEmail->num_rows === 1) {
-		$row = mysqli_fetch_row($resultEmail);
+	else if ($resultEmail->rowCount() == 1) {
+		$row = $resultEmail->fetch(PDO::FETCH_BOTH);
 		if ($password == $row[7]) {
 			/*start session and go to main*/
 			session_start();
@@ -61,11 +61,11 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 			header("Location:../../main.html");
 		}
 		else {
-			sendMessage("Login Failed");
+			//sendMessage("Login Failed");
 		}
 	}
 	else {
-		sendMessage("Login Failed");
+		//sendMessage("Login Failed");
 	}
 }
 

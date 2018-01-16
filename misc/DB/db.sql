@@ -40,23 +40,6 @@ CREATE TABLE user_email_banned (
 	FOREIGN KEY (admin_id) REFERENCES user(u_id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE comment (
-	comm_id int(10) NOT NULL AUTO_INCREMENT,
-	description varchar(180) DEFAULT NULL,
-	u_id int(10) NOT NULL,
-	id_song int(10) NOT NULL,
-	PRIMARY KEY (comm_id),
-	FOREIGN KEY (id_song) REFERENCES song(id_song),
-	FOREIGN KEY (u_id) REFERENCES user(u_id)
-) ENGINE=InnoDB;
-
-CREATE TABLE warning_comments (
-	com_id int(11) NOT NULL,
-	reason varchar(250) DEFAULT NULL,
-	date_warning date NOT NULL,
-	FOREIGN KEY (com_id) REFERENCES comment(comm_id)
-) ENGINE=InnoDB;
-
 CREATE TABLE follow (
 	id_fo int(10) NOT NULL AUTO_INCREMENT,
 	id_user int(10) NOT NULL,
@@ -91,6 +74,23 @@ CREATE TABLE song (
 	upload_date date NOT NULL,
 	PRIMARY KEY (id_song),
 	FOREIGN KEY (id_album) REFERENCES album(id_album)
+) ENGINE=InnoDB;
+
+CREATE TABLE comment (
+	comm_id int(10) NOT NULL AUTO_INCREMENT,
+	description varchar(180) DEFAULT NULL,
+	u_id int(10) NOT NULL,
+	id_song int(10) NOT NULL,
+	PRIMARY KEY (comm_id),
+	FOREIGN KEY (id_song) REFERENCES song(id_song),
+	FOREIGN KEY (u_id) REFERENCES user(u_id)
+) ENGINE=InnoDB;
+
+CREATE TABLE warning_comments (
+	com_id int(11) NOT NULL,
+	reason varchar(250) DEFAULT NULL,
+	date_warning date NOT NULL,
+	FOREIGN KEY (com_id) REFERENCES comment(comm_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE likes (

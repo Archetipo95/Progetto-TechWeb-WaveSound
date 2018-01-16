@@ -30,23 +30,23 @@ function confirmPassword($pass, $passConfirm){
 
 function select($query){
 	require ('connection.php');
-	$result = $connection->query($query);
+	$result = $connection->exec($query);
 	return $result;
 }
 
 function update($query){
 	require ('connection.php');
-	$result = $connection->query($query);
+	$result = $connection->exec($query);
 }
 
 function insert($query){
 	require ('connection.php');
-	$result = $connection->query($query);
+	$result = $connection->exec($query);
 }
 
 function delete($query){
 	require('connection.php');
-	$result= $connection->query($query);
+	$result= $connection->exec($query);
 }
 
 ?>
