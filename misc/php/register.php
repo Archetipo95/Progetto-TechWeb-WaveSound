@@ -25,11 +25,13 @@ if (checkPost()) {
 	/*check valid email*/
 	if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$result = select("SELECT u_id FROM user WHERE email='$email';");
+		$numEmail = count($result);
 		/*check email already used*/
-		if (checkPresence($result->num_rows)) {
+		if (checkPresence($numEmail)) {
 			/*check username already used*/
 			$result = select("SELECT u_id FROM user WHERE username='$username';");
-			if (checkPresence($result->num_rows)) {
+			$numUser = count($result);
+			if (checkPresence($numUser)) {
 				/*check password lenght*/
 				if (checkPasswordLenght($password)) {
 					/*check password confirmation*/

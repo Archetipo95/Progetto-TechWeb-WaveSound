@@ -1,5 +1,5 @@
 <?php
-require ('connection.php');
+//require ('connection.php');
 
 require ('msg.php');
 
@@ -9,20 +9,23 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	/*save varialble*/
 	$password = $_POST['password'];
 	$login = $_POST['login'];
+	
 	/*search for username*/
-	$result = select("SELECT * FROM user WHERE username='$login'");
+	$statement=select("SELECT * FROM user WHERE username='$login'");
+	$col = count($statement);
 	$resultEmail = 0;
 	/*search for email*/
 	if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
-		$resultEmail = select("SELECT * FROM user WHERE email='$login'");
+		$statementEmail = select("SELECT * FROM user WHERE email='$login'");
+		$colEmail = count($statementEmail);
 	}
 	else {
 		$resultEmail = 0;
 	}
-
+	
 	/*if user exist in db*/
-	if ($result->rowCount() == 1) {
-		$row = $result->fetch(PDO::FETCH_BOTH);
+	if ($col == 1) {
+		$row = $statement[0];
 		/*
 		$row[0] is User ID
 		$row[1] is Username
@@ -37,6 +40,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 		*/
 		/*check password correctness*/
 		if ($password == $row[7]) {
+			echo "aaaaaaaaaaa";
 			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];
@@ -45,14 +49,14 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 			header("Location:../../main.html");
 		}
 		else {
-			//sendMessage("Login Failed");
+			sendMessage("Login Failed");
 		}
 	}
 	
 	/*if email exist in db*/
-	else if ($resultEmail->rowCount() == 1) {
-		$row = $resultEmail->fetch(PDO::FETCH_BOTH);
-		if ($password == $row[7]) {
+	else if ($colEmail == 1) {
+			$row=$statementEmail[0];
+			if ($password == $row[7]) {
 			/*start session and go to main*/
 			session_start();
 			$_SESSION["userID"] = $row[0];

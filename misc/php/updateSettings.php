@@ -87,10 +87,10 @@ if(checkPost()){
 					$newPasswordConfirm = $_POST['newPasswordConfirm'];
 					if(checkPasswordLenght($newPassword) && confirmPassword($newPassword, $newPasswordConfirm)){
 						$result = select("SELECT password FROM user WHERE u_id = '$userID' ");
-						$row = mysqli_fetch_row($result);
-						if(password_verify($oldPassword,$row[0])){
-							$hash = securedHash($newPassword);
-							update("UPDATE user SET password = '$hash' WHERE u_id = '$userID' ");
+						$row = $result[0];
+						echo $row[0];
+						if($oldPassword == $row[0]){
+							update("UPDATE user SET password = '$newPassword' WHERE u_id = '$userID' ");
 						}else{
 							$errors = $errors . " Old password is wrong";
 						}	

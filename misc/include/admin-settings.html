@@ -6,7 +6,8 @@
 	<?php
 	require('misc/php/connection.php');
 	$query = "SELECT * FROM user";
-	$result = $connection->query($query);
+	$result = $connection->prepare($query);
+	$result->execute();
 	echo '
 		<table id="users-info">
 		<tr>
@@ -18,7 +19,7 @@
 			<th>Admin</th>
 		</tr>
 	';
-	while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+	while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 		$username = $row['username'];
 		$name = $row['name'];
 		$surname = $row['surname'];
@@ -40,10 +41,6 @@
 	}
 	echo "</table>";
 	
-	/* free result set */
-	$result->free();
-	/* close connection */
-	$connection->close();
 ?>
 
 	<h2>Delete an account that is not Admin</h2>
@@ -73,7 +70,8 @@
 		<?php
 		require('misc/php/connection.php');
 		$queryComm = "SELECT com_id,description,reason FROM comment, warning_comments WHERE comment.comm_id=warning_comments.com_id";
-		$result = $connection->query($queryComm);
+		$result = $connection->prepare($queryComm);
+		$result->execute();
 		
 		echo '
 			<table id="users-info">
@@ -83,11 +81,8 @@
 				<th>Code</th>
 			</tr>
 		';
-		//$ris=mysqli_fetch_row($result);
-		//$com_id=$ris['0'];
-		//$_SESSION['com_id']=$com_id;
 
-		while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)){
 			$comment=$row['description'];
 			$reason=$row['reason'];
 			$id=$row['com_id'];
@@ -98,7 +93,6 @@
 				 </tr>";
 		}
 		echo "</table>";
-		$connection->close();
 	?>
 	<br/>
 	<label>Comment to manage(id required)</label><br/>

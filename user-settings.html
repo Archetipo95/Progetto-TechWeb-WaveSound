@@ -24,10 +24,10 @@
 			$_SESSION["current-page"]="Settings";
 	
 			require('misc/php/connection.php');
+			require('misc/php/tools.php');
 			$id = $_SESSION["userID"];
-			$getUser = "SELECT * FROM user WHERE u_id='$id'";
-			$result = $connection->query($getUser);
-			$row = mysqli_fetch_row($result);
+			$getUser = select("SELECT * FROM user WHERE u_id='$id'");
+			$row = $getUser[0];
 			/*
 				$row[0] is User ID
 				$row[1] is Username
@@ -40,7 +40,7 @@
 				$row[8] is Avatar
 				$row[9] is Id_library
 			*/
-		?>
+?>
 	</header>
 
 	<nav>

@@ -1,17 +1,9 @@
 <?php
-
-/*
-**hash password
-*/
-function securedHash($input){    
-		return password_hash($input,PASSWORD_DEFAULT);
-	}
-
 /*
 **Given an integer returns true if there are 0 rows from query
 */
 function checkPresence($number){
-	return ($number===0);
+	return ($number==0);
 }
 
 /*
@@ -30,23 +22,27 @@ function confirmPassword($pass, $passConfirm){
 
 function select($query){
 	require ('connection.php');
-	$result = $connection->exec($query);
-	return $result;
+	$statement=$connection->prepare($query);
+	$statement->execute();
+	return $statement->fetchAll(PDO::FETCH_BOTH);
 }
 
 function update($query){
 	require ('connection.php');
-	$result = $connection->exec($query);
+	$statement=$connection->prepare($query);
+	$statement->execute();
 }
 
 function insert($query){
 	require ('connection.php');
-	$result = $connection->exec($query);
+	$statement=$connection->prepare($query);
+	$statement->execute();
 }
 
 function delete($query){
 	require('connection.php');
-	$result= $connection->exec($query);
+	$statement=$connection->prepare($query);
+	$statement->execute();
 }
 
 ?>
