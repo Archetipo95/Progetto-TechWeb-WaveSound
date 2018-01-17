@@ -78,7 +78,7 @@ header {
 .header-left {
 	display: inline-block;
 	width: 45%;
-	vertical-align: top;
+	vertical-align: middle;
 }
 
 #logo {
@@ -89,16 +89,14 @@ header {
 	background-size: contain;
 	background-repeat: no-repeat;
 	vertical-align: middle;
-    
 }
 
 #brand {
 	display: inline-block;
-    vertical-align: middle;
-    margin-left: -0.5em;
+	vertical-align: middle;
+	margin-left: -0.5em;
 	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 	font-size: 1.2em;
-
 }
 
 .header-right {
@@ -116,13 +114,6 @@ header {
 	display: none;
 }
 
-#username {
-	display: inline-block;
-	margin: 0 .5em 0 1em;
-	vertical-align: 0.5em;
-	font-weight: bold;
-}
-
 .head-icon {
 	display: inline-block;
 	width: 1.8em;
@@ -131,17 +122,12 @@ header {
 	background-repeat: no-repeat;
 }
 
-#profile-pic {
-    width: 2em;
-    height: 2em;
-	border-radius: 50%;
-	border: 2px solid #000;
-}
+
 
 #settings {
 	background-image: url('../img/settings.png');
-    margin-top: 0.6em;
-    margin-bottom: 0.4em;
+	margin-top: 0.6em;
+	margin-bottom: 0.4em;
 }
 
 #settings:hover {
@@ -150,9 +136,9 @@ header {
 
 #logout {
 	background-image: url('../img/logout.png');
-    margin-top: 0.6em;
-    margin-bottom: 0.4em;
-    margin-right: -1.5em;
+	margin-top: 0.6em;
+	margin-bottom: 0.4em;
+	margin-right: -1.5em;
 }
 
 #logout:hover {
@@ -160,16 +146,16 @@ header {
 }
 
 #join-us {
-    display: none;
-    vertical-align: middle;
-    margin-right: 1em;
-    font-size: 1.2em;
+	display: none;
+	vertical-align: middle;
+	margin-right: 1em;
+	font-size: 1.2em;
 }
 
 #login-registration {
-    margin-right: -2.5em;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+	margin-right: -2.5em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 	font-size: 0.7em;
 }
 
@@ -224,7 +210,7 @@ main {
 #title2 {
 	margin-top: 0;
 	margin-bottom: 0;
-    font-size: 1em;
+	font-size: 1em;
 }
 
 .section-top3 {
@@ -255,8 +241,8 @@ main {
 }
 
 #button-month {
-    border-top: none;
-    border-bottom: none;
+	border-top: none;
+	border-bottom: none;
 	border-radius: 0;
 }
 
@@ -552,7 +538,7 @@ tr:nth-child(even) {
 
 .reglog-title {
 	margin-bottom: 1em;
-    font-size: 0.6em;
+	font-size: 0.6em;
 }
 
 .reglog form {
@@ -561,8 +547,8 @@ tr:nth-child(even) {
 	font-size: 0.8em;
 }
 
-.input-text label{
-    font-size: 1rem;
+.input-text label {
+	font-size: 1rem;
 }
 
 .input-text input {
@@ -574,7 +560,7 @@ tr:nth-child(even) {
 
 .form-buttons {
 	margin-top: 1em;
-    margin-bottom: 1em;
+	margin-bottom: 1em;
 	padding: 1em;
 	width: 8em;
 	border: none;
@@ -705,157 +691,181 @@ form.search-bar button:hover {
 	margin-left: 2em;
 }
 
+/*------------------------------------------------- listen.html ------------------------------------------------------------*/
 
+.content-play {
+	display: inline-block;
+	width: 80%;
+}
+
+.content-suggestion {
+	display: inline-block;
+	width: 19%;
+	vertical-align: top;
+}
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
 
 @media screen and (min-width: 760px) {
-    
-/*---------------------- header -----------------------*/
-    .header-container {
-	   width: 90%;
-    }
-    
-    .header-left {
-        width: 40%;
-        vertical-align: middle;
-    }
-    
-    #logo {
-        width: 5em;
-        height: 5em;
-    }
-    
-    #brand {
-        font-size: 2.5em;
-    }
-    
-    .header-right {
-        width: 55%;
-    }
-    
-    #join-us {
-        display: inline-block;
-    }
-    
-    #login-registration {
-        display: inline-block;
-        margin-left: 1em;
-        vertical-align: middle;
-        font-size: 1.2em;
-    }
-    
-    .head-icon {
-        width: 2em;
-        height: 2em;
-    }
-    
-    #username-picture {
-	   display: inline-block;
-    }
-    
-    #settings {
-        margin-left: 1em;
-    }
-    
-    #logout {
-        margin-right: -3em;
-        margin-left: 1em;
-    }
-    
-/*--------------------- index.html --------------------*/
-    .welcome {
-        margin-top: -1.5em;
-    }
 
-    #title1 {
-        font-size: 3em;
-    }
-    
-    .section-top3 {
-	   margin-top: 5em;
-	   margin-bottom: 5em;
-    }
+	/*---------------------- header -----------------------*/
+	.header-container {
+		width: 90%;
+	}
 
-    #title2 {
-        font-size: 1.8em;
-    }
-    
-    #svg-top {
-	   height: 10%;
-    }
+	.header-left {
+		width: 40%;
+		vertical-align: middle;
+	}
 
-    #svg-bot {
-	   height: 10%;
-    }
-    
-    .sidelong-padding {
-	   padding-top: 5rem;
-	   padding-bottom: 5rem;
-    }
-    
-    .left-sidelong {
-        display: inline-block;
-        margin-right: 10%;
-        width: 50%;
-        vertical-align: middle;
-        font-size: 1rem;
-    }
-    
-    .right-sidelong {
-        display: inline-block;
-    }
-    
-    #button-week {
-        border-right: none;
-    }
+	#logo {
+		width: 5em;
+		height: 5em;
+	}
 
-    #button-month {
-        border-top: solid 2px;
-        border-bottom: solid 2px;
-    }
+	#brand {
+		font-size: 2.5em;
+	}
 
-    #button-year {
-        border-left: none;
-    }
-    
-    .card {
-        width: 15em;
-        height: 15em;
-    }
-    
-/*-------------- login.html & register.html ----------------*/
-    .reglog {
-        padding-top: 6em;
-    }
+	.header-right {
+		width: 55%;
+	}
 
-    .reglog-title {
-        margin-bottom: 1em;
-        font-size: 1.2em;
-    }
-    
-    .reglog form {
-        font-size: 1.2em;
-    }
+	#join-us {
+		display: inline-block;
+	}
 
-    .input-text label{
-        font-size: 1.3rem;
-    }
-    
-    .input-text input {
-        width: 30em;
-    }
-    
-    .form-buttons {
-        margin: 1em;
-    }
-    
-    #legal {
-	   font-size: 0.5em;
-    }
-    
-/*----------------------- main.html ------------------------*/    
+	#login-registration {
+		display: inline-block;
+		margin-left: 1em;
+		vertical-align: middle;
+		font-size: 1.2em;
+	}
 
-    
-    
+	.head-icon {
+		width: 2em;
+		height: 2em;
+	}
+
+	#username-picture {
+		display: inline-block;
+	}
+
+	#username {
+		display: inline-block;
+		margin: 0 .5em 0 1em;
+		font-weight: bold;
+		vertical-align: middle;
+	}
+	#profile-pic {
+		width: 2em;
+		height: 2em;
+		border-radius: 50%;
+		border: 2px solid #000;
+		vertical-align: middle;
+	}
+
+	#settings {
+		margin-left: 1em;
+		vertical-align: middle;
+	}
+
+	#logout {
+		margin-right: -3em;
+		margin-left: 1em;
+		vertical-align: middle;
+	}
+
+	/*--------------------- index.html --------------------*/
+	.welcome {
+		margin-top: -1.5em;
+	}
+
+	#title1 {
+		font-size: 3em;
+	}
+
+	.section-top3 {
+		margin-top: 5em;
+		margin-bottom: 5em;
+	}
+
+	#title2 {
+		font-size: 1.8em;
+	}
+
+	#svg-top {
+		height: 10%;
+	}
+
+	#svg-bot {
+		height: 10%;
+	}
+
+	.sidelong-padding {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+
+	.left-sidelong {
+		display: inline-block;
+		margin-right: 10%;
+		width: 50%;
+		vertical-align: middle;
+		font-size: 1rem;
+	}
+
+	.right-sidelong {
+		display: inline-block;
+	}
+
+	#button-week {
+		border-right: none;
+	}
+
+	#button-month {
+		border-top: solid 2px;
+		border-bottom: solid 2px;
+	}
+
+	#button-year {
+		border-left: none;
+	}
+
+	.card {
+		width: 15em;
+		height: 15em;
+	}
+
+	/*-------------- login.html & register.html ----------------*/
+	.reglog {
+		padding-top: 6em;
+	}
+
+	.reglog-title {
+		margin-bottom: 1em;
+		font-size: 1.2em;
+	}
+
+	.reglog form {
+		font-size: 1.2em;
+	}
+
+	.input-text label {
+		font-size: 1.3rem;
+	}
+
+	.input-text input {
+		width: 30em;
+	}
+
+	.form-buttons {
+		margin: 1em;
+	}
+
+	#legal {
+		font-size: 0.5em;
+	}
+
+	/*----------------------- main.html ------------------------*/
 }
