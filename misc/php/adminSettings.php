@@ -37,10 +37,10 @@
 	}
 
 	function resetAvatar(){
-		require('tools.php');
 		session_start();
 		$userID= $_SESSION["userID"];
 		update("UPDATE user SET avatar = 'default-profile.png' WHERE u_id = '$userID' ");
+		$_SESSION["avatar"]='default-profile.png';
 		header("Location:../../user-settings.html");
 	}
 
