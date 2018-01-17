@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WaveSound | Main Page</title>
+
+	<!-- font + fav icon -->
+	<link rel="icon" type="image/png" href="misc/img/logo.png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
+
+</head>
+
+<body>
+	
+	
+	<header>
+		<?php
+			include("misc/include/header.html");
+			$_SESSION["current-page"]="Listen";
+		?>
+		
+	</header>
+
+	<nav>
+		<?php
+			include("misc/include/navigation.html");
+		?>
+	</nav>
+
+	<main class="main-right center">
+		<div class="content-body">
+			<div class="content">
+				
+				<h1>play</h1>
+				
+				
+			</div>
+		</div>
+	</main>
+
+	<footer class="footer-main">
+		<?php
+			include("misc/include/footer.html");
+		?>
+	</footer>
+
+	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+
+	<script src="misc/js/button-top.js"></script>
+
+</body>
+
+</html>
