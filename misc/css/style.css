@@ -5,12 +5,10 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
 * {
 	color: #263238;
 	font-family: 'Roboto', Helvetica, sans-serif;
 }
-
 .pacifico {
 	font-family: 'Pacifico';
 }
@@ -20,17 +18,14 @@ body {
 body {
 	background-color: #fff;
 }
-
 .italic {
 	font-style: italic;
 }
-
 .center {
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
 }
-
 .hidden {
 	display: none;
 }
@@ -50,7 +45,6 @@ body {
 	color: #fff;
 	cursor: pointer;
 }
-
 #button-top:hover {
 	background-color: #81D4FA;
 }
@@ -64,23 +58,19 @@ header {
 	background-color: #03A9F4;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20), 0 5px 10px rgba(0, 0, 0, 0.25);
 }
-
 .header-container {
 	margin-right: auto;
 	margin-left: auto;
 	width: 100%;
 }
-
 .header-container a {
 	text-decoration: none;
 }
-
 .header-left {
 	display: inline-block;
 	width: 45%;
 	vertical-align: middle;
 }
-
 #logo {
 	display: inline-block;
 	width: 2.2em;
@@ -90,7 +80,6 @@ header {
 	background-repeat: no-repeat;
 	vertical-align: middle;
 }
-
 #brand {
 	display: inline-block;
 	vertical-align: middle;
@@ -98,22 +87,18 @@ header {
 	text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
 	font-size: 1.2em;
 }
-
 .header-right {
 	display: inline-block;
 	width: 45%;
 	vertical-align: middle;
 	text-align: right;
 }
-
 .header-right a {
 	margin: 0 .5em;
 }
-
 #username-picture {
 	display: none;
 }
-
 .head-icon {
 	display: inline-block;
 	width: 1.8em;
@@ -121,44 +106,35 @@ header {
 	background-size: contain;
 	background-repeat: no-repeat;
 }
-
-
-
 #settings {
 	background-image: url('../img/settings.png');
 	margin-top: 0.6em;
 	margin-bottom: 0.4em;
 }
-
 #settings:hover {
 	background-image: url('../img/settings-white.png');
 }
-
 #logout {
 	background-image: url('../img/logout.png');
 	margin-top: 0.6em;
 	margin-bottom: 0.4em;
 	margin-right: -1.5em;
 }
-
 #logout:hover {
 	background-image: url('../img/logout-white.png');
 }
-
 #join-us {
 	display: none;
 	vertical-align: middle;
 	margin-right: 1em;
 	font-size: 1.2em;
 }
-
 #login-registration {
 	margin-right: -2.5em;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
 	font-size: 0.7em;
 }
-
 #login-registration a {
 	display: inline-block;
 	margin: .3em;
@@ -169,20 +145,17 @@ header {
 	text-align: center;
 	text-decoration: none;
 }
-
 #login-registration a:hover,
 #login-registration a:focus {
 	border-color: #fff;
 	background-color: #263238;
 	color: #fff;
 }
-
 #login-registration a:active {
 	border-color: #263238;
 	background-color: #fff;
 	color: #263238;
 }
-
 
 /*--------------------------------------------- home page for not logged users content ---------------------------------------*/
 
@@ -191,28 +164,23 @@ main {
 	padding-top: 10em;
 	min-height: 100vh;
 }
-
 .section {
 	min-height: 50vh;
 }
-
 .welcome {
 	margin-top: -7em;
 	margin-bottom: 1em;
 }
-
 #title1 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-size: 1.5em;
 }
-
 #title2 {
 	margin-top: 0;
 	margin-bottom: 0;
 	font-size: 1em;
 }
-
 .section-top3 {
 	margin-top: 3em;
 	margin-bottom: 3em;
@@ -223,7 +191,6 @@ main {
 .button-top3 {
 	font-size: 0;
 }
-
 .button-top3 button {
 	display: inline-block;
 	padding: .5em 1em;
@@ -234,34 +201,27 @@ main {
 	background-color: #03A9F4;
 	font-size: 1.2rem;
 }
-
 #button-week {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
-
 #button-month {
 	border-top: none;
 	border-bottom: none;
 	border-radius: 0;
 }
-
 #button-year {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
 }
-
 .button-top3 button:hover,
 .button-top3 button:focus {
 	background-color: #81D4FA;
 }
-
 .button-top3 button:active {
 	background-color: #fff;
 }
-
 .card-container {}
-
 .card {
 	display: inline-block;
 	margin: 1em;
@@ -274,38 +234,31 @@ main {
 	vertical-align: top;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
-
 .card:hover {
 	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
 .card-container {
 	margin-top: 3em;
 	margin-bottom: 2em;
 	width: 85%;
 }
-
 .card-container > h1 {
 	margin-bottom: 0;
 }
-
 #deco1 {
 	display: inline-block;
 	width: 250px;
 	content: url('../img/deco1.jpg');
 }
-
 #deco2 {
 	display: inline-block;
 	width: 250px;
 	content: url('../img/deco2.jpg');
 }
-
 .selected {
 	background-color: #0D47A1 !important;
 	color: #fff;
 }
-
 .section-sidelong {
 	position: relative;
 	z-index: -1;
@@ -313,37 +266,31 @@ main {
 	width: 100%;
 	background-image: linear-gradient(#03A9F4, #0D47A1);
 }
-
 .section-sidelong * {
 	color: #fff;
 }
-
 #svg-top {
 	position: absolute;
 	top: 0;
 	width: 100%;
 	height: 0px;
 }
-
 #svg-bot {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	height: 0px;
 }
-
 .sidelong-padding {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 	width: 90%;
 	font-size: 0;
 }
-
 .left-sidelong {
 	text-align: left;
 	font-size: 0.8rem;
 }
-
 .right-sidelong {
 	display: none;
 	min-width: 5rem;
@@ -352,7 +299,6 @@ main {
 	vertical-align: middle;
 	text-align: right;
 }
-
 .right-sidelong img {
 	width: 50%;
 	height: auto;
@@ -371,46 +317,37 @@ footer {
 	background-color: #0D47A1;
 	display: block;
 }
-
 footer * {
 	color: #fff;
 }
-
 .footer-links {
 	/*To Do*/
 }
-
 .footer-bot {
 	position: relative;
 	right: 0;
 	bottom: 0;
 	left: 0;
 }
-
 .footer-left {
 	display: inline-block;
 	width: 49%;
 }
-
 .footer-right {
 	display: inline-block;
 	width: 50%;
 	text-align: right;
 }
-
 .footer-main {
 	margin-left: 15em;
 }
-
 .footer-right img {
 	width: 30px;
 	vertical-align: text-bottom;
 }
-
 .footer-right a {
 	text-decoration: none;
 }
-
 .footer-right span {
 	margin-right: .5em;
 }
@@ -421,20 +358,16 @@ footer * {
 	padding-top: 5em;
 	padding-left: 15em;
 }
-
 .content-body {
 	min-height: 100vh;
 	width: 100%;
 }
-
 .content {
 	padding: 2em;
 }
-
 .content-card-container {
 	display: inline-block;
 }
-
 .content-card-cover {
 	display: inline-block;
 	margin: 1em;
@@ -445,11 +378,9 @@ footer * {
 	background-color: #5ca1e6;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
 .content-card-details {
 	margin-left: 1em;
 }
-
 nav {
 	position: fixed;
 	margin-top: 5em;
@@ -457,31 +388,25 @@ nav {
 	height: 100%;
 	background-color: #1565C0;
 }
-
 nav * {
 	color: #fff;
 }
-
 #nav-bar {
 	padding: .5em 1em;
 }
-
 #nav-menu {
 	border-top: 1px solid;
 }
-
 #nav-menu ul {
 	margin-top: 0;
 	margin-bottom: 0;
 	padding: 0;
 	list-style: none;
 }
-
 #nav-menu li {
 	margin: 0;
 	padding: 0;
 }
-
 #nav-menu a {
 	display: block;
 	margin: 0;
@@ -489,20 +414,18 @@ nav * {
 	padding-left: 2em;
 	font-size: 1.2em;
 }
-
 #currentPage {
 	background-color: #03A9F4;
 }
-
 #nav-menu a:hover {
 	background-color: #03A9F4;
 }
-
 #nav-menu a:active {
 	background-color: #81D4FA;
 }
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
+
 
 /* NON BISOGNA USARE TABLE TD TH TR SE NO APPLICHI LO STILE DI 1 TABELLA A TUTTE LE ALTRE
 table {
@@ -521,6 +444,7 @@ tr:nth-child(even) {
 	background-color: #b3e0ff;
 }*/
 
+
 /*------------------------------------------------- user-soundtrack-upload.html --------------------------------------------------*/
 
 #content-user-upload {
@@ -535,29 +459,24 @@ tr:nth-child(even) {
 	min-height: 100vh;
 	width: 95%;
 }
-
 .reglog-title {
 	margin-bottom: 1em;
 	font-size: 0.6em;
 }
-
 .reglog form {
 	padding: 1em;
 	border: 1px solid #f1f1f1;
 	font-size: 0.8em;
 }
-
 .input-text label {
 	font-size: 1rem;
 }
-
 .input-text input {
 	margin: 1em 0;
 	padding: 1em .5em;
 	width: 18em;
 	border: 1px solid #ccc;
 }
-
 .form-buttons {
 	margin-top: 1em;
 	margin-bottom: 1em;
@@ -567,15 +486,12 @@ tr:nth-child(even) {
 	color: white;
 	cursor: pointer;
 }
-
 .button-green {
 	background-color: #4CAF50;
 }
-
 .button-red {
 	background-color: #F44336;
 }
-
 #legal {
 	font-size: 0.8em;
 }
@@ -585,75 +501,61 @@ tr:nth-child(even) {
 .user {
 	padding: 2em;
 }
-
 .container-user-settings {
 	display: inline-block;
 	margin-top: 2.5em;
 	width: 50%;
 	text-align: left;
 }
-
 .container-settings {
 	display: inline-block;
 	width: 50%;
 }
-
 .container-password {
 	display: inline-block;
 	width: 49%;
 	vertical-align: top;
 }
-
 .current {
 	font-weight: bold;
 }
-
 .container-user-settings form input {
 	margin: 1em;
 	padding: .5em 1em;
 }
-
 .container-picture {
 	display: inline-block;
 	margin-top: 0.5em;
 	width: 49%;
 	vertical-align: top;
 }
-
 #pass {
 	display: none;
 }
-
 #profile-picture {
 	width: 15em;
 	height: 15em;
 }
-
 .admin {
 	padding: 2em;
 	border-radius: 2px;
 	background-color: #EF9A9A;
 }
-
 .admin h2 {
 	text-align: left;
 }
-
 #users-info {
 	width: 100%;
 	border-spacing: 0;
 	text-align: left;
 }
-
 #users-info th {
 	border-bottom: 2px solid #263238;
 }
-
 #users-info th,
 #users-info td {
 	padding: .5em;
 }
-
 #users-info tr:nth-child(odd) {
 	background-color: #ef5350;
 }
@@ -668,7 +570,6 @@ form.search-bar input[type=text] {
 	background: #f1f1f1;
 	font-size: 15px;
 }
-
 form.search-bar button {
 	display: inline-block;
 	width: 10%;
@@ -682,11 +583,9 @@ form.search-bar button {
 	font-size: 15px;
 	cursor: pointer;
 }
-
 form.search-bar button:hover {
 	background-color: #0b7dda;
 }
-
 .select {
 	margin-left: 2em;
 }
@@ -697,60 +596,55 @@ form.search-bar button:hover {
 	display: inline-block;
 	width: 80%;
 }
-
+#player {
+	z-index: -9999;
+}
 .content-suggestion {
 	display: inline-block;
 	width: 19%;
 	vertical-align: top;
 }
+audio {
+	z-index: -99px;
+}
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
 
 @media screen and (min-width: 760px) {
-
 	/*---------------------- header -----------------------*/
 	.header-container {
 		width: 90%;
 	}
-
 	.header-left {
 		width: 40%;
 		vertical-align: middle;
 	}
-
 	#logo {
 		width: 5em;
 		height: 5em;
 	}
-
 	#brand {
 		font-size: 2.5em;
 	}
-
 	.header-right {
 		width: 55%;
 	}
-
 	#join-us {
 		display: inline-block;
 	}
-
 	#login-registration {
 		display: inline-block;
 		margin-left: 1em;
 		vertical-align: middle;
 		font-size: 1.2em;
 	}
-
 	.head-icon {
 		width: 2em;
 		height: 2em;
 	}
-
 	#username-picture {
 		display: inline-block;
 	}
-
 	#username {
 		display: inline-block;
 		margin: 0 .5em 0 1em;
@@ -764,49 +658,39 @@ form.search-bar button:hover {
 		border: 2px solid #000;
 		vertical-align: middle;
 	}
-
 	#settings {
 		margin-left: 1em;
 		vertical-align: middle;
 	}
-
 	#logout {
 		margin-right: -3em;
 		margin-left: 1em;
 		vertical-align: middle;
 	}
-
 	/*--------------------- index.html --------------------*/
 	.welcome {
 		margin-top: -1.5em;
 	}
-
 	#title1 {
 		font-size: 3em;
 	}
-
 	.section-top3 {
 		margin-top: 5em;
 		margin-bottom: 5em;
 	}
-
 	#title2 {
 		font-size: 1.8em;
 	}
-
 	#svg-top {
 		height: 10%;
 	}
-
 	#svg-bot {
 		height: 10%;
 	}
-
 	.sidelong-padding {
 		padding-top: 5rem;
 		padding-bottom: 5rem;
 	}
-
 	.left-sidelong {
 		display: inline-block;
 		margin-right: 10%;
@@ -814,58 +698,45 @@ form.search-bar button:hover {
 		vertical-align: middle;
 		font-size: 1rem;
 	}
-
 	.right-sidelong {
 		display: inline-block;
 	}
-
 	#button-week {
 		border-right: none;
 	}
-
 	#button-month {
 		border-top: solid 2px;
 		border-bottom: solid 2px;
 	}
-
 	#button-year {
 		border-left: none;
 	}
-
 	.card {
 		width: 15em;
 		height: 15em;
 	}
-
 	/*-------------- login.html & register.html ----------------*/
 	.reglog {
 		padding-top: 6em;
 	}
-
 	.reglog-title {
 		margin-bottom: 1em;
 		font-size: 1.2em;
 	}
-
 	.reglog form {
 		font-size: 1.2em;
 	}
-
 	.input-text label {
 		font-size: 1.3rem;
 	}
-
 	.input-text input {
 		width: 30em;
 	}
-
 	.form-buttons {
 		margin: 1em;
 	}
-
 	#legal {
 		font-size: 0.5em;
 	}
-
 	/*----------------------- main.html ------------------------*/
 }
