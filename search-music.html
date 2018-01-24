@@ -24,7 +24,7 @@
 			include("misc/include/header.html");
 			$_SESSION["current-page"]="Search Music";
 		?>
-		
+
 	</header>
 
 	<nav>
@@ -37,50 +37,52 @@
 		<div class="content-body">
 			<div class="content">
 				<h1>Search Music</h1>
-                <h2>Search by name</h2>
-                <form class="search-bar">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit"></button>
-                </form>
-                <h2>Search by genre</h2>
-                <div class="search-by-genre">
-                    <span class="select">
+				<h2>Search by name</h2>
+				<form class="search-bar" action="misc/php/search_by_title.php" method="post">
+					<input type="text" placeholder="Search.." name="search">
+					<button type="submit"></button>
+				</form>
+				<h2>Search by genre</h2>
+				<form action="misc/php/search_by_genre.php" method="post">
+					<div class="search-by-genre">
+						<span class="select">
                         Select genre
-                        <select>
+                        <select name="genre">
                             <option value="pop">Pop</option>
                             <option value="rock">Rock</option>
                             <option value="dance">Dance</option>
                             <option value="rap">Rap</option>
                         </select>
-                    </span>    
-                    <span class="select">
+                    </span>
+						<span class="select">
                         Sort by
-                        <select>
-                            <option value="date">Date</option>
+                        <select name="sort">
+                            <option value="upload_date">Date</option>
                             <option value="rating">Rating</option>
-                            <option value="downloads">Downloads</option>
+                            <option value="download">Downloads</option>
                         </select>
                     </span>
-                    <span class="select">
+						<span class="select">
                         Period
-                        <select>
+                        <select name="period">
                             <option value="always">Always</option>
                             <option value="week">Last week</option>
                             <option value="month">Last month</option>
                             <option value="year">Last year</option>
                         </select>
                     </span>
-                    <span class="select">
+						<span class="select">
                         Order
-                        <select>
+                        <select name="order">
                             <option value="descending">Descending</option>
                             <option value="ascending">Ascending</option>
                         </select>
                     </span>
-                    <button class="select">Search</button>
-                </div>
-                <br/>
-                <h3>Results:</h3>
+						<button class="select">Search</button>
+					</div>
+				</form>
+				<br/>
+				<h3>Results:</h3>
 			</div>
 		</div>
 	</main>
