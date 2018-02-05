@@ -57,6 +57,7 @@ header {
 	height: auto;
 	background-color: #03A9F4;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20), 0 5px 10px rgba(0, 0, 0, 0.25);
+	z-index: 9999;
 }
 .header-container {
 	margin-right: auto;
@@ -596,10 +597,6 @@ form.search-bar button:hover {
 	display: inline-block;
 	width: 80%;
 }
-#player {
-	position: relative;
-	z-index: -9999;
-}
 
 .content-suggestion {
 	display: inline-block;
@@ -611,10 +608,6 @@ form.search-bar button:hover {
 	padding: 0.5em;
 	padding-top: 2em;
 	margin-top: 2em;
-}
-
-audio {
-	z-index: -99px;
 }
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
