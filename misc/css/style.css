@@ -597,13 +597,22 @@ form.search-bar button:hover {
 	width: 80%;
 }
 #player {
+	position: relative;
 	z-index: -9999;
 }
+
 .content-suggestion {
 	display: inline-block;
 	width: 19%;
 	vertical-align: top;
 }
+
+.padding-suggestion {
+	padding: 0.5em;
+	padding-top: 2em;
+	margin-top: 2em;
+}
+
 audio {
 	z-index: -99px;
 }
