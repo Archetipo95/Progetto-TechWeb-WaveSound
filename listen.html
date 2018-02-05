@@ -31,8 +31,12 @@
 					<div class="content">
 						<h1>Song Title</h1>
 						<div class="center">
-							<audio controls>
-								<source src="misc/songs/bensound-epic.mp3" type="audio/mpeg"> Your browser does not support the audio element. </audio>
+							<div class="content-card-cover"></div>
+							<div>
+								<audio controls>
+									<source src="misc/songs/bensound-epic.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+								</audio>
+							</div>
 						</div>
 						<form action="misc/php/rating.php" method="post">
 							<input type="submit" value="Like" name="action">
@@ -40,6 +44,17 @@
 							<input type="hidden" name="element" value="1">
 							<!-- VALORE DI PROVA -->
 						</form>
+						
+						<h3>Leave a comment</h3>
+						<form action="" method="post">
+							<div>
+								<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Leave your comment on this track"></textarea>
+							</div>
+							<div>
+								<input type="submit" value="Comment" name="action">
+							</div>
+						</form>
+						
 						<h2>Comments</h2>
 						<h3>User1</h3>
 						<h4>Commento moltoo bello</h4>

@@ -609,6 +609,15 @@ form.search-bar button:hover {
 	margin-top: 2em;
 }
 
+.content-play .content{
+	padding-top: 0;
+}
+
+#comment-area {
+	width: 100%;
+	height: 4em;
+}
+
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
 
 @media screen and (min-width: 760px) {
