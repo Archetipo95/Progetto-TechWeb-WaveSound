@@ -388,16 +388,12 @@ nav {
 	width: 15em;
 	height: 100%;
 	background-color: #1565C0;
+	z-index: 9999;
 }
 nav * {
 	color: #fff;
 }
-#nav-bar {
-	padding: .5em 1em;
-}
-#nav-menu {
-	border-top: 1px solid;
-}
+
 #nav-menu ul {
 	margin-top: 0;
 	margin-bottom: 0;
@@ -417,6 +413,9 @@ nav * {
 }
 #currentPage {
 	background-color: #03A9F4;
+	text-decoration: none;
+	pointer-events: none;
+	cursor: default;
 }
 #nav-menu a:hover {
 	background-color: #03A9F4;
