@@ -29,12 +29,35 @@
 			<div class="content">
 				<div class="content-play">
 					<div class="content">
-						<h1>Song Title</h1>
+					
+					
+						<?php
+							if(isset($_GET['id_song'])){
+								$id_song = $_GET['id_song'];
+								require ('misc/php/connection.php');
+								require ('misc/php/tools.php');
+								$statement=select("SELECT * FROM song WHERE id_song='$id_song'");
+								$col = count($statement);
+								/*if ($col == 1) {*/
+									$row = $statement[0];
+									//echo $row[0];/*id*/
+									//echo $row[1];/*titolo*/
+									//echo $row[2];/*genere*/
+									//echo $row[3];/*descrizione*/
+									//echo $row[4];/*path*/
+									//echo $row[5];/*id-album*/
+									//echo $row[6];/*upload date*/
+								/*}*/
+							}
+						?>
+						
+						<h1><?php echo $row[1];?></h1>	
+						
 						<div class="center">
+						<div id="player-audio">
 							<div class="content-card-cover"></div>
-							<div>
 								<audio controls>
-									<source src="misc/songs/bensound-epic.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+									<?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg">';?> Your browser does not support the audio element.
 								</audio>
 							</div>
 						</div>
@@ -45,29 +68,43 @@
 							<!-- VALORE DI PROVA -->
 						</form>
 						
+						<?php echo 'Description + data + autore TODO';?>
+						
 						<h3>Leave a comment</h3>
-						<form action="" method="post">
+						<form action="misc/php/player.php" method="post">
 							<div>
-								<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Leave your comment on this track"></textarea>
+								<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track"></textarea>
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
 							</div>
 							<div>
-								<input type="submit" value="Comment" name="action">
+								<input type="submit" value="comment" name="comment">
 							</div>
 						</form>
+					
+						<?php
 						
-						<h2>Comments</h2>
-						<h3>User1</h3>
-						<h4>Commento moltoo bello</h4>
-						<h3>User1</h3>
-						<h4>Commento moltoo bello</h4>
-						<h3>User1</h3>
-						<h4>Commento moltoo bello</h4>
-						<h3>User1</h3>
-						<h4>Commento moltoo bello</h4>
-						<h3>User1</h3>
-						<h4>Commento moltoo bello</h4>
-						<h3>User1</h3>
-						<h4>Commento moltoo bello</h4>
+						$getComments=select("SELECT * FROM comment WHERE id_song='$id_song'");
+						$num_comments = count($getComments);
+						
+						if($num_comments==1){
+							echo "1 comment";
+						}else{
+							echo $num_comments." comments";
+						}
+							
+						for($i=0; $i<$num_comments; $i++){
+							$comment = $getComments[$i];
+							$getUser=select("SELECT username FROM user WHERE u_id='$comment[2]'");
+							
+							echo '<div class="comment">';
+							echo "<h3>".$getUser[0][0]."</h3>";
+							echo '<h4>'.$comment[1].'</h4>';
+							echo '</div>';
+							
+						}
+						
+						?>
+						
 					</div>
 				</div><!--
 				--><div class="content-suggestion center">

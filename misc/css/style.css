@@ -618,6 +618,26 @@ form.search-bar button:hover {
 	height: 4em;
 }
 
+.comment{
+	border: 1px solid #e6e5e5;
+	margin-bottom: .5em;
+	padding: .5em;
+}
+
+.comment h4 {
+	font-weight: normal;
+	margin-left: 1em;
+}
+
+audio {
+	width: 100%;
+}
+
+#player-audio {
+	background-color: #555555;
+	padding: 1em;
+}
+
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
 
 @media screen and (min-width: 760px) {
