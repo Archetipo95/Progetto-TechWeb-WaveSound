@@ -9,7 +9,7 @@
 		
 		if($comment != '')
 			insert("INSERT INTO comment (`description`,`u_id`, `id_song`) VALUES ('$comment','$userID', '$song');");
-		header("Location:../../listen.html?id_song=".$song);
+		redirect('../../listen.html?id_song='.$song);
 	}
 
 	if(isset($_POST['comment'])){
@@ -35,18 +35,18 @@
 			$getVote = select("SELECT * FROM likes WHERE u_id='$userID' AND id_song='$song';");
 			if(($score==1 AND $getVote[0][2]==1) OR ($score==-1 AND $getVote[0][2]==-1)){
 				delete("DELETE FROM likes WHERE u_id='$userID' AND id_song='$song';");
-				header("Location:../../listen.html?id_song=".$song);
+		redirect('../../listen.html?id_song='.$song);
 			}else if($score==1 AND $getVote[0][2]==-1){
 				update("UPDATE likes SET score = '1' WHERE u_id='$userID' AND id_song='$song';");
-				header("Location:../../listen.html?id_song=".$song);
+		redirect('../../listen.html?id_song='.$song);
 			}else if($score==-1 AND $getVote[0][2]==1){
 				update("UPDATE likes SET score = '-1' WHERE u_id='$userID' AND id_song='$song';");
-				header("Location:../../listen.html?id_song=".$song);
+		redirect('../../listen.html?id_song='.$song);
 			}
 		}
 		else{
 			insert("INSERT INTO likes (`id_song`,`u_id`, `score`) VALUES ('$song','$userID', '$score');");
-			header("Location:../../listen.html?id_song=".$song);
+		redirect('../../listen.html?id_song='.$song);
 		}
 	}
 
