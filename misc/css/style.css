@@ -609,7 +609,7 @@ form.search-bar button:hover {
 	margin-top: 2em;
 }
 
-.content-play .content{
+.content-play .content {
 	padding-top: 0;
 }
 
@@ -618,11 +618,16 @@ form.search-bar button:hover {
 	height: 4em;
 }
 
-.comment{
+.comment {
 	margin-bottom: .5em;
 	padding: .5em;
 	background-color: #f5f5f5;
 	border-radius: 2px;
+}
+
+.user-comment * {
+	display: inline-block;
+	margin: 0 .5em;
 }
 
 .comment h4 {
@@ -660,6 +665,16 @@ audio {
 	margin-bottom: 1em;
 }
 
+#like-dislike {
+	float: right;
+	margin-right: 1em;
+}
+
+#like-dislike * {
+	margin: 0 .1em;
+	width: 2em;
+	height: 2em;
+}
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
 

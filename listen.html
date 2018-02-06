@@ -66,11 +66,16 @@
 								</audio>
 							</div>
 						</div>
-						<form action="misc/php/rating.php" method="post">
-							<input type="submit" value="Like" name="action">
-							<input type="submit" value="Dislike" name="action">
-							<input type="hidden" name="element" value="1">
-							<!-- VALORE DI PROVA -->
+						<form id="like-dislike" action="misc/php/player.php" method="post">
+							<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
+							<input type="image" value="like" name="like" src="misc/img/thumb-up.png" title="like">
+							<?php $like = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id_song' AND score = '1';");
+								echo $like[0][0];
+							?>
+							<input type="image" value="dislike" name="dislike" src="misc/img/thumb-down.png" title="dislike">
+							<?php $dislike = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id_song' AND score = '-1';");
+								echo $dislike[0][0];
+							?>
 						</form>
 						
 						<?php echo 'Description + data + autore TODO';?>
@@ -78,7 +83,7 @@
 						<h3>Leave a comment</h3>
 						<form action="misc/php/player.php" method="post">
 							<div>
-								<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track"></textarea>
+								<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track" required></textarea>
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
 							</div>
 							<div>
@@ -99,10 +104,11 @@
 							
 						for($i=$num_comments-1; $i>=0; $i--){
 							$comment = $getComments[$i];
-							$getUser=select("SELECT username FROM user WHERE u_id='$comment[2]'");
+							$getUser=select("SELECT username,avatar FROM user WHERE u_id='$comment[2]'");
 							
 							echo '<div class="comment">';
-							echo "<h3>".$getUser[0][0]."</h3>";
+							echo '<div class="user-comment"><img id="profile-pic" src="misc/img/users/'.$getUser[0][1].'" />';
+							echo "<h3>".$getUser[0][0]."</h3></div>";
 							echo '<h4>'.$comment[1].'</h4>';
 							echo '</div>';
 							
