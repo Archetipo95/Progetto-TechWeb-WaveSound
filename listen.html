@@ -49,9 +49,7 @@
 									//echo $row[6];/*upload date*/
 								/*}*/
 							}
-						?>
-						
-						<h1><?php echo $row[1];?></h1>	
+						?>	
 						
 						<div class="center">
 						<div id="player-audio">
@@ -87,6 +85,7 @@
 						
 						<div id="info-player">
 							<?php
+								echo '<h1>'.$row[1].'</h1>';
 								echo '<div>';
 								echo 'Upload date: '.date_format(date_create($row[6]),"d/m/Y");
 								echo '</div>';
@@ -134,14 +133,22 @@
 					</div>
 				</div><!--
 				--><div class="content-suggestion center">
-				New songs!
 					<div class="content-card-container">
+					<div>10 newest songs</div>
 						<div class="content-card">
-							<div class="content-card-cover"></div>
-							<div class="content-card-cover"></div>
-							<div class="content-card-cover"></div>
-							<div class="content-card-cover"></div>
-							<div class="content-card-cover"></div>
+							<?php
+						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
+						
+						for($i=0; $i<count($getNewSongs);$i++){
+							$toString = $getNewSongs[$i][0];
+							$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$toString[0]';");
+							$stringa = $getAlbumIMG[0];
+							echo '<a href="listen.html?id_song='.$getNewSongs[$i][1].'">';
+							echo $getNewSongs[$i][2];
+							echo '<div class="card-suggestion"><img src="misc/img/album-covers/'.$stringa[0].'" /></div>';
+							echo '</a>';
+						}
+						?>
 						</div>
 					</div>
 					</div>

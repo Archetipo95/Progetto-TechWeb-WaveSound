@@ -817,6 +817,16 @@ audio {
 	margin-bottom: .5em;
 }
 
+.card-suggestion {
+	margin: .5em 0;
+}
+
+.card-suggestion img{
+	width: 10em;
+	height: 10em;
+	border-radius: 2px;
+}
+
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
 
 @media screen and (min-width: 760px) {
