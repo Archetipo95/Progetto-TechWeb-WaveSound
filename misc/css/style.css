@@ -709,8 +709,13 @@ form.search-bar button:hover {
 }
 
 #comment-area {
-	width: 100%;
+	margin: 0 1rem;
+	width: 95%;
 	height: 4em;
+}
+
+#comments {
+	margin-top: 1em;
 }
 
 .comment {
@@ -722,7 +727,7 @@ form.search-bar button:hover {
 
 .user-comment * {
 	display: inline-block;
-	margin: 0 .5em;
+	margin-right: .5em;
 }
 
 .comment h4 {
@@ -735,10 +740,12 @@ audio {
 }
 
 #player-audio {
-	margin: 1em;
+	margin: 1em 1em 0 1em;
 	padding: 1em;
 	background-color: #555555;
 	box-shadow: none;
+	border-top-right-radius: 2px;
+	border-top-left-radius: 2px;
 }
 
 #player-audio .content-card-cover {
@@ -762,7 +769,8 @@ audio {
 
 #like-dislike {
 	float: right;
-	margin-right: 1em;
+	margin-top: 1em;
+	margin-right: 1.5em;
 }
 
 .submit-like input {
@@ -794,6 +802,19 @@ audio {
 	margin: 0 .1em;
 	width: 2em;
 	height: 2em;
+}
+
+#info-player {
+	background-color: #f5f5f5;
+	margin: 0 1em;
+	padding: .5em;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	
+}
+
+#info-player div {
+	margin-bottom: .5em;
 }
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/

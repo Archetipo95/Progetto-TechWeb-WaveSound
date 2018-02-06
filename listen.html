@@ -85,8 +85,16 @@
 							?>
 						</form>
 						
-						<?php echo 'Description + data + autore TODO';?>
-						
+						<div id="info-player">
+							<?php
+								echo '<div>';
+								echo 'Upload date: '.date_format(date_create($row[6]),"d/m/Y");
+								echo '</div>';
+								echo '<div>';
+								echo 'Description: '.$row[3];
+								echo '</div>';
+							?>
+						</div>
 						<h3>Leave a comment</h3>
 						<form action="misc/php/player.php" method="post">
 							<div>
@@ -97,7 +105,8 @@
 								<input type="submit" value="comment" name="comment">
 							</div>
 						</form>
-					
+						
+						<div id="comments">
 						<?php
 						
 						$getComments=select("SELECT * FROM comment WHERE id_song='$id_song'");
@@ -121,9 +130,11 @@
 						}
 						
 						?>
+						</div>
 					</div>
 				</div><!--
 				--><div class="content-suggestion center">
+				New songs!
 					<div class="content-card-container">
 						<div class="content-card">
 							<div class="content-card-cover"></div>
