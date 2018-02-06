@@ -742,7 +742,7 @@ audio {
 #player-audio {
 	margin: 1em 1em 0 1em;
 	padding: 1em;
-	background-color: #555555;
+	background-color: #445057;
 	box-shadow: none;
 	border-top-right-radius: 2px;
 	border-top-left-radius: 2px;
@@ -770,7 +770,7 @@ audio {
 #like-dislike {
 	float: right;
 	margin-top: 1em;
-	margin-right: 1.5em;
+	margin-right: 1em;
 }
 
 .submit-like input {
@@ -810,7 +810,6 @@ audio {
 	padding: .5em;
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
-	
 }
 
 #info-player div {
@@ -825,6 +824,7 @@ audio {
 	width: 10em;
 	height: 10em;
 	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/

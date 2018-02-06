@@ -64,26 +64,25 @@
 								</audio>
 							</div>
 						</div>
-						<form id="like-dislike" action="misc/php/player.php" method="post">
-							
-							<?php
-								echo '<input type="hidden" value="'.$id_song.'" name="id_song">';
-							?>
-							<div class="submit-like">
-								<input type="submit" value="like" name="like" title="like">
-							</div>
-							<?php $like = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id_song' AND score = '1';");
-								echo $like[0][0];
-							?>
-							<div class="submit-dislike">
-								<input type="submit" value="dislike" name="dislike" src="misc/img/thumb-down.png" title="dislike">
-							</div>
-							<?php $dislike = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id_song' AND score = '-1';");
-								echo $dislike[0][0];
-							?>
-						</form>
 						
 						<div id="info-player">
+							<form id="like-dislike" action="misc/php/player.php" method="post">
+								<?php
+									echo '<input type="hidden" value="'.$id_song.'" name="id_song">';
+								?>
+								<div class="submit-like">
+									<input type="submit" value="like" name="like" title="like">
+								</div>
+								<?php $like = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id_song' AND score = '1';");
+									echo $like[0][0];
+								?>
+								<div class="submit-dislike">
+									<input type="submit" value="dislike" name="dislike" src="misc/img/thumb-down.png" title="dislike">
+								</div>
+								<?php $dislike = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id_song' AND score = '-1';");
+									echo $dislike[0][0];
+								?>
+							</form>
 							<?php
 								echo '<h1>'.$row[1].'</h1>';
 								echo '<div>';
