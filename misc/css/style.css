@@ -115,40 +115,16 @@ header {
 	display: none;
 }
 
-.head-icon {
-	display: inline-block;
-	width: 1.8em;
-	height: 1.8em;
-	background-size: contain;
-	background-repeat: no-repeat;
-}
-
 #settings {
-	margin-top: 0.6em;
-	margin-bottom: 0.4em;
-	background-image: url('../img/settings.png');
-}
-
-#settings:hover {
-	background-image: url('../img/settings-white.png');
+    display: none;
 }
 
 #logout {
-	margin-top: 0.6em;
-	margin-right: -1.5em;
-	margin-bottom: 0.4em;
-	background-image: url('../img/logout.png');
-}
-
-#logout:hover {
-	background-image: url('../img/logout-white.png');
+	display: none;
 }
 
 #join-us {
 	display: none;
-	margin-right: 1em;
-	vertical-align: middle;
-	font-size: 1.2em;
 }
 
 #login-registration {
@@ -416,8 +392,7 @@ footer * {
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
 .main-right {
-	padding-top: 5em;
-	padding-left: 15em;
+	padding-top: 1.5em;
 }
 
 .content-body {
@@ -427,16 +402,25 @@ footer * {
 
 .content {
 	padding: 2em;
+    margin-top: -1.5em;
+    font-size: 0.9em;
+}
+
+.content-title {
+    margin-top: 1em;
 }
 
 .content-card-container {
 	display: inline-block;
+    margin-top: -0.5em;
+    margin-bottom: 1.5em;
 }
 
 .content-card-cover {
 	display: inline-block;
 	margin: 1em;
 	padding: 1em;
+    margin-bottom: -1em;
 	width: 10em;
 	height: 8em;
 	border-radius: 2px;
@@ -444,56 +428,12 @@ footer * {
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.content-card-details {
-	margin-left: 1em;
+.content-card-details-title {
+    margin-bottom: -0.1em;
 }
 
 nav {
-	position: fixed;
-	z-index: 9999;
-	margin-top: 5em;
-	width: 15em;
-	height: 100%;
-	background-color: #1565C0;
-}
-
-nav * {
-	color: #fff;
-}
-
-#nav-menu ul {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#nav-menu li {
-	margin: 0;
-	padding: 0;
-}
-
-#nav-menu a {
-	display: block;
-	margin: 0;
-	padding: .5em;
-	padding-left: 2em;
-	font-size: 1.2em;
-}
-
-#currentPage {
-	background-color: #03A9F4;
-	text-decoration: none;
-	cursor: default;
-	pointer-events: none;
-}
-
-#nav-menu a:hover {
-	background-color: #03A9F4;
-}
-
-#nav-menu a:active {
-	background-color: #81D4FA;
+    display: none;
 }
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
@@ -847,19 +787,43 @@ audio {
 	}
 	.header-right {
 		width: 55%;
-	}
+	}   
+    .head-icon {
+        display: inline-block;
+        width: 2em;
+        height: 2em;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    #settings {
+        display: inline-block;
+		vertical-align: middle;
+        background-image: url('../img/settings.png');
+    }
+    #settings:hover {
+        background-image: url('../img/settings-white.png');
+    }
+    #logout {
+        display: inline-block;
+        margin-right: -3em;
+		margin-left: 1em;
+		vertical-align: middle;
+        background-image: url('../img/logout.png');
+    }
+    #logout:hover {
+        background-image: url('../img/logout-white.png');
+    } 
 	#join-us {
-		display: inline-block;
-	}
+        display: inline-block;
+        margin-right: 1em;
+        vertical-align: middle;
+        font-size: 1.2em;
+    }
 	#login-registration {
 		display: inline-block;
 		margin-left: 1em;
 		vertical-align: middle;
 		font-size: 1.2em;
-	}
-	.head-icon {
-		width: 2em;
-		height: 2em;
 	}
 	#username-picture {
 		display: inline-block;
@@ -877,15 +841,7 @@ audio {
 		border-radius: 50%;
 		vertical-align: middle;
 	}
-	#settings {
-		margin-left: 1em;
-		vertical-align: middle;
-	}
-	#logout {
-		margin-right: -3em;
-		margin-left: 1em;
-		vertical-align: middle;
-	}
+    
 	/*--------------------- index.html --------------------*/
 	.welcome {
 		margin-top: -1.5em;
@@ -958,4 +914,52 @@ audio {
 		font-size: 0.5em;
 	}
 	/*----------------------- main.html ------------------------*/
+    nav {
+        display: block;
+        position: fixed;
+        z-index: 9999;
+        margin-top: 5em;
+        width: 15em;
+        height: 100%;
+        background-color: #1565C0;
+    }
+    nav * {
+        color: #fff;
+    }
+    #nav-menu ul {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+        list-style: none;
+    }
+    #nav-menu li {
+        margin: 0;
+        padding: 0;
+    }
+    #nav-menu a {
+        display: block;
+        margin: 0;
+        padding: .5em;
+        padding-left: 2em;
+        font-size: 1.2em;
+    }
+    #currentPage {
+        background-color: #03A9F4;
+        text-decoration: none;
+        cursor: default;
+        pointer-events: none;
+    }
+    #nav-menu a:hover {
+        background-color: #03A9F4;
+    }
+    #nav-menu a:active {
+        background-color: #81D4FA;
+    }
+    .main-right {
+        padding-top: 5em;
+        padding-left: 15em;
+    }
+    .content {
+        font-size: 1em;
+    }
 }
