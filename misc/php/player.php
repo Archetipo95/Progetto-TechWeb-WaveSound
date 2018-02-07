@@ -64,4 +64,25 @@
 			updateScore(-1, true);
 	}
 
+function deleteComment(){
+	session_start();
+	$comm_id = $_POST['idOfComment'];
+	$song = $_POST['id_song'];
+	$userID= $_SESSION["userID"];
+	delete("DELETE FROM comment WHERE comm_id=$comm_id;");
+	redirect('../../listen.html?id_song='.$song);
+}
+
+if(isset($_POST['delete'])){
+		deleteComment();
+	}
+
+function report(){
+	$comment = $_POST['commentOfUser'];
+}
+
+if(isset($_POST['report'])){
+		report();
+	}
+
 ?>

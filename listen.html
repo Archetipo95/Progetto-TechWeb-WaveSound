@@ -38,16 +38,7 @@
 								require ('misc/php/tools.php');
 								$statement=select("SELECT * FROM song WHERE id_song='$id_song'");
 								$col = count($statement);
-								/*if ($col == 1) {*/
-									$row = $statement[0];
-									//echo $row[0];/*id*/
-									//echo $row[1];/*titolo*/
-									//echo $row[2];/*genere*/
-									//echo $row[3];/*descrizione*/
-									//echo $row[4];/*path*/
-									//echo $row[5];/*id-album*/
-									//echo $row[6];/*upload date*/
-								/*}*/
+								$row = $statement[0];
 							}
 						?>	
 						
@@ -67,9 +58,7 @@
 						
 						<div id="info-player">
 							<form id="like-dislike" action="misc/php/player.php" method="post">
-								<?php
-									echo '<input type="hidden" value="'.$id_song.'" name="id_song">';
-								?>
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">';?>
 								<div class="submit-like">
 									<input type="submit" value="like" name="like" title="like">
 								</div>
@@ -114,12 +103,24 @@
 							
 						for($i=$num_comments-1; $i>=0; $i--){
 							$comment = $getComments[$i];
-							$getUser=select("SELECT username,avatar FROM user WHERE u_id='$comment[2]'");
+							$getUser=select("SELECT username,avatar,u_id FROM user WHERE u_id='$comment[2]'");
 							
 							echo '<div class="comment">';
 							echo '<div class="user-comment"><img id="profile-pic" src="misc/img/users/'.$getUser[0][1].'" />';
 							echo "<h3>".$getUser[0][0]."</h3></div>";
 							echo '<h4>'.$comment[1].'</h4>';
+							
+							echo '<form action="misc/php/player.php" method="post">';
+							echo '<input type="hidden" value="'.$comment[0].'" name="idOfComment">';
+							echo '<input type="hidden" value="'.$id_song.'" name="id_song">';
+							
+							$userID= $_SESSION["userID"];
+							$userComment = $getUser[0][2];
+							if($userComment==$userID)
+								echo '<input type="submit" value="delete" name="delete">';
+							else
+								echo '<input type="submit" value="report" name="report">';
+							echo '</form>';
 							echo '</div>';
 						}
 						
