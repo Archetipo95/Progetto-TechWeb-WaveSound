@@ -1,3 +1,7 @@
 misc/img/users/*
 
 !misc/img/users/default-profile.png
+
+misc/songs/*
+
+!misc/songs/bensound-epic.mp3
