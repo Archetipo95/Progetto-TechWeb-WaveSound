@@ -78,7 +78,12 @@ if(isset($_POST['delete'])){
 	}
 
 function report(){
-	$comment = $_POST['commentOfUser'];
+	$song = $_POST['id_song'];
+	$comm_id = $_POST['idOfComment'];
+	$date = date("Y-m-d");
+	insert("INSERT INTO warning_comments (`com_id`, `reason`, `date_warning`) VALUES ('$comm_id', 'reason', '$date');");
+	redirect('../../listen.html?id_song='.$song);
+	
 }
 
 if(isset($_POST['report'])){
