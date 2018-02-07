@@ -30,6 +30,28 @@ CREATE TABLE user (
 	PRIMARY KEY (u_id)
 ) ENGINE=InnoDB;
 
+
+CREATE TABLE album (
+	id_album int(10) NOT NULL AUTO_INCREMENT,
+	name varchar(20) NOT NULL,
+	picture varchar(500) DEFAULT NULL,
+	PRIMARY KEY (id_album)
+) ENGINE=InnoDB;
+
+
+CREATE TABLE song (
+	id_song int(10) NOT NULL AUTO_INCREMENT,
+	title varchar(50) NOT NULL,
+	genre varchar(50) NOT NULL,
+	description varchar(180) DEFAULT NULL,
+	path varchar(250) NOT NULL,
+	id_album int(10) NOT NULL,
+	upload_date date NOT NULL,
+	PRIMARY KEY (id_song),
+	FOREIGN KEY (id_album) REFERENCES album(id_album)
+) ENGINE=InnoDB;
+
+
 CREATE TABLE user_email_banned (
 	email_id int(10) NOT NULL AUTO_INCREMENT,
 	banned_email varchar(254) NOT NULL,
@@ -57,24 +79,6 @@ CREATE TABLE library (
 	FOREIGN KEY (id_song) REFERENCES song(id_song)
 ) ENGINE=InnoDB;
 
-CREATE TABLE album (
-	id_album int(10) NOT NULL AUTO_INCREMENT,
-	name varchar(20) NOT NULL,
-	picture varchar(500) DEFAULT NULL,
-	PRIMARY KEY (id_album)
-) ENGINE=InnoDB;
-
-CREATE TABLE song (
-	id_song int(10) NOT NULL AUTO_INCREMENT,
-	title varchar(50) NOT NULL,
-	genre varchar(50) NOT NULL,
-	description varchar(180) DEFAULT NULL,
-	path varchar(250) NOT NULL,
-	id_album int(10) NOT NULL,
-	upload_date date NOT NULL,
-	PRIMARY KEY (id_song),
-	FOREIGN KEY (id_album) REFERENCES album(id_album)
-) ENGINE=InnoDB;
 
 CREATE TABLE comment (
 	comm_id int(10) NOT NULL AUTO_INCREMENT,
