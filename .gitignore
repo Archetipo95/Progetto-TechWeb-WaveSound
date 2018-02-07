@@ -4,4 +4,7 @@ misc/img/users/*
 
 misc/songs/*
 
-!misc/songs/bensound-epic.mp3
+!misc/songs/song1.mp3
+!misc/songs/song2.mp3
+!misc/songs/song3.mp3
+!misc/songs/song4.mp3

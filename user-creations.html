@@ -43,6 +43,8 @@
 						require('misc/php/tools.php');
 						$user_id = $_SESSION["userID"];
 						$getIdSongs = select("SELECT id_song FROM library WHERE id_user='$user_id';");
+						if(count($getIdSongs)>0){
+						
 						echo '
 							<table>
 							<tr>
@@ -81,6 +83,10 @@
 							
 						}
 						echo "</table>";
+						}else{
+							echo "You have uploaded 0 songs.<br />";
+							echo 'Use this <a href="upload-song.html">link</a> to upload a new song!';
+						}
 					?>
 
 				</div>
