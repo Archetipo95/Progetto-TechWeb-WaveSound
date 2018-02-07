@@ -627,6 +627,11 @@ form.search-bar button:hover {
 
 /*------------------------------------------------- listen.html ------------------------------------------------------------*/
 
+.main-right-listen {
+    padding-top: 8em;
+    padding-left: 15em;
+}
+
 .content-play {
 	display: inline-block;
 	width: 80%;
