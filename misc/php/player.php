@@ -20,11 +20,7 @@
 		session_start();
 		$userID= $_SESSION["userID"];
 		$song = $_POST['id_song'];
-		$getVote = select("SELECT * FROM likes WHERE u_id='$userID' AND id_song='$song';");
-		if(count($getVote)==1)
-			return true;
-		else
-			return false;
+		return alreadyVoted($userID,$song,'both');
 	}
 
 	function updateScore($score, $new){

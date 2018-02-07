@@ -116,7 +116,7 @@ header {
 }
 
 #settings {
-    display: none;
+	display: none;
 }
 
 #logout {
@@ -206,6 +206,7 @@ main {
 	border-color: #263238;
 	border-radius: 2px;
 	background-color: #03A9F4;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 	font-size: 1.2rem;
 }
 
@@ -234,8 +235,6 @@ main {
 	background-color: #fff;
 }
 
-.card-container {}
-
 .card {
 	display: inline-block;
 	margin: 1em;
@@ -244,7 +243,7 @@ main {
 	height: 12em;
 	border-radius: 2px;
 	background-color: #03A9F4;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 	vertical-align: top;
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
@@ -401,39 +400,39 @@ footer * {
 }
 
 .content {
+	margin-top: -1.5em;
 	padding: 2em;
-    margin-top: -1.5em;
-    font-size: 0.9em;
+	font-size: 0.9em;
 }
 
 .content-title {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 
 .content-card-container {
 	display: inline-block;
-    margin-top: -0.5em;
-    margin-bottom: 1.5em;
+	margin-top: -0.5em;
+	margin-bottom: 1.5em;
 }
 
 .content-card-cover {
 	display: inline-block;
 	margin: 1em;
+	margin-bottom: -1em;
 	padding: 1em;
-    margin-bottom: -1em;
 	width: 10em;
 	height: 8em;
 	border-radius: 2px;
 	background-color: #5ca1e6;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .content-card-details-title {
-    margin-bottom: -0.1em;
+	margin-bottom: -0.1em;
 }
 
 nav {
-    display: none;
+	display: none;
 }
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
@@ -628,8 +627,8 @@ form.search-bar button:hover {
 /*------------------------------------------------- listen.html ------------------------------------------------------------*/
 
 .main-right-listen {
-    padding-top: 8em;
-    padding-left: 15em;
+	padding-top: 8em;
+	padding-left: 15em;
 }
 
 .content-play {
@@ -668,6 +667,7 @@ form.search-bar button:hover {
 	padding: .5em;
 	border-radius: 2px;
 	background-color: #f5f5f5;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .user-comment * {
@@ -682,15 +682,6 @@ form.search-bar button:hover {
 
 audio {
 	width: 100%;
-}
-
-#player-audio {
-	margin: 1em 1em 0 1em;
-	padding: 1em;
-	background-color: #445057;
-	box-shadow: none;
-	border-top-right-radius: 2px;
-	border-top-left-radius: 2px;
 }
 
 #player-audio .content-card-cover {
@@ -710,6 +701,30 @@ audio {
 	border-radius: 2px;
 	background-size: cover;
 	background-repeat: no-repeat;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#player-audio {
+	margin: 1em 1em 0 1em;
+	padding: 1em;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	background-color: #424242;
+	box-shadow: none;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#info-player {
+	margin: 0 1em;
+	padding: .5em;
+	border-bottom-right-radius: 2px;
+	border-bottom-left-radius: 2px;
+	background-color: #f5f5f5;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+#info-player div {
+	margin-bottom: .5em;
 }
 
 #like-dislike {
@@ -718,28 +733,31 @@ audio {
 	margin-right: 1em;
 }
 
-.submit-like input {
+.submit-like-dislike input {
 	width: 2em;
 	height: 2em;
 	border: none;
 	background-color: transparent;
-	background-image: url('../img/thumb-up-outline.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 	color: transparent;
 	cursor: pointer;
 }
 
-.submit-dislike input {
-	width: 2em;
-	height: 2em;
-	border: none;
-	background-color: transparent;
+.like input {
+	background-image: url('../img/thumb-up-outline.png');
+}
+
+.dislike input {
 	background-image: url('../img/thumb-down-outline.png');
-	background-size: cover;
-	background-repeat: no-repeat;
-	color: transparent;
-	cursor: pointer;
+}
+
+#voted-like {
+	background-image: url('../img/thumb-up.png');
+}
+
+#voted-dislike {
+	background-image: url('../img/thumb-down.png');
 }
 
 #like-dislike * {
@@ -749,27 +767,15 @@ audio {
 	height: 2em;
 }
 
-#info-player {
-	background-color: #f5f5f5;
-	margin: 0 1em;
-	padding: .5em;
-	border-bottom-left-radius: 2px;
-	border-bottom-right-radius: 2px;
-}
-
-#info-player div {
-	margin-bottom: .5em;
-}
-
 .card-suggestion {
 	margin: .5em 0;
 }
 
-.card-suggestion img{
+.card-suggestion img {
 	width: 10em;
 	height: 10em;
 	border-radius: 2px;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
@@ -792,38 +798,38 @@ audio {
 	}
 	.header-right {
 		width: 55%;
-	}   
-    .head-icon {
-        display: inline-block;
-        width: 2em;
-        height: 2em;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-    #settings {
-        display: inline-block;
+	}
+	.head-icon {
+		display: inline-block;
+		width: 2em;
+		height: 2em;
+		background-size: contain;
+		background-repeat: no-repeat;
+	}
+	#settings {
+		display: inline-block;
+		background-image: url('../img/settings.png');
 		vertical-align: middle;
-        background-image: url('../img/settings.png');
-    }
-    #settings:hover {
-        background-image: url('../img/settings-white.png');
-    }
-    #logout {
-        display: inline-block;
-        margin-right: -3em;
+	}
+	#settings:hover {
+		background-image: url('../img/settings-white.png');
+	}
+	#logout {
+		display: inline-block;
+		margin-right: -3em;
 		margin-left: 1em;
+		background-image: url('../img/logout.png');
 		vertical-align: middle;
-        background-image: url('../img/logout.png');
-    }
-    #logout:hover {
-        background-image: url('../img/logout-white.png');
-    } 
+	}
+	#logout:hover {
+		background-image: url('../img/logout-white.png');
+	}
 	#join-us {
-        display: inline-block;
-        margin-right: 1em;
-        vertical-align: middle;
-        font-size: 1.2em;
-    }
+		display: inline-block;
+		margin-right: 1em;
+		vertical-align: middle;
+		font-size: 1.2em;
+	}
 	#login-registration {
 		display: inline-block;
 		margin-left: 1em;
@@ -846,7 +852,7 @@ audio {
 		border-radius: 50%;
 		vertical-align: middle;
 	}
-    
+
 	/*--------------------- index.html --------------------*/
 	.welcome {
 		margin-top: -1.5em;
@@ -919,52 +925,52 @@ audio {
 		font-size: 0.5em;
 	}
 	/*----------------------- main.html ------------------------*/
-    nav {
-        display: block;
-        position: fixed;
-        z-index: 9999;
-        margin-top: 5em;
-        width: 15em;
-        height: 100%;
-        background-color: #1565C0;
-    }
-    nav * {
-        color: #fff;
-    }
-    #nav-menu ul {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0;
-        list-style: none;
-    }
-    #nav-menu li {
-        margin: 0;
-        padding: 0;
-    }
-    #nav-menu a {
-        display: block;
-        margin: 0;
-        padding: .5em;
-        padding-left: 2em;
-        font-size: 1.2em;
-    }
-    #currentPage {
-        background-color: #03A9F4;
-        text-decoration: none;
-        cursor: default;
-        pointer-events: none;
-    }
-    #nav-menu a:hover {
-        background-color: #03A9F4;
-    }
-    #nav-menu a:active {
-        background-color: #81D4FA;
-    }
-    .main-right {
-        padding-top: 5em;
-        padding-left: 15em;
-    }
-    .content {
-        font-size: 1em;
-    }
+	nav {
+		position: fixed;
+		z-index: 9999;
+		display: block;
+		margin-top: 5em;
+		width: 15em;
+		height: 100%;
+		background-color: #1565C0;
+	}
+	nav * {
+		color: #fff;
+	}
+	#nav-menu ul {
+		margin-top: 0;
+		margin-bottom: 0;
+		padding: 0;
+		list-style: none;
+	}
+	#nav-menu li {
+		margin: 0;
+		padding: 0;
+	}
+	#nav-menu a {
+		display: block;
+		margin: 0;
+		padding: .5em;
+		padding-left: 2em;
+		font-size: 1.2em;
+	}
+	#currentPage {
+		background-color: #03A9F4;
+		text-decoration: none;
+		cursor: default;
+		pointer-events: none;
+	}
+	#nav-menu a:hover {
+		background-color: #03A9F4;
+	}
+	#nav-menu a:active {
+		background-color: #81D4FA;
+	}
+	.main-right {
+		padding-top: 5em;
+		padding-left: 15em;
+	}
+	.content {
+		font-size: 1em;
+	}
 }

@@ -67,4 +67,22 @@ function getDislikes($id){
     return $sql[0][0];
 }
 
+function alreadyVoted($user, $song, $check){
+	
+	switch($check){
+		case 'like':
+			$getVote = select("SELECT * FROM likes WHERE u_id='$user' AND id_song='$song' AND score='1';");
+			return (count($getVote)==1);
+			break;
+		case 'dislike':
+			$getVote = select("SELECT * FROM likes WHERE u_id='$user' AND id_song='$song' AND score='-1';");
+			return (count($getVote)==1);
+			break;
+		case 'both':
+			$getVote = select("SELECT * FROM likes WHERE u_id='$user' AND id_song='$song';");
+			return (count($getVote)==1);
+			break;		
+	}
+}
+
 ?>
