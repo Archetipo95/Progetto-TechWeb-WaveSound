@@ -57,4 +57,14 @@ function redirect($url){
 }
 }
 
+function getLikes($id){
+    $sql = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id' AND score = '1';");
+	return $sql[0][0];
+}
+
+function getDislikes($id){
+    $sql = select("SELECT COUNT(*) FROM likes WHERE id_song = '$id' AND score = '-1';");
+    return $sql[0][0];
+}
+
 ?>

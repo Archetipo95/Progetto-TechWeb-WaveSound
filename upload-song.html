@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | My Songs - Upload</title>
+	<title>WaveSound | Upload new song</title>
 	<!-- font + fav icon -->
 	<link rel="icon" type="image/png" href="misc/img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -16,7 +16,7 @@
 	<header>
 		<?php
 			include("misc/include/header.html");
-			$_SESSION["current-page"]="Music";
+			$_SESSION["current-page"]="Upload";
 		?>
 	</header>
 	<nav>
@@ -27,7 +27,7 @@
 	<main class="main-right">
 		<div class="content-body">
 			<div class="content">
-				<h1>Submit your new creation</h1>
+				<h1>Upload here a new song</h1>
 				<div id="content-user-upload">
 					<form action="misc/php/uploadmp3.php" method="post" enctype="multipart/form-data">
 						<div>
@@ -52,7 +52,7 @@
 							<label for="file">Upload</label>
 						</div>
 						<div>
-							<input type="file" name="file" id="file" />
+							<input type="file" name="file" id="file" required />
 						</div>
 						<div>
 							<input type="submit" name="submit" value="Submit" />

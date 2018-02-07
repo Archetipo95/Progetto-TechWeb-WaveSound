@@ -64,20 +64,4 @@
 			updateScore(-1, true);
 	}
 
-//Total numbers of likes
-function getLikes($id){
-    $sql = "SELEC COUNT(*) FROM likes WHERE id_song = $id AND score = 1";
-    $rs = select($sql);
-    $result = mysqli_fetch_array($rs);
-    return $result[0];
-}
-
-//Total dislikes
-function getDislikes($id){
-    $sql = "SELEC COUNT(*) FROM likes WHERE id_song = $id AND score = -1";
-    $rs = select($sql);
-    $result = mysqli_fetch_array($rs);
-    return $result[0];
-}
-
 ?>
