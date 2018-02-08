@@ -437,7 +437,6 @@ nav {
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
 
-/* NON BISOGNA USARE TABLE TD TH TR SE NO APPLICHI LO STILE DI 1 TABELLA A TUTTE LE ALTRE
 table {
 	width: 100%;
 	border-collapse: collapse;
@@ -452,7 +451,7 @@ th {
 
 tr:nth-child(even) {
 	background-color: #b3e0ff;
-}*/
+}
 
 /*------------------------------------------------- user-soundtrack-upload.html --------------------------------------------------*/
 
@@ -605,7 +604,7 @@ form.search-bar input[type=text] {
 form.search-bar button {
 	display: inline-block;
 	width: 10%;
-	height: 2.8em;
+	height: 2.9em;
 	border: none;
 	background-color: #2196F3;
 	background-image: url('../img/search-bar-glass.png');
