@@ -1,10 +1,11 @@
 <?php
+
 	require("connection.php");
 	require("tools.php");
 
 	if(isset($_POST['search'])){
 		$keyword=$_POST['search'];
-		$query = "SELECT  title,genre,upload_date FROM song WHERE title='$keyword'";
+		$query = "SELECT  title,genre,upload_date FROM song WHERE title LIKE '%$keyword%' ";
 		$result = $connection->prepare($query);
 		$result->execute();
 		
