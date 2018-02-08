@@ -38,7 +38,7 @@
 			<div class="content">
 				<h1>Search Music</h1>
 				<h2>Search by name</h2>
-				<form class="search-bar" action="search-result.html" method="post">
+				<form class="search-bar" action="search-music.html" method="post">
 					<input type="text" placeholder="Search.." name="search">
 					<button type="submit"></button>
 				</form>
@@ -83,6 +83,36 @@
 				</form>
 				<br/>
 				<h3>Results:</h3>
+			<?php
+			require("misc/php/connection.php");
+			require("misc/php/tools.php");
+			
+					if(isset($_POST['search'])){
+				$keyword=$_POST['search'];
+				$query = "SELECT  title,genre,upload_date FROM song WHERE title LIKE '%$keyword%' ";
+				$result = $connection->prepare($query);
+				$result->execute();
+		
+				while($row = $result->fetch(PDO::FETCH_ASSOC)){
+				$title = $row['title'];
+				$genre = $row['genre'];
+				$upload_date = $row['upload_date'];
+			
+				echo "<table>";
+				echo "<tr><th>Titolo</th>
+						<th>Genre</th>
+					  	<th>Upload Date</th>
+					</tr>";
+				echo "<tr><td>".$title."</td>
+						<td>".$genre."</td>
+					  	<td>".$upload_date."</td>
+				  	</tr>";
+				echo "</table>";
+				}
+			}else{
+				echo "vuoto";
+			}
+		?>
 			</div>
 		</div>
 	</main>
