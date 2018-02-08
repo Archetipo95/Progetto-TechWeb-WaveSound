@@ -38,7 +38,7 @@
 			<div class="content">
 				<h1>My songs</h1>
 				<!--<div class="my-creations-table">-->
-				<div>
+				<div style="overflow-x: auto;">
 					<?php
 						require('misc/php/tools.php');
 						$user_id = $_SESSION["userID"];
@@ -46,16 +46,16 @@
 						if(count($getIdSongs)>0){
 						
 						echo '
-							<table class="center">
-							<tr>
-								<th>Title</th>
-								<th>Genre</th>
-								<th>Album</th>
-								<th>Upload date</th>
-								<th>Downloads</th>
-								<th>Likes</th>
-								<th>Dislikes</th>
-							</tr>
+                            <table id="user-creations" class="center">
+                            <tr>
+                                <th>Title</th>
+                                <th>Genre</th>
+                                <th>Album</th>
+                                <th>Upload date</th>
+                                <th>Downloads</th>
+                                <th>Likes</th>
+                                <th>Dislikes</th>
+                            </tr>
 						';
 						
 						for($i=0; $i<count($getIdSongs); $i++) {

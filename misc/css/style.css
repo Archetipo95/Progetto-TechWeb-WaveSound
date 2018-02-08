@@ -437,19 +437,20 @@ nav {
 
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
 
-table {
+#user-creations {
 	width: 100%;
-	border-collapse: collapse;
+    border-collapse: collapse;
+	text-align: left;
 }
 
-td,
-th {
-	padding: 8px;
+#user-creations td,
+#user-creations th {
+	padding: 0.5em;
 	border: 1px solid #03A9F4;
 	text-align: left;
 }
 
-tr:nth-child(even) {
+#user-creations tr:nth-child(even) {
 	background-color: #b3e0ff;
 }
 

@@ -1,48 +1,48 @@
 <div class="admin">
 	<h1>Admin Settings</h1>
-
 	<h2>All users info:</h2>
-
+    
+    <div style="overflow-x:auto;">
 	<?php
-	require('misc/php/connection.php');
-	$query = "SELECT * FROM user";
-	$result = $connection->prepare($query);
-	$result->execute();
-	echo '
-		<table id="users-info">
-		<tr>
-			<th>Username</th>
-			<th>Name</th>
-			<th>Surname</th>
-			<th>Birthday</th>
-			<th>Email</th>
-			<th>Admin</th>
-		</tr>
-	';
-	while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-		$username = $row['username'];
-		$name = $row['name'];
-		$surname = $row['surname'];
-		$birthday = $row['birthday'];
-		$email = $row['email'];
-		$user_type = $row['user_type'];
-		if($user_type==0)
-			$user_type="no";
-		else
-			$user_type="yes";
-		echo "<tr>
-		<td>".$username."</td>
-		<td>".$name."</td>
-		<td>".$surname."</td>
-		<td>".$birthday."</td>
-		<td>".$email."</td>
-		<td>".$user_type."</td>
-		</tr>";
-	}
-	echo "</table>";
-	
-?>
-
+        require('misc/php/connection.php');
+        $query = "SELECT * FROM user";
+        $result = $connection->prepare($query);
+        $result->execute();
+        echo '
+            <table id="users-info">
+            <tr>
+                <th>Username</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Birthday</th>
+                <th>Email</th>
+                <th>Admin</th>
+            </tr>
+        ';
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            $username = $row['username'];
+            $name = $row['name'];
+            $surname = $row['surname'];
+            $birthday = $row['birthday'];
+            $email = $row['email'];
+            $user_type = $row['user_type'];
+            if($user_type==0)
+                $user_type="no";
+            else
+                $user_type="yes";
+            echo "<tr>
+            <td>".$username."</td>
+            <td>".$name."</td>
+            <td>".$surname."</td>
+            <td>".$birthday."</td>
+            <td>".$email."</td>
+            <td>".$user_type."</td>
+            </tr>";
+        }
+        echo "</table>";
+    ?>
+    </div>
+        
 	<h2>Delete an account</h2>
 
 	<form action="misc/php/adminSettings.php" method="post">
