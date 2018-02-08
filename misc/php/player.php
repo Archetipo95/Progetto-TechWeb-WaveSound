@@ -6,9 +6,9 @@
 		$userID= $_SESSION["userID"];
 		$comment = $_POST['yourComment'];
 		$song = $_POST['id_song'];
-		
+		$date = date("Y-m-d H-i-s");
 		if($comment != '')
-			insert("INSERT INTO comment (`description`,`u_id`, `id_song`) VALUES ('$comment','$userID', '$song');");
+			insert("INSERT INTO comment (`description`,`u_id`, `id_song`,`date_comment`) VALUES ('$comment','$userID', '$song', '$date');");
 		redirect('../../listen.html?id_song='.$song);
 	}
 
