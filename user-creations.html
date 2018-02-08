@@ -46,13 +46,13 @@
 						if(count($getIdSongs)>0){
 						
 						echo '
-							<table>
+							<table class="center">
 							<tr>
 								<th>Title</th>
 								<th>Genre</th>
 								<th>Album</th>
 								<th>Upload date</th>
-								<th>Total downloads (FORSE)</th>
+								<th>Downloads</th>
 								<th>Likes</th>
 								<th>Dislikes</th>
 							</tr>
@@ -67,7 +67,7 @@
 							$genre = $getMySong[0][2];
 							$album = $getMySong[0][5];
 							$date= date_format(date_create($getMySong[0][6]),"d/m/Y");
-							$downloads = "x";
+							$downloads = $getMySong[0][7];
 							$like = getLikes($getMySong[0][0]);
 							$dislike = getDislikes($getMySong[0][0]);
 							

@@ -50,19 +50,19 @@
 									echo '<img id="cover-player" src="/misc/img/album-covers/'.$getAlbum[0][2].'" alt="cover" /> ';
 								?>
 							</div>
-								<audio controls><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
+								<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
 							</div>
 						</div>
 						
 						<div id="info-player">
 							<form id="like-dislike" action="misc/php/player.php" method="post">
-								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">';?>
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song"/>';?>
 								<div class="submit-like-dislike like">
 									<?php
 										if(alreadyVoted($userID,$id_song, 'like'))
-											echo '<input id="voted-like" type="submit" value="like" name="like" title="voted like">';
+											echo '<input id="voted-like" type="submit" value="like" name="like" title="voted like"/>';
 										else
-											echo '<input type="submit" value="like" name="like" title="vote like">';
+											echo '<input type="submit" value="like" name="like" title="vote like"/>';
 									?>
 								</div>
 								<?php echo getLikes($id_song);?>
@@ -85,6 +85,13 @@
 								echo 'Description: '.$row[3];
 								echo '</div>';
 							?>
+							<form action="misc/php/player.php" method="post">
+								<?php 
+									echo '<a href="/misc/songs/'.$row[4].'" download>
+									<input type="hidden" value="'.$id_song.'" name="id_song"/>
+									<input type="submit" value="download" name="download" title="download"/></a>';
+								?>
+							</form>
 						</div>
 						<h3>Leave a comment</h3>
 						<form action="misc/php/player.php" method="post">

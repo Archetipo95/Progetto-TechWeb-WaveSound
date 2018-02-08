@@ -44,6 +44,7 @@ CREATE TABLE song (
 	path varchar(250) NOT NULL,
 	id_album int(10) NOT NULL,
 	upload_date date NOT NULL,
+	download int(10) NOT NULL DEFAULT '0',
 	PRIMARY KEY (id_song),
 	FOREIGN KEY (id_album) REFERENCES album(id_album)
 ) ENGINE=InnoDB;
