@@ -117,6 +117,8 @@
 							$getUser=select("SELECT username,avatar,u_id FROM user WHERE u_id='$comment[2]'");
 							
 							echo '<div class="comment">';
+							$dateComment=date_create($comment[4]);
+							echo date_format($dateComment,'H:i:s d/m/Y');
 							echo '<div class="user-comment"><img id="profile-pic" src="misc/img/users/'.$getUser[0][1].'" />';
 							echo "<h3>".$getUser[0][0]."</h3></div>";
 							echo '<h4>'.$comment[1].'</h4>';

@@ -80,6 +80,7 @@ CREATE TABLE comment (
 	description varchar(180) DEFAULT NULL,
 	u_id int(10) NOT NULL,
 	id_song int(10) NOT NULL,
+	date_comment DATETIME NOT NULL,
 	PRIMARY KEY (comm_id),
 	FOREIGN KEY (id_song) REFERENCES song(id_song),
 	FOREIGN KEY (u_id) REFERENCES user(u_id)
