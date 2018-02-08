@@ -68,7 +68,6 @@ function getDislikes($id){
 }
 
 function alreadyVoted($user, $song, $check){
-	
 	switch($check){
 		case 'like':
 			$getVote = select("SELECT * FROM likes WHERE u_id='$user' AND id_song='$song' AND score='1';");

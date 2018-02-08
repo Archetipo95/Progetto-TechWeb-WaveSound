@@ -68,8 +68,8 @@
 							$album = $getMySong[0][5];
 							$date= date_format(date_create($getMySong[0][6]),"d/m/Y");
 							$downloads = "x";
-							$like = "x";
-							$dislike = "x";
+							$like = getLikes($getMySong[0][0]);
+							$dislike = getDislikes($getMySong[0][0]);
 							
 							echo "<tr>
 							<td>".$title."</td>
