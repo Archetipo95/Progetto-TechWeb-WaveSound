@@ -15,6 +15,7 @@ DROP TABLE IF EXISTS song;
 DROP TABLE IF EXISTS album;
 DROP TABLE IF EXISTS library;
 DROP TABLE IF EXISTS likes;
+DROP TABLE IF EXISTS genre;
 
 CREATE TABLE user (
 	u_id int(10) NOT NULL AUTO_INCREMENT,
@@ -36,17 +37,24 @@ CREATE TABLE album (
 	PRIMARY KEY (id_album)
 ) ENGINE=InnoDB;
 
+CREATE TABLE genre (
+	id_genre int(10) NOT NULL AUTO_INCREMENT,
+	name varchar(50) NOT NULL,
+	PRIMARY KEY (id_genre)
+) ENGINE=InnoDB;
+
 CREATE TABLE song (
 	id_song int(10) NOT NULL AUTO_INCREMENT,
 	title varchar(50) NOT NULL,
-	genre varchar(50) NOT NULL,
+	genre int(10) NOT NULL,
 	description varchar(180) DEFAULT NULL,
 	path varchar(250) NOT NULL,
 	id_album int(10) NOT NULL,
 	upload_date date NOT NULL,
 	download int(10) NOT NULL DEFAULT '0',
 	PRIMARY KEY (id_song),
-	FOREIGN KEY (id_album) REFERENCES album(id_album)
+	FOREIGN KEY (id_album) REFERENCES album(id_album),
+	FOREIGN KEY (genre) REFERENCES genre(id_genre)
 ) ENGINE=InnoDB;
 
 CREATE TABLE user_email_banned (
