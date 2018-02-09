@@ -165,7 +165,7 @@ header {
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #03A9F4;
+    background-color: #1565C0;
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 4em;
@@ -175,13 +175,9 @@ header {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 1.5em;
-    color: #263238;
+    color: #fff;
     display: block;
     transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #fff;
 }
 
 .sidenav .closebtn {
@@ -670,19 +666,17 @@ form.search-bar button:hover {
 /*------------------------------------------------- listen.html ------------------------------------------------------------*/
 
 .main-right-listen {
-	padding-top: 8em;
-	padding-left: 15em;
+	padding-top: 4em;
+	padding-left: 1em;
 }
 
 .content-play {
 	display: inline-block;
-	width: 80%;
+	width: 100%;
 }
 
 .content-suggestion {
-	display: inline-block;
-	width: 19%;
-	vertical-align: top;
+	display: none;
 }
 
 .padding-suggestion {
@@ -748,6 +742,7 @@ audio {
 }
 
 #player-audio {
+    width: 100%;
 	margin: 1em 1em 0 1em;
 	padding: 1em;
 	border-top-left-radius: 2px;
@@ -1019,4 +1014,24 @@ audio {
 	.content {
 		font-size: 1em;
 	}
+    
+    /*---------------------- listen.html --------------------*/
+    .main-right-listen {
+        padding-top: 8em;
+        padding-left: 15em;
+    }
+    .content-play {
+        width: 80%;
+    }
+    .content-suggestion {
+        display: inline-block;
+        width: 19%;
+        vertical-align: top;
+    }
+    #player-audio {
+        width: 90%;
+    }
+    
+    
+
 }
