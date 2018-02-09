@@ -48,25 +48,43 @@
 		?>
     </nav>
     
+    
     <main class="main-right">
         <div class="content">
-            <div class="links">
-                <ul>
-                    <li><a href="user.html">News</a></li>
-                    <li><a href="user.html">Tracks</a></li>
-                    <li><a href="user-album.html">Album</a></li>
-                </ul>
-                <a href="upload-song.html">
-                    <div class="head-icon" id="logout"></div>
-                </a>
-            </div>
+            <h1>My albums</h1>
+            <?php 
+                require('misc/php/tools.php');
+				$user_id = $_SESSION["userID"];
+                $getAlbums = select("SELECT album.id_album,album.name FROM album JOIN song JOIN library WHERE id_user='$user_id' GROUP BY album.id_album;");
+                
+                if(count($getAlbums)>0){
+                    for($i=0; $i<count($getAlbums); $i++) {
+                        $idalbum = $getAlbums[$i][0];
+                        $albumname = $getAlbums[$i][1];
+                        
+                        echo '
+                                <div class="content-card-container">
+					               <div class="content-card">
+						                  <div class="content-card-cover"></div>
+						                  <h3 class="content-card-details-title">Title</h3>
+						            <div class="content-card-details">Genre</div>
+						<div class="content-card-details"><a h        ref="#">Author Profile</a></div>
+					           </div>
+				    </div>
+            ';
+            }
+        }
+            else {
+                echo "You have uploaded 0 songs.<br />";
+							echo 'Use this <a href="upload-song.html">link</a> to upload a new song!';
+}
+                    
+?>
         </div>
     </main>
-            
     
-       
-
-<footer class="footer-main">
+    
+    <footer class="footer-main">
 		<?php
 			include("misc/include/footer.html");
 		?>
