@@ -113,5 +113,5 @@ CREATE TABLE likes (
 
 SET FOREIGN_KEY_CHECKS=1;
 
-INSERT INTO user (username, password, email, user_type) VALUES ( 'admin', 'admin', 'admin@wavesound.unipd', 1);
-INSERT INTO user (username, password, email) VALUES ( 'user', 'user', 'user@wavesound.unipd');
+INSERT INTO user (username, password, email, name, surname, user_type) VALUES ( 'admin', 'admin', 'admin@wavesound.unipd', 'admin', 'admin', 1);
+INSERT INTO user (username, password, email,name, surname) VALUES ( 'user', 'user', 'user@wavesound.unipd', 'user', 'user');
