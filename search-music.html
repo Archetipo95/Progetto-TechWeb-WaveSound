@@ -84,7 +84,7 @@
 			
 			if(isset($_POST['search'])){
 				$keyword=$_POST['search'];
-				$query = "SELECT  title,genre,upload_date FROM song WHERE title LIKE '%$keyword%' ";
+				$query = "SELECT title,name AS genre,upload_date FROM song,genre WHERE genre=id_genre AND title LIKE '%$keyword%'";
 				$result = $connection->prepare($query);
 				$result->execute();
 
@@ -160,7 +160,7 @@
 			$genre2 = $apice.$genre.$apice;
 
 			echo $genre2;
-			$query = 'SELECT  title,genre,upload_date,download FROM song WHERE genre='.$genre2.' ORDER BY '.$sort.' DESC ';
+			$query = 'SELECT  title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name='.$genre2.' ORDER BY '.$sort.' DESC ';
 			$result = $connection->prepare($query);
 			$result->execute();
 		
@@ -191,7 +191,7 @@
 			$genre2 = $apice.$genre.$apice;
 
 			echo $genre2;
-			$query = 'SELECT title,genre,upload_date,download FROM song WHERE genre='.$genre2.' ORDER BY '.$sort.' ASC ';
+			$query = 'SELECT title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name='.$genre2.' ORDER BY '.$sort.' ASC ';
 			$result = $connection->prepare($query);
 			$result->execute();
 		
