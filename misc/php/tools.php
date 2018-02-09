@@ -113,7 +113,7 @@ function sanitize($input) {
 			$input = stripslashes($input);
 		}
 		$input  = cleanInput($input);
-		$output = mysqli_real_escape_string($input);
+		$output = $input;
 	}
 	return $output;
 }

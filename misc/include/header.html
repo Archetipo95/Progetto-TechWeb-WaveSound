@@ -5,14 +5,14 @@
 	<div class="header-left">
 		<?php
 			if(basename($_SERVER['PHP_SELF']) != 'register.html' && basename($_SERVER['PHP_SELF']) != 'login.html' && basename($_SERVER['PHP_SELF']) != 'index.html'){
-    				if(!(isset($_SESSION['userID']))){
+					if(!(isset($_SESSION['userID']))){
 						require('misc/php/tools.php');
 						redirect("index.html");
 					}else
-    					echo '<a class="img-link" href="main.html">';
-    			}else{
-    				echo '<a class="img-link" href="index.html">';
-    			}
+						echo '<a class="img-link" href="main.html">';
+				}else{
+					echo '<a class="img-link" href="index.html">';
+				}
 		?>
 			<div id="logo"></div>
 			<div id="brand" class="pacifico italic">WaveSound</div>

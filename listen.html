@@ -29,7 +29,7 @@
 			<div class="content">
 				<div class="content-play">
 					<div class="content">
-						
+
 						<?php
 							if(isset($_GET['id_song'])){
 								$id_song = $_GET['id_song'];
@@ -40,8 +40,8 @@
 								$row = $statement[0];
 								$userID= $_SESSION["userID"];
 							}
-						?>	
-						
+						?>
+
 						<div class="center">
 						<div id="player-audio">
 							<div class="content-card-cover" src="misc/img/album-covers/default.png">
@@ -53,7 +53,7 @@
 								<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
 							</div>
 						</div>
-						
+
 						<div id="info-player">
 							<form id="like-dislike" action="misc/php/player.php" method="post">
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song"/>';?>
@@ -86,7 +86,7 @@
 								echo '</div>';
 							?>
 							<form action="misc/php/player.php" method="post">
-								<?php 
+								<?php
 									echo '<a href="/misc/songs/'.$row[4].'" download>
 									<input type="hidden" value="'.$id_song.'" name="id_song"/>
 									<input type="submit" value="download" name="download" title="download"/></a>';
@@ -104,34 +104,34 @@
 								<input type="submit" value="comment" name="comment">
 							</div>
 						</form>
-						
+
 						<div id="comments">
 						<?php
-						
+
 						$getComments=select("SELECT * FROM comment WHERE id_song='$id_song'");
 						$num_comments = count($getComments);
-						
+
 						if($num_comments==1){
 							echo "1 comment";
 						}else{
 							echo $num_comments." comments";
 						}
-							
+
 						for($i=$num_comments-1; $i>=0; $i--){
 							$comment = $getComments[$i];
 							$getUser=select("SELECT username,avatar,u_id FROM user WHERE u_id='$comment[2]'");
-							
+
 							echo '<div class="comment">';
 							$dateComment=date_create($comment[4]);
 							echo date_format($dateComment,'H:i:s d/m/Y');
 							echo '<div class="user-comment"><img id="profile-pic" src="misc/img/users/'.$getUser[0][1].'" />';
 							echo "<h3>".$getUser[0][0]."</h3></div>";
 							echo '<h4>'.$comment[1].'</h4>';
-							
+
 							echo '<form action="misc/php/player.php" method="post">';
 							echo '<input type="hidden" value="'.$comment[0].'" name="idOfComment">';
 							echo '<input type="hidden" value="'.$id_song.'" name="id_song">';
-							
+
 							$userComment = $getUser[0][2];
 							if($userComment==$userID)
 								echo '<input type="submit" value="delete" name="delete">';
@@ -140,7 +140,7 @@
 							echo '</form>';
 							echo '</div>';
 						}
-						
+
 						?>
 						</div>
 					</div>
@@ -150,7 +150,7 @@
 						<div class="content-card">
 							<?php
 						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
-						
+
 						for($i=0; $i<count($getNewSongs);$i++){
 							$toString = $getNewSongs[$i][0];
 							$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$toString[0]';");
