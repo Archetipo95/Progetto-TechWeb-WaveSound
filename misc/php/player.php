@@ -4,7 +4,7 @@ require('tools.php');
 function comment() {
     session_start();
     $userID  = $_SESSION["userID"];
-    $comment = ''.$_POST['yourComment'];
+    $comment = sanitize($_POST['yourComment']);
     $song    = $_POST['id_song'];
     $date    = date("Y-m-d H-i-s");
     if ($comment != '')
