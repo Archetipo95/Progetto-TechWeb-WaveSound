@@ -69,91 +69,93 @@
 				</form>
 				<br/>
 				<h3>Results:</h3>
+
 				<?php
-			require("misc/php/connection.php");
-			if(isset($_POST['search'])){
-				$keyword=$_POST['search'];
-				$query = "SELECT title,name AS genre,upload_date FROM song,genre WHERE genre=id_genre AND title LIKE '%$keyword%'";
-				$result = $connection->prepare($query);
-				$result->execute();
 
-				echo 'Titolo';
-				while($row = $result->fetch(PDO::FETCH_ASSOC)){
-				$title = $row['title'];
-				$genre = $row['genre'];
-				$upload_date = $row['upload_date'];
+if (isset($_POST['search'])) {
+	$keyword = $_POST['search'];
+	$query   = select("SELECT title,name,upload_date FROM song,genre WHERE genre=id_genre AND title LIKE '%$keyword%'");
 
-				echo "<table>";
-				echo "<tr><th>Titolo</th>
-						<th>Genre</th>
-						  <th>Upload Date</th>
-					</tr>";
-				echo "<tr><td>".$title."</td>
-						<td>".$genre."</td>
-						  <td>".$upload_date."</td>
+	echo 'Titolo:';
+
+	echo "<table>";
+	echo "<tr>
+		<th>Titolo</th>
+		<th>Genre</th>
+		<th>Upload Date</th>
+	</tr>";
+
+	for ($i = 0; $i < count($query); $i++) {
+		$title       = $query[$i][0];
+		$genre       = $query[$i][1];
+		$upload_date = $query[$i][2];
+
+		echo "<tr><td>" . $title . "</td>
+						<td>" . $genre . "</td>
+						  <td>" . $upload_date . "</td>
 					  </tr>";
-				echo "</table>";
-				}
 
-				$query2 = "SELECT username,name,surname FROM user WHERE username LIKE '%$keyword%' OR name LIKE '%$keyword%' OR surname LIKE '%$keyword%'";
-				$result2 = $connection->prepare($query2);
-				$result2->execute();
+	}
+	echo "</table>";
 
-				echo 'Autore';
-				while($row2 = $result2->fetch(PDO::FETCH_ASSOC)){
-				$username = $row2['username'];
-				$name = $row2['name'];
-				$surname = $row2['surname'];
+	$query2 = select("SELECT username,name,surname FROM user WHERE username LIKE '%$keyword%' OR name LIKE '%$keyword%' OR surname LIKE '%$keyword%'");
 
-				echo "<table>";
-				echo "<tr><th>Username</th>
+
+	echo 'Autore:';
+
+	echo "<table>";
+	echo "<tr><th>Username</th>
 						<th>Name</th>
 						  <th>Surname</th>
 					</tr>";
-				echo "<tr><td>".$username."</td>
-						<td>".$name."</td>
-						  <td>".$surname."</td>
+
+	for ($i = 0; $i < count($query2); $i++) {
+		$username = $query2[$i][0];
+		$name     = $query2[$i][1];
+		$surname  = $query2[$i][2];
+
+		echo "<tr><td>" . $username . "</td>
+						<td>" . $name . "</td>
+						  <td>" . $surname . "</td>
 					  </tr>";
-				echo "</table>";
-				}
 
+	}
+	echo "</table>";
 
-				$query3 = "SELECT name FROM album WHERE name LIKE '%$keyword%' ";
-				$result3 = $connection->prepare($query3);
-				$result3->execute();
+	$query3 = select("SELECT name FROM album WHERE name LIKE '%$keyword%' ");
 
-				echo 'Album';
-				while($row3 = $result3->fetch(PDO::FETCH_ASSOC)){
-				$name = $row3['name'];
-
-				echo "<table>";
-				echo "<tr>
+	echo 'Album:';
+	echo "<table>";
+	echo "<tr>
 						<th>Name</th>
 					</tr>";
-				echo "<tr>
-						<td>".$name."</td>
+	for ($i = 0; $i < count($query3); $i++) {
+		$name = $query3[$i][0];
+
+		echo "<tr>
+						<td>" . $name . "</td>
 					  </tr>";
-				echo "</table>";
-				}
-			}
-		if(isset($_POST['order'])){
-		$order = $_POST['order'];
-		if($order == "descending"){
-			$genre = $_POST['genre'];
-			$sort = $_POST['sort'];
-			//$period = $_POST['period'];
-			$order = $_POST['order'];
-			$apice = '"';
-			$genre2 = $apice.$genre.$apice;
+	}
+	echo "</table>";
+}
+if (isset($_POST['order'])) {
+	$order = $_POST['order'];
+	if ($order == "descending") {
+		$genre  = $_POST['genre'];
+		$sort   = $_POST['sort'];
+		//$period = $_POST['period'];
+		$order  = $_POST['order'];
+		$apice  = '"';
+		$genre2 = $apice . $genre . $apice;
 
-			echo $genre2;
-			$query = 'SELECT  title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name='.$genre2.' ORDER BY '.$sort.' DESC ';
-			$result = $connection->prepare($query);
-			$result->execute();
+		echo $genre2;
+		$query  = 'SELECT  title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name=' . $genre2 . ' ORDER BY ' . $sort . ' DESC ';
+		$result = $connection->prepare($query);
+		$result->execute();
 
-			while($row = $result->fetch(PDO::FETCH_ASSOC)){
-			$title = $row['title'];
-			$genre = $row['genre'];
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$title       = $row['title'];
+			$genre       = $row['genre'];
 			$upload_date = $row['upload_date'];
 
 			echo "<table>";
@@ -161,30 +163,30 @@
 				  <th>Genre</th>
 				  <th>Upload Date</th>
 				</tr>";
-			echo "<tr><td>".$title."</td>
-				  <td>".$genre."</td>
-				  <td>".$upload_date."</td>
+			echo "<tr><td>" . $title . "</td>
+				  <td>" . $genre . "</td>
+				  <td>" . $upload_date . "</td>
 				  </tr>";
 			echo "</table>";
-			}
 		}
+	}
 
-		if($order == "ascending"){
-			$genre = $_POST['genre'];
-			$sort = $_POST['sort'];
-			//$period = $_POST['period'];
-			$order = $_POST['order'];
-			$apice = '"';
-			$genre2 = $apice.$genre.$apice;
+	if ($order == "ascending") {
+		$genre  = $_POST['genre'];
+		$sort   = $_POST['sort'];
+		//$period = $_POST['period'];
+		$order  = $_POST['order'];
+		$apice  = '"';
+		$genre2 = $apice . $genre . $apice;
 
-			echo $genre2;
-			$query = 'SELECT title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name='.$genre2.' ORDER BY '.$sort.' ASC ';
-			$result = $connection->prepare($query);
-			$result->execute();
+		echo $genre2;
+		$query  = 'SELECT title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name=' . $genre2 . ' ORDER BY ' . $sort . ' ASC ';
+		$result = $connection->prepare($query);
+		$result->execute();
 
-			while($row = $result->fetch(PDO::FETCH_ASSOC)){
-			$title = $row['title'];
-			$genre = $row['genre'];
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$title       = $row['title'];
+			$genre       = $row['genre'];
 			$upload_date = $row['upload_date'];
 
 			echo "<table>";
@@ -192,14 +194,34 @@
 				  <th>Genre</th>
 				  <th>Upload Date</th>
 				  </tr>";
-			echo "<tr><td>".$title."</td>
-				  <td>".$genre."</td>
-				  <td>".$upload_date."</td>
+			echo "<tr><td>" . $title . "</td>
+				  <td>" . $genre . "</td>
+				  <td>" . $upload_date . "</td>
 				  </tr>";
 			echo "</table>";
-			}
-		}}
-	?>
+		}
+	}
+}
+?>
+
+					<!--<div class="content-card">
+							<?php
+						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
+
+						for($i=0; $i<count($getNewSongs);$i++){
+							$toString = $getNewSongs[$i][0];
+							$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$toString[0]';");
+							$stringa = $getAlbumIMG[0];
+							echo '<a href="listen.html?id_song='.$getNewSongs[$i][1].'">';
+							echo $getNewSongs[$i][2];
+							echo '<div class="card-suggestion"><img src="misc/img/album-covers/'.$stringa[0].'" /></div>';
+							echo '</a>';
+						}
+						?>
+						</div>
+					</div>-->
+
+
 			</div>
 		</div>
 	</main>
