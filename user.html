@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WaveSound | My Songs</title>
+
+	<!-- font + fav icon -->
+	<link rel="icon" type="image/png" href="misc/img/logo.png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
+    <style>
+        .links {
+            display: block;
+            right: 0;
+	        bottom: 0;
+            padding: 1em;
+	        min-height: 5em;
+            background-color: #0D47A1;
+        }
+        .links li {
+            float: left;
+            margin: 0 12px -1px;
+            display: list-item;
+        }
+    </style>
+
+</head>
+
+<body>
+
+	<header>
+		<?php
+			include("misc/include/header.html");
+			$_SESSION["current-page"]="User";
+		?>
+
+	</header>
+
+	<nav>
+		<?php
+			include("misc/include/navigation.html");
+		?>
+    </nav>
+    <main class="main-right">
+        <div class="content">
+            <div class="links">
+                <ul>
+                    <li><a href="user.html"></a>News</li>
+                    <li><a href="user.html"></a>Tracks</li>
+                    <li><a href="user.html"></a>Album</li>
+                </ul>
+                <a href="upload-song.html">
+                    <div class="head-icon" id="logout"></div>
+                </a>
+            </div>
+        </div>
+    </main>
+            
+    
+       
+
+<footer class="footer-main">
+		<?php
+			include("misc/include/footer.html");
+		?>
+	</footer>
+
+	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+
+	<script src="misc/js/button-top.js"></script>
+
+ 
+    </body>
+
+</html>

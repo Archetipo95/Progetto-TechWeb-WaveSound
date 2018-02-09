@@ -22,9 +22,14 @@
 		<?php
 			if(isset($_SESSION['userID'])){
 				echo '
+                <a href="user.html?userID='.$_SESSION['userID'].'">
 					<div id="username-picture">
-						<div class="head-icon"><img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'" /></div>
-						<div id="username">'.$_SESSION["username"].'</div>
+						<div class="head-icon"><img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'"
+                        href="user.html"/>
+                        </div>
+						
+                 </a>
+                    <div id="username">'.$_SESSION["username"].'</div>
 					</div>
 					<a href="user-settings.html" title="settings">
 						<div class="head-icon" id="settings"></div>
