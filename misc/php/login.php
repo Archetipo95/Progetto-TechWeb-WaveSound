@@ -9,7 +9,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	/*save varialble*/
 	$password = $_POST['password'];
 	$login = $_POST['login'];
-	
+
 	/*search for username*/
 	$statement=select("SELECT * FROM user WHERE username='$login'");
 	$col = count($statement);
@@ -22,7 +22,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	else {
 		$resultEmail = 0;
 	}
-	
+
 	/*if user exist in db*/
 	if ($col == 1) {
 		$row = $statement[0];
@@ -52,7 +52,7 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 			sendMessage("Login Failed");
 		}
 	}
-	
+
 	/*if email exist in db*/
 	else if ($colEmail == 1) {
 			$row=$statementEmail[0];

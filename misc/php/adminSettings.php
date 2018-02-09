@@ -8,19 +8,19 @@
 		require('connection.php');
 		$query="DELETE FROM user WHERE username='$user' ";
 		$result = $connection->query($query);
-    	sendMessage("$user account deleted");
+		sendMessage("$user account deleted");
 	}
 
 	function newAdmin(){
 		$user=$_POST['user'];
 		update("UPDATE user SET user_type = '1' WHERE username = '$user' ");
-    	sendMessage("$user is admin now");
+		sendMessage("$user is admin now");
 	}
 
 	function takeAdmin(){
 		$user=$_POST['user'];
 		update("UPDATE user SET user_type = '0' WHERE username = '$user' ");
-    	sendMessage("$user is no longer admin");
+		sendMessage("$user is no longer admin");
 	}
 
 	function ignoreComment(){
@@ -28,7 +28,7 @@
 		delete("DELETE FROM warning_comments WHERE com_id='$com_id'");
 		sendMessage("Comment ignored");
 	}
-	
+
 	function deleteComment(){
 		$com_id=$_POST['id'];
 		delete("DELETE FROM warning_comments WHERE com_id='$com_id'");
