@@ -1,48 +1,48 @@
 <div class="admin">
 	<h1>Admin Settings</h1>
 	<h2>All users info:</h2>
-    
-    <div class="table-container">
+
+	<div class="table-container">
 	<?php
-        require('misc/php/connection.php');
-        $query = "SELECT * FROM user";
-        $result = $connection->prepare($query);
-        $result->execute();
-        echo '
-            <table id="users-info">
-            <tr>
-                <th scope="col">Username</th>
-                <th scope="col">Name</th>
-                <th scope="col">Surname</th>
-                <th scope="col">Birthday</th>
-                <th scope="col">Email</th>
-                <th scope="col">Admin</th>
-            </tr>
-        ';
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-            $username = $row['username'];
-            $name = $row['name'];
-            $surname = $row['surname'];
-            $birthday = $row['birthday'];
-            $email = $row['email'];
-            $user_type = $row['user_type'];
-            if($user_type==0)
-                $user_type="no";
-            else
-                $user_type="yes";
-            echo "<tr>
-            <td scope='row'>".$username."</td>
-            <td>".$name."</td>
-            <td>".$surname."</td>
-            <td>".$birthday."</td>
-            <td>".$email."</td>
-            <td>".$user_type."</td>
-            </tr>";
-        }
-        echo "</table>";
-    ?>
-    </div>
-        
+		require('misc/php/connection.php');
+		$query = "SELECT * FROM user";
+		$result = $connection->prepare($query);
+		$result->execute();
+		echo '
+			<table id="users-info">
+			<tr>
+				<th scope="col">Username</th>
+				<th scope="col">Name</th>
+				<th scope="col">Surname</th>
+				<th scope="col">Birthday</th>
+				<th scope="col">Email</th>
+				<th scope="col">Admin</th>
+			</tr>
+		';
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$username = $row['username'];
+			$name = $row['name'];
+			$surname = $row['surname'];
+			$birthday = $row['birthday'];
+			$email = $row['email'];
+			$user_type = $row['user_type'];
+			if($user_type==0)
+				$user_type="no";
+			else
+				$user_type="yes";
+			echo "<tr>
+			<td scope='row'>".$username."</td>
+			<td>".$name."</td>
+			<td>".$surname."</td>
+			<td>".$birthday."</td>
+			<td>".$email."</td>
+			<td>".$user_type."</td>
+			</tr>";
+		}
+		echo "</table>";
+	?>
+	</div>
+
 	<h2>Delete an account</h2>
 
 	<form action="misc/php/adminSettings.php" method="post">
@@ -58,21 +58,21 @@
 		<input type="text" name="user" required><br/>
 		<input  title="New Admin" type="submit" value="New Admin" name="newAdmin">
 	</form>
-	
+
 	<h2>Revoke admin rights from an account</h2>
 	<form action="misc/php/adminSettings.php" method="post">
 		<label>Username</label><br/>
 		<input type="text" name="user" required><br/>
 		<input title="Revoke Admin" type="submit" value="Revoke Admin" name="takeAdmin">
 	</form>
-	
+
 	<h2>Comments to review</h2>
 		<?php
 		require('misc/php/connection.php');
 		$queryComm = "SELECT com_id,description,reason FROM comment, warning_comments WHERE comment.comm_id=warning_comments.com_id";
 		$result = $connection->prepare($queryComm);
 		$result->execute();
-		
+
 		echo '
 			<table id="users-info">
 			<tr>
@@ -88,7 +88,7 @@
 			$id=$row['com_id'];
 			echo "<tr>
 					<td>".$comment."</td>
-					<td>".$reason."</td>	
+					<td>".$reason."</td>
 					<td>".$id."</td>
 				 </tr>";
 		}

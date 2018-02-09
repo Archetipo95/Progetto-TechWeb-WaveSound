@@ -8,11 +8,16 @@
 					if(!(isset($_SESSION['userID']))){
 						require('misc/php/tools.php');
 						redirect("index.html");
+
 					}else
 						echo '<a tile="Home" tabindex="1" class="img-link" href="main.html">';
-				}else{
+				}else if(isset($_SESSION['userID'])){
+					require('misc/php/tools.php');
+					redirect("main.html");
+					}
+					else
 					echo '<a title="Home Page" tabindex="1" class="img-link" href="index.html">';
-				}
+
 		?>
 			<div id="logo"></div>
 			<div id="brand" class="pacifico italic">WaveSound</div>
@@ -22,40 +27,39 @@
 		<?php
 			if(isset($_SESSION['userID'])){
 				echo '
-                <a title="User Page" tabindex="6" href="user.html?userID='.$_SESSION['userID'].'">
+				<a title="User Page" tabindex="6" href="user.html?userID='.$_SESSION['userID'].'">
 					<div id="username-picture">
 						<div class="head-icon"><img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'"
-                        href="user.html"/>
-                        </div>
-						
-                 </a>
-                    <div id="username">'.$_SESSION["username"].'</div>
+						href="user.html"/>
+						</div>
+					<div id="username">'.$_SESSION["username"].'</div>
 					</div>
+				</a>
 					<a tabindex="7" href="user-settings.html" title="Settings">
 						<div class="head-icon" id="settings"></div>
 					</a>
 					<a title="Loguot" tabindex="8" href="misc/php/logout.php" title="logout">
 						<div class="head-icon" id="logout"></div>
 					</a>
-                    
-                    <div id="mySidenav" class="sidenav">
-                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                        <a href="main.html">Home</a>
-                        <a href="search-music.html">Search Music</a>
-                        <a href="user-creations.html">My Creations</a>
-		                <a href="upload-song.html">Upload new song</a>
-                        <a href="listen.html?id_song=1">Listen (Temp)</a>
-                    </div>
-                    <span class="sidenav-btn" onclick="openNav()">&#9776;</span>
-                    <script>
-                    function openNav() {
-                        document.getElementById("mySidenav").style.width = "100%";
-                    }
 
-                    function closeNav() {
-                        document.getElementById("mySidenav").style.width = "0";
-                    }
-                    </script>
+					<div id="mySidenav" class="sidenav">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+						<a href="main.html">Home</a>
+						<a href="search-music.html">Search Music</a>
+						<a href="user-creations.html">My Creations</a>
+						<a href="upload-song.html">Upload new song</a>
+						<a href="listen.html?id_song=1">Listen (Temp)</a>
+					</div>
+					<span class="sidenav-btn" onclick="openNav()">&#9776;</span>
+					<script>
+					function openNav() {
+						document.getElementById("mySidenav").style.width = "100%";
+					}
+
+					function closeNav() {
+						document.getElementById("mySidenav").style.width = "0";
+					}
+					</script>
 
 				';
 			}else{
