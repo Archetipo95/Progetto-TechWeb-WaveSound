@@ -2,37 +2,28 @@
 <html lang="en">
 
 <head>
-
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>WaveSound | Search Music</title>
-
 	<!-- font + fav icon -->
 	<link rel="icon" type="image/png" href="misc/img/logo.png">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-
 	<!-- style -->
-	<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
-
-</head>
+	<link rel="stylesheet" type="text/css" href="misc/css/style.css" /> </head>
 
 <body>
-
 	<header>
 		<?php
 			include("misc/include/header.html");
 			$_SESSION["current-page"]="Search Music";
 		?>
-
 	</header>
-
 	<nav>
 		<?php
 			include("misc/include/navigation.html");
 		?>
 	</nav>
-
 	<main class="main-right">
 		<div class="content-body">
 			<div class="content">
@@ -44,44 +35,42 @@
 				</form>
 				<h2>Search by genre</h2>
 				<form action="search-music.html" method="post">
-					<div class="search-by-genre">
-						<span class="select">
-                        Select genre
-                        <select name="genre">
+					<div class="search-by-genre"> <span class="select">
+						Select genre
+						<select name="genre">
 							<option>---</option>
-                            <option value="pop">Pop</option>
-                            <option value="rock">Rock</option>
-                            <option value="dance">Dance</option>
-                            <option value="rap">Rap</option>
-                        </select>
-                    </span>
-						<span class="select">
-                        Sort by
-                        <select name="sort">
+						   <?php
+						   require('misc/php/tools.php');
+								$getGenre= select("SELECT name FROM genre;");
+								  for($i=0;$i<count($getGenre);$i++){
+										$nomeGenere = $getGenre[0][0];
+										echo '<option value="'.$nomeGenere.'"><'.$nomeGenere.'</option>';
+								  }
+						   ?>
+						</select>
+					</span> <span class="select">
+						Sort by
+						<select name="sort">
 							<option>---</option>
-                            <option value="upload_date">Date</option>
-                            <option value="rating">Rating</option>
-                            <option value="download">Downloads</option>
-                        </select>
-                    </span>
-						
-						<span class="select">
-                        Order
-                        <select name="order">
+							<option value="upload_date">Date</option>
+							<option value="rating">Rating</option>
+							<option value="download">Downloads</option>
+						</select>
+					</span> <span class="select">
+						Order
+						<select name="order">
 							<option>---</option>
-                            <option value="descending">Descending</option>
-                            <option value="ascending">Ascending</option>
-                        </select>
-                    </span>
+							<option value="descending">Descending</option>
+							<option value="ascending">Ascending</option>
+						</select>
+					</span>
 						<button class="select">Search</button>
 					</div>
 				</form>
 				<br/>
 				<h3>Results:</h3>
-			<?php
+				<?php
 			require("misc/php/connection.php");
-			require("misc/php/tools.php");
-			
 			if(isset($_POST['search'])){
 				$keyword=$_POST['search'];
 				$query = "SELECT title,name AS genre,upload_date FROM song,genre WHERE genre=id_genre AND title LIKE '%$keyword%'";
@@ -93,19 +82,19 @@
 				$title = $row['title'];
 				$genre = $row['genre'];
 				$upload_date = $row['upload_date'];
-			
+
 				echo "<table>";
 				echo "<tr><th>Titolo</th>
 						<th>Genre</th>
-					  	<th>Upload Date</th>
+						  <th>Upload Date</th>
 					</tr>";
 				echo "<tr><td>".$title."</td>
 						<td>".$genre."</td>
-					  	<td>".$upload_date."</td>
-				  	</tr>";
+						  <td>".$upload_date."</td>
+					  </tr>";
 				echo "</table>";
 				}
-					
+
 				$query2 = "SELECT username,name,surname FROM user WHERE username LIKE '%$keyword%' OR name LIKE '%$keyword%' OR surname LIKE '%$keyword%'";
 				$result2 = $connection->prepare($query2);
 				$result2->execute();
@@ -115,16 +104,16 @@
 				$username = $row2['username'];
 				$name = $row2['name'];
 				$surname = $row2['surname'];
-			
+
 				echo "<table>";
 				echo "<tr><th>Username</th>
 						<th>Name</th>
-					  	<th>Surname</th>
+						  <th>Surname</th>
 					</tr>";
 				echo "<tr><td>".$username."</td>
 						<td>".$name."</td>
-					  	<td>".$surname."</td>
-				  	</tr>";
+						  <td>".$surname."</td>
+					  </tr>";
 				echo "</table>";
 				}
 
@@ -136,21 +125,19 @@
 				echo 'Album';
 				while($row3 = $result3->fetch(PDO::FETCH_ASSOC)){
 				$name = $row3['name'];
-			
+
 				echo "<table>";
 				echo "<tr>
 						<th>Name</th>
 					</tr>";
 				echo "<tr>
 						<td>".$name."</td>
-				  	</tr>";
+					  </tr>";
 				echo "</table>";
 				}
-				
 			}
 		if(isset($_POST['order'])){
 		$order = $_POST['order'];
-
 		if($order == "descending"){
 			$genre = $_POST['genre'];
 			$sort = $_POST['sort'];
@@ -163,12 +150,12 @@
 			$query = 'SELECT  title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name='.$genre2.' ORDER BY '.$sort.' DESC ';
 			$result = $connection->prepare($query);
 			$result->execute();
-		
+
 			while($row = $result->fetch(PDO::FETCH_ASSOC)){
 			$title = $row['title'];
 			$genre = $row['genre'];
 			$upload_date = $row['upload_date'];
-			
+
 			echo "<table>";
 			echo "<tr><th>Titolo</th>
 				  <th>Genre</th>
@@ -177,11 +164,11 @@
 			echo "<tr><td>".$title."</td>
 				  <td>".$genre."</td>
 				  <td>".$upload_date."</td>
-			  	</tr>";
+				  </tr>";
 			echo "</table>";
 			}
 		}
-			
+
 		if($order == "ascending"){
 			$genre = $_POST['genre'];
 			$sort = $_POST['sort'];
@@ -194,21 +181,21 @@
 			$query = 'SELECT title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name='.$genre2.' ORDER BY '.$sort.' ASC ';
 			$result = $connection->prepare($query);
 			$result->execute();
-		
+
 			while($row = $result->fetch(PDO::FETCH_ASSOC)){
 			$title = $row['title'];
 			$genre = $row['genre'];
 			$upload_date = $row['upload_date'];
-			
+
 			echo "<table>";
 			echo "<tr><th>Titolo</th>
 				  <th>Genre</th>
 				  <th>Upload Date</th>
-			  	</tr>";
+				  </tr>";
 			echo "<tr><td>".$title."</td>
 				  <td>".$genre."</td>
 				  <td>".$upload_date."</td>
-			  	</tr>";
+				  </tr>";
 			echo "</table>";
 			}
 		}}
@@ -216,17 +203,13 @@
 			</div>
 		</div>
 	</main>
-
 	<footer class="footer-main">
 		<?php
 			include("misc/include/footer.html");
 		?>
 	</footer>
-
 	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
-
 	<script src="misc/js/button-top.js"></script>
-
 </body>
 
 </html>
