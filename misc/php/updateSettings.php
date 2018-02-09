@@ -43,25 +43,31 @@ if(checkPost()){
 	for($i=0;$i<count($toBeChanged);$i++){
 		switch ($toBeChanged[$i]){
 			case 0://username
-				$username = $_POST["username"];
+				$username = sanitize($_POST["username"]);
 				$result = select("SELECT u_id FROM user WHERE username='$username';");
 
-        		if (checkPresence($result->num_rows)){
+        		if (checkPresence($result->num_rows) && $username!=''){
 					$userID= $_SESSION["userID"];
 					update("UPDATE user SET username = '$username' WHERE u_id = '$userID' ");
 					session_start();
 					$_SESSION["username"] = $username;
 				}else{
-					$errors = $errors . "Username already taken";
+					$errors = $errors . "Username already taken or not valid";
 				}
 				break;
 			case 1://name
-				$name = $_POST["name"];
-				update("UPDATE user SET name = '$name' WHERE u_id = '$userID' ");
+				$name = sanitize($_POST["name"]);
+				if($name != '')
+					update("UPDATE user SET name = '$name' WHERE u_id = '$userID' ");
+				else
+					$errors = $errors . " Name not valid";
 				break;
 			 case 2://surname
-				$surname = $_POST["surname"];
-				update("UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ");
+				$surname = sanitize($_POST["surname"]);
+				if($surname != '')
+					update("UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ");
+				else
+					$errors = $errors . " Surname not valid";
 				break;
 			 case 3://birthday
 				$birthday = $_POST["birthday"];
