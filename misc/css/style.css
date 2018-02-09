@@ -43,7 +43,7 @@ body {
 	bottom: 3.5em;
 	z-index: 99;
 	display: none;
-	padding: 1.5em;
+	padding: 1em;
 	border: none;
 	border-radius: 50%;
 	background-color: #03A9F4;
@@ -441,6 +441,10 @@ footer * {
 	font-size: 0.9em;
 }
 
+.content h1 {
+    font-size: 1.8em;
+}
+
 .content-title {
 	margin-top: 1em;
 }
@@ -644,8 +648,8 @@ form.search-bar input[type=text] {
 
 form.search-bar button {
 	display: inline-block;
-	width: 10%;
-	height: 2.9em;
+	width: 20%;
+	height: 2.85em;
 	border: none;
 	background-color: #2196F3;
 	background-image: url('../img/search-bar-glass.png');
@@ -713,9 +717,9 @@ form.search-bar button:hover {
 
 .comment {
 	margin-bottom: .5em;
-	padding: .5em;
+	padding: 1em;
 	border-radius: 2px;
-	background-color: #f5f5f5;
+	background-color: #e6e6ff;
 	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -745,11 +749,15 @@ form.search-bar button:hover {
 
 .user-comment * {
 	display: inline-block;
-	margin-right: .5em;
+	margin-left: 1em;
+    margin-top: -0.5em;
+    width: 2em;
+    height: 2em;
 }
 
 .comment h4 {
 	margin-left: 1em;
+    margin-top: -0.2em;
 	font-weight: normal;
 }
 
@@ -790,11 +798,11 @@ audio {
 
 #info-player {
 	margin: 0 1em;
-	padding: .5em;
+    padding: 0.5em;
 	width: 105%;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
-	background-color: #f5f5f5;
+	background-color: #e6e6ff;
 	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -963,8 +971,6 @@ audio {
 	#profile-pic {
 		width: 2em;
 		height: 2em;
-		border: 2px solid #000;
-		border-radius: 50%;
 		vertical-align: middle;
 	}
 	.sidenav-btn {
@@ -1118,6 +1124,11 @@ audio {
 		margin-top: 1em;
 		margin-right: 1em;
 	}
+    
+    /*-------------------- search-music.html ------------------*/
+    form.search-bar button {
+        width: 10%;
+    }
 }
 
 
@@ -1127,6 +1138,7 @@ audio {
 	/*---------------------- listen.html --------------------*/
 	.content-suggestion {
 		display: inline-block;
+        margin-top: -1.5em;
 		margin-left: 0.5em;
 		width: 9%;
 		vertical-align: top;
