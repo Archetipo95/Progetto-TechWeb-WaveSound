@@ -26,18 +26,6 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 	/*if user exist in db*/
 	if ($col == 1) {
 		$row = $statement[0];
-		/*
-		$row[0] is User ID
-		$row[1] is Username
-		$row[2] is Name
-		$row[3] is Surname
-		$row[4] is Bday
-		$row[5] is email
-		$row[6] is User_Type
-		$row[7] is Password
-		$row[8] is Avatar
-		$row[9] is Id_library
-		*/
 		/*check password correctness*/
 		if ($password == $row[7]) {
 			echo "aaaaaaaaaaa";
@@ -65,11 +53,11 @@ if (isset($_POST['login']) && isset($_POST['password'])) {
 			header("Location:../../main.html");
 		}
 		else {
-			//sendMessage("Login Failed");
+			sendMessage("Login Failed");
 		}
 	}
 	else {
-		//sendMessage("Login Failed");
+		sendMessage("Login Failed");
 	}
 }
 
