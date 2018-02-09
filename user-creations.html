@@ -61,10 +61,11 @@
 						for($i=0; $i<count($getIdSongs); $i++) {
 							$idcanzone = $getIdSongs[$i][0];
 							$getMySong = select("SELECT * FROM song WHERE id_song='$idcanzone';");
-							
+							$id_gen = $getMySong[0][2];
+							$getGenre = select("SELECT name FROM genre WHERE id_genre='$id_gen';");
 							
 							$title = $getMySong[0][1];
-							$genre = $getMySong[0][2];
+							$genre = $getGenre[0][0];
 							$album = $getMySong[0][5];
 							$date= date_format(date_create($getMySong[0][6]),"d/m/Y");
 							$downloads = $getMySong[0][7];
