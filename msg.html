@@ -23,18 +23,24 @@
 		<?php
 			include("misc/include/header.html");
 			if(!isset($_SESSION["msg"])){
-    			$_SESSION["msg"]="This is not an EasterEgg";
-    		}
+				$_SESSION["msg"]="This is not an EasterEgg";
+			}
 		?>
 	</header>
 
-	<main class="center">
+	<nav>
+		<?php
+			include("misc/include/navigation.html");
+		?>
+	</nav>
+
+	<main class="main-right center">
 		<h1>Message from <span class="pacifico italic"> WaveSound </span> team</h1>
-		
+
 		<?php
 			echo "<h1>".$_SESSION["msg"]."</h1>";
 		?>
-		
+
 	</main>
 
 	<footer>
@@ -42,7 +48,7 @@
 			readfile("misc/include/footer.html");
 		?>
 	</footer>
-	
+
 	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 
 	<script src="misc/js/button-top.js"></script>

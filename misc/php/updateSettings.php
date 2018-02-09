@@ -6,7 +6,7 @@ require('tools.php');
 
 $postName = array("username","name","surname","birthday","email","oldPassword");
 $toBeChanged = array();
-  	
+
 /*
 **true at 1st post not empty
 */
@@ -39,29 +39,35 @@ if(checkPost()){
 	session_start();
 	$userID= $_SESSION["userID"];
 	$errors;
-	
+
 	for($i=0;$i<count($toBeChanged);$i++){
 		switch ($toBeChanged[$i]){
 			case 0://username
-				$username = $_POST["username"];
+				$username = sanitize($_POST["username"]);
 				$result = select("SELECT u_id FROM user WHERE username='$username';");
 
-        		if (checkPresence($result->num_rows)){
+				if (checkPresence($result->num_rows) && $username!=''){
 					$userID= $_SESSION["userID"];
 					update("UPDATE user SET username = '$username' WHERE u_id = '$userID' ");
 					session_start();
 					$_SESSION["username"] = $username;
 				}else{
-					$errors = $errors . "Username already taken";
+					$errors = $errors . "Username already taken or not valid";
 				}
 				break;
 			case 1://name
-				$name = $_POST["name"];
-				update("UPDATE user SET name = '$name' WHERE u_id = '$userID' ");
+				$name = sanitize($_POST["name"]);
+				if($name != '')
+					update("UPDATE user SET name = '$name' WHERE u_id = '$userID' ");
+				else
+					$errors = $errors . " Name not valid";
 				break;
 			 case 2://surname
-				$surname = $_POST["surname"];
-				update("UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ");
+				$surname = sanitize($_POST["surname"]);
+				if($surname != '')
+					update("UPDATE user SET surname = '$surname' WHERE u_id = '$userID' ");
+				else
+					$errors = $errors . " Surname not valid";
 				break;
 			 case 3://birthday
 				$birthday = $_POST["birthday"];
@@ -71,7 +77,7 @@ if(checkPost()){
 				$email = $_POST["email"];
 				if(filter_var($email,FILTER_VALIDATE_EMAIL)){
 					$result = select("SELECT u_id FROM user WHERE email='$email';");
-        			if (checkPresence($result->num_rows)){
+					if (checkPresence($result->num_rows)){
 						update("UPDATE user SET email = '$email' WHERE u_id = '$userID' ");
 					}else{
 						$errors = $errors . " Email already used";
@@ -93,7 +99,7 @@ if(checkPost()){
 							update("UPDATE user SET password = '$newPassword' WHERE u_id = '$userID' ");
 						}else{
 							$errors = $errors . " Old password is wrong";
-						}	
+						}
 					}else{
 						$errors = $errors . " New password too short or different from confirm";
 					}

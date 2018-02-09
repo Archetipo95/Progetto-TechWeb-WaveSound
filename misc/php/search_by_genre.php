@@ -6,11 +6,13 @@
 	$sort = $_POST['sort'];
 	$period = $_POST['period'];
 	$order = $_POST['order'];
-
+	$apice = '"';
+	$genre2 = $apice.$genre.$apice;
 
 
 	if($order == "descending"){
-		$query = "SELECT  title,genre,upload_date,download FROM song ORDER BY ".$sort." DESC ";
+		echo $genre2;
+		$query = 'SELECT  title,genre,upload_date,download FROM song WHERE genre='.$genre2.' ORDER BY '.$sort.' DESC ';
 		$result = $connection->prepare($query);
 		$result->execute();
 		
@@ -33,7 +35,8 @@
 	}
 
 	if($order == "ascending"){
-		$query = "SELECT  title,genre,upload_date,download FROM song ORDER BY ".$sort." ASC ";
+		echo $genre2;
+		$query = 'SELECT title,genre,upload_date,download FROM song WHERE genre='.$genre2.' ORDER BY '.$sort.' ASC ';
 		$result = $connection->prepare($query);
 		$result->execute();
 		
