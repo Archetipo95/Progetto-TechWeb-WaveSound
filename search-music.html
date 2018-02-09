@@ -31,7 +31,7 @@
 				<h2>Search by name</h2>
 				<form class="search-bar" action="search-music.html" method="post">
 					<input type="text" placeholder="Search.." name="search">
-					<button type="submit"></button>
+					<button title="Search" type="submit"></button>
 				</form>
 				<h2>Search by genre</h2>
 				<form action="search-music.html" method="post">
@@ -58,7 +58,7 @@
 							<option value="DESC">Descending</option>
 							<option value="ASC">Ascending</option>
 						</select>
-						<button class="select">Search</button>
+						<button title="Search" class="select">Search</button>
 					</div>
 				</form>
 				<br/>
@@ -76,7 +76,7 @@
 			include("misc/include/footer.html");
 		?>
 	</footer>
-	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+	<button tabindex="9" onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 	<script src="misc/js/button-top.js"></script>
 </body>
 
