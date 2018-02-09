@@ -77,37 +77,33 @@
 								<br/>
 								<input type="email" name="email">
 								<br/>
-								<!--<label>Custom album link</label>
-									<br/>
-								<input type="text" value="Link" name="album-link">
-									<br/>-->
-								<input type="submit" value="Save">
+								<input title="Save" type="submit" value="Save">
 							</form>
 						</div>
 						<div class="container-password">
 							<form action="misc/php/updateSettings.php" method="post">
 								<label>Password</label>
-								<input class="form-buttons button-red" type="button" onclick="hideShow()" value="Modify">
+								<input title="Modify Password" class="form-buttons button-red" type="button" onclick="hideShow()" value="Modify">
 								<br/>
 								<div id="pass">
 									<input type="password" name="oldPassword" placeholder="Current Password" required><br>
 									<input type="password" name="newPassword" placeholder="New Password" required><br>
 									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
-									<input class="form-buttons button-red" type="submit" onclick="hideShow()" value="Change Password">
+									<input title="Change Password" class="form-buttons button-red" type="submit" onclick="hideShow()" value="Change Password">
 								</div>
 							</form>
 						</div>
 					</div>
 					<div class="container-picture">
 						<?php
-							echo '<img id="profile-picture" src="misc/img/users/'.$row[8].'">';
+							echo '<img alt="Profile Picture" id="profile-picture" src="misc/img/users/'.$row[8].'">';
 						?>
 							<form action="misc/php/uploader.php" method="post" enctype="multipart/form-data">
-								<input type="file" name="fileToUpload" id="fileToUpload">
-								<input type="submit" value="Cambia" alt="Cambia Immagine Profilo" name="submit">
+								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload">
+								<input title="Change Profile Picture" type="submit" value="Change" name="submit">
 							</form>
 							<form action="misc/php/adminSettings.php" method="post">
-								<input type="submit" value="Reset Avatar" name="resetAvatar">
+								<input title="Reset Avatar" type="submit" value="Reset Avatar" name="resetAvatar">
 							</form>
 					</div>
 				</div>
@@ -126,7 +122,7 @@
 			?>
 	</footer>
 
-	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+	<button tabindex="9" onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 
 	<script src="misc/js/button-top.js"></script>
 

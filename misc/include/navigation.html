@@ -4,16 +4,16 @@
 
 	<ul>
 		<li>
-			<?php if($_SESSION["current-page"] == 'Home') echo '<a id="currentPage"'; else echo '<a';?> href="main.html">Home</a>
+			<?php if($_SESSION["current-page"] == 'Home') echo '<a id="currentPage"'; else echo '<a title="Home" tabindex="2" ';?> href="main.html">Home</a>
 		</li>
 		<li>
-			<?php if($_SESSION["current-page"] == 'Search Music') echo '<a id="currentPage"'; else echo '<a';?> href="search-music.html">Search Music</a>
+			<?php if($_SESSION["current-page"] == 'Search Music') echo '<a id="currentPage"'; else echo '<a title="Search Music" tabindex="3" ';?> href="search-music.html">Search Music</a>
 		</li>
 		<li>
-			<?php if($_SESSION["current-page"] == 'My Creations') echo '<a id="currentPage"'; else echo '<a';?> href="user-creations.html">My Creations</a>
+			<?php if($_SESSION["current-page"] == 'My Creations') echo '<a id="currentPage"'; else echo '<a title="User Creation" tabindex="4" ';?> href="user-creations.html">My Creations</a>
 		</li>
 		<li>
-			<?php if($_SESSION["current-page"] == 'Upload') echo '<a id="currentPage"'; else echo '<a';?> href="upload-song.html">Upload New Song</a>
+			<?php if($_SESSION["current-page"] == 'Upload') echo '<a id="currentPage"'; else echo '<a title=" Upload New Song" tabindex="5" ';?> href="upload-song.html">Upload New Song</a>
 		</li>
 	</ul>
 </div>

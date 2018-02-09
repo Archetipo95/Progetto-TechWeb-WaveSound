@@ -9,9 +9,9 @@
 						require('misc/php/tools.php');
 						redirect("index.html");
 					}else
-						echo '<a class="img-link" href="main.html">';
+						echo '<a tile="Home" tabindex="1" class="img-link" href="main.html">';
 				}else{
-					echo '<a class="img-link" href="index.html">';
+					echo '<a title="Home Page" tabindex="1" class="img-link" href="index.html">';
 				}
 		?>
 			<div id="logo"></div>
@@ -22,7 +22,7 @@
 		<?php
 			if(isset($_SESSION['userID'])){
 				echo '
-                <a href="user.html?userID='.$_SESSION['userID'].'">
+                <a title="User Page" tabindex="6" href="user.html?userID='.$_SESSION['userID'].'">
 					<div id="username-picture">
 						<div class="head-icon"><img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'"
                         href="user.html"/>
@@ -31,10 +31,10 @@
                  </a>
                     <div id="username">'.$_SESSION["username"].'</div>
 					</div>
-					<a href="user-settings.html" title="settings">
+					<a tabindex="7" href="user-settings.html" title="Settings">
 						<div class="head-icon" id="settings"></div>
 					</a>
-					<a href="misc/php/logout.php" title="logout">
+					<a title="Loguot" tabindex="8" href="misc/php/logout.php" title="logout">
 						<div class="head-icon" id="logout"></div>
 					</a>
                     
@@ -67,7 +67,7 @@
 				if(basename($_SERVER['PHP_SELF']) != 'register.html' && basename($_SERVER['PHP_SELF']) != 'login.html'){
 					echo '
 						<div id="login-registration">
-							<a href="login.html">LOG IN</a><a href="register.html">SIGN UP</a>
+							<a title="Login" tabindex="2" href="login.html">LOG IN</a><a title="Registration" tabindex="3" href="register.html">SIGN UP</a>
 						</div>
 					';
 				}

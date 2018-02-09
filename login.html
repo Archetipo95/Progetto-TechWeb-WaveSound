@@ -31,7 +31,7 @@
 		</div>
 		<form action="misc/php/login.php" method="post">
 			<div class="input-text">
-				<label for="login">Username or Email</label>
+				<label for="login"><span>Username or Email</span></label>
 				<br/>
 				<input type="text" placeholder="Your username or e-mail address" name="login" required>
 				<br/>
@@ -40,8 +40,8 @@
 				<input type="password" placeholder="Your password" name="password" required>
 			</div>
 
-			<button class="form-buttons button-green" type="submit">Sign In</button>
-			<button class="form-buttons button-red" type="reset">Cancel</button>
+			<button title="Sign" tabindex="2" class="form-buttons button-green" type="submit">Sign In</button>
+			<button title="Reset" tabindex="3" class="form-buttons button-red" type="reset">Cancel</button>
 			<br/>
 			<input type="checkbox" checked="checked"> Remember me
 			<br/>
@@ -54,7 +54,7 @@
 		<?php readfile("misc/include/footer.html"); ?>
 	</footer>
 	
-	<button onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+	<button tabindex="4" onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 
 	<script src="misc/js/button-top.js"></script>
 

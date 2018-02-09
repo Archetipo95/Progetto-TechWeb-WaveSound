@@ -11,12 +11,12 @@
         echo '
             <table id="users-info">
             <tr>
-                <th>Username</th>
-                <th>Name</th>
-                <th>Surname</th>
-                <th>Birthday</th>
-                <th>Email</th>
-                <th>Admin</th>
+                <th scope="col">Username</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">Birthday</th>
+                <th scope="col">Email</th>
+                <th scope="col">Admin</th>
             </tr>
         ';
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -31,7 +31,7 @@
             else
                 $user_type="yes";
             echo "<tr>
-            <td>".$username."</td>
+            <td scope="row">".$username."</td>
             <td>".$name."</td>
             <td>".$surname."</td>
             <td>".$birthday."</td>
@@ -48,7 +48,7 @@
 	<form action="misc/php/adminSettings.php" method="post">
 		<label>Username to ban</label><br/>
 		<input type="text" name="user" required><br/>
-		<input type="submit" value="click" name="deleteAccount">
+		<input  title="Ban User" type="submit" value="Ban User" name="deleteAccount">
 	</form>
 
 	<h2>Give admin rights to an account</h2>
@@ -56,14 +56,14 @@
 	<form action="misc/php/adminSettings.php" method="post">
 		<label>Username</label><br/>
 		<input type="text" name="user" required><br/>
-		<input type="submit" value="click" name="newAdmin">
+		<input  title="New Admin" type="submit" value="New Admin" name="newAdmin">
 	</form>
 	
 	<h2>Revoke admin rights from an account</h2>
 	<form action="misc/php/adminSettings.php" method="post">
 		<label>Username</label><br/>
 		<input type="text" name="user" required><br/>
-		<input type="submit" value="click" name="takeAdmin">
+		<input title="Revoke Admin" type="submit" value="Revoke Admin" name="takeAdmin">
 	</form>
 	
 	<h2>Comments to review</h2>
@@ -76,9 +76,9 @@
 		echo '
 			<table id="users-info">
 			<tr>
-				<th>Text comment</th>
-				<th>Reason</th>
-				<th>ID</th>
+				<th scope="col">Text comment</th>
+				<th scope="col">Reason</th>
+				<th scope="col">ID</th>
 			</tr>
 		';
 
@@ -98,7 +98,7 @@
 	<label>Comment to manage(id required)</label><br/>
 	<form action='misc/php/adminSettings.php' method='post'>
 	<input type="text" name="id" required><br/>
-	<input type="submit" value="Ignore" name="ignoreComment">
-	<input type="submit" value="Delete" name="deleteComment">
+	<input title="Ignore" type="submit" value="Ignore" name="ignoreComment">
+	<input title="Delete" type="submit" value="Delete" name="deleteComment">
 
 </div>
