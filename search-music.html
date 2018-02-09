@@ -70,92 +70,107 @@
 				<br/>
 				<h3>Results:</h3>
 
-				<?php
-
+<?php
 if (isset($_POST['search'])) {
 	$keyword = $_POST['search'];
-	$query   = select("SELECT title,name,upload_date FROM song,genre WHERE genre=id_genre AND title LIKE '%$keyword%'");
+	$query = select("SELECT title,name,upload_date,song.id_song,id_album FROM song,genre WHERE genre=id_genre AND title LIKE '%$keyword%'");
 
-	echo 'Titolo:';
+	if(count($query)>0){
+	echo 'Search results from title:';
+	echo '<div class="center">';
+	echo '<div class="results-container">';
+	for ($i = 0;$i < count($query);$i++) {
+		$title = $query[$i][0];
+		//$genre = $query[$i][1];
+		//$upload_date = $query[$i][2];
+		$song = $query[$i][3];
+		$album = $query[$i][4];
+		$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$album';");
+		$pathPicture = $getAlbumIMG[0][0];
 
-	echo "<table>";
-	echo "<tr>
-		<th>Titolo</th>
-		<th>Genre</th>
-		<th>Upload Date</th>
-	</tr>";
+		echo '<a href="listen.html?id_song=' . $song . '">';
+		echo '<div class="result-card">';
 
-	for ($i = 0; $i < count($query); $i++) {
-		$title       = $query[$i][0];
-		$genre       = $query[$i][1];
-		$upload_date = $query[$i][2];
+		echo '<img src="misc/img/album-covers/' . $pathPicture . '" />';
+		echo '<div class="result-card-title">'.$query[$i][0].'</div>';
 
-		echo "<tr><td>" . $title . "</td>
-						<td>" . $genre . "</td>
-						  <td>" . $upload_date . "</td>
-					  </tr>";
-
-	}
-	echo "</table>";
-
-	$query2 = select("SELECT username,name,surname FROM user WHERE username LIKE '%$keyword%' OR name LIKE '%$keyword%' OR surname LIKE '%$keyword%'");
-
-
-	echo 'Autore:';
-
-	echo "<table>";
-	echo "<tr><th>Username</th>
-						<th>Name</th>
-						  <th>Surname</th>
-					</tr>";
-
-	for ($i = 0; $i < count($query2); $i++) {
-		$username = $query2[$i][0];
-		$name     = $query2[$i][1];
-		$surname  = $query2[$i][2];
-
-		echo "<tr><td>" . $username . "</td>
-						<td>" . $name . "</td>
-						  <td>" . $surname . "</td>
-					  </tr>";
+		echo '</a>';
+		echo '</div>';
 
 	}
-	echo "</table>";
-
-	$query3 = select("SELECT name FROM album WHERE name LIKE '%$keyword%' ");
-
-	echo 'Album:';
-	echo "<table>";
-	echo "<tr>
-						<th>Name</th>
-					</tr>";
-	for ($i = 0; $i < count($query3); $i++) {
-		$name = $query3[$i][0];
-
-		echo "<tr>
-						<td>" . $name . "</td>
-					  </tr>";
-	}
-	echo "</table>";
+	echo '<div class="spacer" style="clear: both;"></div></div>';
+	echo '</div>';
 }
+	$query2 = select("SELECT username,name,surname,avatar,u_id FROM user WHERE username LIKE '%$keyword%' OR name LIKE '%$keyword%' OR surname LIKE '%$keyword%'");
+if(count($query2)>0){
+	echo 'Search results from autor:';
+	echo '<div class="center">';
+	echo '<div class="results-container">';
+
+	for ($i = 0;$i < count($query2);$i++) {
+		$username = $query2[$i][0];
+		$name = $query2[$i][1];
+		$surname = $query2[$i][2];
+		$avatar = $query2[$i][3];
+		$userID = $query2[$i][4];
+
+		echo '<a href="user.html?userID='.$userID.'">';
+		echo '<div class="result-card">';
+		echo '<div class="result-card-title">'.$username.'</div>';
+		echo '<img src="misc/img/users/' . $avatar . '" />';
+		echo '<div class="result-card-title-sub">'.$name.'</div>';
+		echo '<div class="result-card-title-sub">'.$surname.'</div>';
+
+		echo '</a>';
+		echo '</div>';
+
+	}
+	echo '<div class="spacer" style="clear: both;"></div></div>';
+	echo '</div>';
+}
+	$query3 = select("SELECT * FROM album WHERE name LIKE '%$keyword%' ");
+if(count($query3)>0){
+	echo 'Search results from album:';
+	echo '<div class="center">';
+	echo '<div class="results-container">';
+	for ($i = 0;$i < count($query3);$i++) {
+		$idAlbum = $query3[$i][0];
+		$name = $query3[$i][1];
+		$picture = $query3[$i][2];
+
+		//echo '<a href="user.html?userID='.$userID.'">';
+		echo '<div class="result-card">';
+		echo '<img src="misc/img/album-covers/' . $picture . '" />';
+		echo '<div class="result-card-title">'.$name.'</div>';
+		//echo '</a>';
+		echo '</div>';
+
+	}
+	echo '<div class="spacer" style="clear: both;"></div></div>';
+	echo '</div>';
+}
+
+
+}
+
 if (isset($_POST['order'])) {
 	$order = $_POST['order'];
 	if ($order == "descending") {
-		$genre  = $_POST['genre'];
-		$sort   = $_POST['sort'];
+		$genre = $_POST['genre'];
+		$sort = $_POST['sort'];
 		//$period = $_POST['period'];
-		$order  = $_POST['order'];
-		$apice  = '"';
+		$order = $_POST['order'];
+		$apice = '"';
 		$genre2 = $apice . $genre . $apice;
 
 		echo $genre2;
-		$query  = 'SELECT  title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name=' . $genre2 . ' ORDER BY ' . $sort . ' DESC ';
+		$query = 'SELECT  title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name=' . $genre2 . ' ORDER BY ' . $sort . ' DESC ';
 		$result = $connection->prepare($query);
 		$result->execute();
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$title       = $row['title'];
-			$genre       = $row['genre'];
+			$title = $row['title'];
+			$genre = $row['genre'];
 			$upload_date = $row['upload_date'];
 
 			echo "<table>";
@@ -172,21 +187,21 @@ if (isset($_POST['order'])) {
 	}
 
 	if ($order == "ascending") {
-		$genre  = $_POST['genre'];
-		$sort   = $_POST['sort'];
+		$genre = $_POST['genre'];
+		$sort = $_POST['sort'];
 		//$period = $_POST['period'];
-		$order  = $_POST['order'];
-		$apice  = '"';
+		$order = $_POST['order'];
+		$apice = '"';
 		$genre2 = $apice . $genre . $apice;
 
 		echo $genre2;
-		$query  = 'SELECT title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name=' . $genre2 . ' ORDER BY ' . $sort . ' ASC ';
+		$query = 'SELECT title,name AS genre,upload_date,download FROM song,genre WHERE genre=id_genre AND name=' . $genre2 . ' ORDER BY ' . $sort . ' ASC ';
 		$result = $connection->prepare($query);
 		$result->execute();
 
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$title       = $row['title'];
-			$genre       = $row['genre'];
+			$title = $row['title'];
+			$genre = $row['genre'];
 			$upload_date = $row['upload_date'];
 
 			echo "<table>";
@@ -204,6 +219,7 @@ if (isset($_POST['order'])) {
 }
 ?>
 
+
 					<!--<div class="content-card">
 							<?php
 						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
@@ -220,7 +236,6 @@ if (isset($_POST['order'])) {
 						?>
 						</div>
 					</div>-->
-
 
 			</div>
 		</div>

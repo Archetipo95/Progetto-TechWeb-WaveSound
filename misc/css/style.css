@@ -159,38 +159,38 @@ header {
 }
 
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    right: 0;
-    background-color: #1565C0;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 4em;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	overflow-x: hidden;
+	padding-top: 4em;
+	width: 0;
+	height: 100%;
+	background-color: #1565C0;
+	transition: 0.5s;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 1.5em;
-    color: #fff;
-    display: block;
-    transition: 0.3s;
+	display: block;
+	padding: 8px 8px 8px 32px;
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.5em;
+	transition: 0.3s;
 }
 
 .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 1em;
-    font-size: 2.5em;
+	position: absolute;
+	top: 0;
+	right: 1em;
+	font-size: 2.5em;
 }
 
 .sidenav-btn {
-    display: inline-block;
-    font-size: 1.9em;
-    cursor: pointer;
+	display: inline-block;
+	font-size: 1.9em;
+	cursor: pointer;
 }
 
 /*--------------------------------------------- home page for not logged users content ---------------------------------------*/
@@ -426,8 +426,8 @@ footer * {
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
 .main-right {
-    width: 70%;
-    padding-top: 1.5em;
+	padding-top: 1.5em;
+	width: 70%;
 }
 
 .content-body {
@@ -474,12 +474,12 @@ nav {
 /*-------------------------------------------------- user-creations.html -------------------------------------------------*/
 
 .table-container {
-    overflow-x: auto;
+	overflow-x: auto;
 }
 
 #user-creations {
 	width: 100%;
-    border-collapse: collapse;
+	border-collapse: collapse;
 	text-align: left;
 }
 
@@ -667,13 +667,13 @@ form.search-bar button:hover {
 /*------------------------------------------------- listen.html ------------------------------------------------------------*/
 
 .main-right-listen {
-    width: 70%;
 	padding-top: 4em;
+	width: 70%;
 }
 
 .content-body .content {
-    width: 100%;
-    margin-left: -1.3em;
+	margin-left: -1.3em;
+	width: 100%;
 }
 
 .content-play {
@@ -696,8 +696,8 @@ form.search-bar button:hover {
 }
 
 .content-play .content h3 {
-    margin-left: 1em;
-    margin-top: 2em;
+	margin-top: 2em;
+	margin-left: 1em;
 }
 
 #comment-area {
@@ -707,8 +707,8 @@ form.search-bar button:hover {
 }
 
 #comments {
-    width: 97%;
 	margin-top: 1em;
+	width: 97%;
 }
 
 .comment {
@@ -720,26 +720,26 @@ form.search-bar button:hover {
 }
 
 .download-button {
-    margin-top: 1em;
+	margin-top: 1em;
 	margin-bottom: 1em;
 	padding: 0.5em;
 	width: 8em;
 	border: none;
+	background-color: #1565C0;
 	color: #fff;
-    background-color: #1565C0;
+	text-decoration: none;
 	cursor: pointer;
-    text-decoration: none;
 }
 
 .comment-button {
-    margin-top: 1em;
+	margin-top: 1em;
 	margin-bottom: 1em;
-    margin-left: 1.1em;
+	margin-left: 1.1em;
 	padding: 0.5em;
 	width: 8em;
 	border: none;
+	background-color: #1565C0;
 	color: #fff;
-    background-color: #1565C0;
 	cursor: pointer;
 }
 
@@ -778,9 +778,9 @@ audio {
 }
 
 #player-audio {
-    width: 100%;
 	margin: 1em 1em 0 1em;
 	padding: 1em;
+	width: 100%;
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 	background-color: #424242;
@@ -789,9 +789,9 @@ audio {
 }
 
 #info-player {
-    width: 105%;
 	margin: 0 1em;
 	padding: .5em;
+	width: 105%;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
 	background-color: #f5f5f5;
@@ -851,6 +851,46 @@ audio {
 	height: 10em;
 	border-radius: 2px;
 	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.results-container {
+	margin: 1em 0;
+	text-align: left;
+}
+
+.results-container a {
+	text-decoration: none;
+}
+
+.result-card {
+	float: left;
+	margin: .5em;
+	padding-bottom: .5em;
+	border-radius: 2px;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+	text-align: center;
+	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.result-card:hover {
+	box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.50);
+}
+
+.result-card img {
+	width: 8em;
+}
+
+.result-card * {
+	display: block;
+}
+
+.result-card-title {
+	margin: 0.5em;
+	font-weight: 600;
+}
+
+.result-card-title-sub {
+	font-weight: 400;
 }
 
 /*------------------------------------------------------ MEDIA QUERY --------------------------------------------------------------*/
@@ -927,10 +967,10 @@ audio {
 		border-radius: 50%;
 		vertical-align: middle;
 	}
-    .sidenav-btn {
-        display: none;
-    }
-  
+	.sidenav-btn {
+		display: none;
+	}
+
 	/*--------------------- index.html --------------------*/
 	.welcome {
 		margin-top: -1.5em;
@@ -1051,44 +1091,44 @@ audio {
 	.content {
 		font-size: 1em;
 	}
-    
-    /*---------------------- listen.html --------------------*/
-    .main-right-listen {
-        padding-top: 8em;
-        padding-left: 15em;
-    }
-    .content-play {
-        width: 90%;
-    }
-    .content-body .content {
-        width: 100%;
-        margin-left: -1em;
-    }
-    .content-suggestion {
-        display: none;
-    }
-    #player-audio {
-        width: 90%;
-    }
-    #info-player {
-        width: 92%;
-    }
-    #like-dislike {
-        float: right;
-        margin-top: 1em;
-        margin-right: 1em;
-    }
+
+	/*---------------------- listen.html --------------------*/
+	.main-right-listen {
+		padding-top: 8em;
+		padding-left: 15em;
+	}
+	.content-play {
+		width: 90%;
+	}
+	.content-body .content {
+		margin-left: -1em;
+		width: 100%;
+	}
+	.content-suggestion {
+		display: none;
+	}
+	#player-audio {
+		width: 90%;
+	}
+	#info-player {
+		width: 92%;
+	}
+	#like-dislike {
+		float: right;
+		margin-top: 1em;
+		margin-right: 1em;
+	}
 }
 
 
 
 @media screen and (min-width: 1150px) {
-    
-    /*---------------------- listen.html --------------------*/
-    .content-suggestion {
-        display: inline-block;
-        width: 9%;
-        vertical-align: top;
-        margin-left: 0.5em; 
-    }
+
+	/*---------------------- listen.html --------------------*/
+	.content-suggestion {
+		display: inline-block;
+		margin-left: 0.5em;
+		width: 9%;
+		vertical-align: top;
+	}
 }
