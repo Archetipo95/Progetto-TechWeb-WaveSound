@@ -89,7 +89,7 @@
 										<?php
 									echo '<a href="/misc/songs/'.$row[4].'" download>
 									<input type="hidden" value="'.$id_song.'" name="id_song"/>
-									<input type="submit" value="download" name="download" title="download"/></a>';
+									<input class="download-button" type="submit" value="Download" name="download" title="download"/></a>';
 								?>
 									</form>
 									<?php echo 'Total downloads: '.getDownload($id_song); ?>
@@ -101,7 +101,7 @@
 									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
 								</div>
 								<div>
-									<input type="submit" value="comment" name="comment">
+									<input class="comment-button" type="submit" value="Comment" name="comment">
 								</div>
 							</form>
 
@@ -136,7 +136,7 @@
 							if($userComment==$userID)
 								echo '<input type="submit" value="delete" name="delete">';
 							else
-								echo '<input type="submit" value="report" name="report">';
+								echo '<input type="submit" value="Report this comment" name="report">';
 							echo '</form>';
 							echo '</div>';
 						}

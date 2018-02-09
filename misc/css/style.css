@@ -426,7 +426,8 @@ footer * {
 /*-------------------------------------------------------- main.html ---------------------------------------------*/
 
 .main-right {
-	padding-top: 1.5em;
+    width: 70%;
+    padding-top: 1.5em;
 }
 
 .content-body {
@@ -666,8 +667,13 @@ form.search-bar button:hover {
 /*------------------------------------------------- listen.html ------------------------------------------------------------*/
 
 .main-right-listen {
+    width: 70%;
 	padding-top: 4em;
-	padding-left: 1em;
+}
+
+.content-body .content {
+    width: 100%;
+    margin-left: -1.3em;
 }
 
 .content-play {
@@ -689,6 +695,11 @@ form.search-bar button:hover {
 	padding-top: 0;
 }
 
+.content-play .content h3 {
+    margin-left: 1em;
+    margin-top: 2em;
+}
+
 #comment-area {
 	margin: 0 1rem;
 	width: 95%;
@@ -696,6 +707,7 @@ form.search-bar button:hover {
 }
 
 #comments {
+    width: 97%;
 	margin-top: 1em;
 }
 
@@ -705,6 +717,30 @@ form.search-bar button:hover {
 	border-radius: 2px;
 	background-color: #f5f5f5;
 	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.download-button {
+    margin-top: 1em;
+	margin-bottom: 1em;
+	padding: 0.5em;
+	width: 8em;
+	border: none;
+	color: #fff;
+    background-color: #1565C0;
+	cursor: pointer;
+    text-decoration: none;
+}
+
+.comment-button {
+    margin-top: 1em;
+	margin-bottom: 1em;
+    margin-left: 1.1em;
+	padding: 0.5em;
+	width: 8em;
+	border: none;
+	color: #fff;
+    background-color: #1565C0;
+	cursor: pointer;
 }
 
 .user-comment * {
@@ -753,6 +789,7 @@ audio {
 }
 
 #info-player {
+    width: 105%;
 	margin: 0 1em;
 	padding: .5em;
 	border-bottom-right-radius: 2px;
@@ -767,8 +804,8 @@ audio {
 
 #like-dislike {
 	float: right;
-	margin-top: 1em;
-	margin-right: 1em;
+	margin-top: 1.5em;
+	margin-right: -0.4em;
 }
 
 .submit-like-dislike input {
@@ -1021,17 +1058,37 @@ audio {
         padding-left: 15em;
     }
     .content-play {
-        width: 80%;
+        width: 90%;
+    }
+    .content-body .content {
+        width: 100%;
+        margin-left: -1em;
     }
     .content-suggestion {
-        display: inline-block;
-        width: 19%;
-        vertical-align: top;
+        display: none;
     }
     #player-audio {
         width: 90%;
     }
-    
-    
+    #info-player {
+        width: 92%;
+    }
+    #like-dislike {
+        float: right;
+        margin-top: 1em;
+        margin-right: 1em;
+    }
+}
 
+
+
+@media screen and (min-width: 1150px) {
+    
+    /*---------------------- listen.html --------------------*/
+    .content-suggestion {
+        display: inline-block;
+        width: 9%;
+        vertical-align: top;
+        margin-left: 0.5em; 
+    }
 }
