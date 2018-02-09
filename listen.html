@@ -147,7 +147,7 @@
 				</div><!--
 			--><div class="content-suggestion center">
 					<div class="content-card-container">
-						<h4>10 Newest Songs</h4>
+						<h4>10 newest uploads</h4>
 						<div class="content-card">
 							<?php
 						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
@@ -157,8 +157,10 @@
 							$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$toString[0]';");
 							$stringa = $getAlbumIMG[0];
 							echo '<a href="listen.html?id_song='.$getNewSongs[$i][1].'">';
+							echo '<div class="card-suggestion">';
+							echo '<img src="misc/img/album-covers/'.$stringa[0].'" />';
 							echo $getNewSongs[$i][2];
-							echo '<div class="card-suggestion"><img src="misc/img/album-covers/'.$stringa[0].'" /></div>';
+							echo '</div>';
 							echo '</a>';
 						}
 						?>

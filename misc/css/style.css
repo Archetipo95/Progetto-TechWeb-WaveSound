@@ -442,7 +442,7 @@ footer * {
 }
 
 .content h1 {
-    font-size: 1.8em;
+	font-size: 1.8em;
 }
 
 .content-title {
@@ -541,7 +541,7 @@ nav {
 	padding: 1em;
 	width: 8em;
 	border: none;
-	color: white;
+	color: #fff;
 	cursor: pointer;
 }
 
@@ -642,7 +642,7 @@ form.search-bar input[type=text] {
 	padding: 10px;
 	width: 60%;
 	border: 2px solid #2196F3;
-	background: #f1f1f1;
+	background: #f5f5f5;
 	font-size: 15px;
 }
 
@@ -712,14 +712,14 @@ form.search-bar button:hover {
 
 #comments {
 	margin-top: 1em;
-	width: 97%;
+	width: 90%;
 }
 
 .comment {
 	margin-bottom: .5em;
 	padding: 1em;
 	border-radius: 2px;
-	background-color: #e6e6ff;
+	background-color: #f5f5f5;
 	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -750,14 +750,13 @@ form.search-bar button:hover {
 .user-comment * {
 	display: inline-block;
 	margin-left: 1em;
-    margin-top: -0.5em;
-    width: 2em;
-    height: 2em;
+	width: 2em;
+	height: 2em;
 }
 
 .comment h4 {
 	margin-left: 1em;
-    margin-top: -0.2em;
+	margin-top: -0.2em;
 	font-weight: normal;
 }
 
@@ -798,11 +797,11 @@ audio {
 
 #info-player {
 	margin: 0 1em;
-    padding: 0.5em;
-	width: 105%;
+	padding: .5em;
+	width: 100%;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
-	background-color: #e6e6ff;
+	background-color: #f5f5f5;
 	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -851,14 +850,23 @@ audio {
 }
 
 .card-suggestion {
-	margin: .5em 0;
+	margin: 0;
+	margin-bottom: 1em;
+	padding-bottom: .5em;
+	border-radius: 2px;
+	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
+}
+
+.card-suggestion:hover {
+	box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.50);
+}
+
+.content-card a {
+	text-decoration: none;
 }
 
 .card-suggestion img {
 	width: 10em;
-	height: 10em;
-	border-radius: 2px;
-	box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.25);
 }
 
 .results-container {
@@ -1124,11 +1132,11 @@ audio {
 		margin-top: 1em;
 		margin-right: 1em;
 	}
-    
-    /*-------------------- search-music.html ------------------*/
-    form.search-bar button {
-        width: 10%;
-    }
+
+	/*-------------------- search-music.html ------------------*/
+	form.search-bar button {
+		width: 10%;
+	}
 }
 
 
@@ -1138,7 +1146,7 @@ audio {
 	/*---------------------- listen.html --------------------*/
 	.content-suggestion {
 		display: inline-block;
-        margin-top: -1.5em;
+		margin-top: -1.5em;
 		margin-left: 0.5em;
 		width: 9%;
 		vertical-align: top;
