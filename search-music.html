@@ -43,11 +43,12 @@
 					<button type="submit"></button>
 				</form>
 				<h2>Search by genre</h2>
-				<form action="search-result.html" method="post">
+				<form action="search-music.html" method="post">
 					<div class="search-by-genre">
 						<span class="select">
                         Select genre
                         <select name="genre">
+							<option>---</option>
                             <option value="pop">Pop</option>
                             <option value="rock">Rock</option>
                             <option value="dance">Dance</option>
@@ -57,23 +58,17 @@
 						<span class="select">
                         Sort by
                         <select name="sort">
+							<option>---</option>
                             <option value="upload_date">Date</option>
                             <option value="rating">Rating</option>
                             <option value="download">Downloads</option>
                         </select>
                     </span>
-						<span class="select">
-                        Period
-                        <select name="period">
-                            <option value="always">Always</option>
-                            <option value="week">Last week</option>
-                            <option value="month">Last month</option>
-                            <option value="year">Last year</option>
-                        </select>
-                    </span>
+						
 						<span class="select">
                         Order
                         <select name="order">
+							<option>---</option>
                             <option value="descending">Descending</option>
                             <option value="ascending">Ascending</option>
                         </select>
@@ -87,12 +82,13 @@
 			require("misc/php/connection.php");
 			require("misc/php/tools.php");
 			
-					if(isset($_POST['search'])){
+			if(isset($_POST['search'])){
 				$keyword=$_POST['search'];
 				$query = "SELECT  title,genre,upload_date FROM song WHERE title LIKE '%$keyword%' ";
 				$result = $connection->prepare($query);
 				$result->execute();
-		
+
+				echo 'Titolo';
 				while($row = $result->fetch(PDO::FETCH_ASSOC)){
 				$title = $row['title'];
 				$genre = $row['genre'];
@@ -109,10 +105,114 @@
 				  	</tr>";
 				echo "</table>";
 				}
-			}else{
-				echo "vuoto";
+					
+				$query2 = "SELECT username,name,surname FROM user WHERE username LIKE '%$keyword%' OR name LIKE '%$keyword%' OR surname LIKE '%$keyword%'";
+				$result2 = $connection->prepare($query2);
+				$result2->execute();
+
+				echo 'Autore';
+				while($row2 = $result2->fetch(PDO::FETCH_ASSOC)){
+				$username = $row2['username'];
+				$name = $row2['name'];
+				$surname = $row2['surname'];
+			
+				echo "<table>";
+				echo "<tr><th>Username</th>
+						<th>Name</th>
+					  	<th>Surname</th>
+					</tr>";
+				echo "<tr><td>".$username."</td>
+						<td>".$name."</td>
+					  	<td>".$surname."</td>
+				  	</tr>";
+				echo "</table>";
+				}
+
+
+				$query3 = "SELECT name FROM album WHERE name LIKE '%$keyword%' ";
+				$result3 = $connection->prepare($query3);
+				$result3->execute();
+
+				echo 'Album';
+				while($row3 = $result3->fetch(PDO::FETCH_ASSOC)){
+				$name = $row3['name'];
+			
+				echo "<table>";
+				echo "<tr>
+						<th>Name</th>
+					</tr>";
+				echo "<tr>
+						<td>".$name."</td>
+				  	</tr>";
+				echo "</table>";
+				}
+				
 			}
-		?>
+
+		$order = $_POST['order'];
+
+		if($order == "descending"){
+			$genre = $_POST['genre'];
+			$sort = $_POST['sort'];
+			//$period = $_POST['period'];
+			$order = $_POST['order'];
+			$apice = '"';
+			$genre2 = $apice.$genre.$apice;
+
+			echo $genre2;
+			$query = 'SELECT  title,genre,upload_date,download FROM song WHERE genre='.$genre2.' ORDER BY '.$sort.' DESC ';
+			$result = $connection->prepare($query);
+			$result->execute();
+		
+			while($row = $result->fetch(PDO::FETCH_ASSOC)){
+			$title = $row['title'];
+			$genre = $row['genre'];
+			$upload_date = $row['upload_date'];
+			
+			echo "<table>";
+			echo "<tr><th>Titolo</th>
+				  <th>Genre</th>
+				  <th>Upload Date</th>
+				</tr>";
+			echo "<tr><td>".$title."</td>
+				  <td>".$genre."</td>
+				  <td>".$upload_date."</td>
+			  	</tr>";
+			echo "</table>";
+			}
+		}
+			
+		if($order == "ascending"){
+			$genre = $_POST['genre'];
+			$sort = $_POST['sort'];
+			//$period = $_POST['period'];
+			$order = $_POST['order'];
+			$apice = '"';
+			$genre2 = $apice.$genre.$apice;
+
+			echo $genre2;
+			$query = 'SELECT title,genre,upload_date,download FROM song WHERE genre='.$genre2.' ORDER BY '.$sort.' ASC ';
+			$result = $connection->prepare($query);
+			$result->execute();
+		
+			while($row = $result->fetch(PDO::FETCH_ASSOC)){
+			$title = $row['title'];
+			$genre = $row['genre'];
+			$upload_date = $row['upload_date'];
+			
+			echo "<table>";
+			echo "<tr><th>Titolo</th>
+				  <th>Genre</th>
+				  <th>Upload Date</th>
+			  	</tr>";
+			echo "<tr><td>".$title."</td>
+				  <td>".$genre."</td>
+				  <td>".$upload_date."</td>
+			  	</tr>";
+			echo "</table>";
+			}
+		}
+	?>
 			</div>
 		</div>
 	</main>
