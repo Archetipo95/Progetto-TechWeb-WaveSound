@@ -38,7 +38,7 @@
 			<div class="content">
 				<h1>My songs</h1>
 				<!--<div class="my-creations-table">-->
-				<div style="overflow-x: auto;">
+				<div class="table-container">
 					<?php
 						require('misc/php/tools.php');
 						$user_id = $_SESSION["userID"];
@@ -55,6 +55,7 @@
 								<th>Downloads</th>
 								<th>Likes</th>
 								<th>Dislikes</th>
+								<th>Comments</th>
 							</tr>
 						';
 
@@ -63,6 +64,8 @@
 							$getMySong = select("SELECT * FROM song WHERE id_song='$idcanzone';");
 							$id_gen = $getMySong[0][2];
 							$getGenre = select("SELECT name FROM genre WHERE id_genre='$id_gen';");
+							$getComments=select("SELECT * FROM comment WHERE id_song='$idcanzone';");
+							$num_comments = count($getComments);
 
 							$title = $getMySong[0][1];
 							$genre = $getGenre[0][0];
@@ -80,6 +83,7 @@
 							<td>'.$downloads.'</td>
 							<td>'.$like.'</td>
 							<td>'.$dislike.'</td>
+							<td>'.$num_comments.'</td>
 							</tr>';
 
 						}

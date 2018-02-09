@@ -42,41 +42,41 @@
 							}
 						?>
 
-						<div class="center">
-						<div id="player-audio">
-							<div class="content-card-cover" src="misc/img/album-covers/default.png">
-								<?php
+							<div class="center">
+								<div id="player-audio">
+									<div class="content-card-cover" src="misc/img/album-covers/default.png">
+										<?php
 									$getAlbum=select("SELECT * FROM album WHERE id_album='$row[5]'");
 									echo '<img id="cover-player" src="/misc/img/album-covers/'.$getAlbum[0][2].'" alt="cover" /> ';
 								?>
+									</div>
+									<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
+								</div>
 							</div>
-								<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
-							</div>
-						</div>
 
-						<div id="info-player">
-							<form id="like-dislike" action="misc/php/player.php" method="post">
-								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song"/>';?>
-								<div class="submit-like-dislike like">
-									<?php
+							<div id="info-player">
+								<form id="like-dislike" action="misc/php/player.php" method="post">
+									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song"/>';?>
+									<div class="submit-like-dislike like">
+										<?php
 										if(alreadyVoted($userID,$id_song, 'like'))
 											echo '<input id="voted-like" type="submit" value="like" name="like" title="voted like"/>';
 										else
 											echo '<input type="submit" value="like" name="like" title="vote like"/>';
 									?>
-								</div>
-								<?php echo getLikes($id_song);?>
-								<div class="submit-like-dislike dislike">
-									<?php
+									</div>
+									<?php echo getLikes($id_song);?>
+									<div class="submit-like-dislike dislike">
+										<?php
 										if(alreadyVoted($userID,$id_song, 'dislike'))
 											echo '<input id="voted-dislike" type="submit" value="dislike" name="dislike" title="voted dislike">';
 										else
 											echo '<input type="submit" value="dislike" name="dislike" title="vote dislike">';
 									?>
-								</div>
-								<?php echo getDislikes($id_song);?>
-							</form>
-							<?php
+									</div>
+									<?php echo getDislikes($id_song);?>
+								</form>
+								<?php
 								echo '<h1>'.$row[1].'</h1>';
 								echo '<div>';
 								echo 'Upload date: '.date_format(date_create($row[6]),"d/m/Y");
@@ -85,28 +85,28 @@
 								echo 'Description: '.$row[3];
 								echo '</div>';
 							?>
-							<form action="misc/php/player.php" method="post">
-								<?php
+									<form action="misc/php/player.php" method="post">
+										<?php
 									echo '<a href="/misc/songs/'.$row[4].'" download>
 									<input type="hidden" value="'.$id_song.'" name="id_song"/>
 									<input type="submit" value="download" name="download" title="download"/></a>';
 								?>
+									</form>
+									<?php echo 'Total downloads: '.getDownload($id_song); ?>
+							</div>
+							<h3>Leave a comment</h3>
+							<form action="misc/php/player.php" method="post">
+								<div>
+									<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track" required></textarea>
+									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
+								</div>
+								<div>
+									<input type="submit" value="comment" name="comment">
+								</div>
 							</form>
-							<?php echo 'Total downloads: '.getDownload($id_song); ?>
-						</div>
-						<h3>Leave a comment</h3>
-						<form action="misc/php/player.php" method="post">
-							<div>
-								<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track" required></textarea>
-								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
-							</div>
-							<div>
-								<input type="submit" value="comment" name="comment">
-							</div>
-						</form>
 
-						<div id="comments">
-						<?php
+							<div id="comments">
+								<?php
 
 						$getComments=select("SELECT * FROM comment WHERE id_song='$id_song'");
 						$num_comments = count($getComments);
@@ -142,11 +142,12 @@
 						}
 
 						?>
-						</div>
+							</div>
 					</div>
-				</div><!----><div class="content-suggestion center">
+				</div><!--
+			--><div class="content-suggestion center">
 					<div class="content-card-container">
-					<div>10 newest songs</div>
+						<div>10 newest songs</div>
 						<div class="content-card">
 							<?php
 						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
@@ -163,7 +164,7 @@
 						?>
 						</div>
 					</div>
-					</div>
+				</div>
 			</div>
 		</div>
 	</main>
