@@ -871,7 +871,7 @@ audio {
 
 .results-container {
 	margin: 1em 0;
-	text-align: left;
+	text-align: center;
 }
 
 .results-container a {
@@ -879,7 +879,7 @@ audio {
 }
 
 .result-card {
-	float: left;
+	display:inline-block;
 	margin: .5em;
 	padding-bottom: .5em;
 	border-radius: 2px;

@@ -60,10 +60,70 @@
 							echo '<div class="result-card">';
 
 							echo '<img src="misc/img/album-covers/' . $pathPicture . '" />';
-							echo '<div class="result-card-title">'.$query[$i][1].'</div>';
-							echo '<div class="result-card-title-sub">'.$query[$i][2].'</div>';
-							echo '<div class="result-card-title-sub">'.$query[$i][3].'</div>';
-							echo '<div class="result-card-title-sub">'.$query[$i][4].' likes</div>';
+							echo '<div class="result-card-title">'.$title.'</div>';
+							echo '<div class="result-card-title-sub">'.$genre.'</div>';
+							echo '<div class="result-card-title-sub">'.$username.'</div>';
+							echo '<div class="result-card-title-sub">'.$score.' likes</div>';
+
+							echo '</a>';
+							echo '</div>';
+						}
+						echo '<div class="spacer" style="clear: both;"></div></div>';
+						echo '</div>';
+					}
+
+					$query2 = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture FROM likes,song,library,user,album,genre WHERE likes.id_song=song.id_song AND library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND song.genre=genre.id_genre GROUP BY genre.name ORDER BY somma DESC LIMIT 5");
+
+					if(count($query2)>0){
+						echo '<h2 class="content-title">Hot Music in Top Genres</h2>';
+						echo '<div class="center">';
+						echo '<div class="results-container">';
+						for ($i = 0;$i < count($query2);$i++) {
+							$song = $query2[$i][0];
+							$title = $query2[$i][1];
+							$genre = $query2[$i][2];
+							$username = $query2[$i][3];
+							$score = $query2[$i][4];
+							$pathPicture = $query2[$i][5];
+
+							echo '<a href="listen.html?id_song=' . $song . '">';
+							echo '<div class="result-card">';
+
+							echo '<img src="misc/img/album-covers/' . $pathPicture . '" />';
+							echo '<div class="result-card-title">'.$title.'</div>';
+							echo '<div class="result-card-title-sub">'.$genre.'</div>';
+							echo '<div class="result-card-title-sub">'.$username.'</div>';
+							echo '<div class="result-card-title-sub">'.$score.' likes</div>';
+
+							echo '</a>';
+							echo '</div>';
+						}
+						echo '<div class="spacer" style="clear: both;"></div></div>';
+						echo '</div>';
+					}
+
+					$query3 = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture FROM likes,song,library,user,album,genre WHERE likes.id_song=song.id_song AND library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND song.genre=genre.id_genre GROUP BY likes.id_song ORDER BY upload_date DESC LIMIT 5");
+
+					if(count($query3)>0){
+						echo '<h2 class="content-title">New Music</h2>';
+						echo '<div class="center">';
+						echo '<div class="results-container">';
+						for ($i = 0;$i < count($query3);$i++) {
+							$song = $query3[$i][0];
+							$title = $query3[$i][1];
+							$genre = $query3[$i][2];
+							$username = $query3[$i][3];
+							$score = $query3[$i][4];
+							$pathPicture = $query3[$i][5];
+
+							echo '<a href="listen.html?id_song=' . $song . '">';
+							echo '<div class="result-card">';
+
+							echo '<img src="misc/img/album-covers/' . $pathPicture . '" />';
+							echo '<div class="result-card-title">'.$title.'</div>';
+							echo '<div class="result-card-title-sub">'.$genre.'</div>';
+							echo '<div class="result-card-title-sub">'.$username.'</div>';
+							echo '<div class="result-card-title-sub">'.$score.' likes</div>';
 
 							echo '</a>';
 							echo '</div>';
@@ -72,59 +132,6 @@
 						echo '</div>';
 					}
 				?>
-
-
-
-				<h2 class="content-title">Hot Music in Top Genres</h2>
-				<div class="content-card-container">
-					<div class="content-card">
-						<div class="content-card-cover"></div>
-						<h3 class="content-card-details-title">Title</h3>
-						<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a href="#">Author Profile</a></div>
-					</div>
-				</div>
-				<div class="content-card-container">
-					<div class="content-card">
-						<div class="content-card-cover"></div>
-						<h3 class="content-card-details-title">Title</h3>
-						<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a href="#">Author Profile</a></div>
-					</div>
-				</div>
-				<div class="content-card-container">
-					<div class="content-card">
-						<div class="content-card-cover"></div>
-						<h3 class="content-card-details-title">Title</h3>
-						<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a href="#">Author Profile</a></div>
-					</div>
-				</div>
-				<h2 class="content-title">New Music This Week</h2>
-				<div class="content-card-container">
-					<div class="content-card">
-						<div class="content-card-cover"></div>
-						<h3 class="content-card-details-title">Title</h3>
-						<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a href="#">Author Profile</a></div>
-					</div>
-				</div>
-				<div class="content-card-container">
-					<div class="content-card">
-						<div class="content-card-cover"></div>
-						<h3 class="content-card-details-title">Title</h3>
-						<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a href="#">Author Profile</a></div>
-					</div>
-				</div>
-				<div class="content-card-container">
-					<div class="content-card">
-						<div class="content-card-cover"></div>
-						<h3 class="content-card-details-title">Title</h3>
-						<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a href="#">Author Profile</a></div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</main>
