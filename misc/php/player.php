@@ -1,5 +1,6 @@
 <?php
 require('tools.php');
+require ('connection.php');
 
 function comment() {
 	session_start();
@@ -60,11 +61,31 @@ function report() {
 }
 
 function downloadPP() {
-	$id_song         = $_POST['id_song'];
+	$id_song = $_POST['id_song'];
 	$currentDownload = getDownload($id_song) + 1;
 	update("UPDATE song SET download = '$currentDownload' WHERE id_song='$id_song';");
 	redirect('../../listen.html?id_song=' . $id_song);
+	
 }
+
+function download(){
+	$id_song = $_POST['id_song'];
+	$statement=select("SELECT path FROM song WHERE id_song='$id_song'");
+	$col = count($statement);
+	$row = $statement[0];
+	$path = $row[0];
+	
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="'.basename($path).'"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($path));
+    readfile($path);
+    exit;
+}
+
 
 if (isset($_POST['comment'])) {
 	comment();
@@ -93,7 +114,8 @@ if (isset($_POST['report'])) {
 }
 
 if (isset($_POST['download'])) {
-	downloadPP();
+	//downloadPP();
+	download();
 }
 
 ?>
