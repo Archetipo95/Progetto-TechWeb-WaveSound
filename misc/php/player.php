@@ -64,8 +64,6 @@ function downloadPP() {
 	$id_song = $_POST['id_song'];
 	$currentDownload = getDownload($id_song) + 1;
 	update("UPDATE song SET download = '$currentDownload' WHERE id_song='$id_song';");
-	redirect('../../listen.html?id_song=' . $id_song);
-	
 }
 
 function download(){
@@ -74,16 +72,17 @@ function download(){
 	$col = count($statement);
 	$row = $statement[0];
 	$path = $row[0];
-	
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.basename($path).'"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($path));
-    readfile($path);
-    exit;
+
+	header('Content-Description: File Transfer');
+	header('Content-Type: application/octet-stream');
+	header('Content-Disposition: attachment; filename="'.basename($path).'"');
+	header('Expires: 0');
+	header('Cache-Control: must-revalidate');
+	header('Pragma: public');
+	header('Content-Length: ' . filesize($path));
+	readfile($path);
+	downloadPP();
+	exit;
 }
 
 
@@ -114,7 +113,6 @@ if (isset($_POST['report'])) {
 }
 
 if (isset($_POST['download'])) {
-	//downloadPP();
 	download();
 }
 
