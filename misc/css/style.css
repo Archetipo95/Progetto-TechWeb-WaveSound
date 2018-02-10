@@ -180,6 +180,10 @@ header {
 	transition: 0.3s;
 }
 
+.sidenav a:hover {
+    background-color: #03A9F4;
+}
+
 .sidenav .closebtn {
 	position: absolute;
 	top: 0;
@@ -706,13 +710,14 @@ form.search-bar button:hover {
 
 #comment-area {
 	margin: 0 1rem;
-	width: 95%;
+	width: 110%;
 	height: 4em;
 }
 
 #comments {
-	margin-top: 1em;
-	width: 90%;
+	width: 110%;
+    margin-top: 1em;
+    margin-left: 1em;
 }
 
 .comment {
@@ -798,7 +803,7 @@ audio {
 #info-player {
 	margin: 0 1em;
 	padding: .5em;
-	width: 100%;
+	width: 105%;
 	border-bottom-right-radius: 2px;
 	border-bottom-left-radius: 2px;
 	background-color: #f5f5f5;
@@ -1132,6 +1137,12 @@ audio {
 		margin-top: 1em;
 		margin-right: 1em;
 	}
+    #comment-area {
+        width: 94%;
+    }
+    #comments {
+        width: 95%;
+    }
 
 	/*-------------------- search-music.html ------------------*/
 	form.search-bar button {
