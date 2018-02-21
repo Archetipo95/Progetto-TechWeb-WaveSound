@@ -22,7 +22,7 @@
 		<?php
 			include("misc/include/header.html");
 			$_SESSION["current-page"]="Settings";
-	
+
 			require('misc/php/connection.php');
 			require('misc/php/tools.php');
 			$id = $_SESSION["userID"];
@@ -107,9 +107,9 @@
 							</form>
 					</div>
 				</div>
-				<?php 
+				<?php
 						if($row[6]==1){
-							include("misc/include/admin-settings.html");; 
+							include("misc/include/admin-settings.html");;
 						}
 					?>
 			</div>
@@ -121,11 +121,6 @@
 				include("misc/include/footer.html");
 			?>
 	</footer>
-
-	<button tabindex="9" onclick="topFunction()" id="button-top" title="Go to top">Top</button>
-
-	<script src="misc/js/button-top.js"></script>
-
 </body>
 
 <script>

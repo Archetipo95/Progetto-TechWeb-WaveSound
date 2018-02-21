@@ -4,6 +4,9 @@
 
 /*
 dark grey - text #263238
+light blue - normal #03A9F4
+light blue - accent @81D4FA
+
 
 */
 
@@ -23,8 +26,8 @@ body {
 }
 
 .brand-font {
-	font-family: 'Pacifico';
 	font-style: italic;
+	font-family: 'Pacifico';
 }
 
 .center {
@@ -43,7 +46,7 @@ body {
 
 /*---------------------------------------------button back to top---------------------------------------------*/
 
-#button-top {
+#jump-top {
 	position: fixed;
 	right: 2em;
 	bottom: 3.5em;
@@ -57,7 +60,7 @@ body {
 	cursor: pointer;
 }
 
-#button-top:hover {
+#jump-top:hover {
 	background-color: #81D4FA;
 }
 
@@ -721,9 +724,9 @@ form.search-bar button:hover {
 }
 
 #comments {
-	width: 110%;
 	margin-top: 1em;
 	margin-left: 1em;
+	width: 110%;
 }
 
 .comment {
@@ -766,8 +769,8 @@ form.search-bar button:hover {
 }
 
 .comment h4 {
-	margin-left: 1em;
 	margin-top: -0.2em;
+	margin-left: 1em;
 	font-weight: normal;
 }
 
