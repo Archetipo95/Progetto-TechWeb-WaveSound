@@ -3,69 +3,69 @@
 
 <head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WaveSound | Registration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>WaveSound | Registration</title>
 
-    <!-- font + fav icon -->
-    <link rel="icon" type="image/png" href="misc/img/logo.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<!-- font + fav icon -->
+	<link rel="icon" type="image/png" href="misc/img/logo.png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-    <!-- style -->
-    <link rel="stylesheet" type="text/css" href="misc/css/style.css" />
+	<!-- style -->
+	<link rel="stylesheet" type="text/css" href="misc/css/style.css" />
 
 </head>
 
 <body>
 
-    <header>
-        <?php
-            include("misc/include/header.html");
-        ?>
-    </header>
+	<header>
+		<?php
+			include("misc/include/header.html");
+		?>
+	</header>
 
-    <main class="reglog center">
-        <div class="reglog-title">
-            <h1>Create your <span class="brand-font"> WaveSound </span> account</h1>
-        </div>
-        <form action="misc/php/register.php" method="post" autocomplete="off">
-            <div class="input-text">
-                <label for="username">Username</label>
-                <br/>
-                <input type="text" placeholder="Your username" name="username" required autocomplete="off">
-                <br/>
-                <label for="email">Email</label>
-                <br/>
-                <input type="email" placeholder="Your e-mail address" name="email" required autocomplete="off">
-                <br/>
-                <label for="password">Password</label>
-                <br/>
-                <input type="password" placeholder="Your password" name="password" required autocomplete="off">
-                <br/>
-                <label for="confirmpassword">Confirm Password</label>
-                <br/>
-                <input type="password" placeholder="Confirm Password" name="psw-repeat" required autocomplete="off">
-            </div>
+	<main class="reglog center">
+		<div class="reglog-title">
+			<h1>Create your <span class="brand-font"> WaveSound </span> account</h1>
+		</div>
+		<form action="misc/php/register.php" method="post" autocomplete="off">
+			<div class="input-text">
+				<label for="username">Username</label>
+				<br/>
+				<input type="text" placeholder="Your username" name="username" required autocomplete="off">
+				<br/>
+				<label for="email">Email</label>
+				<br/>
+				<input type="email" placeholder="Your e-mail address" name="email" required autocomplete="off">
+				<br/>
+				<label for="password">Password</label>
+				<br/>
+				<input type="password" placeholder="Your password" name="password" required autocomplete="off">
+				<br/>
+				<label for="confirmpassword">Confirm Password</label>
+				<br/>
+				<input type="password" placeholder="Confirm Password" name="psw-repeat" required autocomplete="off">
+			</div>
 
-            <button title="Sign up" tabindex="2" class="form-buttons button-green" type="submit">Sign Up</button>
-            <button title="Reset" tabindex="3" class="form-buttons button-red" type="reset">Cancel</button>
-            <br/>
-            <br/>
-            <p id="legal">By clicking "Sign Up" and creating a WaveSound account, I acknowledge that I understand and agree to this website's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+			<button title="Sign up" tabindex="2" class="form-buttons button-green" type="submit">Sign Up</button>
+			<button title="Reset" tabindex="3" class="form-buttons button-red" type="reset">Cancel</button>
+			<br/>
+			<br/>
+			<p id="legal">By clicking "Sign Up" and creating a WaveSound account, I acknowledge that I understand and agree to this website's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
 
-        </form>
-    </main>
+		</form>
+	</main>
 
-    <footer>
-        <?php
-            readfile("misc/include/footer.html");
-        ?>
-    </footer>
+	<footer>
+		<?php
+			readfile("misc/include/footer.html");
+		?>
+	</footer>
 
-    <button tabindex="4" onclick="topFunction()" id="button-top" title="Go to top">Top</button>
+	<button tabindex="4" onclick="topFunction()" id="button-top" title="Go to top">Top</button>
 
-    <script src="misc/js/button-top.js"></script>
+	<script src="misc/js/button-top.js"></script>
 
 </body>
 
