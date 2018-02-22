@@ -24,12 +24,10 @@
 			include("misc/include/navigation.html");
 		?>
 	</nav>
-	<main class="main-right-listen">
+	<main class="main-right-special">
 		<div class="content-body">
-			<div class="content">
 				<div class="content-play">
 
-					<div>
 						<?php
 							if(isset($_GET['id_song'])){
 								$id_song = $_GET['id_song'];
@@ -142,15 +140,12 @@
 						}
 
 						?>
-							</div>
 					</div>
-				</div>
-				<!--
-			-->
-				<div class="content-suggestion center">
-					<div class="content-card-container">
+				</div><!--
+			--><div class="content-suggestion center">
+					<div class="">
 						<h4>10 newest uploads</h4>
-						<div class="content-card">
+						<div class="">
 							<?php
 						$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
 
@@ -158,18 +153,19 @@
 							$toString = $getNewSongs[$i][0];
 							$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$toString[0]';");
 							$stringa = $getAlbumIMG[0];
-							echo '<a href="listen.html?id_song='.$getNewSongs[$i][1].'">';
-							echo '<div class="card-suggestion">';
-							echo '<img src="misc/img/album-covers/'.$stringa[0].'" />';
-							echo $getNewSongs[$i][2];
+
+							echo '<a href="listen.html?id_song=' . $getNewSongs[$i][1] . '">';
+							echo '<div class="result-card">';
+
+							echo '<img src="misc/img/album-covers/' . $stringa[0] . '" />';
+							echo '<div class="result-card-title">'.$getNewSongs[$i][2].'</div>';
 							echo '</div>';
-							echo '</a>';
+							echo '</a><br/>';
 						}
 						?>
 						</div>
 					</div>
 				</div>
-			</div>
 		</div>
 	</main>
 	<footer class="footer-main">

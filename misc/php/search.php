@@ -21,9 +21,8 @@ if (isset($_POST['search'])) {
 
 		echo '<img src="misc/img/album-covers/' . $pathPicture . '" />';
 		echo '<div class="result-card-title">'.$query[$i][0].'</div>';
-
-		echo '</a>';
 		echo '</div>';
+		echo '</a>';
 
 	}
 	echo '<div class="spacer" style="clear: both;"></div></div>';
@@ -48,9 +47,9 @@ if(count($query2)>0){
 		echo '<img src="misc/img/users/' . $avatar . '" />';
 		echo '<div class="result-card-title-sub">'.$name.'</div>';
 		echo '<div class="result-card-title-sub">'.$surname.'</div>';
-
-		echo '</a>';
 		echo '</div>';
+		echo '</a>';
+
 
 	}
 	echo '<div class="spacer" style="clear: both;"></div></div>';
@@ -70,8 +69,8 @@ if(count($query3)>0){
 		echo '<div class="result-card">';
 		echo '<img src="misc/img/album-covers/' . $picture . '" />';
 		echo '<div class="result-card-title">'.$name.'</div>';
-		//echo '</a>';
 		echo '</div>';
+		//echo '</a>';
 
 	}
 	echo '<div class="spacer" style="clear: both;"></div></div>';
