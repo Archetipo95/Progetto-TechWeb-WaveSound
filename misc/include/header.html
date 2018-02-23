@@ -10,7 +10,7 @@
 						redirect("index.html");
 
 					}else
-						echo '<a tile="Home" tabindex="1" class="img-link" href="main.html">';
+						echo '<a title="Home" tabindex="1" class="img-link" href="main.html">';
 				}else if(isset($_SESSION['userID'])){
 					require('misc/php/tools.php');
 					redirect("main.html");
@@ -29,8 +29,7 @@
 				echo '
 				<a title="User Page" tabindex="6" href="user.html?userID='.$_SESSION['userID'].'">
 					<div id="username-picture">
-						<div class="head-icon"><img id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'"
-						href="user.html"/>
+						<div class="head-icon"><img alt="" id="profile-pic" src="misc/img/users/'.$_SESSION["avatar"].'"/>
 						</div>
 					<div id="username">'.$_SESSION["username"].'</div>
 					</div>
@@ -38,7 +37,7 @@
 					<a tabindex="7" href="user-settings.html" title="Settings">
 						<div class="head-icon" id="settings"></div>
 					</a>
-					<a title="Loguot" tabindex="8" href="misc/php/logout.php" title="logout">
+					<a title="Loguot" tabindex="8" href="misc/php/logout.php">
 						<div class="head-icon" id="logout"></div>
 					</a>
 
