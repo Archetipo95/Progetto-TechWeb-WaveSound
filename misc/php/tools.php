@@ -133,4 +133,16 @@ function printCard($songId,$songTitle,$songGenre,$songAuthor,$songScore,$songPic
 	echo '</a>';
 }
 
+function printCardSearch($songId,$songTitle,$songAuthor,$songPicture){
+	echo '<a href="listen.html?id_song=' . $songId . '">';
+		echo '<div class="result-card">';
+			echo '<img alt="" src="./misc/img/album-covers/' . $songPicture . '" />';
+			echo '<div class="result-card-title">'.$songTitle.'</div>';
+			echo '<div class="result-card-title-sub">'.$songAuthor.'</div>';
+		echo '</div>';
+	echo '</a>';
+}
+
+
+
 ?>
