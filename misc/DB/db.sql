@@ -34,6 +34,7 @@ CREATE TABLE album (
 	id_album int(10) NOT NULL AUTO_INCREMENT,
 	name varchar(20) NOT NULL,
 	picture varchar(500) DEFAULT NULL,
+	creation_date date NOT NULL,
 	PRIMARY KEY (id_album)
 ) ENGINE=InnoDB;
 
@@ -49,9 +50,10 @@ CREATE TABLE song (
 	genre int(10) NOT NULL,
 	description varchar(180) DEFAULT NULL,
 	path varchar(250) NOT NULL,
-	id_album int(10) NOT NULL,
+	id_album int(10) DEFAULT NULL,
 	upload_date date NOT NULL,
 	download int(10) NOT NULL DEFAULT '0',
+	picture varchar(500) DEFAULT NULL,
 	PRIMARY KEY (id_song),
 	FOREIGN KEY (id_album) REFERENCES album(id_album),
 	FOREIGN KEY (genre) REFERENCES genre(id_genre)
@@ -96,10 +98,15 @@ CREATE TABLE comment (
 ) ENGINE=InnoDB;
 
 CREATE TABLE warning_comments (
-	com_id int(11) NOT NULL,
-	reason varchar(250) DEFAULT NULL,
+	id_warning int(10) NOT NULL AUTO_INCREMENT,
+ 	com_id int(11) NOT NULL,
+	reason int(10) NOT NULL,
 	date_warning date NOT NULL,
-	FOREIGN KEY (com_id) REFERENCES comment(comm_id)
+	id_signaller int(10) NOT NULL,
+	PRIMARY KEY (id_warning),
+	FOREIGN KEY (com_id) REFERENCES comment(comm_id),
+	FOREIGN KEY (reason) REFERENCES reason(id_reason),
+	FOREIGN KEY (id_signaller) REFERENCES user(u_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE likes (
@@ -110,6 +117,23 @@ CREATE TABLE likes (
 	FOREIGN KEY (u_id) REFERENCES user(u_id),
 	FOREIGN KEY (id_song) REFERENCES song(id_song)
 ) ENGINE=InnoDB;
+
+CREATE TABLE reason (
+	id_reason int(10) NOT NULL AUTO_INCREMENT,
+	type varchar(250) NOT NULL,
+	PRIMARY KEY (id_reason)
+) ENGINE=InnoDB;
+
+CREATE VIEW vista_query2 AS
+SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture 
+FROM likes,song,library,user,album,genre 
+WHERE likes.id_song=song.id_song 
+	AND library.id_song=song.id_song 
+    AND song.id_album=album.id_album 
+    AND library.id_user=user.u_id 
+    AND song.genre=genre.id_genre 
+GROUP BY likes.id_song 
+ORDER BY somma DESC;
 
 SET FOREIGN_KEY_CHECKS=1;
 
