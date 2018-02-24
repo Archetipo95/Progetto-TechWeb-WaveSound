@@ -41,59 +41,58 @@
 				<div class="table-container">
 					<?php
 						require('misc/php/tools.php');
-						$user_id = $_SESSION["userID"];
+						$user_id    = $_SESSION["userID"];
 						$getIdSongs = select("SELECT id_song FROM library WHERE id_user='$user_id';");
-						if(count($getIdSongs)>0){
+						if (count($getIdSongs) > 0) {
 
-						echo '
-							<table id="user-creations" class="center">
-							<tr>
-								<th>Title</th>
-								<th>Genre</th>
-								<th>Album</th>
-								<th>Upload date</th>
-								<th>Downloads</th>
-								<th>Likes</th>
-								<th>Dislikes</th>
-								<th>Comments</th>
-							</tr>
-						';
+							echo '
+								<table id="user-creations" class="center">
+								<tr>
+									<th>Title</th>
+									<th>Genre</th>
+									<th>Album</th>
+									<th>Upload date</th>
+									<th>Downloads</th>
+									<th>Likes</th>
+									<th>Dislikes</th>
+									<th>Comments</th>
+								</tr>
+							';
 
-						for($i=0; $i<count($getIdSongs); $i++) {
-							$idcanzone = $getIdSongs[$i][0];
-							$getMySong = select("SELECT * FROM song WHERE id_song='$idcanzone';");
-							$id_gen = $getMySong[0][2];
-							$getGenre = select("SELECT name FROM genre WHERE id_genre='$id_gen';");
-							$getComments=select("SELECT * FROM comment WHERE id_song='$idcanzone';");
-							$num_comments = count($getComments);
+							for ($i = 0; $i < count($getIdSongs); $i++) {
+								$idcanzone    = $getIdSongs[$i][0];
+								$getMySong    = select("SELECT * FROM song WHERE id_song='$idcanzone';");
+								$id_gen       = $getMySong[0][2];
+								$getGenre     = select("SELECT name FROM genre WHERE id_genre='$id_gen';");
+								$getComments  = select("SELECT * FROM comment WHERE id_song='$idcanzone';");
+								$num_comments = count($getComments);
 
-							$title = $getMySong[0][1];
-							$genre = $getGenre[0][0];
-							$album = $getMySong[0][5];
-							$date= date_format(date_create($getMySong[0][6]),"d/m/Y");
-							$downloads = $getMySong[0][7];
-							$like = getLikes($getMySong[0][0]);
-							$dislike = getDislikes($getMySong[0][0]);
+								$title     = $getMySong[0][1];
+								$genre     = $getGenre[0][0];
+								$album     = $getMySong[0][5];
+								$date      = date_format(date_create($getMySong[0][6]), "d/m/Y");
+								$downloads = $getMySong[0][7];
+								$like      = getLikes($getMySong[0][0]);
+								$dislike   = getDislikes($getMySong[0][0]);
 
-							echo '<tr>
-							<td><a href="listen.html?id_song='.$idcanzone.'">'.$title.'</a></td>
-							<td>'.$genre.'</td>
-							<td>'.$album.'</td>
-							<td>'.$date.'</td>
-							<td>'.$downloads.'</td>
-							<td>'.$like.'</td>
-							<td>'.$dislike.'</td>
-							<td>'.$num_comments.'</td>
-							</tr>';
+								echo '<tr>
+										<td><a href="listen.html?id_song=' . $idcanzone . '">' . $title . '</a></td>
+										<td>' . $genre . '</td>
+										<td>' . $album . '</td>
+										<td>' . $date . '</td>
+										<td>' . $downloads . '</td>
+										<td>' . $like . '</td>
+										<td>' . $dislike . '</td>
+										<td>' . $num_comments . '</td>
+										</tr>';
 
-						}
-						echo "</table>";
-						}else{
+							}
+							echo "</table>";
+						} else {
 							echo "You have uploaded 0 songs.<br />";
 							echo 'Use this <a href="upload-song.html">link</a> to upload a new song!';
 						}
 					?>
-
 				</div>
 			</div>
 		</div>

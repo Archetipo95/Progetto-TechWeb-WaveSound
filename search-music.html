@@ -37,14 +37,14 @@
 					<div class="search-by-genre"> <span class="select">
 						Select genre
 						<select name="genre">
-						   <?php
-								   require('misc/php/tools.php');
-								$getGenre= select("SELECT name FROM genre;");
-								  for($i=0;$i<count($getGenre);$i++){
-										$nomeGenere = $getGenre[$i][0];
-										echo '<option value="'.$nomeGenere.'">'.$nomeGenere.'</option>';
-								  }
-						   ?>
+							<?php
+								require('misc/php/tools.php');
+								$getGenre = select("SELECT name FROM genre;");
+								for ($i = 0; $i < count($getGenre); $i++) {
+									$nomeGenere = $getGenre[$i][0];
+									echo '<option value="' . $nomeGenere . '">' . $nomeGenere . '</option>';
+								}
+							?>
 						</select>
 					</span> <span class="select">Sort by</span>
 						<select name="sort">

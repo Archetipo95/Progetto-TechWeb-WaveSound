@@ -3,44 +3,44 @@
 	<h2>All users info:</h2>
 
 	<div class="table-container">
-	<?php
-		require('misc/php/connection.php');
-		$query = "SELECT * FROM user";
-		$result = $connection->prepare($query);
-		$result->execute();
-		echo '
-			<table id="users-info">
-			<tr>
-				<th scope="col">Username</th>
-				<th scope="col">Name</th>
-				<th scope="col">Surname</th>
-				<th scope="col">Birthday</th>
-				<th scope="col">Email</th>
-				<th scope="col">Admin</th>
-			</tr>
-		';
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$username = $row['username'];
-			$name = $row['name'];
-			$surname = $row['surname'];
-			$birthday = $row['birthday'];
-			$email = $row['email'];
-			$user_type = $row['user_type'];
-			if($user_type==0)
-				$user_type="no";
-			else
-				$user_type="yes";
-			echo "<tr>
-			<td scope='row'>".$username."</td>
-			<td>".$name."</td>
-			<td>".$surname."</td>
-			<td>".$birthday."</td>
-			<td>".$email."</td>
-			<td>".$user_type."</td>
-			</tr>";
-		}
-		echo "</table>";
-	?>
+		<?php
+			require('misc/php/connection.php');
+			$query  = "SELECT * FROM user";
+			$result = $connection->prepare($query);
+			$result->execute();
+			echo '
+					<table id="users-info">
+					<tr>
+						<th scope="col">Username</th>
+						<th scope="col">Name</th>
+						<th scope="col">Surname</th>
+						<th scope="col">Birthday</th>
+						<th scope="col">Email</th>
+						<th scope="col">Admin</th>
+					</tr>
+				';
+			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+				$username  = $row['username'];
+				$name      = $row['name'];
+				$surname   = $row['surname'];
+				$birthday  = $row['birthday'];
+				$email     = $row['email'];
+				$user_type = $row['user_type'];
+				if ($user_type == 0)
+					$user_type = "no";
+				else
+					$user_type = "yes";
+				echo "<tr>
+					<td scope='row'>" . $username . "</td>
+					<td>" . $name . "</td>
+					<td>" . $surname . "</td>
+					<td>" . $birthday . "</td>
+					<td>" . $email . "</td>
+					<td>" . $user_type . "</td>
+					</tr>";
+			}
+			echo "</table>";
+		?>
 	</div>
 
 	<h2>Delete an account</h2>
@@ -67,30 +67,30 @@
 	</form>
 
 	<h2>Comments to review</h2>
-		<?php
+	<?php
 		require('misc/php/connection.php');
 		$queryComm = "SELECT com_id,description,reason FROM comment, warning_comments WHERE comment.comm_id=warning_comments.com_id";
-		$result = $connection->prepare($queryComm);
+		$result    = $connection->prepare($queryComm);
 		$result->execute();
 
 		echo '
-			<table id="users-info">
-			<tr>
-				<th scope="col">Text comment</th>
-				<th scope="col">Reason</th>
-				<th scope="col">ID</th>
-			</tr>
-		';
+				<table id="users-info">
+				<tr>
+					<th scope="col">Text comment</th>
+					<th scope="col">Reason</th>
+					<th scope="col">ID</th>
+				</tr>
+			';
 
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)){
-			$comment=$row['description'];
-			$reason=$row['reason'];
-			$id=$row['com_id'];
+		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+			$comment = $row['description'];
+			$reason  = $row['reason'];
+			$id      = $row['com_id'];
 			echo "<tr>
-					<td>".$comment."</td>
-					<td>".$reason."</td>
-					<td>".$id."</td>
-				 </tr>";
+						<td>" . $comment . "</td>
+						<td>" . $reason . "</td>
+						<td>" . $id . "</td>
+					 </tr>";
 		}
 		echo "</table>";
 	?>
