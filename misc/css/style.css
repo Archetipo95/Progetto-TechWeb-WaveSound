@@ -193,6 +193,10 @@ header {
 	border-radius: 50%;
 	font-size: 1em;
 }
+
+.sidenav i {
+	color: #fff;	
+}
 .sidenav-btn {
 	display: inline-block;
 	font-size: 1.9em;
