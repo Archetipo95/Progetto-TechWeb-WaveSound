@@ -97,16 +97,22 @@ CREATE TABLE comment (
 	FOREIGN KEY (u_id) REFERENCES user(u_id)
 ) ENGINE=InnoDB;
 
-CREATE TABLE warning_comments (
-	id_warning int(10) NOT NULL AUTO_INCREMENT,
+CREATE TABLE reason (
+	id_reason int(10) NOT NULL AUTO_INCREMENT,
+	type varchar(250) NOT NULL,
+	PRIMARY KEY (id_reason)
+) ENGINE=InnoDB;
+
+CREATE TABLE reported_comments (
+	id_report int(10) NOT NULL AUTO_INCREMENT,
  	com_id int(11) NOT NULL,
 	reason int(10) NOT NULL,
-	date_warning date NOT NULL,
-	id_signaller int(10) NOT NULL,
-	PRIMARY KEY (id_warning),
+	date_report date NOT NULL,
+	id_reporter int(10) NOT NULL,
+	PRIMARY KEY (id_report),
 	FOREIGN KEY (com_id) REFERENCES comment(comm_id),
 	FOREIGN KEY (reason) REFERENCES reason(id_reason),
-	FOREIGN KEY (id_signaller) REFERENCES user(u_id)
+	FOREIGN KEY (id_reporter) REFERENCES user(u_id)
 ) ENGINE=InnoDB;
 
 CREATE TABLE likes (
@@ -116,12 +122,6 @@ CREATE TABLE likes (
 	PRIMARY KEY (id_song, u_id),
 	FOREIGN KEY (u_id) REFERENCES user(u_id),
 	FOREIGN KEY (id_song) REFERENCES song(id_song)
-) ENGINE=InnoDB;
-
-CREATE TABLE reason (
-	id_reason int(10) NOT NULL AUTO_INCREMENT,
-	type varchar(250) NOT NULL,
-	PRIMARY KEY (id_reason)
 ) ENGINE=InnoDB;
 
 CREATE VIEW vista_query2 AS
