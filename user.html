@@ -48,14 +48,21 @@
 
 	<main class="main-right">
 		<div class="content">
+            <div class="container-picture">
+						<img alt="Profile Picture" id="profile-picture" src="misc/img/users/default-profile.png">							
+					</div>
 			<div class="links">
 				<ul>
 					<li><a href="user.html">News</a></li>
-					<li><a href="user.html">Tracks</a></li>
+                    <?php
+                        echo '
+					       <li><a href="user-creations.html?id=' . $_SESSION['userID'] . '">Tracks</a></li>
+                             '
+                    ?>
 					<li><a href="user-album.html">Album</a></li>
 				</ul>
 				<a href="upload-song.html">
-					<div class="head-icon" id="logout"></div>
+					<i class="material-icons">&#xE2C6;</i>
 				</a>
 			</div>
 		</div>
