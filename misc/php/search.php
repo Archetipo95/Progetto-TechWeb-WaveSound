@@ -1,7 +1,7 @@
 <?php
     if (isset($_POST['search'])) {
         $keyword = $_POST['search'];
-        $query   = select("SELECT song.id_song,title,username,picture FROM song,library,user,album WHERE library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND title LIKE '%$keyword%' ORDER BY title ASC");
+        $query   = select("SELECT song.id_song,title,username,song.picture FROM song,library,user,album WHERE library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND title LIKE '%$keyword%' ORDER BY title ASC");
         
         if (count($query) > 0) {
             echo 'Search results from title:';
