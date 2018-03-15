@@ -45,6 +45,26 @@
 			include("misc/include/navigation.html");
 		?>
 	</nav>
+    
+    <main class="main-right center">
+		<div class="content-body">
+            <?php
+                $idalbum = $_GET["id"];
+                require('misc/php/tools.php');
+                echo '
+				    <div class="content-card-container">
+                        <div class="content-card">
+				            <div class="content-card-cover"></div>
+								<h3 class="content-card-details-title"> <a href="album.html?id=' . $idalbum . '">Title</a></h3>
+									<div class="content-card-details">Genre</div>
+						              <div class="content-card-details"><a h        ref="#">Author Profile</a></div>
+							   </div>
+					</div>
+			';
+                
+            ?>
+        </div>
+    </main>
 
 
 
