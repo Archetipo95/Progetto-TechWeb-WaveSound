@@ -10,23 +10,7 @@
 	<?php
 			include("misc/include/head-links.html");
 	?>
-	
-	<style>
-		.links {
-			display: block;
-			right: 0;
-			bottom: 0;
-			padding: 1em;
-			min-height: 5em;
-			background-color: #0D47A1;
-		}
-
-		.links li {
-			float: left;
-			margin: 0 12px -1px;
-			display: list-item;
-		}
-	</style>
+  
 
 </head>
 
@@ -46,8 +30,8 @@
 		?>
 	</nav>
 
-
-	<main class="main-right center">
+    
+	<main class="main-right">
 		<div class="content-body">
 			<h1>My albums</h1>
 			<?php
@@ -60,24 +44,32 @@
 						$idalbum = $getAlbums[$i][0];
 						$albumname = $getAlbums[$i][1];
 
-						echo '
-<div class="content-card-container">
-								   <div class="content-card">
+						echo '  <h3 class="content-card-details-title-album"> <a href="album.html?id=' . $idalbum . '">Title</a></h3>
+                         <div class="content-card-details-album">Genre</div>
+						                                  <div class="content-card-details-album"><a h        ref="#">Author Profile</a></div>
+                                <div class="content-card-container-album">
+								   <div class="content-card-album">
 										  <div class="content-card-cover"></div>
-										  <h3 class="content-card-details-title"> <a href="album.html?id=' . $idalbum . '">Title</a></h3>
-									<div class="content-card-details">Genre</div>
-						<div class="content-card-details"><a h        ref="#">Author Profile</a></div>
-							   </div>
-					</div>
-			';
-			}
-		}
-			else {
-				echo "You have no album.<br />";
-							echo 'Use this <a href="upload-song.html">link</a> to upload a new song!';
-}
-
-?>
+										     
+									              
+                                    </div>
+			                 ';
+                        $getsong = select("SELECT id_song,title FROM song WHERE id_album='$idalbum';");
+                        echo ' <div class="track-album">
+                                 <ul> ';
+                        for($j=0; $j<count($getsong); $j++){
+                            echo "<li>".$getsong[$j][1]."</li>";
+                        }
+                        echo ' </ul> 
+                            </div>';
+        
+			         }
+		          }
+			     else {
+				    echo "You have no album.<br />";
+				    echo 'Use this <a href="upload-song.html">link</a> to upload a new song!';
+                 }
+            ?>
 		</div>
 	</main>
 
