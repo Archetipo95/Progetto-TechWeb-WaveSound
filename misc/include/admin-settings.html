@@ -67,6 +67,7 @@
 	</form>
 
 	<h2>Comments to review</h2>
+	
 	<?php
 		require('misc/php/connection.php');
 		$queryComm = "SELECT com_id,description,reason FROM comment, warning_comments WHERE comment.comm_id=warning_comments.com_id";
@@ -94,6 +95,7 @@
 		}
 		echo "</table>";
 	?>
+	
 	<br/>
 	<label>Comment to manage(id required)</label><br/>
 	<form action='misc/php/adminSettings.php' method='post'>

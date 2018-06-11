@@ -406,10 +406,15 @@ nav {
 #user-creations th {
 	padding: 0.5em;
 	border: 1px solid #03A9F4;
-	text-align: left;
+	text-align: center;
 }
 #user-creations tr:nth-child(even) {
 	background-color: #b3e0ff;
+}
+
+#my-creations-img {
+	width: 5em;
+	height: 5em;
 }
 
 /*------------------------------------------------- user-soundtrack-upload.html --------------------------------------------------*/
