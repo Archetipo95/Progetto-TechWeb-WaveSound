@@ -30,13 +30,16 @@ CREATE TABLE user (
 	PRIMARY KEY (u_id)
 ) ENGINE=InnoDB;
 
+/*
 CREATE TABLE album (
 	id_album int(10) NOT NULL AUTO_INCREMENT,
+	id_library
 	name varchar(20) NOT NULL,
 	picture varchar(500) DEFAULT NULL,
 	creation_date date NOT NULL,
 	PRIMARY KEY (id_album)
 ) ENGINE=InnoDB;
+*/
 
 CREATE TABLE genre (
 	id_genre int(10) NOT NULL AUTO_INCREMENT,
@@ -124,6 +127,7 @@ CREATE TABLE likes (
 	FOREIGN KEY (id_song) REFERENCES song(id_song)
 ) ENGINE=InnoDB;
 
+/* TODO FIX ALBUM REMOVED
 CREATE VIEW vista_query2 AS
 SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture 
 FROM likes,song,library,user,album,genre 
@@ -134,6 +138,7 @@ WHERE likes.id_song=song.id_song
     AND song.genre=genre.id_genre 
 GROUP BY likes.id_song 
 ORDER BY somma DESC;
+*/
 
 SET FOREIGN_KEY_CHECKS=1;
 

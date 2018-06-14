@@ -69,30 +69,34 @@
 	<h2>Comments to review</h2>
 	
 	<?php
-		require('misc/php/connection.php');
-		$queryComm = "SELECT com_id,description,reason FROM comment, warning_comments WHERE comment.comm_id=warning_comments.com_id";
+		/*require('misc/php/connection.php');
+		$queryComm = "SELECT * FROM reported_comments";
 		$result    = $connection->prepare($queryComm);
 		$result->execute();
+		*/
+
+		$getAllReported = select("SELECT * FROM reported_comments");
 
 		echo '
 				<table id="users-info">
 				<tr>
-					<th scope="col">Text comment</th>
-					<th scope="col">Reason</th>
-					<th scope="col">ID</th>
+					<th scope="col">Comment ID</th>
+					<th scope="col">Comment Text</th>
+					<th scope="col">Reason of report</th>
 				</tr>
 			';
-
-		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-			$comment = $row['description'];
-			$reason  = $row['reason'];
-			$id      = $row['com_id'];
-			echo "<tr>
-						<td>" . $comment . "</td>
-						<td>" . $reason . "</td>
-						<td>" . $id . "</td>
+/*TODO query chiesta a martinello su telegram*/
+			if (count($getAllReported) > 0) {
+				for ($i = 0; $i < count($getAllReported); $i++) {
+					$id_report = $getAllReported[$i][0];
+					
+					echo "<tr>
+						<td>" . $id_report . "</td>
+						
 					 </tr>";
-		}
+				}
+			}
+		
 		echo "</table>";
 	?>
 	
