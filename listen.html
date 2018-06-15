@@ -42,11 +42,10 @@
 
 							<div class="center">
 								<div id="player-audio">
-									<div class="content-card-cover" src="misc/img/album-covers/default.png">
+									<div class="content-card-cover">
 										<?php
-									$getAlbum=select("SELECT * FROM album WHERE id_album='$row[5]'");
-									echo '<img id="cover-player" src="/misc/img/album-covers/'.$getAlbum[0][2].'" alt="cover" /> ';
-								?>
+											echo '<img id="cover-player" src="/misc/img/song-covers/'.$row[7].'" alt="cover" /> ';
+										?>
 									</div>
 									<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
 								</div>
@@ -58,18 +57,18 @@
 									<div class="submit-like-dislike like">
 										<?php
 										if(alreadyVoted($userID,$id_song, 'like'))
-											echo '<input id="voted-like" type="submit" value="like" name="like" title="voted like"/>';
+											echo '<input id="voted-like" type="submit" value="like" name="like" title="already liked"/>';
 										else
-											echo '<input type="submit" value="like" name="like" title="vote like"/>';
+											echo '<input type="submit" value="like" name="like" title="like"/>';
 									?>
 									</div>
 									<?php echo getLikes($id_song);?>
 									<div class="submit-like-dislike dislike">
 										<?php
 										if(alreadyVoted($userID,$id_song, 'dislike'))
-											echo '<input id="voted-dislike" type="submit" value="dislike" name="dislike" title="voted dislike">';
+											echo '<input id="voted-dislike" type="submit" value="dislike" name="dislike" title="already disliked">';
 										else
-											echo '<input type="submit" value="dislike" name="dislike" title="vote dislike">';
+											echo '<input type="submit" value="dislike" name="dislike" title="dislike">';
 									?>
 									</div>
 									<?php echo getDislikes($id_song);?>
@@ -77,7 +76,7 @@
 								<?php
 								echo '<h1>'.$row[1].'</h1>';
 								echo '<div>';
-								echo 'Upload date: '.date_format(date_create($row[6]),"d/m/Y");
+								echo 'Upload date: '.date_format(date_create($row[5]),"d/m/Y");
 								echo '</div>';
 								echo '<div>';
 								echo 'Description: '.$row[3];
@@ -147,18 +146,15 @@
 						<h4>10 newest uploads</h4>
 						<div class="">
 							<?php
-								$getNewSongs = select("SELECT id_album,id_song,title FROM song ORDER BY upload_date DESC LIMIT 10;");
+								$getNewSongs = select("SELECT id_song,title,picture FROM song ORDER BY upload_date DESC LIMIT 10;");
 
 								for ($i = 0; $i < count($getNewSongs); $i++) {
-									$toString    = $getNewSongs[$i][0];
-									$getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$toString[0]';");
-									$stringa     = $getAlbumIMG[0];
-
-									echo '<a href="listen.html?id_song=' . $getNewSongs[$i][1] . '">';
+									
+									echo '<a href="listen.html?id_song=' . $getNewSongs[$i][0] . '">';
 									echo '<div class="result-card">';
 
-									echo '<img alt="" src="misc/img/album-covers/' . $stringa[0] . '" />';
-									echo '<div class="result-card-title">' . $getNewSongs[$i][2] . '</div>';
+									echo '<img alt="" src="misc/img/song-covers/' . $getNewSongs[$i][2] . '" />';
+									echo '<div class="result-card-title">' . $getNewSongs[$i][1] . '</div>';
 									echo '</div>';
 									echo '</a><br/>';
 								}

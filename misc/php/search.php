@@ -1,7 +1,7 @@
 <?php
     if (isset($_POST['search'])) {
         $keyword = $_POST['search'];
-        $query   = select("SELECT song.id_song,title,username,song.picture FROM song,library,user,album WHERE library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND title LIKE '%$keyword%' ORDER BY title ASC");
+        $query   = select("SELECT song.id_song,title,username,picture FROM song,library,user WHERE library.id_song=song.id_song AND library.id_user=user.u_id AND title LIKE '%$keyword%' ORDER BY title ASC");
         
         if (count($query) > 0) {
             echo 'Search results from title:';
@@ -39,7 +39,7 @@
             }
             echo '</div>';
         }
-        $query3 = select("SELECT * FROM album WHERE name LIKE '%$keyword%' ");
+        /*$query3 = select("SELECT * FROM album WHERE name LIKE '%$keyword%' ");
         if (count($query3) > 0) {
             echo 'Search results from album:';
             echo '<div class="results-container">';
@@ -57,15 +57,16 @@
                 
             }
             echo '</div>';
-        }
+        }*/
     }
     
+    /* TODO
     if (isset($_POST['order'])) {
         $genre = $_POST['genre'];
         $sort  = $_POST['sort'];
         $order = $_POST['order'];
         
-        $query = select("SELECT title,name,upload_date,download,id_album,id_song FROM song,genre WHERE song.genre=id_genre AND name='$genre' ORDER BY $sort $order");
+        $query = select("SELECT title,genre.name,upload_date,download,id_song FROM song,genre WHERE song.genre=id_genre AND name='$genre' ORDER BY $sort $order");
         
         echo 'Songs in ' . $genre . ' genre sorted by ' . $sort . ' in ' . $order . ' order';
         
@@ -91,5 +92,6 @@
             echo '</a>';
         }
         echo '</div>';
-    }
+        
+    }*/
 ?>

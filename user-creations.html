@@ -46,7 +46,6 @@
 								<tr>
 									<th>Song</th>
 									<th>Genre</th>
-									<th>Album</th>
 									<th>Upload date</th>
 									<th>Downloads</th>
 									<th>Likes</th>
@@ -65,17 +64,15 @@
 
 								$title     = $getMySong[0][1];
 								$genre     = $getGenre[0][0];
-								$album     = $getMySong[0][5];
-								$date      = date_format(date_create($getMySong[0][6]), "d/m/Y");
-								$downloads = $getMySong[0][7];
-								$picture   = $getMySong[0][8];
+								$date      = date_format(date_create($getMySong[0][5]), "d/m/Y");
+								$downloads = $getMySong[0][6];
+								$picture   = $getMySong[0][7];
 								$like      = getLikes($getMySong[0][0]);
 								$dislike   = getDislikes($getMySong[0][0]);
 
 								echo '<tr>
 										<td><a href="listen.html?id_song=' . $idcanzone . '">' . $title . '<br/><img id="my-creations-img" src="misc/img/song-covers/'.$picture.'"></a></td>
 										<td>' . $genre . '</td>
-										<td>' . $album . '</td>
 										<td>' . $date . '</td>
 										<td>' . $downloads . '</td>
 										<td>' . $like . '</td>

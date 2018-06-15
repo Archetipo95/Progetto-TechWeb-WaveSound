@@ -39,10 +39,9 @@
 						<select name="genre">
 							<?php
 								require('misc/php/tools.php');
-								$getGenre = select("SELECT name FROM genre;");
+								$getGenre = select("SELECT * FROM genre;");
 								for ($i = 0; $i < count($getGenre); $i++) {
-									$nomeGenere = $getGenre[$i][0];
-									echo '<option value="' . $nomeGenere . '">' . $nomeGenere . '</option>';
+									echo '<option value="' . $getGenre[$i][0] . '">' . $getGenre[$i][1] . '</option>';
 								}
 							?>
 						</select>

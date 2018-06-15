@@ -22,10 +22,10 @@
                     $genre       = $_POST['genre'];
                     $description = $_POST['title'];
                     $path        = $_FILES["file"]["name"];
-                    $album       = "1";
                     $date        = date("Y-m-d");
+                    $picture     = "default1.png";
                     
-                    $query = "INSERT INTO song (`title`,`genre`,`description`,`path`,`id_album`,`upload_date`) VALUES ('$title','$genre','$description','$path','$album','$date');";
+                    $query = "INSERT INTO song (`title`,`genre`,`description`,`path`,`upload_date`,`picture`) VALUES ('$title','$genre','$description','$path','$date','$picture');";
                     require('connection.php');
                     $statement = $connection->prepare($query);
                     $statement->execute();

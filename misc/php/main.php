@@ -1,6 +1,6 @@
 <?php
     require('misc/php/tools.php');
-    $query = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture FROM likes,song,library,user,album,genre WHERE likes.id_song=song.id_song AND library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND song.genre=genre.id_genre GROUP BY likes.id_song ORDER BY somma DESC LIMIT 5");
+    $query = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,picture FROM likes,song,library,user,genre WHERE likes.id_song=song.id_song AND library.id_song=song.id_song AND library.id_user=user.u_id AND song.genre=genre.id_genre GROUP BY likes.id_song ORDER BY somma DESC LIMIT 5");
     
     if (count($query) > 0) {
         echo '<h2 class="content-title">Trending</h2>';
@@ -18,20 +18,6 @@
         }
         echo '</div>';
     }
-    
-    /*$vista = 'CREATE VIEW vista_query2 AS
-    SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture
-    FROM likes,song,library,user,album,genre
-    WHERE likes.id_song=song.id_song
-    AND library.id_song=song.id_song
-    AND song.id_album=album.id_album
-    AND library.id_user=user.u_id
-    AND song.genre=genre.id_genre
-    GROUP BY likes.id_song
-    ORDER BY somma DESC';
-    $test = select($vista);
-    echo $test[0][0];*/
-    
     
     $query2 = select("SELECT vista_query2.canzone,vista_query2.title,vista_query2.name,vista_query2.username,MAX(vista_query2.somma) AS massimo,vista_query2.picture FROM vista_query2 GROUP BY name ORDER BY massimo DESC LIMIT 5");
     
@@ -51,7 +37,7 @@
         echo '</div>';
     }
     
-    $query3 = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,album.picture FROM likes,song,library,user,album,genre WHERE likes.id_song=song.id_song AND library.id_song=song.id_song AND song.id_album=album.id_album AND library.id_user=user.u_id AND song.genre=genre.id_genre GROUP BY likes.id_song ORDER BY upload_date DESC LIMIT 5");
+    $query3 = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,picture FROM likes,song,library,user,genre WHERE likes.id_song=song.id_song AND library.id_song=song.id_song AND library.id_user=user.u_id AND song.genre=genre.id_genre GROUP BY likes.id_song ORDER BY upload_date DESC LIMIT 5");
     
     if (count($query3) > 0) {
         echo '<h2 class="content-title">New Music</h2>';

@@ -44,19 +44,14 @@
 							<select name="genre">
 								<?php
 									require('misc/php/tools.php');
-									$getGenre = select("SELECT name FROM genre;");
+									$getGenre = select("SELECT * FROM genre;");
 									for ($i = 0; $i < count($getGenre); $i++) {
-										$nomeGenere = $getGenre[$i][0];
-										echo '<option value="' . $nomeGenere . '">' . $nomeGenere . '</option>';
+										$idGenere = $getGenre[$i][0];
+										$nomeGenere = $getGenre[$i][1];
+										echo '<option value="' . $idGenere . '">' . $nomeGenere . '</option>';
 									}
 								?>
 							</select>
-						</div>
-						<div>
-							<label for="album">Album name</label>
-						</div>
-						<div>
-							<input type="text" name="album" value="1" />
 						</div>
 						<div>
 							<label for="file">Upload</label>
