@@ -39,52 +39,28 @@
             }
             echo '</div>';
         }
-        /*$query3 = select("SELECT * FROM album WHERE name LIKE '%$keyword%' ");
-        if (count($query3) > 0) {
-            echo 'Search results from album:';
-            echo '<div class="results-container">';
-            for ($i = 0; $i < count($query3); $i++) {
-                $idAlbum = $query3[$i][0];
-                $name    = $query3[$i][1];
-                $picture = $query3[$i][2];
-                
-                //echo '<a href="user.html?userID='.$userID.'">';
-                echo '<div class="result-card">';
-                echo '<img src="misc/img/album-covers/' . $picture . '" />';
-                echo '<div class="result-card-title">' . $name . '</div>';
-                echo '</div>';
-                //echo '</a>';
-                
-            }
-            echo '</div>';
-        }*/
     }
     
-    /* TODO
     if (isset($_POST['order'])) {
         $genre = $_POST['genre'];
         $sort  = $_POST['sort'];
         $order = $_POST['order'];
         
-        $query = select("SELECT title,genre.name,upload_date,download,id_song FROM song,genre WHERE song.genre=id_genre AND name='$genre' ORDER BY $sort $order");
-        
+        $query = select("SELECT title,genre.name,upload_date,download,id_song,picture FROM song,genre WHERE song.genre=id_genre AND id_genre='$genre' ORDER BY $sort $order");
+        $genre = $query[0][1];
         echo 'Songs in ' . $genre . ' genre sorted by ' . $sort . ' in ' . $order . ' order';
         
         echo '<div class="results-container">';
         for ($i = 0; $i < count($query); $i++) {
             $title       = $query[$i][0];
-            //$genre = $query[$i][1];
             $upload_date = $query[$i][2];
             $download    = $query[$i][3];
-            $album       = $query[$i][4];
-            $song        = $query[$i][5];
-            
-            $getAlbumIMG = select("SELECT picture FROM album WHERE id_album='$album';");
-            $pathPicture = $getAlbumIMG[0][0];
+            $song        = $query[$i][4];
+            $pathPicture = $query[$i][5];
             
             echo '<a href="listen.html?id_song=' . $song . '">';
             echo '<div class="result-card">';
-            echo '<img src="misc/img/album-covers/' . $pathPicture . '" />';
+            echo '<img src="misc/img/song-covers/' . $pathPicture . '" />';
             echo '<div class="result-card-title">' . $title . '</div>';
             echo '<div class="result-card-title-sub">' . $download . ' downloads</div>';
             echo '<div class="result-card-title-sub">' . date_format(date_create($upload_date), "d/m/Y") . '</div>';
@@ -93,5 +69,5 @@
         }
         echo '</div>';
         
-    }*/
+    }
 ?>
