@@ -741,11 +741,12 @@ audio {
 	display: block;
 }
 .result-card-title {
+	font-size: 1.1em;
 	margin: 0.5em;
 	font-weight: bolder;
 }
 .result-card-title-sub {
-	font-weight: bold;
+	font-weight: normal;
 }
 .footer-right img {
 	width: 30px;

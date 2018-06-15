@@ -25,13 +25,13 @@
     
     function ignoreComment() {
         $com_id = $_POST['id'];
-        delete("DELETE FROM warning_comments WHERE com_id='$com_id'");
+        delete("DELETE FROM reported_comments WHERE com_id='$com_id'");
         sendMessage("Comment ignored");
     }
     
     function deleteComment() {
         $com_id = $_POST['id'];
-        delete("DELETE FROM warning_comments WHERE com_id='$com_id'");
+        delete("DELETE FROM reported_comments WHERE com_id='$com_id'");
         delete("DELETE FROM comment WHERE comm_id='$com_id' ");
         sendMessage("Comment deleted");
     }

@@ -75,7 +75,7 @@
 		$result->execute();
 		*/
 
-		$getAllReported = select("SELECT * FROM reported_comments");
+		$getAllReported = select("SELECT com_id,description,type FROM reported_comments,reason,comment WHERE comm_id=com_id AND reason=id_reason");
 
 		echo '
 				<table id="users-info">
@@ -85,13 +85,13 @@
 					<th scope="col">Reason of report</th>
 				</tr>
 			';
-/*TODO query chiesta a martinello su telegram*/
 			if (count($getAllReported) > 0) {
 				for ($i = 0; $i < count($getAllReported); $i++) {
-					$id_report = $getAllReported[$i][0];
 					
 					echo "<tr>
-						<td>" . $id_report . "</td>
+						<td>" . $getAllReported[$i][0] . "</td>
+						<td>" . $getAllReported[$i][1] . "</td>
+						<td>" . $getAllReported[$i][2] . "</td>
 						
 					 </tr>";
 				}
