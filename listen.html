@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | Main Page</title>
+	<title>WaveSound | Player</title>
 
 	<?php
 			include("misc/include/head-links.html");
@@ -34,7 +34,6 @@
 								require ('misc/php/connection.php');
 								require ('misc/php/tools.php');
 								$statement=select("SELECT * FROM song WHERE id_song='$id_song'");
-								$col = count($statement);
 								$row = $statement[0];
 								$userID= $_SESSION["userID"];
 							}

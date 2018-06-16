@@ -51,6 +51,7 @@
 									<th>Likes</th>
 									<th>Dislikes</th>
 									<th>Comments</th>
+									<th>Editor Link</th>
 								</tr>
 							';
 
@@ -78,6 +79,7 @@
 										<td>' . $like . '</td>
 										<td>' . $dislike . '</td>
 										<td>' . $num_comments . '</td>
+										<td>' . '<a href="editor.html?id_song='.$getMySong[0][0].'"><i class="material-icons">&#xe3c9;</i>Edit</a>' . '</td>
 										</tr>';
 
 							}
