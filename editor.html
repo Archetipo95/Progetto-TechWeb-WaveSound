@@ -37,7 +37,7 @@
 						$userID= $_SESSION["userID"];
 						$checkMySong = select("SELECT * FROM library WHERE id_user='$userID' AND id_song='$id_song'");
 						if(count($checkMySong)==0){
-							redirect("main.html");
+							redirect("user-creations.html");
 						}
 					}
 				?>
@@ -82,18 +82,23 @@
 									<option value="" selected></option>
 								</select>
 							</div>
-							<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song"/>';?>
-							<!--<div> TODO NEW IMAGE UPLOAD FOR SONG
-								<label for="file">Upload new image</label>
-							</div>
-							<div>
-								<input title="Choose File" type="file" name="file" id="file" required >
-							</div>-->
+							<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
 							<div>
 								<input title="Submit Your Changes" type="submit" name="submit" value="Submit" />
 							</div>
 						</form>
-					</div
+
+						<div class="container-picture">
+							<form action="misc/php/uploaderSongImage.php" method="post" enctype="multipart/form-data">
+								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload" />
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+								<input title="Change Song Image" type="submit" value="Change" name="submit" />
+							</form>
+							<form action="misc/php/#" method="post">
+								<input title="Reset Default Song Image" type="submit" value="Default" name="default">
+							</form>
+						</div>
+					</div>
 			</div>
 		</div>
 	</main>

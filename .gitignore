@@ -2,6 +2,19 @@ misc/img/users/*
 
 !misc/img/users/default-profile.png
 
+misc/img/song-covers/*
+
+!misc/img/song-covers/default1.png
+!misc/img/song-covers/default2.png
+!misc/img/song-covers/default3.png
+!misc/img/song-covers/default4.png
+!misc/img/song-covers/default5.png
+!misc/img/song-covers/default6.png
+!misc/img/song-covers/default7.png
+!misc/img/song-covers/default8.png
+!misc/img/song-covers/default9.png
+!misc/img/song-covers/default10.png
+
 misc/songs/*
 
 !misc/songs/song1.mp3
