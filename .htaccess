@@ -1,3 +1,6 @@
 AddType application/x-httpd-php .html .htm
 php_value upload_max_filesize 10M
 php_value post_max_size 10M
+
+ErrorDocument 404 /mywebsite/misc/errorPage/404.html
+ErrorDocument 500 /mywebsite/misc/errorPage/404.html
