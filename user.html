@@ -5,28 +5,11 @@
 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>WaveSound | My Songs</title>
+	<title>WaveSound | User</title>
 
 	<?php
 			include("misc/include/head-links.html");
 	?>
-	
-	<style>
-		.links {
-			display: block;
-			right: 0;
-			bottom: 0;
-			padding: 1em;
-			min-height: 5em;
-			background-color: #0D47A1;
-		}
-
-		.links li {
-			float: left;
-			margin: 0 12px -1px;
-			display: list-item;
-		}
-	</style>
 
 </head>
 
@@ -49,9 +32,9 @@
 	<main class="main-right">
 		<div class="content">
             <div class="container-picture">
-						<img alt="Profile Picture" id="profile-picture" src="misc/img/users/default-profile.png">							
-					</div>
-			<div class="links">
+                <img alt="Profile Picture" id="profile-picture" src="misc/img/users/default-profile.png">	
+            </div>
+			<div id="braa">
 				<ul>
 					<li><a href="user.html">News</a></li>
                     <?php
@@ -65,6 +48,12 @@
 					<i class="material-icons">&#xE2C6;</i>
 				</a>
 			</div>
+            <div class="content-body">
+                <h1>My Tracks</h1>
+			    <?php
+                    include("misc/php/showUserTracks.php");
+                ?>
+        </div>
 		</div>
 	</main>
 
