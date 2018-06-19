@@ -90,12 +90,19 @@
 
 						<div class="container-picture">
 							<form action="misc/php/uploaderSongImage.php" method="post" enctype="multipart/form-data">
-								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload" />
+								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload" required/>
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
 								<input title="Change Song Image" type="submit" value="Change" name="submit" />
 							</form>
-							<form action="misc/php/#" method="post">
+							<form action="misc/php/updateSong.php" method="post">
+								Reset image:
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
 								<input title="Reset Default Song Image" type="submit" value="Default" name="default">
+							</form>
+							<form action="misc/php/updateSong.php" method="post">
+								Delete song:
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+								<input title="Delete Song" type="submit" value="Delete" name="delete">
 							</form>
 						</div>
 					</div>
