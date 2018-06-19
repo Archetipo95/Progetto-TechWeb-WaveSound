@@ -29,6 +29,18 @@
 				echo 'href="#"><i class="material-icons">play_arrow</i> Player</a>';
 			echo "</li>";
 		}
+		if($_SESSION["current-page"] == 'Settings'){
+			echo "<li>";
+				echo '<a id="currentPage"';
+				echo 'href="#"><i class="material-icons">settings</i> Settings</a>';
+			echo "</li>";
+		}
+		if($_SESSION["current-page"] == 'User'){
+			echo "<li>";
+				echo '<a id="currentPage"';
+				echo 'href="#"><i class="material-icons">account_circle</i> User Page</a>';
+			echo "</li>";
+		}
 		?>
 	</ul>
 </div>
