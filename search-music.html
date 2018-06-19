@@ -7,7 +7,7 @@
 	<title>WaveSound | Search Music</title>
 
 	<?php
-			include("misc/include/head-links.html");
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
 	?>
 	
 </head>
@@ -15,13 +15,13 @@
 <body>
 	<header>
 		<?php
-			include("misc/include/header.html");
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
 			$_SESSION["current-page"]="Search Music";
 		?>
 	</header>
 	<nav>
 		<?php
-			include("misc/include/navigation.html");
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/navigation.html");
 		?>
 	</nav>
 	<main class="main-right">
@@ -71,7 +71,7 @@
 	</main>
 	<footer class="footer-main">
 		<?php
-			include("misc/include/footer.html");
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/footer.html");
 		?>
 	</footer>
 </body>

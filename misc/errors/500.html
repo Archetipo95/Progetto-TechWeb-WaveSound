@@ -2,17 +2,17 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>WaveSound</title>
+		<title>WaveSound | Server down</title>
 	
 		<?php
-			include("../include/head-links.html");
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
 		?>
 	</head>
 	
 	<body>	
 		<header>
 			<?php
-				include("../include/header.html");
+				include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
 			?>
 		</header>
 		<main>
@@ -23,8 +23,10 @@
 		</main>
 		
 		<footer>
-			<?php readfile("../include/footer.html"); ?>
-		</footer>
+			<?php
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/footer.html");
+		?>
+	</footer>
 
 	</body>
 </html>

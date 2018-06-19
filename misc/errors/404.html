@@ -2,33 +2,36 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>WaveSound</title>
+		<title>WaveSound | Page not found</title>
 	
 		<?php
-			include("../include/head-links.html");
+			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
 		?>
 	</head>
 	
 	<body>	
 		<header>
 			<?php
-				include("../include/header.html");
+				include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
 			?>
 		</header>
+		
 		<main>
 			<div>
-				<img src="../misc/img/404page.png" title="PageNotFound" alt="Page not found" height="500"/>
+				<img src="/misc/img/404page.png" title="PageNotFound" alt="Page not found" height="500"/>
 			</div>
 			
 			<div>
 				<h1>PAGE NOT FOUND</h1>
 				<p>The rabbits have been nibbling the cables again...</p>
-				<p>Maybe this will hepl <a href="main.html">HOME</a></p>
+				<p>Maybe this will hepl <a href="/main.html">HOME</a></p>
 			</div>
 		</main>
 		
 		<footer>
-			<?php readfile("../include/footer.html"); ?>
+			<?php
+				include($_SERVER["DOCUMENT_ROOT"]."/misc/include/footer.html");
+			?>
 		</footer>
 
 	</body>
