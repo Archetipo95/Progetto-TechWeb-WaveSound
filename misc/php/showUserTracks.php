@@ -1,6 +1,6 @@
 <?php
-				require('misc/php/tools.php');
-				$user_id = $_SESSION["userID"];
+				
+				$user_id = $_GET["userID"];
 				$getSongs = select("SELECT id_song FROM library WHERE id_user='$user_id'");
 
 				if(count($getSongs)>0){

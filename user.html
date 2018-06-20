@@ -32,26 +32,25 @@
 	<main class="main-right">
 		<div class="content">
             <div class="container-picture">
-                <img alt="Profile Picture" id="profile-picture" src="misc/img/users/default-profile.png">	
+                <?php
+                    require('misc/php/tools.php');
+                    $userForAvatar = $_GET["userID"];
+                    $im = select("SELECT avatar FROM user WHERE u_id = '$userForAvatar'");
+                ?>
+                <img alt="Profile Picture" id="profile-picture" src="misc/img/users/<?php echo $im[0][0];?>">
             </div>
-			<div id="braa">
-				<ul>
-					
-                    <?php
-                        echo '
-					       <li><a href="user-creations.html?id=' . $_SESSION['userID'] . '">Tracks</a></li>
-                            ';
-                    ?>
-				</ul>
-				<a href="upload-song.html">
-					<i class="material-icons">&#xE2C6;</i>
-				</a>
-			</div>
+            <div class="followers">
+                <?php
+                include("misc/php/showFollowers.php");
+                ?>
+                <p>Followers : <?php echo $numfollowers;?></p>
+            </div>
             <div class="content-body">
                 <h1>My Tracks</h1>
 			    <?php
                     include("misc/php/showUserTracks.php");
                 ?>
+                
         </div>
 		</div>
 	</main>
