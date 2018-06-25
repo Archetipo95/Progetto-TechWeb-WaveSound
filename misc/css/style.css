@@ -1088,5 +1088,38 @@ audio {
         display:list-item;
     }
     
+    #content-body-user {
+	min-height: 100vh;
+    text-align: center;
+	//width: 100%;
+    }
+    
+    #content-body-user h1 {
+        text-align : center;
+    }
+    
+      .follow-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+        
+        .unfollow-button {
+        background-color: #f44336; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+            
+        }
+        
     
 }

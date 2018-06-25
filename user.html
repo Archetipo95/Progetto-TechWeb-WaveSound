@@ -6,8 +6,34 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>WaveSound | User</title>
+    <style>
+    #follow-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+        
+        .unfollow-button {
+        background-color: #f44336; /* Red */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+            
+        }
+        
+    </style>
 
 	<?php
+           
 			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
 	?>
 
@@ -38,14 +64,43 @@
                     $im = select("SELECT avatar FROM user WHERE u_id = '$userForAvatar'");
                 ?>
                 <img alt="Profile Picture" id="profile-picture" src="misc/img/users/<?php echo $im[0][0];?>">
+               
             </div>
             <div class="followers">
+                
                 <?php
                 include("misc/php/showFollowers.php");
                 ?>
-                <p>Followers : <?php echo $numfollowers;?></p>
+                <p><?php echo $numfollowers; if($numfollowers>1) echo " Followers"; else echo " Follower";?></p>
+                 <?php
+                 $idfollower = $_SESSION["userID"];
+                 $idfollowed = $_GET["userID"];
+                 if($_GET["userID"]!=$_SESSION["userID"]){
+                    $checkfollow = select("SELECT * FROM follow WHERE id_user = '$idfollower' AND id_follow = 'idfollowed'");
+                
+                 if($checkfollow){
+                    echo'
+                 <form id="follow" action="misc/php/follow.php" method="post">
+                    <div class="submit-follow">
+                        <button id="follow-button" type="submit" value="'.$_GET["userID"].'" name="follow" title="follow">Follow</button>
+                    </div>
+                </form>
+                ';
+                }
+                else {
+                echo '
+                     <form id="unfollow" action="misc/php/unfollow.php" method="post">
+                        <div class="submit-follow">
+                            <button class="unfollow-button" type="submit" value="'.$_GET["userID"].'" name="unfollow" title="Unfollow">Unfollow</button>
+                    </div>
+                </form>
+                ';    
+            }
+}
+
+                ?>
             </div>
-            <div class="content-body">
+            <div id="content-body-user">
                 <h1>My Tracks</h1>
 			    <?php
                     include("misc/php/showUserTracks.php");
