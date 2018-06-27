@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS album;
 DROP TABLE IF EXISTS library;
 DROP TABLE IF EXISTS likes;
 DROP TABLE IF EXISTS genre;
+DROP TABLE IF EXISTS reason;
 
 CREATE TABLE user (
 	u_id int(10) NOT NULL AUTO_INCREMENT,
@@ -114,6 +115,8 @@ CREATE TABLE likes (
 	FOREIGN KEY (id_song) REFERENCES song(id_song)
 ) ENGINE=InnoDB;
 
+SET FOREIGN_KEY_CHECKS=1;
+
 CREATE VIEW vista_query2 AS
 SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,picture 
 FROM likes,song,library,user,genre 
@@ -123,8 +126,6 @@ WHERE likes.id_song=song.id_song
     AND song.genre=genre.id_genre 
 GROUP BY likes.id_song 
 ORDER BY somma DESC;
-
-SET FOREIGN_KEY_CHECKS=1;
 
 INSERT INTO user (username, password, email, name, surname, user_type) VALUES ( 'admin', 'admin', 'admin@wavesound.unipd', 'admin', 'admin', 1);
 INSERT INTO user (username, password, email,name, surname) VALUES ( 'user', 'user', 'user@wavesound.unipd', 'user', 'user');
