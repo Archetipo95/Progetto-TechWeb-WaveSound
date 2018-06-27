@@ -8,7 +8,7 @@
 	<title>WaveSound | Settings</title>
 
 	<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
+			include(__DIR__."/misc/include/head-links.html");
 	?>
 	
 </head>
@@ -17,7 +17,7 @@
 
 	<header>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
+			include(__DIR__."/misc/include/header.html");
 			$_SESSION["current-page"]="Settings";
 
 			require('misc/php/connection.php');
@@ -42,7 +42,7 @@
 
 	<nav>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/navigation.html");
+			include(__DIR__."/misc/include/navigation.html");
 		?>
 	</nav>
 
@@ -106,7 +106,7 @@
 				</div>
 				<?php
 						if($row[6]==1){
-							include($_SERVER["DOCUMENT_ROOT"]."/misc/include/admin-settings.html");;
+							include(__DIR__."/misc/include/admin-settings.html");;
 						}
 					?>
 			</div>
@@ -115,8 +115,8 @@
 
 	<footer class="footer-main">
 		<?php
-				include($_SERVER["DOCUMENT_ROOT"]."/misc/include/footer.html");
-			?>
+			include(__DIR__."/misc/include/footer.html");
+		?>
 	</footer>
 </body>
 

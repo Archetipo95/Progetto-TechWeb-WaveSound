@@ -8,7 +8,7 @@
 	<title>WaveSound | My Songs</title>
 
 	<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
+			include(__DIR__."/misc/include/head-links.html");
 	?>
   
 
@@ -18,7 +18,7 @@
 
 	<header>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
+			include(__DIR__."/misc/include/header.html");
 			$_SESSION["current-page"]="User";
 		?>
 
@@ -26,7 +26,7 @@
 
 	<nav>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/navigation.html");
+			include(__DIR__."/misc/include/navigation.html");
 		?>
 	</nav>
 
@@ -76,7 +76,7 @@
 
 	<footer class="footer-main">
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/footer.html");
+			include(__DIR__."/misc/include/footer.html");
 		?>
 	</footer>
 </body>

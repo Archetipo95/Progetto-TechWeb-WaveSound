@@ -5,10 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>WaveSound | Upload new song</title>
-	<!-- font + fav icon -->
-
 	<?php
-			include("misc/include/head-links.html");
+		include(__DIR__."/misc/include/head-links.html");
 	?>
 	
 </head>
@@ -16,13 +14,13 @@
 <body>
 	<header>
 		<?php
-			include("misc/include/header.html");
+			include(__DIR__."/misc/include/header.html");
 			$_SESSION["current-page"]="Upload";
 		?>
 	</header>
 	<nav>
 		<?php
-			include("misc/include/navigation.html");
+			include(__DIR__."/misc/include/navigation.html");
 		?>
 	</nav>
 	<main class="main-right">
@@ -68,7 +66,7 @@
 	</main>
 	<footer class="footer-main">
 		<?php
-			include("misc/include/footer.html");
+			include(__DIR__."/misc/include/footer.html");
 		?>
 	</footer>
 </body>

@@ -27,7 +27,6 @@
             $row = $statement[0];
             /*check password correctness*/
             if ($password == $row[7]) {
-                echo "aaaaaaaaaaa";
                 /*start session and go to main*/
                 session_start();
                 $_SESSION["userID"]   = $row[0];

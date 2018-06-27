@@ -7,7 +7,7 @@
 	<title>WaveSound | Player</title>
 
 	<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
+			include(__DIR__."/misc/include/head-links.html");
 	?>
 	
 </head>
@@ -15,13 +15,13 @@
 <body>
 	<header>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
+			include(__DIR__."/misc/include/header.html");
 			$_SESSION["current-page"]="Listen";
 		?>
 	</header>
 	<nav>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/navigation.html");
+			include(__DIR__."/misc/include/navigation.html");
 		?>
 	</nav>
 	<main class="main-right-special">
@@ -43,7 +43,7 @@
 								<div id="player-audio">
 									<div class="content-card-cover">
 										<?php
-											echo '<img id="cover-player" src="/misc/img/song-covers/'.$row[7].'" alt="cover" /> ';
+											echo '<img id="cover-player" src="misc/img/song-covers/'.$row[7].'" alt="cover" /> ';
 										?>
 									</div>
 									<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
@@ -165,7 +165,7 @@
 	</main>
 	<footer class="footer-main">
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/footer.html");
+			include(__DIR__."/misc/include/footer.html");
 		?>
 	</footer>
 </body>

@@ -8,7 +8,7 @@
 	<title>WaveSound | Home</title>
 	
 	<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/head-links.html");
+		include(__DIR__."/misc/include/head-links.html");
 	?>
 
 </head>
@@ -17,7 +17,7 @@
 
 	<header>
 		<?php
-			include($_SERVER["DOCUMENT_ROOT"]."/misc/include/header.html");
+		include(__DIR__."/misc/include/header.html");
 		?>
 	</header>
 
@@ -89,7 +89,7 @@
 	</main>
 
 	<footer>
-		<?php readfile("misc/include/footer.html"); ?>
+		<?php include(__DIR__."/misc/include/footer.html"); ?>
 	</footer>
 
 	<script src="misc/js/card.js"></script>
