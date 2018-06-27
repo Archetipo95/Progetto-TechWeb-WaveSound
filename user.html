@@ -6,31 +6,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>WaveSound | User</title>
-    <style>
-    #follow-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 24px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    }
-        
-        .unfollow-button {
-        background-color: #f44336; /* Red */
-        border: none;
-        color: white;
-        padding: 10px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-            
-        }
-        
-    </style>
+
 
 	<?php
            
@@ -66,38 +42,41 @@
                 <img alt="Profile Picture" id="profile-picture" src="misc/img/users/<?php echo $im[0][0];?>">
                
             </div>
+			
             <div class="followers">
-                
-                <?php
-                include("misc/php/showFollowers.php");
-                ?>
-                <p><?php echo $numfollowers; if($numfollowers>1) echo " Followers"; else echo " Follower";?></p>
-                 <?php
-                 $idfollower = $_SESSION["userID"];
-                 $idfollowed = $_GET["userID"];
-                 if($_GET["userID"]!=$_SESSION["userID"]){
-                    $checkfollow = select("SELECT * FROM follow WHERE id_user = '$idfollower' AND id_follow = 'idfollowed'");
-                
-                 if($checkfollow){
-                    echo'
-                 <form id="follow" action="misc/php/follow.php" method="post">
-                    <div class="submit-follow">
-                        <button id="follow-button" type="submit" value="'.$_GET["userID"].'" name="follow" title="follow">Follow</button>
-                    </div>
-                </form>
-                ';
-                }
-                else {
-                echo '
-                     <form id="unfollow" action="misc/php/unfollow.php" method="post">
-                        <div class="submit-follow">
-                            <button class="unfollow-button" type="submit" value="'.$_GET["userID"].'" name="unfollow" title="Unfollow">Unfollow</button>
-                    </div>
-                </form>
-                ';    
-            }
-}
+				<?php
+					$loggedUser = $_SESSION["userID"];
+					$currentUser = $_GET["userID"];
+					
+					if($loggedUser != $currentUser){
+						$checkfollow = select("SELECT * FROM follow WHERE id_user = '$loggedUser' AND id_follow = '$currentUser'");
+						$result = count($checkfollow);
 
+						if($result >= 1){
+							echo'
+                     			<form id="unfollow" action="misc/php/unfollow.php" method="post">
+                        			<div class="submit-follow">
+                            			<button class="unfollow-button" type="submit" value="'.$_GET["userID"].'" name="unfollow" title="Unfollow">Unfollow</button>
+                    				</div>
+                				</form>
+                			';    
+						}else{
+							echo'
+                 				<form id="follow" action="misc/php/follow.php" method="post">
+                    				<div class="submit-follow">
+                        				<button id="follow-button" type="submit" value="'.$_GET["userID"].'" name="follow" title="follow">Follow</button>
+                    				</div>
+                				</form>
+                			';
+						}
+					}else{
+						$follow = select("SELECT id_follow FROM follow WHERE id_user='$currentUser'");
+						echo 'Follow';
+						for($i=0;$i< count($follow);$i++){
+							$id = $follow[$i][0];
+							echo $id;
+						}
+					}
                 ?>
             </div>
             <div id="content-body-user">
