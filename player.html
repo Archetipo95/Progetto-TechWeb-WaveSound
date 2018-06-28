@@ -78,6 +78,10 @@
 								echo 'Upload date: '.date_format(date_create($row[5]),"d/m/Y");
 								echo '</div>';
 								echo '<div>';
+									$getAuthor = select("SELECT u_id, username FROM user,library,song WHERE song.id_song='$id_song' AND song.id_song=library.id_song AND id_user=u_id");
+								echo 'Author: '.'<a href="user.html?userID='.$getAuthor[0][0].'">'.$getAuthor[0][1].'</a>';
+								echo '</div>';
+								echo '<div>';
 								echo 'Description: '.$row[3];
 								echo '</div>';
 							?>
