@@ -37,9 +37,11 @@
                 <?php
                     require('misc/php/tools.php');
                     $userForAvatar = $_GET["userID"];
-                    $im = select("SELECT avatar FROM user WHERE u_id = '$userForAvatar'");
+					$getUser = select("SELECT * FROM user WHERE u_id = '$userForAvatar'");
+					echo '<h1>'.$getUser[0][1].'</h1>';
+					echo '<h4>'.$getUser[0][2].' '.$getUser[0][3].'</h1>';
                 ?>
-                <img alt="Profile Picture" id="profile-picture" src="misc/img/users/<?php echo $im[0][0];?>">
+                <img alt="Profile Picture" id="profile-picture" src="misc/img/users/<?php echo $getUser[0][8];?>">
                
             </div>
 			
@@ -88,9 +90,6 @@
         </div>
 		</div>
 	</main>
-
-
-
 
 	<footer class="footer-main">
 		<?php
