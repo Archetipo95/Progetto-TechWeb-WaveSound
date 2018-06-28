@@ -8,7 +8,6 @@
 					if (!(isset($_SESSION['userID']))) {
 						require('misc/php/tools.php');
 						redirect("index.html");
-
 					} else
 						echo '<a title="Home" tabindex="1" class="img-link" href="main.html">';
 				} else if (isset($_SESSION['userID'])) {
@@ -57,14 +56,10 @@
 											<div id="join-us">
 												Join our community, it\'s 100% free
 											</div>
-										';
-					if (basename($_SERVER['PHP_SELF']) != 'register.html' && basename($_SERVER['PHP_SELF']) != 'login.html') {
-						echo '
-												<div id="login-registration">
-													<a title="Login" tabindex="2" href="login.html">LOG IN</a><a title="Registration" tabindex="3" href="register.html">SIGN UP</a>
-												</div>
-											';
-					}
+											<div id="login-registration">
+												<a title="Login" tabindex="2" href="login.html">LOG IN</a><a title="Registration" tabindex="3" href="register.html">SIGN UP</a>
+											</div>
+					';
 				}
 			?>
 		</div>
