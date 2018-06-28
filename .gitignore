@@ -1,23 +1,23 @@
-misc/img/users/*
+mmasevsk/misc/img/users/*
 
-!misc/img/users/default-profile.png
+!mmasevsk/misc/img/users/default-profile.png
 
-misc/img/song-covers/*
+mmasevsk/misc/img/song-covers/*
 
-!misc/img/song-covers/default1.png
-!misc/img/song-covers/default2.png
-!misc/img/song-covers/default3.png
-!misc/img/song-covers/default4.png
-!misc/img/song-covers/default5.png
-!misc/img/song-covers/default6.png
-!misc/img/song-covers/default7.png
-!misc/img/song-covers/default8.png
-!misc/img/song-covers/default9.png
-!misc/img/song-covers/default10.png
+!mmasevsk/misc/img/song-covers/default1.png
+!mmasevsk/misc/img/song-covers/default2.png
+!mmasevsk/misc/img/song-covers/default3.png
+!mmasevsk/misc/img/song-covers/default4.png
+!mmasevsk/misc/img/song-covers/default5.png
+!mmasevsk/misc/img/song-covers/default6.png
+!mmasevsk/misc/img/song-covers/default7.png
+!mmasevsk/misc/img/song-covers/default8.png
+!mmasevsk/misc/img/song-covers/default9.png
+!mmasevsk/misc/img/song-covers/default10.png
 
-misc/songs/*
+mmasevsk/misc/songs/*
 
-!misc/songs/song1.mp3
-!misc/songs/song2.mp3
-!misc/songs/song3.mp3
-!misc/songs/song4.mp3
+!mmasevsk/misc/songs/song1.mp3
+!mmasevsk/misc/songs/song2.mp3
+!mmasevsk/misc/songs/song3.mp3
+!mmasevsk/misc/songs/song4.mp3

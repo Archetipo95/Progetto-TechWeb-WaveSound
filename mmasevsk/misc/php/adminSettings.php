@@ -7,6 +7,16 @@
         $user = $_POST['user'];
         require('connection.php');
         $query  = "DELETE FROM user WHERE username='$user' ";
+        /*
+            cosa eliminare
+            user
+            library
+            song
+            commenti
+            likes
+            reported comments
+            follow
+        */
         $result = $connection->query($query);
         sendMessage("$user account deleted");
     }
