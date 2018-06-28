@@ -177,14 +177,25 @@
     }
 
     function printCardMain($songId, $songTitle, $songGenre, $songAuthor, $songPicture) {
-        echo '<a href="player.html?id_song=' . $songId . '">';
+        //echo '<a href="player.html?id_song=' . $songId . '">';
         echo '<div class="result-card">';
         echo '<img alt="" src="./misc/img/song-covers/' . $songPicture . '" />';
         echo '<div class="result-card-title">' . $songTitle . '</div>';
         echo '<div class="result-card-title-sub">' . $songGenre . '</div>';
         echo '<div class="result-card-title-sub">' . $songAuthor . '</div>';
         echo '</div>';
-        echo '</a>';
+        //echo '</a>';
     }
     
+    function printCardMainScore($songId, $songTitle, $songGenre, $songAuthor, $songScore, $songPicture) {
+        //echo '<a href="player.html?id_song=' . $songId . '">';
+        echo '<div class="result-card">';
+        echo '<img alt="" src="./misc/img/song-covers/' . $songPicture . '" />';
+        echo '<div class="result-card-title">' . $songTitle . '</div>';
+        echo '<div class="result-card-title-sub">' . $songGenre . '</div>';
+        echo '<div class="result-card-title-sub">' . $songAuthor . '</div>';
+        echo '<div class="result-card-title-sub">' . $songScore . ' likes</div>';
+        echo '</div>';
+        //echo '</a>';
+    }
 ?>

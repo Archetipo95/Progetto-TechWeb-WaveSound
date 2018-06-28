@@ -78,7 +78,8 @@
 										ORDER BY download DESC LIMIT 3");
 
 						if (count($query) > 0) {
-							echo '<div class="results-container">';
+							
+								
 							for ($i = 0; $i < count($query); $i++) {
 									$song        = $query[$i][0];
 									$title       = $query[$i][1];
@@ -89,36 +90,38 @@
 									printCardMain($song, $title, $genre, $username, $pathPicture);
 
 							}				
-							echo '</div>';
+							
 						}
 					?>
 				</div>
 				<div id="month-cards" class="hidden">
 					<?php
-						require('misc/php/tools.php');
-						$query2 = select("SELECT song.id_song as canzone,title,genre.name,username,picture,download 
-										FROM song,library,user,genre 
-										WHERE library.id_song=song.id_song AND 
-										library.id_user=user.u_id AND song.genre=genre.id_genre 
-										ORDER BY download DESC LIMIT 3");
+						
+						$query2 = select("SELECT likes.id_song as canzone,title,genre.name,username,SUM(CASE WHEN score > 0 THEN 1 ELSE 0 END) AS somma,picture 
+						FROM likes,song,library,user,genre 
+						WHERE likes.id_song=song.id_song AND 
+						library.id_song=song.id_song AND 
+						library.id_user=user.u_id AND song.genre=genre.id_genre 
+						GROUP BY likes.id_song 
+						ORDER BY somma DESC LIMIT 3");
 
 						if (count($query2) > 0) {
-							echo '<div class="card">';
+							
 							for ($i = 0; $i < count($query2); $i++) {
-									$song2        = $query2[$i][0];
-									$title2      = $query2[$i][1];
-									$genre2       = $query2[$i][2];
-									$username2    = $query2[$i][3];
-									$pathPicture2 = $query[$i][4];
+									$songId2        = $query2[$i][0];
+									$songTitle2      = $query2[$i][1];
+									$songGenre2       = $query2[$i][2];
 
-									printCard($songId2, $songTitle2, $songGenre2, $songAuthor2, $songScore2, $songPicture2);
+									$songAuthor2    = $query2[$i][3];
+									$songScore2       = $query2[$i][4];
+									$songPicture2 = $query2[$i][5];
 
+									printCardMainScore($songId2, $songTitle2, $songGenre2, $songAuthor2,$songScore2, $songPicture2);
 							}				
-							echo '</div>';
 						}
 					?>
 				</div>
-				</div>
+				
 				<div id="year-cards" class="hidden">
 					<div class="card" id="year1">year1</div>
 					<div class="card" id="year2">year2</div>

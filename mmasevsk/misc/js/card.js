@@ -44,7 +44,6 @@ function buttonEvent() {
 	bottone1.addEventListener("click", function () {
 		buttonCheck(1);
 	});
-
 	bottone2.addEventListener("click", function () {
 		buttonCheck(2);
 	});
