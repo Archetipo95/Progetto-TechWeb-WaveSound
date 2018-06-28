@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Message | WaveSound</title>
+
+	<?php
+		include(__DIR__."/misc/include/head-links.html");
+	?>
+
+</head>
+
+<body>
+
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+			if(!isset($_SESSION["msg"])){
+				$_SESSION["msg"]="This is not an EasterEgg";
+			}
+		?>
+	</header>
+
+	<nav>
+		<?php
+			include(__DIR__."/misc/include/navigation.html");
+		?>
+	</nav>
+
+	<main class="main-right center">
+		<h1>Message from <span class="brand-font"> WaveSound </span> team</h1>
+
+		<?php
+			echo "<h1>".$_SESSION["msg"]."</h1>";
+		?>
+
+	</main>
+
+	<footer>
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+</html>

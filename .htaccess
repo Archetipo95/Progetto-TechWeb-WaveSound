@@ -1,6 +1,9 @@
-AddType application/x-httpd-php .html .htm
-php_value upload_max_filesize 10M
-php_value post_max_size 10M
+AddType application/x-httpd-php .php
+AddType application/x-httpd-php-source .phps
+AddType application/x-httpd-php .php .htm .html
 
-ErrorDocument 404 /misc/errors/404.html
-ErrorDocument 500 /misc/errors/500.html
+#php_value upload_max_filesize 10M
+#php_value post_max_size 10M
+
+ErrorDocument 404 /mmasevsk/misc/errors/404.html
+ErrorDocument 500 /mmasevsk/misc/errors/500.html

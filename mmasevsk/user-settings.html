@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Settings | WaveSound</title>
+
+	<?php
+			include(__DIR__."/misc/include/head-links.html");
+	?>
+	
+</head>
+
+<body>
+
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+			$_SESSION["current-page"]="Settings";
+
+			require('misc/php/connection.php');
+			require('misc/php/tools.php');
+			$id = $_SESSION["userID"];
+			$getUser = select("SELECT * FROM user WHERE u_id='$id'");
+			$row = $getUser[0];
+?>
+	</header>
+
+	<nav>
+		<?php
+			include(__DIR__."/misc/include/navigation.html");
+		?>
+	</nav>
+
+	<main class="main-right">
+		<div class="content-body">
+			<div class="content center">
+				<div class="user">
+					<h1>Profile Settings</h1>
+					<div class="container-user-settings">
+						<div class="container-settings">
+							<form action="misc/php/updateSettings.php" method="post">
+								<label for="username">Username: <?php echo '<span class="current">'.$row[1].'</span>'; ?></label>
+								<br/>
+								<input type="text" name="username">
+								<br/>
+								<label for="name">Name: <?php echo '<span class="current">'.$row[2].'</span>'; ?></label>
+								<br/>
+								<input type="text" name="name">
+								<br/>
+								<label for="surname">Surname: <?php echo '<span class="current">'.$row[3].'</span>'; ?></label>
+								<br/>
+								<input type="text" name="surname">
+								<br/>
+								<label for="birthday">Birthday: <?php echo '<span class="current">'.$row[4].'</span>'; ?></label>
+								<br/>
+								<input type="date" name="birthday">
+								<br/>
+								<label for="email">Email: <?php echo '<span class="current">'.$row[5].'</span>'; ?></label>
+								<br/>
+								<input type="email" name="email">
+								<br/>
+								<input title="Save" type="submit" value="Save">
+							</form>
+						</div>
+						<div class="container-password">
+							<form action="misc/php/updateSettings.php" method="post">
+								<label>Password</label>
+								<input title="Change Password" class="form-buttons button-red" type="button" onclick="hideShow()" value="Change">
+								<br/>
+								<div id="pass">
+									<input type="password" name="oldPassword" placeholder="Current Password" required><br>
+									<input type="password" name="newPassword" placeholder="New Password" required><br>
+									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
+									<input title="Confirm change Password" class="form-buttons button-red" type="submit" onclick="hideShow()" value="Confirm">
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="container-picture">
+						<?php
+							echo '<img alt="Profile Picture" id="profile-picture" src="misc/img/users/'.$row[8].'">';
+						?>
+							<form action="misc/php/uploaderUserImage.php" method="post" enctype="multipart/form-data">
+								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload">
+								<input title="Change Profile Picture" type="submit" value="Change" name="submit">
+							</form>
+							<form action="misc/php/adminSettings.php" method="post">
+								<input title="Reset Avatar" type="submit" value="Reset Avatar" name="resetAvatar">
+							</form>
+					</div>
+				</div>
+				<?php
+						if($row[6]==1){
+							include(__DIR__."/misc/include/admin-settings.html");;
+						}
+					?>
+			</div>
+		</div>
+	</main>
+
+	<footer class="footer-main">
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+<script>
+	function hideShow() {
+		var e = document.getElementById('pass');
+		if (e.style.display === 'none' || e.style.display === '')
+			e.style.display = 'block';
+		else
+			e.style.display = 'none'
+	}
+</script>
+
+</html>

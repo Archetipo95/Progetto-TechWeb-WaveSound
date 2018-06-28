@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Player | WaveSound</title>
+
+	<?php
+		include(__DIR__."/misc/include/head-links.html");
+	?>
+	
+</head>
+
+<body>
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+			$_SESSION["current-page"]="Player";
+		?>
+	</header>
+	<nav>
+		<?php
+			include(__DIR__."/misc/include/navigation.html");
+		?>
+	</nav>
+	<main class="main-right-special">
+		<div class="content-body">
+				<div class="content-play">
+
+						<?php
+							if(isset($_GET['id_song'])){
+								$id_song = $_GET['id_song'];
+								require ('misc/php/connection.php');
+								require ('misc/php/tools.php');
+								$statement=select("SELECT * FROM song WHERE id_song='$id_song'");
+								$row = $statement[0];
+								$userID= $_SESSION["userID"];
+							}
+						?>
+
+							<div class="center">
+								<div id="player-audio">
+									<div class="content-card-cover">
+										<?php
+											echo '<img id="cover-player" src="misc/img/song-covers/'.$row[7].'" alt="cover" /> ';
+										?>
+									</div>
+									<audio controls controlsList="nodownload"><?php echo '<source src="misc/songs/'.$row[4].'" type="audio/mpeg"/>Your browser does not support the audio element.';?></audio>
+								</div>
+							</div>
+
+							<div id="info-player">
+								<form id="like-dislike" action="misc/php/player.php" method="post">
+									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song"/>';?>
+									<div class="submit-like-dislike like">
+										<?php
+										if(alreadyVoted($userID,$id_song, 'like'))
+											echo '<input id="voted-like" type="submit" value="like" name="like" title="already liked"/>';
+										else
+											echo '<input type="submit" value="like" name="like" title="like"/>';
+									?>
+									</div>
+									<?php echo getLikes($id_song);?>
+									<div class="submit-like-dislike dislike">
+										<?php
+										if(alreadyVoted($userID,$id_song, 'dislike'))
+											echo '<input id="voted-dislike" type="submit" value="dislike" name="dislike" title="already disliked">';
+										else
+											echo '<input type="submit" value="dislike" name="dislike" title="dislike">';
+									?>
+									</div>
+									<?php echo getDislikes($id_song);?>
+								</form>
+								<?php
+								echo '<h1>'.$row[1].'</h1>';
+								echo '<div>';
+								echo 'Upload date: '.date_format(date_create($row[5]),"d/m/Y");
+								echo '</div>';
+								echo '<div>';
+									$getAuthor = select("SELECT u_id, username FROM user,library,song WHERE song.id_song='$id_song' AND song.id_song=library.id_song AND id_user=u_id");
+								echo 'Author: '.'<a href="user.html?userID='.$getAuthor[0][0].'">'.$getAuthor[0][1].'</a>';
+								echo '</div>';
+								echo '<div>';
+								echo 'Description: '.$row[3];
+								echo '</div>';
+							?>
+									<form action="misc/php/player.php" method="post">
+										<?php
+									echo '<a href="/misc/songs/'.$row[4].'" download>
+									<input type="hidden" value="'.$id_song.'" name="id_song"/>
+									<input class="download-button" type="submit" value="Download" name="download" title="download"/></a>';
+								?>
+									</form>
+									<?php echo 'Total downloads: '.getDownload($id_song); ?>
+							</div>
+							<h3>Leave a comment</h3>
+							<form action="misc/php/player.php" method="post">
+								<div>
+									<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track" required></textarea>
+									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
+								</div>
+								<div>
+									<input class="comment-button" type="submit" value="Comment" name="comment">
+								</div>
+							</form>
+
+							<div id="comments">
+								<?php
+
+									$getComments  = select("SELECT * FROM comment WHERE id_song='$id_song'");
+									$num_comments = count($getComments);
+
+									if ($num_comments == 1) {
+										echo "1 comment";
+									} else {
+										echo $num_comments . " comments";
+									}
+
+									for ($i = $num_comments - 1; $i >= 0; $i--) {
+										$comment = $getComments[$i];
+										$getUser = select("SELECT username,avatar,u_id FROM user WHERE u_id='$comment[2]'");
+
+										echo '<div class="comment">';
+										$dateComment = date_create($comment[4]);
+										echo date_format($dateComment, 'H:i:s d/m/Y');
+										echo '<div class="user-comment"><img id="profile-pic" src="misc/img/users/' . $getUser[0][1] . '" />';
+										echo "<h3>" . $getUser[0][0] . "</h3></div>";
+										echo '<h4>' . $comment[1] . '</h4>';
+
+										echo '<form action="misc/php/player.php" method="post">';
+										echo '<input type="hidden" value="' . $comment[0] . '" name="idOfComment">';
+										echo '<input type="hidden" value="' . $id_song . '" name="id_song">';
+
+										$userComment = $getUser[0][2];
+										if ($userComment == $userID)
+											echo '<input type="submit" value="Delete comment" name="delete">';
+										else
+											echo '<input type="submit" value="Report comment" name="report">';
+										echo '</form>';
+										echo '</div>';
+									}
+
+								?>
+					</div>
+				</div><!--
+			--><div class="content-suggestion center">
+					<div class="">
+						<h4>10 newest uploads</h4>
+						<div class="">
+							<?php
+								$getNewSongs = select("SELECT id_song,title,picture FROM song ORDER BY upload_date DESC LIMIT 10;");
+
+								for ($i = 0; $i < count($getNewSongs); $i++) {
+									
+									echo '<a href="player.html?id_song=' . $getNewSongs[$i][0] . '">';
+									echo '<div class="result-card">';
+
+									echo '<img alt="" src="misc/img/song-covers/' . $getNewSongs[$i][2] . '" />';
+									echo '<div class="result-card-title">' . $getNewSongs[$i][1] . '</div>';
+									echo '</div>';
+									echo '</a><br/>';
+								}
+							?>
+						</div>
+					</div>
+				</div>
+		</div>
+	</main>
+	<footer class="footer-main">
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+</html>

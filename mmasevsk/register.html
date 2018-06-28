@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Registration | WaveSound</title>
+
+	<?php
+			include(__DIR__."/misc/include/head-links.html");
+	?>
+
+</head>
+
+<body>
+
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+		?>
+	</header>
+
+	<main class="reglog center">
+		<div class="reglog-title">
+			<h1>Create your <span class="brand-font"> WaveSound </span> account</h1>
+		</div>
+		<form action="misc/php/register.php" method="post" autocomplete="off">
+			<div class="input-text">
+				<label for="username">Username</label>
+				<br/>
+				<input type="text" placeholder="Your username" name="username" required autocomplete="off">
+				<br/>
+				<label for="email">Email</label>
+				<br/>
+				<input type="email" placeholder="Your e-mail address" name="email" required autocomplete="off">
+				<br/>
+				<label for="password">Password</label>
+				<br/>
+				<input type="password" placeholder="Your password" name="password" required autocomplete="off">
+				<br/>
+				<label for="confirmpassword">Confirm Password</label>
+				<br/>
+				<input type="password" placeholder="Confirm Password" name="psw-repeat" required autocomplete="off">
+			</div>
+
+			<button title="Sign up" tabindex="2" class="form-buttons button-green" type="submit">Sign Up</button>
+			<button title="Reset" tabindex="3" class="form-buttons button-red" type="reset">Cancel</button>
+			<br/>
+			<br/>
+			<p id="legal">By clicking "Sign Up" and creating a WaveSound account, I acknowledge that I understand and agree to this website's <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+
+		</form>
+	</main>
+
+	<footer>
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+</html>

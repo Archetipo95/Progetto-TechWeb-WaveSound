@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Upload new song | WaveSound</title>
+	<?php
+		include(__DIR__."/misc/include/head-links.html");
+	?>
+	
+</head>
+
+<body>
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+			$_SESSION["current-page"]="Upload";
+		?>
+	</header>
+	<nav>
+		<?php
+			include(__DIR__."/misc/include/navigation.html");
+		?>
+	</nav>
+	<main class="main-right">
+		<div class="content-body">
+			<div class="content">
+				<h1>Upload new song</h1>
+				<div id="content-user-upload">
+					<form action="misc/php/uploaderSong.php" method="post" enctype="multipart/form-data">
+						
+						<div>
+							<label for="title">Title</label>
+						</div>
+						<div>
+							<input type="text" name="title" required />
+						</div>
+						<div>
+							<label for="genre">Genre</label>
+						</div>
+						<div>
+							<select name="genre">
+								<?php
+								require('misc/php/tools.php');
+								$getGenre = select("SELECT * FROM genre;");
+									for ($i = 0; $i < count($getGenre); $i++) {
+										echo '<option value="' . $getGenre[$i][0] . '">' . $getGenre[$i][1] . '</option>';
+									}
+								?>
+							</select>
+						</div>
+						<div>
+							<label for="file">Upload</label>
+						</div>
+						<div>
+							<input title="Choose File" type="file" name="file" id="file" required />
+						</div>
+						<div>
+							<input title="Submit Your Song" type="submit" name="submit" value="Submit" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer-main">
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+</html>

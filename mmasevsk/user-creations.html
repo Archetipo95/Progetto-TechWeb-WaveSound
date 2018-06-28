@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>My Songs | WaveSound</title>
+
+	<?php
+			include(__DIR__."/misc/include/head-links.html");
+	?>
+
+</head>
+
+<body>
+
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+			$_SESSION["current-page"]="My Creations";
+		?>
+
+	</header>
+
+	<nav>
+		<?php
+			include(__DIR__."/misc/include/navigation.html");
+		?>
+	</nav>
+
+	<main class="main-right">
+		<div class="content-body">
+			<div class="content">
+				<h1>My songs</h1>
+				<!--<div class="my-creations-table">-->
+				<div class="table-container">
+					<?php
+						require('misc/php/tools.php');
+						$user_id    = $_SESSION["userID"];
+						$getIdSongs = select("SELECT id_song FROM library WHERE id_user='$user_id';");
+						if (count($getIdSongs) > 0) {
+
+							echo '
+								<table id="user-creations" class="center">
+								<tr>
+									<th>Song</th>
+									<th>Genre</th>
+									<th>Upload date</th>
+									<th>Downloads</th>
+									<th>Likes</th>
+									<th>Dislikes</th>
+									<th>Comments</th>
+									<th>Editor Link</th>
+								</tr>
+							';
+
+							for ($i = 0; $i < count($getIdSongs); $i++) {
+								$idcanzone    = $getIdSongs[$i][0];
+								$getMySong    = select("SELECT * FROM song WHERE id_song='$idcanzone';");
+								$id_gen       = $getMySong[0][2];
+								$getGenre     = select("SELECT name FROM genre WHERE id_genre='$id_gen';");
+								$getComments  = select("SELECT * FROM comment WHERE id_song='$idcanzone';");
+								$num_comments = count($getComments);
+
+								$title     = $getMySong[0][1];
+								$genre     = $getGenre[0][0];
+								$date      = date_format(date_create($getMySong[0][5]), "d/m/Y");
+								$downloads = $getMySong[0][6];
+								$picture   = $getMySong[0][7];
+								$like      = getLikes($getMySong[0][0]);
+								$dislike   = getDislikes($getMySong[0][0]);
+
+								echo '<tr>
+										<td><a href="player.html?id_song=' . $idcanzone . '">' . $title . '<br/><img id="my-creations-img" src="misc/img/song-covers/'.$picture.'"></a></td>
+										<td>' . $genre . '</td>
+										<td>' . $date . '</td>
+										<td>' . $downloads . '</td>
+										<td>' . $like . '</td>
+										<td>' . $dislike . '</td>
+										<td>' . $num_comments . '</td>
+										<td>' . '<a href="editor.html?id_song='.$getMySong[0][0].'"><i class="material-icons">&#xe3c9;</i>Edit</a>' . '</td>
+										</tr>';
+
+							}
+							echo "</table>";
+						} else {
+							echo "You have uploaded 0 songs.<br />";
+							echo 'Use this <a href="upload-song.html">link</a> to upload a new song!';
+						}
+					?>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="footer-main">
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<div id="nav-menu">
+
+	<h3 class="center">NAVIGATION MENU</h3>
+
+	<ul>
+		<li>
+			
+			<?php if($_SESSION["current-page"] == 'Home') echo '<a id="currentPage"'; else echo '<a title="Home" tabindex="2" ';?> href="main.html"><i class="material-icons">&#xE88A;</i> Home</a>
+		</li>
+		<li>
+			<?php if($_SESSION["current-page"] == 'Search Music') echo '<a id="currentPage"'; else echo '<a title="Search Music" tabindex="3" ';?> href="search-music.html"><i class="material-icons">&#xE8B6;</i> Search Music</a>
+		</li>
+		<li>
+			<?php if($_SESSION["current-page"] == 'My Creations') echo '<a id="currentPage"'; else echo '<a title="User Creation" tabindex="4" ';?> href="user-creations.html"><i class="material-icons">&#xE019;</i> My Creations</a>
+		</li>
+		<li>
+			<?php if($_SESSION["current-page"] == 'Upload') echo '<a id="currentPage"'; else echo '<a title=" Upload New Song" tabindex="5" ';?> href="upload-song.html"><i class="material-icons">&#xE2C6;</i> Upload New Song</a>
+		</li>
+		<?php
+		if($_SESSION["current-page"] == 'Editor'){
+			echo "<li>";
+				echo '<a id="currentPage"';
+				echo 'href="#"><i class="material-icons">&#xe3c9;</i> Editor</a>';
+			echo "</li>";
+		}
+		if($_SESSION["current-page"] == 'Player'){
+			echo "<li>";
+				echo '<a id="currentPage"';
+				echo 'href="#"><i class="material-icons">play_arrow</i> Player</a>';
+			echo "</li>";
+		}
+		if($_SESSION["current-page"] == 'Settings'){
+			echo "<li>";
+				echo '<a id="currentPage"';
+				echo 'href="#"><i class="material-icons">settings</i> Settings</a>';
+			echo "</li>";
+		}
+		if($_SESSION["current-page"] == 'User'){
+			echo "<li>";
+				echo '<a id="currentPage"';
+				echo 'href="#"><i class="material-icons">account_circle</i> User Page</a>';
+			echo "</li>";
+		}
+		?>
+	</ul>
+</div>

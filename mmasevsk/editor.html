@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Editor | WaveSound</title>
+
+	<?php
+			include(__DIR__."/misc/include/head-links.html");
+	?>
+	
+</head>
+
+<body>
+	<header>
+		<?php
+			include(__DIR__."/misc/include/header.html");
+			$_SESSION["current-page"]="Editor";
+		?>
+	</header>
+	<nav>
+		<?php
+			include(__DIR__."/misc/include/navigation.html");
+		?>
+	</nav>
+	
+	<main class="main-right">
+		<div class="content-body">
+			<div class="content center">
+					<?php
+					require ('misc/php/connection.php');
+					require ('misc/php/tools.php');
+
+					if(isset($_GET['id_song'])){
+						$id_song = $_GET['id_song'];
+						$userID= $_SESSION["userID"];
+						$checkMySong = select("SELECT * FROM library WHERE id_user='$userID' AND id_song='$id_song'");
+						if(count($checkMySong)==0){
+							redirect("user-creations.html");
+						}
+					}else{
+						redirect("main.html");
+					}
+				?>
+
+				<?php
+					$getInfo = select("SELECT title,genre.name,description,picture FROM song,genre WHERE id_song='$id_song' AND song.genre=genre.id_genre");
+
+					echo $getInfo[0][0];
+					echo $getInfo[0][1];
+					echo $getInfo[0][2];
+					echo $getInfo[0][3];
+
+				?>
+
+				<br>EDIT<br>
+				
+				<div id="content-user-upload">
+						<form action="misc/php/updateSong.php" method="post" enctype="multipart/form-data">
+							<div>
+								<label for="title">New Title</label>
+							</div>
+							<div>
+								<input type="text" name="title" />
+							</div>
+							<div>
+								<label for="description">New Descripption</label>
+							</div>
+							<div>
+								<input type="text" name="description" />
+							</div>
+							<div>
+								<label for="genre">New Genre</label>
+							</div>
+							<div>
+								<select name="genre">
+									<?php
+										$getGenre = select("SELECT * FROM genre;");
+										for ($i = 0; $i < count($getGenre); $i++) {
+											echo '<option value="' . $getGenre[$i][0] . '">' . $getGenre[$i][1] . '</option>';
+										}
+									?>
+									<option value="" selected></option>
+								</select>
+							</div>
+							<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+							<div>
+								<input title="Submit Your Changes" type="submit" name="submit" value="Submit" />
+							</div>
+						</form>
+
+						<div class="container-picture">
+							<form action="misc/php/uploaderSongImage.php" method="post" enctype="multipart/form-data">
+								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload" required/>
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+								<input title="Change Song Image" type="submit" value="Change" name="submit" />
+							</form>
+							<form action="misc/php/updateSong.php" method="post">
+								Reset image:
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+								<input title="Reset Default Song Image" type="submit" value="Default" name="default">
+							</form>
+							<form action="misc/php/updateSong.php" method="post">
+								Delete song:
+								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+								<input title="Delete Song" type="submit" value="Delete" name="delete">
+							</form>
+						</div>
+					</div>
+			</div>
+		</div>
+	</main>
+	<footer class="footer-main">
+		<?php
+			include(__DIR__."/misc/include/footer.html");
+		?>
+	</footer>
+</body>
+
+</html>
