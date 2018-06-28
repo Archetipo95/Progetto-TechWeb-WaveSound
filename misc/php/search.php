@@ -58,7 +58,7 @@
             $song        = $query[$i][4];
             $pathPicture = $query[$i][5];
             
-            echo '<a href="listen.html?id_song=' . $song . '">';
+            echo '<a href="player.html?id_song=' . $song . '">';
             echo '<div class="result-card">';
             echo '<img src="misc/img/song-covers/' . $pathPicture . '" />';
             echo '<div class="result-card-title">' . $title . '</div>';

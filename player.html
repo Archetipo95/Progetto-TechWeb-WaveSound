@@ -7,7 +7,7 @@
 	<title>Player | WaveSound</title>
 
 	<?php
-			include(__DIR__."/misc/include/head-links.html");
+		include(__DIR__."/misc/include/head-links.html");
 	?>
 	
 </head>
@@ -16,7 +16,7 @@
 	<header>
 		<?php
 			include(__DIR__."/misc/include/header.html");
-			$_SESSION["current-page"]="Listen";
+			$_SESSION["current-page"]="Player";
 		?>
 	</header>
 	<nav>
@@ -149,7 +149,7 @@
 
 								for ($i = 0; $i < count($getNewSongs); $i++) {
 									
-									echo '<a href="listen.html?id_song=' . $getNewSongs[$i][0] . '">';
+									echo '<a href="player.html?id_song=' . $getNewSongs[$i][0] . '">';
 									echo '<div class="result-card">';
 
 									echo '<img alt="" src="misc/img/song-covers/' . $getNewSongs[$i][2] . '" />';

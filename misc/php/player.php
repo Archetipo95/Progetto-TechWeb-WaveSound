@@ -10,7 +10,7 @@
         $date    = date("Y-m-d H-i-s");
         if ($comment != '')
             insert("INSERT INTO comment (`description`,`u_id`, `id_song`,`date_comment`) VALUES ('$comment','$userID', '$song', '$date');");
-        redirect('../../listen.html?id_song=' . $song);
+        redirect('../../player.html?id_song=' . $song);
     }
     
     function checkVote() {
@@ -28,17 +28,17 @@
             $getVote = select("SELECT * FROM likes WHERE u_id='$userID' AND id_song='$song';");
             if (($score == 1 AND $getVote[0][2] == 1) OR ($score == -1 AND $getVote[0][2] == -1)) {
                 delete("DELETE FROM likes WHERE u_id='$userID' AND id_song='$song';");
-                redirect('../../listen.html?id_song=' . $song);
+                redirect('../../player.html?id_song=' . $song);
             } else if ($score == 1 AND $getVote[0][2] == -1) {
                 update("UPDATE likes SET score = '1' WHERE u_id='$userID' AND id_song='$song';");
-                redirect('../../listen.html?id_song=' . $song);
+                redirect('../../player.html?id_song=' . $song);
             } else if ($score == -1 AND $getVote[0][2] == 1) {
                 update("UPDATE likes SET score = '-1' WHERE u_id='$userID' AND id_song='$song';");
-                redirect('../../listen.html?id_song=' . $song);
+                redirect('../../player.html?id_song=' . $song);
             }
         } else {
             insert("INSERT INTO likes (`id_song`,`u_id`, `score`) VALUES ('$song','$userID', '$score');");
-            redirect('../../listen.html?id_song=' . $song);
+            redirect('../../player.html?id_song=' . $song);
         }
     }
     
@@ -48,7 +48,7 @@
         $song    = $_POST['id_song'];
         $userID  = $_SESSION["userID"];
         delete("DELETE FROM comment WHERE comm_id=$comm_id;");
-        redirect('../../listen.html?id_song=' . $song);
+        redirect('../../player.html?id_song=' . $song);
     }
     
     function report() {
@@ -56,7 +56,7 @@
         $comm_id = $_POST['idOfComment'];
         $date    = date("Y-m-d");
         insert("INSERT INTO warning_comments (`com_id`, `reason`, `date_warning`) VALUES ('$comm_id', 'reason', '$date');");
-        redirect('../../listen.html?id_song=' . $song);
+        redirect('../../player.html?id_song=' . $song);
         
     }
     
