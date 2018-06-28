@@ -63,20 +63,61 @@
 		<div class="section-top3 center">
 			<h2 class="">Check out our top 3 of the...</h2>
 			<div class="button-top3">
-				<button title="Week" class="selected" id="button-week" type="button">week</button>
-				<button title="Month" id="button-month" type="button">month</button>
+				<button title="Week" class="selected" id="button-week" type="button">Downloaded</button>
+				<button title="Month" id="button-month" type="button">Likes</button>
 				<button title="Year" id="button-year" type="button">year</button>
 			</div>
 			<div class="card-container center">
 				<div id="week-cards">
-					<div class="card" id="week1">week1</div>
-					<div class="card" id="week2">week2</div>
-					<div class="card" id="week3">week3</div>
+					<?php
+						require('misc/php/tools.php');
+						$query = select("SELECT song.id_song as canzone,title,genre.name,username,picture,download 
+										FROM song,library,user,genre 
+										WHERE library.id_song=song.id_song AND 
+										library.id_user=user.u_id AND song.genre=genre.id_genre 
+										ORDER BY download DESC LIMIT 3");
+
+						if (count($query) > 0) {
+							echo '<div class="results-container">';
+							for ($i = 0; $i < count($query); $i++) {
+									$song        = $query[$i][0];
+									$title       = $query[$i][1];
+									$genre       = $query[$i][2];
+									$username    = $query[$i][3];
+									$pathPicture = $query[$i][4];
+
+									printCardMain($song, $title, $genre, $username, $pathPicture);
+
+							}				
+							echo '</div>';
+						}
+					?>
 				</div>
 				<div id="month-cards" class="hidden">
-					<div class="card" id="month1">month1</div>
-					<div class="card" id="month2">month2</div>
-					<div class="card" id="month3">month3</div>
+					<?php
+						require('misc/php/tools.php');
+						$query2 = select("SELECT song.id_song as canzone,title,genre.name,username,picture,download 
+										FROM song,library,user,genre 
+										WHERE library.id_song=song.id_song AND 
+										library.id_user=user.u_id AND song.genre=genre.id_genre 
+										ORDER BY download DESC LIMIT 3");
+
+						if (count($query2) > 0) {
+							echo '<div class="card">';
+							for ($i = 0; $i < count($query2); $i++) {
+									$song2        = $query2[$i][0];
+									$title2      = $query2[$i][1];
+									$genre2       = $query2[$i][2];
+									$username2    = $query2[$i][3];
+									$pathPicture2 = $query[$i][4];
+
+									printCard($songId2, $songTitle2, $songGenre2, $songAuthor2, $songScore2, $songPicture2);
+
+							}				
+							echo '</div>';
+						}
+					?>
+				</div>
 				</div>
 				<div id="year-cards" class="hidden">
 					<div class="card" id="year1">year1</div>
