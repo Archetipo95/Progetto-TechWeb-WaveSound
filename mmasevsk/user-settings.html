@@ -36,23 +36,23 @@
 
 	<main class="main-right">
 		<div class="content-body">
-			<div class="content center">
+			<div class="content">
 				<div class="user">
-					<h1>Profile Settings</h1>
+					<h1>Your Profile's Settings</h1>
 					<div class="container-user-settings">
 						<div class="container-settings">
 							<form action="misc/php/updateSettings.php" method="post">
 								<label for="username">Username: <?php echo '<span class="current">'.$row[1].'</span>'; ?></label>
 								<br/>
-								<input type="text" name="username">
+								<input type="text" name="username" placeholder="Change your username">
 								<br/>
 								<label for="name">Name: <?php echo '<span class="current">'.$row[2].'</span>'; ?></label>
 								<br/>
-								<input type="text" name="name">
+								<input type="text" name="name" placeholder="Change your name">
 								<br/>
 								<label for="surname">Surname: <?php echo '<span class="current">'.$row[3].'</span>'; ?></label>
 								<br/>
-								<input type="text" name="surname">
+								<input type="text" name="surname" placeholder="Change your surname">
 								<br/>
 								<label for="birthday">Birthday: <?php echo '<span class="current">'.$row[4].'</span>'; ?></label>
 								<br/>
@@ -60,7 +60,7 @@
 								<br/>
 								<label for="email">Email: <?php echo '<span class="current">'.$row[5].'</span>'; ?></label>
 								<br/>
-								<input type="email" name="email">
+								<input type="email" name="email" placeholder="Change your email">
 								<br/>
 								<input title="Save" type="submit" value="Save">
 							</form>
@@ -83,6 +83,7 @@
 						<?php
 							echo '<img alt="Profile Picture" id="profile-picture" src="misc/img/users/'.$row[8].'">';
 						?>
+                            <p>Change your Avatar</p>
 							<form action="misc/php/uploaderUserImage.php" method="post" enctype="multipart/form-data">
 								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload">
 								<input title="Change Profile Picture" type="submit" value="Change" name="submit">

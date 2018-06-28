@@ -4,7 +4,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Upload new song | WaveSound</title>
+	<title>Upload a new song | WaveSound</title>
 	<?php
 		include(__DIR__."/misc/include/head-links.html");
 	?>
@@ -26,20 +26,16 @@
 	<main class="main-right">
 		<div class="content-body">
 			<div class="content">
-				<h1>Upload new song</h1>
+				<h1>Upload a New Song</h1>
 				<div id="content-user-upload">
 					<form action="misc/php/uploaderSong.php" method="post" enctype="multipart/form-data">
 						
-						<div>
-							<label for="title">Title</label>
-						</div>
-						<div>
-							<input type="text" name="title" required />
-						</div>
-						<div>
-							<label for="genre">Genre</label>
-						</div>
-						<div>
+						<div class="filter2">
+							<label for="title">Title:</label>
+                            <input placeholder="Song's Title" type="text" name="title" required />
+                        </div>
+						<div class="filter2">
+							<label for="genre">Genre:</label>
 							<select name="genre">
 								<?php
 								require('misc/php/tools.php');
@@ -50,13 +46,11 @@
 								?>
 							</select>
 						</div>
-						<div>
-							<label for="file">Upload</label>
-						</div>
-						<div>
+						<div class="filter2">
+							<label for="file">Select the file:</label>
 							<input title="Choose File" type="file" name="file" id="file" required />
 						</div>
-						<div>
+						<div class="filter2">
 							<input title="Submit Your Song" type="submit" name="submit" value="Submit" />
 						</div>
 					</form>

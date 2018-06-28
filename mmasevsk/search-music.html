@@ -34,7 +34,7 @@
 				</form>
 				<h2>Search by genre</h2>
 				<form action="search-music.html" method="post">
-					<div class="search-by-genre"> <span class="select">
+					<div class="search-by-genre"> <div class="filter select">
 						Select genre
 						<select name="genre">
 							<?php
@@ -45,17 +45,20 @@
 								}
 							?>
 						</select>
-					</span> <span class="select">Sort by</span>
+					</div> 
+                    <div class="filter select">Sort by
 						<select name="sort">
 							<option value="upload_date">Date</option>
 							<option value="rating">Rating</option>
 							<option value="download">Downloads</option>
 						</select>
-					 <span class="select">Order</span>
+                    </div>
+				    <div class="filter select">Order
 						<select name="order">
 							<option value="DESC">Descending</option>
 							<option value="ASC">Ascending</option>
 						</select>
+                    </div>
 						<button title="Search" class="select">Search</button>
 					</div>
 				</form>

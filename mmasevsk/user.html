@@ -38,8 +38,8 @@
                     require('misc/php/tools.php');
                     $userForAvatar = $_GET["userID"];
 					$getUser = select("SELECT * FROM user WHERE u_id = '$userForAvatar'");
-					echo '<h1>'.$getUser[0][1].'</h1>';
-					echo '<h4>'.$getUser[0][2].' '.$getUser[0][3].'</h1>';
+					echo '<h1>'.$getUser[0][1].'&#39;s Profile Page</h1>';    
+					echo '<h4>'.$getUser[0][2].' '.$getUser[0][3].'</h4>';
                 ?>
                 <img alt="Profile Picture" id="profile-picture" src="misc/img/users/<?php echo $getUser[0][8];?>">
                
@@ -82,12 +82,11 @@
                 ?>
             </div>
             <div id="content-body-user">
-                <h1>My Tracks</h1>
 			    <?php
+                    echo '<h2>'.$getUser[0][1].'&#39;s Songs</h2>';
                     include("misc/php/showUserTracks.php");
-                ?>
-                
-        </div>
+                ?>    
+            </div>
 		</div>
 	</main>
 

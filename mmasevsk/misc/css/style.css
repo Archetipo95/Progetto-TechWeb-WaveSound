@@ -362,6 +362,7 @@ main {
 
 	//margin-top: -1.5em;
 	//padding: 2em;
+    
 }
 .content h1 {
 	font-size: 1.8em;
@@ -411,7 +412,6 @@ nav {
 #user-creations tr:nth-child(even) {
 	background-color: #b3e0ff;
 }
-
 #my-creations-img {
 	width: 5em;
 	height: 5em;
@@ -422,6 +422,10 @@ nav {
 #content-user-upload {
 	margin-top: 2em;
 	margin-left: 1em;
+}
+.filter2 {
+    font-size: 1.2em;
+    margin-bottom: 0.8em;
 }
 
 /*-------------------------------------------------- login.html & register.html --------------------------------------------------*/
@@ -559,6 +563,10 @@ form.search-bar button:hover {
 }
 .select {
 	margin-left: 2em;
+}
+.filter {
+    display: block;
+    margin-bottom: 1em;
 }
 
 /*------------------------------------------------- player.html ------------------------------------------------------------*/
@@ -817,6 +825,8 @@ audio {
 		margin: 0 .5em 0 1em;
 		vertical-align: middle;
 		font-weight: bold;
+        font-size: 1.3em;
+        text-decoration: underline;
 	}
 	#profile-pic {
 		width: 2em;
@@ -987,6 +997,9 @@ audio {
 	form.search-bar button {
 		width: 10%;
 	}
+    .filter {
+        display: inline;
+    }
 	/*---------------------------------------------------- footer content -------------------------------------------*/
 	footer {
 		position: static;
