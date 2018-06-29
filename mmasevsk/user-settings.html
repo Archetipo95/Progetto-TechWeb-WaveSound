@@ -10,7 +10,7 @@
 	<?php
 			include(__DIR__."/misc/include/head-links.html");
 	?>
-	
+
 </head>
 
 <body>
@@ -42,23 +42,33 @@
 					<div class="container-user-settings">
 						<div class="container-settings">
 							<form action="misc/php/updateSettings.php" method="post">
-								<label for="username">Username: <?php echo '<span class="current">'.$row[1].'</span>'; ?></label>
+								<label>Username:
+									<?php echo '<span class="current">'.$row[1].'</span>'; ?>
+								</label>
 								<br/>
 								<input type="text" name="username" placeholder="Change your username">
 								<br/>
-								<label for="name">Name: <?php echo '<span class="current">'.$row[2].'</span>'; ?></label>
+								<label>Name:
+									<?php echo '<span class="current">'.$row[2].'</span>'; ?>
+								</label>
 								<br/>
 								<input type="text" name="name" placeholder="Change your name">
 								<br/>
-								<label for="surname">Surname: <?php echo '<span class="current">'.$row[3].'</span>'; ?></label>
+								<label>Surname:
+									<?php echo '<span class="current">'.$row[3].'</span>'; ?>
+								</label>
 								<br/>
 								<input type="text" name="surname" placeholder="Change your surname">
 								<br/>
-								<label for="birthday">Birthday: <?php echo '<span class="current">'.$row[4].'</span>'; ?></label>
+								<label>Birthday:
+									<?php echo '<span class="current">'.$row[4].'</span>'; ?>
+								</label>
 								<br/>
 								<input type="date" name="birthday">
 								<br/>
-								<label for="email">Email: <?php echo '<span class="current">'.$row[5].'</span>'; ?></label>
+								<label>Email:
+									<?php echo '<span class="current">'.$row[5].'</span>'; ?>
+								</label>
 								<br/>
 								<input type="email" name="email" placeholder="Change your email">
 								<br/>
@@ -71,9 +81,12 @@
 								<input title="Change Password" class="form-buttons button-red" type="button" onclick="hideShow()" value="Change">
 								<br/>
 								<div id="pass">
-									<input type="password" name="oldPassword" placeholder="Current Password" required><br>
-									<input type="password" name="newPassword" placeholder="New Password" required><br>
-									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required><br>
+									<input type="password" name="oldPassword" placeholder="Current Password" required>
+									<br>
+									<input type="password" name="newPassword" placeholder="New Password" required>
+									<br>
+									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required>
+									<br>
 									<input title="Confirm change Password" class="form-buttons button-red" type="submit" onclick="hideShow()" value="Confirm">
 								</div>
 							</form>
@@ -83,7 +96,7 @@
 						<?php
 							echo '<img alt="Profile Picture" id="profile-picture" src="misc/img/users/'.$row[8].'">';
 						?>
-                            <p>Change your Avatar</p>
+							<p>Change your Avatar</p>
 							<form action="misc/php/uploaderUserImage.php" method="post" enctype="multipart/form-data">
 								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload">
 								<input title="Change Profile Picture" type="submit" value="Change" name="submit">
@@ -94,10 +107,10 @@
 					</div>
 				</div>
 				<?php
-						if($row[6]==1){
-							include(__DIR__."/misc/include/admin-settings.html");;
-						}
-					?>
+					if($row[6]==1){
+						include(__DIR__."/misc/include/admin-settings.html");
+					}
+				?>
 			</div>
 		</div>
 	</main>
@@ -107,16 +120,15 @@
 			include(__DIR__."/misc/include/footer.html");
 		?>
 	</footer>
+	<script>
+		function hideShow() {
+			var e = document.getElementById('pass');
+			if (e.style.display === 'none' || e.style.display === '')
+				e.style.display = 'block';
+			else
+				e.style.display = 'none'
+		}
+	</script>
 </body>
-
-<script>
-	function hideShow() {
-		var e = document.getElementById('pass');
-		if (e.style.display === 'none' || e.style.display === '')
-			e.style.display = 'block';
-		else
-			e.style.display = 'none'
-	}
-</script>
 
 </html>

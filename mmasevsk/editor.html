@@ -7,7 +7,7 @@
 	<title>Editor | WaveSound</title>
 
 	<?php
-			include(__DIR__."/misc/include/head-links.html");
+		include(__DIR__."/misc/include/head-links.html");
 	?>
 	
 </head>
@@ -59,23 +59,24 @@
 				<div id="content-user-upload">
 						<form action="misc/php/updateSong.php" method="post" enctype="multipart/form-data">
 							<div class="filter2">
-								<label for="title">New Title</label>
+								<label>New Title</label>
                                 <input placeholder="Type the new title" type="text" name="title" />
 							</div>
 							<div class="filter2">
-								<label for="description">New Description</label>
+								<label>New Description</label>
                                 <input placeholder="Type the new description" type="text" name="description" />
 							</div>
 							<div class="filter2">
-								<label for="genre">New Genre</label>
+								<label>New Genre</label>
 								<select name="genre">
+										<option label=" "></option>
 									<?php
 										$getGenre = select("SELECT * FROM genre;");
 										for ($i = 0; $i < count($getGenre); $i++) {
 											echo '<option value="' . $getGenre[$i][0] . '">' . $getGenre[$i][1] . '</option>';
 										}
 									?>
-									<option value="" selected></option>
+									
                                 </select>
 							</div>
 							<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
