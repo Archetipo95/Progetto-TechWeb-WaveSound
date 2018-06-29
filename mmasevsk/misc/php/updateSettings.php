@@ -1,10 +1,9 @@
 <?php
-    
     require('connection.php');
     require('msg.php');
     require('tools.php');
     
-    $postName    = array(
+    $postName = array(
         "username",
         "name",
         "surname",
@@ -40,7 +39,6 @@
     }
     
     if (checkPost()) {
-        //echo "there is at least 1 post set <br>";
         global $postName, $toBeChanged;
         toBeChanged();
         session_start();
@@ -122,5 +120,4 @@
     } else {
         sendMessage("Nothing to change");
     }
-    
 ?>

@@ -2,11 +2,9 @@
     require('msg.php');
     
     if (isset($_POST['submit'])) {
-        $allowedExts = array(
-            "mp3"
-        );
+        $allowedExts = array("mp3");
         $fileName    = $_FILES['file']['name'];
-        $extension   = substr($fileName, strrpos($fileName, '.') + 1); // getting the info about the image to get its extension
+        $extension   = substr($fileName, strrpos($fileName, '.') + 1);
         
         if (in_array($extension, $allowedExts)) {
             if ($_FILES["file"]["error"] > 0) {
@@ -29,9 +27,7 @@
                     require('connection.php');
                     $statement = $connection->prepare($query);
                     $statement->execute();
-                    
                     $lastID = $connection->lastInsertId();
-                    
                     insert("INSERT INTO library (`id_user`,`id_song`) VALUES ('$userID','$lastID');");
                     move_uploaded_file($_FILES["file"]["tmp_name"], "../songs/" . $_FILES["file"]["name"]);
                     sendMessage('File uploaded');

@@ -85,7 +85,6 @@
         exit;
     }
     
-    
     if (isset($_POST['comment'])) {
         comment();
     }

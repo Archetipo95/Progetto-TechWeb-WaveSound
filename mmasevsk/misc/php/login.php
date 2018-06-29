@@ -1,8 +1,5 @@
 <?php
-    //require ('connection.php');
-    
     require('msg.php');
-    
     require('tools.php');
     
     if (isset($_POST['login']) && isset($_POST['password'])) {

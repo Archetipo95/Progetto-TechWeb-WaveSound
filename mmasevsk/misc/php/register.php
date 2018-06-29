@@ -1,22 +1,13 @@
 <?php
     require('connection.php');
-    
     require('msg.php');
-    
     require('tools.php');
-    
-    /*
-     **Returns true if all form post are present
-     */
-    
+     
     function checkPost() {
         return (!empty($_POST['username']) && !empty($_POST['password']) && !empty($_POST['psw-repeat']) && !empty($_POST['email']));
     }
     
     if (checkPost()) {
-        
-        // save inputs
-        
         $password        = $_POST['password'];
         $passwordConfirm = $_POST['psw-repeat'];
         $email           = $_POST['email'];
