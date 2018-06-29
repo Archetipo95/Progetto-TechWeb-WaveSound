@@ -86,7 +86,7 @@
 								echo '</div>';
 							?>
 									<form action="misc/php/player.php" method="post">
-										<?php
+									<?php
 									echo '<a href="/misc/songs/'.$row[4].'" download>
 									<input type="hidden" value="'.$id_song.'" name="id_song"/>
 									<input class="download-button" type="submit" value="Download" name="download" title="download"/></a>';
@@ -97,7 +97,7 @@
 							<h3>Leave a comment</h3>
 							<form action="misc/php/player.php" method="post">
 								<div>
-									<textarea rows="20" id="comment-area" type="text" name="yourComment" placeholder="Write your comment on this track" required></textarea>
+									<textarea rows="10" id="comment-area" name="yourComment" placeholder="Write your comment on this track" required></textarea>
 									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
 								</div>
 								<div>
@@ -124,7 +124,7 @@
 										echo '<div class="comment">';
 										$dateComment = date_create($comment[4]);
 										echo date_format($dateComment, 'H:i:s d/m/Y');
-										echo '<div class="user-comment"><img id="profile-pic" src="misc/img/users/' . $getUser[0][1] . '" />';
+										echo '<div class="user-comment"><img alt="" class="profile-pic" src="misc/img/users/' . $getUser[0][1] . '" />';
 										echo "<h3>" . $getUser[0][0] . "</h3></div>";
 										echo '<h4>' . $comment[1] . '</h4>';
 

@@ -835,6 +835,13 @@ audio {
 		border-radius: 50%;
 		vertical-align: middle;
 	}
+	.profile-pic {
+		width: 3em;
+		height: 3em;
+
+		border-radius: 50%;
+		vertical-align: middle;
+	}
 	.sidenav-btn {
 		display: none;
 	}
