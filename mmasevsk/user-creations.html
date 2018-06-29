@@ -72,14 +72,14 @@
 								$dislike   = getDislikes($getMySong[0][0]);
 
 								echo '<tr>
-										<td><a href="player.html?id_song=' . $idcanzone . '">' . $title . '<br/><img id="my-creations-img" src="misc/img/song-covers/'.$picture.'"></a></td>
+										<td><a href="player.html?id_song=' . $idcanzone . '">' . $title . '<br/><img alt="" class="my-creations-img" src="misc/img/song-covers/'.$picture.'"></a></td>
 										<td>' . $genre . '</td>
 										<td>' . $date . '</td>
 										<td>' . $downloads . '</td>
 										<td>' . $like . '</td>
 										<td>' . $dislike . '</td>
 										<td>' . $num_comments . '</td>
-										<td>' . '<a href="editor.html?id_song='.$getMySong[0][0].'"><i class="material-icons">&#xe3c9;</i>Edit</a>' . '</td>
+										<td>' . '<a href="editor.html?id_song='.$getMySong[0][0].'"><i class="material-icons">edit</i> Edit</a>' . '</td>
 										</tr>';
 
 							}

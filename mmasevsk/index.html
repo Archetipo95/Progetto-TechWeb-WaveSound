@@ -65,7 +65,7 @@
 			<div class="button-top3">
 				<button title="Week" class="selected" id="button-week" type="button">Downloaded</button>
 				<button title="Month" id="button-month" type="button">Likes</button>
-				<button title="Year" id="button-year" type="button">year</button>
+				<button title="Year" id="button-year" type="button">Latest</button>
 			</div>
 			<div class="card-container center">
 				<div id="week-cards">
@@ -123,9 +123,22 @@
 				</div>
 				
 				<div id="year-cards" class="hidden">
-					<div class="card" id="year1">year1</div>
-					<div class="card" id="year2">year2</div>
-					<div class="card" id="year3">year3</div>
+					
+					<?php
+					$getNewSongs = select("SELECT id_song,title,picture FROM song ORDER BY upload_date DESC LIMIT 3");
+
+					for ($i = 0; $i < count($getNewSongs); $i++) {
+						
+						echo '<a href="login.html">';
+						echo '<div class="result-card">';
+
+						echo '<img alt="" src="misc/img/song-covers/' . $getNewSongs[$i][2] . '" />';
+						echo '<div class="result-card-title">' . $getNewSongs[$i][1] . '</div>';
+						echo '</div>';
+						echo '</a>';
+					}
+					?>
+					
 				</div>
 			</div>
 		</div>

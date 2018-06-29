@@ -9,14 +9,14 @@
 			$result = $connection->prepare($query);
 			$result->execute();
 			echo '
-					<table id="users-info">
+					<table class="users-info">
 					<tr>
-						<th scope="col">Username</th>
-						<th scope="col">Name</th>
-						<th scope="col">Surname</th>
-						<th scope="col">Birthday</th>
-						<th scope="col">Email</th>
-						<th scope="col">Admin</th>
+						<th>Username</th>
+						<th>Name</th>
+						<th>Surname</th>
+						<th>Birthday</th>
+						<th>Email</th>
+						<th>Admin</th>
 					</tr>
 				';
 			while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
@@ -31,7 +31,7 @@
 				else
 					$user_type = "yes";
 				echo "<tr>
-					<td scope='row'>" . $username . "</td>
+					<td>" . $username . "</td>
 					<td>" . $name . "</td>
 					<td>" . $surname . "</td>
 					<td>" . $birthday . "</td>
@@ -46,43 +46,44 @@
 	<h2>Delete an account</h2>
 
 	<form action="misc/php/adminSettings.php" method="post">
-		<label>Username to ban</label><br/>
-		<input type="text" name="user" required><br/>
-		<input  title="Ban User" type="submit" value="Ban User" name="deleteAccount">
+		<label>Username to ban</label>
+		<br/>
+		<input type="text" name="user" required>
+		<br/>
+		<input title="Ban User" type="submit" value="Ban User" name="deleteAccount">
 	</form>
 
 	<h2>Give admin rights to an account</h2>
 
 	<form action="misc/php/adminSettings.php" method="post">
-		<label>Username</label><br/>
-		<input type="text" name="user" required><br/>
-		<input  title="New Admin" type="submit" value="New Admin" name="newAdmin">
+		<label>Username</label>
+		<br/>
+		<input type="text" name="user" required>
+		<br/>
+		<input title="New Admin" type="submit" value="New Admin" name="newAdmin">
 	</form>
 
 	<h2>Revoke admin rights from an account</h2>
 	<form action="misc/php/adminSettings.php" method="post">
-		<label>Username</label><br/>
-		<input type="text" name="user" required><br/>
+		<label>Username</label>
+		<br/>
+		<input type="text" name="user" required>
+		<br/>
 		<input title="Revoke Admin" type="submit" value="Revoke Admin" name="takeAdmin">
 	</form>
 
 	<h2>Comments to review</h2>
-	
+
 	<?php
-		/*require('misc/php/connection.php');
-		$queryComm = "SELECT * FROM reported_comments";
-		$result    = $connection->prepare($queryComm);
-		$result->execute();
-		*/
 
 		$getAllReported = select("SELECT com_id,description,type FROM reported_comments,reason,comment WHERE comm_id=com_id AND reason=id_reason");
 
 		echo '
-				<table id="users-info">
+				<table class="users-info">
 				<tr>
-					<th scope="col">Comment ID</th>
-					<th scope="col">Comment Text</th>
-					<th scope="col">Reason of report</th>
+					<th>Comment ID</th>
+					<th>Comment Text</th>
+					<th>Reason of report</th>
 				</tr>
 			';
 			if (count($getAllReported) > 0) {
@@ -99,12 +100,14 @@
 		
 		echo "</table>";
 	?>
-	
-	<br/>
-	<label>Comment to manage(id required)</label><br/>
-	<form action='misc/php/adminSettings.php' method='post'>
-	<input type="text" name="id" required><br/>
-	<input title="Ignore" type="submit" value="Ignore" name="ignoreComment">
-	<input title="Delete" type="submit" value="Delete" name="deleteComment">
 
+		<br/>
+		<label>Comment to manage(id required)</label>
+		<br/>
+		<form action='misc/php/adminSettings.php' method='post'>
+			<input type="text" name="id" required>
+			<br/>
+			<input title="Ignore" type="submit" value="Ignore" name="ignoreComment">
+			<input title="Delete" type="submit" value="Delete" name="deleteComment">
+		</form>
 </div>
