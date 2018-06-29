@@ -7,40 +7,32 @@
         $user = $_POST['user'];
         require('connection.php');
 		
-		$keyOff = "SET FOREIGN_KEY_CHECKS=0";
-		$keyOn = "SET FOREIGN_KEY_CHECKS=1";
-		
 		$IDuser = select("SELECT u_id FROM user WHERE username='$user'");
-		echo $IDuser;
-		$RSKeyOff = $connection->query($keyOff);
+		$id = $IDuser[0][0];
+	
+		$songs = select("SELECT id_song FROM library WHERE id_user='$id'");
 		
-		$deleteComm = "DELETE FROM comment WHERE comment.u_id='$IDuser'";
-		$resComm = $connection->query($deleteComm);
-		$deleteLike = "DELETE FROM likes WHERE likes.u_id='$IDuser'";
-		$resLike = $connection->query($deleteLike);
+		deleteDependenciesSong($id);
 		
-		$songs = select("SELECT id_song FROM library WHERE id_user='$IDuser'");
-		$deleteLibrary = "DELETE FROM library WHERE library.id_user='$IDuser'";
-		$resLibrary = $connection->query($deleteLibrary);
-		
+		openKey();
+
 		for($i=0;$i<count($songs);$i++){
-			$deleteSong = "DELETE FROM song where id_song='$songs[$i]'";
+			$sn = $songs[$i][0];
+			$deleteSong = "DELETE FROM song where id_song='$sn'";
 			$resultSong = $connection->query($deleteSong);
 		}
 		
-		$deleteFollow = "DELETE FROM follow WHERE id_user='$IDuser' OR id_follow='$IDuser'";
-		$resFollow = $connection->query($deleteFollow);
+		closeKey();
 		
-		$deleteRepComment = "DELETE FROM reported_comments WHERE id_reporter='$IDuser'";
-		$resRComment = $connection->query($deleteRepComment);
+		deleteDependenciesUser($id);
 		
-		$deleteUSB = "DELETE FROM user_email_banned WHERE admin_id='$Iduser'";
-		$resUSB = $connection->query($deleteUSB);
+		openKey();
 		
-        $query  = "DELETE FROM user WHERE u_id='$IDuser'";
+        $query  = "DELETE FROM user WHERE u_id='$id'";
 		$res = $connection->query($query);
 		
-		$RSKeyOn = $connection->query($keyOn);
+		closeKey();
+		
         sendMessage("$user account deleted");
     }
     

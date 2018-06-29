@@ -187,10 +187,50 @@
         echo '</a>';
     }
 
-    function deleteSong($id_song){
-        delete("DELETE FROM comment WHERE id_song = '$id_song'");
-        delete("DELETE FROM likes WHERE id_song = '$id_song'");
-        delete("DELETE FROM library WHERE id_song = '$id_song'");
-        delete("DELETE FROM song WHERE id_song = '$id_song'");
-    }
+	function openKey(){
+		require('connection.php');
+		$keyOff = "SET FOREIGN_KEY_CHECKS=0";
+		$RSKeyOff = $connection->query($keyOff);
+	}
+
+	function closeKey(){
+		require('connection.php');
+		$keyOn = "SET FOREIGN_KEY_CHECKS=1";
+		$RSKeyOn = $connection->query($keyOn);
+	}
+
+    function deleteDependenciesSong($id){
+		require('connection.php');
+		
+		openKey();
+		
+		$deleteComm = "DELETE FROM comment WHERE comment.u_id='$id'";
+		$resComm = $connection->query($deleteComm);
+		
+		$deleteLike = "DELETE FROM likes WHERE likes.u_id='$id'";
+		$resLike = $connection->query($deleteLike);
+
+		$deleteLibrary = "DELETE FROM library WHERE library.id_user='$id'";
+		$resLibrary = $connection->query($deleteLibrary);
+		
+		closeKey();
+		
+	}
+
+	function deleteDependenciesUser($id){
+		require('connection.php');
+		
+		openKey();
+		
+		$deleteFollow = "DELETE FROM follow WHERE id_user='$id' OR id_follow='$id'";
+		$resFollow = $connection->query($deleteFollow);
+		
+		$deleteRepComment = "DELETE FROM reported_comments WHERE id_reporter='$id'";
+		$resRComment = $connection->query($deleteRepComment);
+		
+		$deleteUSB = "DELETE FROM user_email_banned WHERE admin_id='$id'";
+		$resUSB = $connection->query($deleteUSB);
+		
+		closeKey();
+	}
 ?>
