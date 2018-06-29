@@ -187,6 +187,15 @@
         echo '</a>';
     }
 
+    function printCardFollow($id,$username,$profilePic) {
+        echo '<a href="user.html?userID=' . $id. '">';
+        echo '<div class="result-card">';
+        echo '<img alt="" src="./misc/img/users/' . $profilePic . '" />';
+        echo '<div class="result-card-title">' . $username . '</div>';
+        echo '</div>';
+        echo '</a>';
+    }
+
 	function openKey(){
 		require('connection.php');
 		$keyOff = "SET FOREIGN_KEY_CHECKS=0";
