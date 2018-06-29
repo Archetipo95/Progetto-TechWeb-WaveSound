@@ -203,6 +203,12 @@ header {
 	cursor: pointer;
 }
 
+i {
+    
+    speak="none";
+    
+}
+
 /*--------------------------------------------- home page for not logged users content ---------------------------------------*/
 
 main {
