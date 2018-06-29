@@ -186,4 +186,11 @@
         echo '</div>';
         echo '</a>';
     }
+
+    function deleteSong($id_song){
+        delete("DELETE FROM comment WHERE id_song = '$id_song'");
+        delete("DELETE FROM likes WHERE id_song = '$id_song'");
+        delete("DELETE FROM library WHERE id_song = '$id_song'");
+        delete("DELETE FROM song WHERE id_song = '$id_song'");
+    }
 ?>

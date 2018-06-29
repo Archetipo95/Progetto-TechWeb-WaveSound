@@ -11,10 +11,7 @@
         sendMessage("Image cover reset to default");
     } else if(isset($_POST['delete'])) {
         $id_song = $_POST['id_song'];
-        delete("DELETE FROM comment WHERE id_song = '$id_song'");
-        delete("DELETE FROM likes WHERE id_song = '$id_song'");
-        delete("DELETE FROM library WHERE id_song = '$id_song'");
-        delete("DELETE FROM song WHERE id_song = '$id_song'");
+        deleteSong($id_song);
         sendMessage("Your song was correctly deleted");
     } 
         else {
