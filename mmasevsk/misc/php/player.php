@@ -52,10 +52,15 @@
     }
     
     function report() {
+		session_start();
         $song    = $_POST['id_song'];
         $comm_id = $_POST['idOfComment'];
+		$userID  = $_SESSION["userID"];
+		$reason = $_POST["reason"];
         $date    = date("Y-m-d");
-        insert("INSERT INTO warning_comments (`com_id`, `reason`, `date_warning`) VALUES ('$comm_id', 'reason', '$date');");
+		openKey();
+        insert("INSERT INTO reported_comments (`com_id`, `reason`, `date_report`,`id_reporter`) VALUES ('$comm_id', '$reason', '$date','$userID');");
+		closeKey();
         redirect('../../player.html?id_song=' . $song);
         
     }

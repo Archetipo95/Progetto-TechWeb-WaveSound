@@ -123,6 +123,7 @@
 									for ($i = $num_comments - 1; $i >= 0; $i--) {
 										$comment = $getComments[$i];
 										$getUser = select("SELECT username,avatar,u_id FROM user WHERE u_id='$comment[2]'");
+										$getReason = select("SELECT reason.id_reason,reason.type FROM reason");
 
 										echo '<div class="comment">';
 										$dateComment = date_create($comment[4]);
@@ -136,12 +137,19 @@
 										echo '<input type="hidden" value="' . $id_song . '" name="id_song">';
 
 										$userComment = $getUser[0][2];
-										if ($userComment == $userID)
+										if ($userComment == $userID){
 											echo '<input type="submit" value="Delete comment" name="delete">';
-										else
-											echo '<input type="submit" value="Report comment" name="report">';
+										}else{
+											echo '<input type="submit" value="Report comment" name="report" onclick="hideShow()">';
+											echo '<select name="reason">
+													<option value=" "></option>';
+													for($a = 0;$a <count($getReason);$a++){
+														echo '<option value="' . $getReason[$a][0] . '">' . $getReason[$a][1] . '</option>';
+													}
+												echo '</select>';
 										echo '</form>';
 										echo '</div>';
+										}
 									}
 
 								?>
