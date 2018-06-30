@@ -33,7 +33,10 @@
 		<div class="content-body">
 			<div class="content">
 				<h1>My Songs</h1>
-				<!--<div class="my-creations-table">-->
+                <div id="print-chart">Print your creations chart:
+                    <button onclick="Print()" class="form-buttons button-green">Print</button>
+                    <script src="misc/js/print.js"></script>
+                </div>
 				<div class="table-container">
 					<?php
 						require('misc/php/tools.php');
@@ -51,7 +54,7 @@
 									<th>Likes</th>
 									<th>Dislikes</th>
 									<th>Comments</th>
-									<th>Editor Link</th>
+									<th class="editor-link">Editor Link</th>
 								</tr>
 							';
 
@@ -79,7 +82,7 @@
 										<td>' . $like . '</td>
 										<td>' . $dislike . '</td>
 										<td>' . $num_comments . '</td>
-										<td>' . '<a href="editor.html?id_song='.$getMySong[0][0].'"><i class="material-icons">edit</i> Edit</a>' . '</td>
+										<td class="editor-link">' . '<a href="editor.html?id_song='.$getMySong[0][0].'"><i class="material-icons">edit</i> Edit</a>' . '</td>
 										</tr>';
 
 							}

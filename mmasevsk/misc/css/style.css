@@ -58,7 +58,7 @@ i {
 #jump-top {
 	position: fixed;
 	right: 2em;
-	bottom: 3.5em;
+	bottom: 5em;
 	z-index: 99;
 	display: none;
 	width: 3.5rem;
@@ -66,7 +66,7 @@ i {
 	border: none;
 	border-radius: 50%;
 	background-color: #03A9F4;
-	color: #fff;
+	color: #FFF;
 	cursor: pointer;
 }
 #jump-top:hover {
@@ -455,6 +455,9 @@ nav {
 	width: 100%;
 	border-collapse: collapse;
 	text-align: left;
+}
+#print-chart {
+    display: none;
 }
 #user-creations td,
 #user-creations th {
@@ -904,6 +907,24 @@ audio {
     .sidenav {
 		width: 0 !important;
 	}
+    /*---------------------- jump-top --------------------*/
+    #jump-top {
+        bottom: 6.2em;
+    }
+    
+    /*------------------- footer content ------------------*/
+	.footer-left {
+		display: inline-block;
+		width: 49%;
+	}
+	.footer-right {
+		display: inline-block;
+		width: 50%;
+		text-align: right;
+	}
+	.footer-main {
+		margin-left: 15em;
+	}
 	/*--------------------- index.html --------------------*/
 	main {
 		overflow: hidden;
@@ -1067,19 +1088,6 @@ audio {
     .filter {
         display: inline;
     }
-	/*---------------------------------------------------- footer content -------------------------------------------*/
-	.footer-left {
-		display: inline-block;
-		width: 49%;
-	}
-	.footer-right {
-		display: inline-block;
-		width: 50%;
-		text-align: right;
-	}
-	.footer-main {
-		margin-left: 15em;
-	}
 	
     /*----------------------user-album.html-----------------*/
     .content-card-album{
@@ -1114,7 +1122,20 @@ audio {
         display:inline;
     }
     
- /*---------------USER.HTML-------------*/
+    /*---------------user-settings.html-------------*/
+    .container-password {
+        margin-top: -1em;
+    }
+    
+    /*---------------user-creations.html-------------*/
+    #print-chart {
+        display: block;
+        position:absolute;
+        right: 0;
+        top: 7em;
+    }
+    
+    /*---------------user.html-------------*/
     
     #braa {
         display:block;
@@ -1124,23 +1145,19 @@ audio {
         min-height: 5em;
         background-color:#0D47A1;
     }
-
     #braa li {
         float:left;
         margin: 0 12px -1px;
         display:list-item;
     }
-    
     #content-body-user {
         min-height: 100vh;
         text-align: center;
         //width: 100%;
     }
-    
     #content-body-user h1 {
         text-align : center;
     }
-    
     .follow-button {
         background-color: #4CAF50; /* Green */
         border: none;
@@ -1151,7 +1168,6 @@ audio {
         display: inline-block;
         font-size: 16px;
     }
-        
     .unfollow-button {
         background-color: #f44336; /* Green */
         border: none;
@@ -1163,5 +1179,20 @@ audio {
         font-size: 16px;    
     }
         
-    
+}
+
+
+@media print {
+    header, footer, nav { 
+        display: none !important; 
+    }
+    * {
+        color: #000;    
+        background-color: #FFF;
+        @include box-shadow(none);
+        @include text-shadow(none);
+    }
+    .editor-link {
+        display: none;
+    }
 }
