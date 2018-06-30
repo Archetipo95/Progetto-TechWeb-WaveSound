@@ -11,7 +11,7 @@
         sendMessage("Image cover reset to default");
     } else if(isset($_POST['delete'])) {
         $id_song = $_POST['id_song'];
-        deleteSong($id_song);
+        deleteDependenciesSong($id_song);
         sendMessage("Your song was correctly deleted");
     } 
         else {

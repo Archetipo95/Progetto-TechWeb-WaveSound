@@ -46,8 +46,10 @@
         session_start();
         $comm_id = $_POST['idOfComment'];
         $song    = $_POST['id_song'];
-        $userID  = $_SESSION["userID"];
-        delete("DELETE FROM comment WHERE comm_id=$comm_id;");
+        $userID  = $_SESSION["userID"];  
+
+        delete("DELETE FROM reported_comments WHERE com_id='$comm_id'");
+        delete("DELETE FROM comment WHERE comm_id='$comm_id'");
         redirect('../../player.html?id_song=' . $song);
     }
     
