@@ -30,7 +30,7 @@
 	
 	<main class="main-right">
 		<div class="content-body">
-			<div class="content">
+			<div class="content center">
 					<?php
 					require ('misc/php/connection.php');
 					require ('misc/php/tools.php');
@@ -58,21 +58,27 @@
 				
 
 				?>
-
+                <br/>
+                <br/>
 				<h2>EDIT</h2>
-				
+                
 				<div id="content-user-upload">
 						<form action="misc/php/updateSong.php" method="post" enctype="multipart/form-data">
-							<div class="filter2">
+							<div class="input-text">
 								<label>New Title</label>
+                                <br/>
                                 <input placeholder="Type the new title" type="text" name="title" />
 							</div>
-							<div class="filter2">
+                            <br/>
+							<div class="input-text">
 								<label>New Description</label>
+                                <br/>
                                 <input placeholder="Type the new description" type="text" name="description" />
 							</div>
-							<div class="filter2">
+                            <br/>
+							<div class="input-text">
 								<label>New Genre</label>
+                                <br/>
 								<select name="genre">
 										<option label=" "></option>
 									<?php
@@ -85,8 +91,9 @@
                                 </select>
 							</div>
 							<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
+                            <br/>
 							<div class="filter2">
-								<input title="Submit Your Changes" type="submit" name="submit" value="Submit" />
+								<input title="Submit Your Changes" type="submit" name="submit" value="Submit" class="form-buttons button-green" />
 							</div>
 						</form>
                     
@@ -108,7 +115,7 @@
 							<form action="misc/php/updateSong.php" method="post">
 								Delete song:
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
-								<input title="Delete Song" type="submit" value="Delete" name="delete">
+								<input title="Delete Song" type="submit" value="Delete" name="delete" class="form-buttons button-red">
 							</form>
 						</div>
 					</div>

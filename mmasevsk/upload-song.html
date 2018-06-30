@@ -28,17 +28,19 @@
 	</nav>
 	<main class="main-right">
 		<div class="content-body">
-			<div class="content">
+			<div class="content center">
 				<h1>Upload a New Song</h1>
 				<div id="content-user-upload">
 					<form action="misc/php/uploaderSong.php" method="post" enctype="multipart/form-data">
 						
-						<div class="filter2">
-							<label>Title:</label>
+						<div class="filter2 input-text">
+							<label>Title</label>
+                            <br/>
                             <input placeholder="Song's Title" type="text" name="title" required />
-                        </div>
+                        </div> 
 						<div class="filter2">
-							<label>Genre:</label>
+							<label>Genre</label>
+                            <br/>
 							<select name="genre">
 								<?php
 								require('misc/php/tools.php');
@@ -49,12 +51,14 @@
 								?>
 							</select>
 						</div>
+                        <br/>
 						<div class="filter2">
-							<label>Select the file:</label>
+							<label>Select the file</label>
+                            <br/>
 							<input title="Choose File" type="file" name="file" id="file" required />
 						</div>
 						<div class="filter2">
-							<input title="Submit Your Song" type="submit" name="submit" value="Submit" />
+							<input title="Submit Your Song" type="submit" name="submit" value="Submit" class="form-buttons button-green"/>
 						</div>
 					</form>
 				</div>
