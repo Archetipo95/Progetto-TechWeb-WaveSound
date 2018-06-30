@@ -88,14 +88,10 @@
 								echo 'Description: '.$row[3];
 								echo '</div>';
 							?>
-									<form action="misc/php/player.php" method="post">
-									<?php
-									echo '<a href="/misc/songs/'.$row[4].'" download>
-									<input type="hidden" value="'.$id_song.'" name="id_song"/>
-									<input class="download-button" type="submit" value="Download" name="download" title="download"/></a>';
-								?>
-									</form>
-									<?php echo 'Total downloads: '.getDownload($id_song); ?>
+							<?php
+								echo '<p><a class="download-button" href="misc/php/player.php?file=' . urlencode($row[4]) . '&id_song='.$id_song.'">Download</a></p>';
+								echo 'Total downloads: '.getDownload($id_song);
+							?>
 							</div>
 							<h3>Leave a comment</h3>
 							<form action="misc/php/player.php" method="post">
