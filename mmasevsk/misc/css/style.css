@@ -209,6 +209,53 @@ i {
     
 }
 
+/********************************************************
+***********************FOOTER****************************
+*********************************************************/
+footer {
+    position: static;
+    right: 0;
+	bottom: 0;
+	left: 0;
+	display: block;
+	padding: 1em;
+	min-height: 5em;
+	background-color: #0D47A1;
+}
+footer * {
+    color: #FFF;
+}
+.footer-links {
+    /*To Do*/
+}
+.footer-bot {
+    position: relative;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.footer-left {
+	display: block;
+	width: 100%;
+}
+.footer-right {
+	display: block;
+	width: 100%;
+	text-align: right;
+    margin-top: 0.8em;
+    margin-left: -0.5em;
+}
+.footer-right img {
+	width: 30px;
+	vertical-align: text-bottom;
+}
+.footer-right a {
+	text-decoration: none;
+}
+.footer-right span {
+	margin-right: .5em;
+}
+
 /*--------------------------------------------- home page for not logged users content ---------------------------------------*/
 
 main {
@@ -854,6 +901,9 @@ audio {
 	.sidenav-btn {
 		display: none;
 	}
+    .sidenav {
+		width: 0 !important;
+	}
 	/*--------------------- index.html --------------------*/
 	main {
 		overflow: hidden;
@@ -1018,28 +1068,6 @@ audio {
         display: inline;
     }
 	/*---------------------------------------------------- footer content -------------------------------------------*/
-	footer {
-		position: static;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		display: block;
-		padding: 1em;
-		min-height: 5em;
-		background-color: #0D47A1;
-	}
-	footer * {
-		color: #fff;
-	}
-	.footer-links {
-		/*To Do*/
-	}
-	.footer-bot {
-		position: relative;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	}
 	.footer-left {
 		display: inline-block;
 		width: 49%;
@@ -1052,20 +1080,7 @@ audio {
 	.footer-main {
 		margin-left: 15em;
 	}
-	.footer-right img {
-		width: 30px;
-		vertical-align: text-bottom;
-	}
-	.footer-right a {
-		text-decoration: none;
-	}
-	.footer-right span {
-		margin-right: .5em;
-	}
-	.sidenav {
-		width: 0 !important;
-	}
-    
+	
     /*----------------------user-album.html-----------------*/
     .content-card-album{
         display:inline;
