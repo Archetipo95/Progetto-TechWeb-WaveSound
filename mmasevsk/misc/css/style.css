@@ -473,6 +473,9 @@ nav {
 .button-red {
 	background-color: #F44336;
 }
+.button-orange {
+    background-color: #E68A00;
+}
 #legal {
 	font-size: 0.8em;
 }

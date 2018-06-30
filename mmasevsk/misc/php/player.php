@@ -65,29 +65,31 @@
         
     }
     
-    function downloadPP() {
-        $id_song         = $_POST['id_song'];
+    function downloadPP($id_song) {
         $currentDownload = getDownload($id_song) + 1;
         update("UPDATE song SET download = '$currentDownload' WHERE id_song='$id_song';");
+        redirect('../../player.html?id_song=' . $id_song);
     }
     
     function download() {
-        $id_song   = $_POST['id_song'];
-        $statement = select("SELECT path FROM song WHERE id_song='$id_song'");
-        $col       = count($statement);
-        $row       = $statement[0];
-        $path      = $row[0];
+        $id_song   = $_REQUEST['id_song'];
         
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename="' . basename($path) . '"');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($path));
-        readfile($path);
-        downloadPP();
-        exit;
+        // Get parameters
+        $file = urldecode($_REQUEST["file"]); // Decode URL-encoded string
+        $filepath = "../songs/" . $file;
+        // Process download
+        if(file_exists($filepath)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="'.basename($filepath).'"');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($filepath));
+            flush(); // Flush system output buffer
+            readfile($filepath);
+        }
+        downloadPP($id_song);
     }
     
     if (isset($_POST['comment'])) {
@@ -116,7 +118,7 @@
         report();
     }
     
-    if (isset($_POST['download'])) {
+    if (isset($_REQUEST["file"])){
         download();
     }
     

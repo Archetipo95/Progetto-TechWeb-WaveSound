@@ -75,7 +75,7 @@
 								<br/>
 								<input type="email" name="email" placeholder="Change your email">
 								<br/>
-								<input title="Save" type="submit" value="Save">
+								<input title="Save" type="submit" value="Save" class="form-buttons button-green">
 							</form>
 						</div>
 						<div class="container-password">
@@ -90,7 +90,7 @@
 									<br>
 									<input type="password" name="newPasswordConfirm" placeholder="Confirm Password" required>
 									<br>
-									<input title="Confirm change Password" class="form-buttons button-red" type="submit" onclick="hideShow()" value="Confirm">
+									<input title="Confirm change Password" class="form-buttons button-green" type="submit" onclick="hideShow()" value="Confirm">
 								</div>
 							</form>
 						</div>
@@ -104,8 +104,9 @@
 								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload">
 								<input title="Change Profile Picture" type="submit" value="Change" name="submit">
 							</form>
+                            <br/>
 							<form action="misc/php/adminSettings.php" method="post">
-								<input title="Reset Avatar" type="submit" value="Reset Avatar" name="resetAvatar">
+								<input title="Reset Avatar" type="submit" value="Reset Avatar" name="resetAvatar" class="form-buttons button-orange">
 							</form>
 					</div>
 				</div>
