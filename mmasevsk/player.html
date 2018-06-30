@@ -135,16 +135,15 @@
 										}else{
 											echo '<input type="submit" value="Report comment" name="report" onclick="hideShow()">';
 											echo '<select name="reason">
-													<option value=" "></option>';
-													for($a = 0;$a <count($getReason);$a++){
+													<option label=" "></option>';
+													for($a = 0;$a < count($getReason);$a++){
 														echo '<option value="' . $getReason[$a][0] . '">' . $getReason[$a][1] . '</option>';
 													}
 												echo '</select>';
-										echo '</form>';
+										echo '</form>';}
 										echo '</div>';
-										}
+										
 									}
-
 								?>
 					</div>
 				</div><!--
