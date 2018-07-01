@@ -683,7 +683,6 @@ form.search-bar button:hover {
 .user-comment * {
 	display: inline-block;
 	margin-left: 1em;
-	width: 2em;
 	height: 2em;
 }
 .comment h4 {

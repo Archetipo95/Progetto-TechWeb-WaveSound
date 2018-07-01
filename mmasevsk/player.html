@@ -120,9 +120,13 @@
 
 										echo '<div class="comment">';
 										$dateComment = date_create($comment[4]);
-										echo date_format($dateComment, 'H:i:s d/m/Y');
-										echo '<div class="user-comment"><img alt="" class="profile-pic" src="misc/img/users/' . $getUser[0][1] . '" />';
-										echo "<h3>" . $getUser[0][0] . "</h3></div>";
+										$data = date_format($dateComment, 'H:i:s d/m/Y');
+										echo '<div class="user-comment">
+												<img alt="" class="profile-pic" src="misc/img/users/' . $getUser[0][1] . '" />
+												<h3>' . $getUser[0][0] .'</h3>
+												<h4>' . $data .'</h4>
+											</div>';
+										
 										echo '<h4>' . $comment[1] . '</h4>';
 
 										echo '<form action="misc/php/player.php" method="post">';
@@ -134,7 +138,7 @@
 											echo '<input type="submit" value="Delete comment" name="delete">';
 										}else{
 											echo '<input type="submit" value="Report comment" name="report" onclick="hideShow()">';
-											echo '<select name="reason">
+											echo '<select name="reason" required>
 													<option label=" "></option>';
 													for($a = 0;$a < count($getReason);$a++){
 														echo '<option value="' . $getReason[$a][0] . '">' . $getReason[$a][1] . '</option>';
