@@ -92,6 +92,7 @@
 							</div>
 							<h3>Leave a comment</h3>
 							<form action="misc/php/player.php" method="post">
+                                <fieldset>
 								<div>
 									<textarea rows="10" id="comment-area" name="yourComment" placeholder="Write your comment on this track" required></textarea>
 									<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song">'; ?>
@@ -99,6 +100,7 @@
 								<div>
 									<input class="comment-button" type="submit" value="Comment" name="comment">
 								</div>
+                                </fieldset>
 							</form>
 
 							<div id="comments">
@@ -130,6 +132,7 @@
 										echo '<h4>' . $comment[1] . '</h4>';
 
 										echo '<form action="misc/php/player.php" method="post">';
+                                        echo '<fieldset>';
 										echo '<input type="hidden" value="' . $comment[0] . '" name="idOfComment">';
 										echo '<input type="hidden" value="' . $id_song . '" name="id_song">';
 
@@ -151,7 +154,8 @@
 														echo '<option value="' . $getReason[$a][0] . '">' . $getReason[$a][1] . '</option>';
 													}
 											echo '</select>';
-											echo '</form>';
+                                            echo '</fieldset>';
+                                           	echo '</form>';
 											}
 										}
 										echo '</div>';

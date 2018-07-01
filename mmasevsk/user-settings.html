@@ -42,6 +42,7 @@
 					<div class="container-user-settings">
 						<div class="container-settings">
 							<form action="misc/php/updateSettings.php" method="post">
+                                <fieldset>
 								<label>Username:
 									<?php echo '<span class="current">'.$row[1].'</span>'; ?>
 								</label>
@@ -73,10 +74,12 @@
 								<input type="email" name="email" placeholder="Change your e-mail">
 								<br/>
 								<input title="Save" type="submit" value="Save" class="form-buttons button-green">
+                                </fieldset>
 							</form>
 						</div>
 						<div class="container-password">
 							<form action="misc/php/updateSettings.php" method="post">
+                                <fieldset>
 								<label>Password</label>
 								<input title="Change Password" class="form-buttons button-red" type="button" onclick="hideShow()" value="Change">
 								<br/>
@@ -89,6 +92,7 @@
 									<br>
 									<input title="Confirm change Password" class="form-buttons button-green" type="submit" onclick="hideShow()" value="Confirm">
 								</div>
+                                </fieldset>
 							</form>
 						</div>
 					</div>
@@ -98,12 +102,16 @@
 						?>
 							<p>Change your Avatar</p>
 							<form action="misc/php/uploaderUserImage.php" method="post" enctype="multipart/form-data">
+                                <fieldset>
 								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload">
 								<input title="Change Profile Picture" type="submit" value="Change" name="submit">
+                                </fieldset>
 							</form>
                             <br/>
 							<form action="misc/php/adminSettings.php" method="post">
+                                <fieldset>
 								<input title="Reset Avatar" type="submit" value="Reset Avatar" name="resetAvatar" class="form-buttons button-orange">
+                                </fieldset>
 							</form>
 					</div>
 				</div>

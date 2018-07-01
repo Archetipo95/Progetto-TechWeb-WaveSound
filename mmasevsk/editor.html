@@ -61,6 +61,7 @@
                 
 				<div id="content-user-upload">
 						<form action="misc/php/updateSong.php" method="post" enctype="multipart/form-data">
+                            <fieldset>
 							<div class="input-text">
 								<label>New Title</label>
                                 <br/>
@@ -92,27 +93,34 @@
 							<div class="filter2">
 								<input title="Submit Your Changes" type="submit" name="submit" value="Submit" class="form-buttons button-green" />
 							</div>
+                            </fieldset>
 						</form>
                     
                    
 						<div class="container-picture filter2">
 							<form action="misc/php/uploaderSongImage.php" method="post" enctype="multipart/form-data">
+                                <fieldset>
                                 New image:
 								<input title="Choose File" type="file" name="fileToUpload" id="fileToUpload" required/>
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
 								<input title="Change Song Image" type="submit" value="Change" name="submit" />
+                                </fieldset>
 							</form>
 							<form action="misc/php/updateSong.php" method="post">
+                                <fieldset>
 								Reset image:
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
 								<input title="Reset Default Song Image" type="submit" value="Default" name="default" class="form-buttons button-orange">
+                                </fieldset>
 							</form>
                         </div>
                         <div class="filter2">
 							<form action="misc/php/updateSong.php" method="post">
+                                <fieldset>
 								Delete song:
 								<?php echo '<input type="hidden" value="'.$id_song.'" name="id_song" />';?>
 								<input title="Delete Song" type="submit" value="Delete" name="delete" class="form-buttons button-red">
+                                </fieldset>
 							</form>
 						</div>
 					</div>
