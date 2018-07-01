@@ -1,6 +1,10 @@
 <?php
 	session_start();
 ?>
+    <div>
+        <a tabindex="1" href="#target" class="skip">Skip to content</a>
+    </div>
+
 	<div class="header-container">
 		<div class="header-left">
 			<?php
@@ -9,12 +13,12 @@
 						require('misc/php/tools.php');
 						redirect("index.html");
 					} else
-						echo '<a title="Home" tabindex="1" class="img-link" href="main.html">';
+						echo '<a title="Home" tabindex="2" class="img-link" href="main.html">';
 				} else if (isset($_SESSION['userID'])) {
 					require('misc/php/tools.php');
 					redirect("main.html");
 				} else
-					echo '<a title="Home Page" tabindex="1" class="img-link" href="index.html">';
+					echo '<a title="Home Page" tabindex="2" class="img-link" href="index.html">';
 			?>
 			<div id="logo"></div>
 			<div id="brand" class="brand-font">WaveSound</div>
@@ -55,7 +59,7 @@
 							Join our community, it\'s 100% free
 						</div>
 						<div id="login-registration">
-							<a title="Login" tabindex="2" href="login.html">LOG IN</a><a title="Registration" tabindex="3" href="register.html">SIGN UP</a>
+							<a title="Login" tabindex="3" href="login.html">LOG IN</a><a title="Registration" tabindex="4" href="register.html">SIGN UP</a>
 						</div>
 					';
 				}
@@ -63,6 +67,6 @@
 		</div>
 	</div>
 
-	<button tabindex="4" onclick="topFunction()" id="jump-top" title="Jump top">Top</button>
+	<button tabindex="5" onclick="topFunction()" id="jump-top" title="Jump top">Top</button>
 
 	<script src="misc/js/jump-top.js"></script>

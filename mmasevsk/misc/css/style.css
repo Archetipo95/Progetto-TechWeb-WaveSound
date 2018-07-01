@@ -828,6 +828,28 @@ audio {
 *********************************************************/
 
 @media screen and (min-width: 760px) {
+    
+    /*--------------------- link_skipper ------------------*/
+    .skip {
+        position: absolute;
+        top: -1000px;
+        left: -1000px;
+        height: 1px;
+        width: 1px;
+        text-align: left;
+        overflow: hidden;
+    }
+    
+    a.skip:active, 
+    a.skip:focus, 
+    a.skip:hover {
+        left: 0; 
+        top: 0;
+        width: auto; 
+        height: auto; 
+        overflow: visible; 
+    }
+    
 	/*---------------------- header -----------------------*/
 	.header-container {
 		width: 90%;
