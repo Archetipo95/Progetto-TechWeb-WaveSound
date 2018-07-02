@@ -140,13 +140,6 @@
 										if ($userComment == $userID){
 											echo '<input type="submit" value="Delete comment" name="delete">';
 										}else{
-											$idComm = $comment[0];
-											$idReporter = $_SESSION['userID'];
-											$alreadyRep = select("SELECT * FROM reported_comments WHERE com_id='$idComm' AND id_reporter='$idReporter'");
-
-											if(count($alreadyRep) == 1){
-												echo '<p>Already Reported</p>';
-											}else{
 											echo '<input type="submit" value="Report comment" name="report" onclick="hideShow()">';
 											echo '<select name="reason" required>
 													<option label=" "></option>';
@@ -156,7 +149,6 @@
 											echo '</select>';
                                             echo '</fieldset>';
                                            	echo '</form>';
-											}
 										}
 										echo '</div>';
 										

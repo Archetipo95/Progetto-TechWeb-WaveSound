@@ -41,7 +41,7 @@
         query($query);
     }
 
-    function delete($query) {
+    function delete($query) {	
         query($query);
     }
     

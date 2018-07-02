@@ -1,4 +1,5 @@
 <?php
+
     
     require('tools.php');
     require('msg.php');
@@ -19,7 +20,9 @@
 		for($i=0;$i<count($songs);$i++){
 			$sn = $songs[$i][0];
 			$deleteSong = "DELETE FROM song where id_song='$sn'";
+			openKey();
 			$resultSong = $connection->query($deleteSong);
+			closeKey();
 		}
 		
 		closeKey();
