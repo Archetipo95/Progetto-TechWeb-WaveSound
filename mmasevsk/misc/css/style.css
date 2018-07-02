@@ -1194,7 +1194,7 @@ audio {
         font-size: 16px;
     }
     .unfollow-button {
-        background-color: #f44336; /* Green */
+        background-color: #f44336; 
         border: none;
         color: white;
         padding: 10px 24px;

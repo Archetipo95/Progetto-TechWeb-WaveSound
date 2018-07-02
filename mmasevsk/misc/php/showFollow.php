@@ -29,7 +29,8 @@
 		$follow = select("SELECT follow.id_follow,user.username,user.avatar FROM user,follow WHERE  follow.id_user='$currentUser' 
 							AND follow.id_follow=user.u_id"
 						);
-		echo'<h3>Following</h3>';
+        if(count($follow)>0)
+		  echo'<h3>Following</h3>';
 		for($i=0;$i< count($follow);$i++){
 			$id = $follow[$i][0];
 			$username = $follow[$i][1];
