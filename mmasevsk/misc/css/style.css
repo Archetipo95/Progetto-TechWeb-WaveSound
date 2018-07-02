@@ -212,9 +212,7 @@ header {
 }
 
 i {
-    
-    speak="none";
-    
+    speak="none";   
 }
 
 /********************************************************
@@ -415,15 +413,9 @@ main {
 
 .content-body {
 	min-height: 100vh;
-
-	//width: 100%;
 }
 .content {
 	font-size: 0.9em;
-
-	//margin-top: -1.5em;
-	//padding: 2em;
-    
 }
 .content h1 {
 	font-size: 1.8em;
@@ -1040,8 +1032,6 @@ audio {
 		width: 15em;
 		height: 100%;
 		background-color: #1565C0;
-
-		//margin-top: 5em;
 	}
 	nav * {
 		color: #FFF;
@@ -1126,6 +1116,7 @@ audio {
     }
 	
     /*----------------------user-album.html-----------------*/
+    /*
     .content-card-album{
         display:inline;
     }
@@ -1157,7 +1148,7 @@ audio {
     .track-album {
         display:inline;
     }
-    
+    */
     /*---------------user-settings.html-------------*/
     .container-password {
         margin-top: -1em;
@@ -1189,7 +1180,6 @@ audio {
     #content-body-user {
         min-height: 100vh;
         text-align: center;
-        //width: 100%;
     }
     #content-body-user h1 {
         text-align : center;
@@ -1211,8 +1201,6 @@ audio {
     * {
         color: #000;    
         background-color: #FFF;
-        @include box-shadow(none);
-        @include text-shadow(none);
     }
     .editor-link {
         display: none;
