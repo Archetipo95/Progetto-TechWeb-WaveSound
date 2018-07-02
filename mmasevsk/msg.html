@@ -34,15 +34,14 @@
 		<h1>Message from <span class="brand-font"> WaveSound </span> team</h1>
 
 		<?php
-			echo "<h1>".$_SESSION["msg"]."</h1>";
+			echo "<h2>".$_SESSION["msg"]."</h2>";
 		?>
         
         <form>
             <fieldset>
-            <input type="button" value="Go back!" onclick="history.back()">
+            <input type="button" class="form-buttons button-green" value="Back to HOME" onclick="history.back()">
             </fieldset>
         </form>
-
 	</main>
 
 	<footer>
@@ -50,6 +49,7 @@
 			include(__DIR__."/misc/include/footer.html");
 		?>
 	</footer>
+    
 </body>
 
 </html>
