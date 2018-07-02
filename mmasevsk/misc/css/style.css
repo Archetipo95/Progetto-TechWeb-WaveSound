@@ -69,12 +69,12 @@ fieldset {
 	height: 3.5rem;
 	border: none;
 	border-radius: 50%;
-	background-color: #03A9F4;
+	background-color: #1565C0;
 	color: #FFF;
 	cursor: pointer;
 }
 #jump-top:hover {
-	background-color: #81D4FA;
+	background-color: #03A9F4;
 }
 
 .skip {
@@ -526,13 +526,13 @@ nav {
 	cursor: pointer;
 }
 .button-green {
-	background-color: #4CAF50;
+	background-color: #006600;
 }
 .button-red {
-	background-color: #F44336;
+	background-color: #B30000;
 }
 .button-orange {
-    background-color: #E68A00;
+    background-color: #992600;
 }
 #legal {
 	font-size: 0.8em;
@@ -1044,7 +1044,7 @@ audio {
 		//margin-top: 5em;
 	}
 	nav * {
-		color: #fff;
+		color: #FFF;
 	}
 	#nav-menu ul {
 		margin-top: 0;
