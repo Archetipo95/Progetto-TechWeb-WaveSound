@@ -827,6 +827,12 @@ audio {
 	vertical-align: text-bottom;
 }
 
+
+/*---------------- Error pages ----------------*/
+#error-img {
+    display: none;
+}
+
 /********************************************************
 ***********************NOT MOBILE************************
 *********************************************************/
@@ -1188,27 +1194,13 @@ audio {
     #content-body-user h1 {
         text-align : center;
     }
-    .follow-button {
-        background-color: #4CAF50; /* Green */
-        border: none;
-        color: white;
-        padding: 10px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
+    
+    
+    /*---------------- Error pages ----------------*/
+    
+    #error-img{
+        display: block;
     }
-    .unfollow-button {
-        background-color: #f44336; 
-        border: none;
-        color: white;
-        padding: 10px 24px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;    
-    }
-        
 }
 
 

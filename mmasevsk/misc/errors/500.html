@@ -19,9 +19,19 @@
 	<!-- style -->
 	<link rel="stylesheet" type="text/css" href="/mmasevsk/misc/css/style.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- script link_skipper -->
+    <script type="text/javascript" src="misc/js/jquery-1.12.0.js"></script>
+    <script type="text/javascript" src="misc/js/link_skipper.js"></script>
+    
 </head>
 
 <body>
+    
+    <div>
+        <a tabindex="1" href="#target" class="skip">Skip to content</a>
+    </div>
+    
 	<header>
 		<div class="header-container">
 			<div class="header-left">
@@ -47,15 +57,18 @@
 
 		<script src="/mmasevsk/misc/js/jump-top.js"></script>
 	</header>
-	<main class="center">
+    
+	<main id="target" class="center">
+		<div id="error-img">
+			<img src="/mmasevsk/misc/img/404page.png" title="PageNotFound" alt="Page not found"/>
+		</div>
+
 		<div>
-			<img src="/mmasevsk/misc/img/500page.png" title="InternalServerError" alt="Internal Server Error" width="200" />
-			<div>
-				<h1>SERVER DOWN</h1>
-				<p>Maybe this will help
-					<a href="/mmasevsk/index.html">HOME</a>
-				</p>
-			</div>
+			<h1>Error 500</h1>
+            <p>Whoops! We are experiencing some issues with our servers.</p>
+            <p>We apologize for the inconvenience. Try again later.</p>
+			<h4><a href="/mmasevsk/index.html">Click here to go back to HOME</a></h4>
+		</div>
 	</main>
 
 	<footer>

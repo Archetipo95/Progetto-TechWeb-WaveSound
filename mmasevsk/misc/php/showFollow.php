@@ -9,7 +9,7 @@
 		if($result >= 1){
 			echo'<form id="unfollow" action="misc/php/follow.php" method="post">
 					<div class="submit-follow">
-						<button class="unfollow-button" type="submit" value="'.$_GET["userID"].'" name="unfollow" title="Unfollow">Unfollow</button>
+						<button class="form-buttons button-red" type="submit" value="'.$_GET["userID"].'" name="unfollow" title="Unfollow">Unfollow</button>
                     </div>
                 </form>
 			';   
@@ -19,7 +19,7 @@
 			echo'
 				<form id="follow" action="misc/php/follow.php" method="post">
 					<div class="submit-follow">
-						<button id="follow-button" type="submit" value="'.$_GET["userID"].'" name="follow" title="follow">Follow</button>
+						<button class="form-buttons button-green" type="submit" value="'.$_GET["userID"].'" name="follow" title="follow">Follow</button>
                     </div>
                 </form>
 			';
