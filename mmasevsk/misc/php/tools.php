@@ -208,6 +208,7 @@
 		$RSKeyOn = $connection->query($keyOn);
 	}
 
+
     function deleteDependenciesSong($id){
 		require('connection.php');
 		
@@ -241,5 +242,23 @@
 		$resUSB = $connection->query($deleteUSB);
 		
 		closeKey();
+	}
+
+    function deleteDependenciesSongByIDsong($id){
+		require('connection.php');
+		
+		openKey();
+		
+		$deleteComm = "DELETE FROM comment WHERE comment.id_song='$id'";
+		$resComm = $connection->query($deleteComm);
+		
+		$deleteLike = "DELETE FROM likes WHERE likes.id_song='$id'";
+		$resLike = $connection->query($deleteLike);
+
+		$deleteLibrary = "DELETE FROM library WHERE library.id_song='$id'";
+		$resLibrary = $connection->query($deleteLibrary);
+		
+		closeKey();
+		
 	}
 ?>
