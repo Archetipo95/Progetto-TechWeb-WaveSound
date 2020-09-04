@@ -7,7 +7,9 @@ Questo progetto è stato creato nell'ambito dell'esame pratico del corso di Tecn
 
 ## Link al sito
 
-http://wavesound.altervista.org
+http://wavesound.altervista.org (DOWN)
+
+https://nbviewer.jupyter.org/github/Archetipo95/Progetto-TechWeb-WaveSound/blob/master/Relazione.pdf
 
 ## Built With
 
